@@ -1,15 +1,13 @@
 #!/bin/bash
-DATADIR="../data/bipartite/"
+DATADIR="../../data/bipartite/"
 
 #generate uniform weights from 0 to 1000, 10 files per size
-for SIZE in {100,1000,5000};
+for SIZE in {6,1000,2000};
 do
 	for i in {1,1,10};
 	do
-		../Debug/
-		CURSIZE=$(($SIZE*$i))
-		$UTILDIR/randLocalGraph $CURSIZE $TESTDIR/rand_${CURSIZE}_nw.adj
-		$UTILDIR/adjGraphAddWeights $TESTDIR/rand_${CURSIZE}_nw.adj $TESTDIR/rand_${CURSIZE}.adj
+		NAME="${DATADIR}bi_full_${SIZE}_0_1000_uni.gr"
+		../Debug/Generator -g 0 -n $SIZE -l 0 -u 1000 -d 0 -o $NAME
 	done
 done
 

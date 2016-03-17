@@ -14,7 +14,7 @@ using namespace std;
 namespace po = boost::program_options;
 
 int main(int argc, const char** argv) {
-    std::cout << "Network Flows (c) Alvis Logins 2016" << std::endl;
+    std::cout << "Graph Generator (c) Alvis Logins 2016" << std::endl;
 
     // parsing parameters
     int algorithm;
@@ -25,7 +25,7 @@ int main(int argc, const char** argv) {
     po::options_description desc("Allowed options");
     desc.add_options()
             ("help,h", "produce help message")
-            ("graph,g", po::value<int>(&graph_type)->default_value(0), "graph type 0:bipartite")
+            ("graph,g", po::value<int>(&graph_type)->required(), "graph type 0:bipartite")
             ("output,o", po::value<string>(&outf)->required(), "save generated graph")
             ("nodes,n", po::value<uintT>(&n)->required(), "number of nodes")
             ("edges,m", po::value<uintT>(&m), "number of edges (default: clique)")

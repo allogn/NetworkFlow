@@ -49,8 +49,13 @@ void Graph::generate_full_bipartite_graph(uintT size, uintT min_weight, uintT ma
     }
 
     parallel_for(uintT i = 0; i < n; i++) {
-        Vertex v(i,0);
-        V.push_back(v);
+        if (i < n/2) {
+            Vertex v(i,1);
+            V.push_back(v);
+        } else {
+            Vertex v(i,-1);
+            V.push_back(v);
+        }
     }
 }
 
