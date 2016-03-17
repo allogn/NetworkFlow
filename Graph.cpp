@@ -37,11 +37,10 @@ void Graph::generate_full_bipartite_graph(uintT size, uintT min_weight, uintT ma
 
     parallel_for(uintT i = 0; i < n/2; i++) {
         for (uintT j = n/2; j < n; j++) {
-            Edge e;
+            Edge e(E.size());
             e.capacity = 1;
             e.fromid = i;
             e.toid = j;
-            e.ID = E.size();
             e.lower = 0;
             e.weight = (min_weight + rand() % (UINT_T_MAX - min_weight)) % max_weight;
             E.push_back(e);
@@ -185,8 +184,9 @@ void Graph::load_graph(string& filename) {
         V.push_back(Vertex(i, supply));
     }
     for (uintT i = 0; i < m; i++) {
-        Edge e;
+        Edge e(i);
         infile >> e.fromid >> e.toid >> e.weight >> e.capacity >> e.lower;
+        E.push_back(e);
     }
     infile.close();
 }

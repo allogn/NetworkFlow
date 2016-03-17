@@ -32,6 +32,7 @@ int main(int argc, const char** argv) {
     // parsing parameters
     int algorithm;
     int graph_type;
+    string input_graph;
     uintT size;
     po::options_description desc("Allowed options");
     desc.add_options()
@@ -40,7 +41,7 @@ int main(int argc, const char** argv) {
             ("graph,g", po::value<int>(&graph_type)->default_value(0),"graph type 0:bipartite")
             ("output,o", po::value<string>(), "save generated graph")
             ("size,s", po::value<uintT>(&size)->default_value(100), "size of generated graph")
-            ("input,i", po::value<string>(), "input graph")
+            ("input,i", po::value<string>(&input_graph)->required(), "input graph")
             ;
 
     po::variables_map vm;
@@ -52,12 +53,17 @@ int main(int argc, const char** argv) {
         return 1;
     }
 
-    Graph g;
-    switch(graph_type) {
-        case 0:
-            g.generate_full_bipartite_graph(size);
-            break;
+    // check if file exists
+    if (FILE *file = fopen(input_graph.c_str(), "r")) {
+        fclose(file);
+    } else {
+        cout << "File " << input_graph << " does not exist" << endl;
+        exit(1);
     }
+
+    Graph g;
+
+    g.load_graph(input_graph);
     g.init_neighbors();
     g.sort_neighbors();
     g.test_graph_structure();

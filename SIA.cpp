@@ -47,7 +47,6 @@ void SIA::augmentFlow(int lastid) {
     int curid = lastid;
     int eid, toid;
 
-    //no one can use shared nodes because they should be locked
     while(mineid[curid] != -1)
     {
         //reverse edges
@@ -79,21 +78,18 @@ void SIA::augmentFlow(int lastid) {
     }
 }
 
-int SIA::runDijkstra() {
+int SIA::runDijkstra(int source_id) {
 
     //reset mindist and watched and mineid
-    if (dijkH.size() == 0) {
-        printf("Error: zero dijkH at the beginning of dijkstra execution");
-        exit(1);
-    }
+    assert(dijkH.size() != 0); // dijkstra Heap must contain something
 
     int current_node = dijkH.getTopIdx();// heap_dequeue(dijkH);
-    int source_id = source_id;
 
     //access node without troubles - no one will access it simultaneously
     while(1)
     {
         //first node - from source always for each dijkstra
+        bool isBroken = false;
 
         //traverse all neighbours and update alpha
         //traverse all neighbours and update alpha
@@ -102,6 +98,14 @@ int SIA::runDijkstra() {
             //check if target node is busy
             int edge_id = g->V[current_node].E[i];
             int node_id = g->get_pair(edge_id,current_node);
+
+            isBroken = reserveNode(node_id);
+
+            if (isBroken) {
+                iteration_reset(current_node, source_id); //current node has already correct min dist
+                current_node = source_id;
+                break;
+            }
 
             //add current neighbour to heap or update the heap
             int isUpdated = updateMinDist(edge_id,current_node,node_id); //if new => dist=inf and updated. if new but dist!=inf => in DijkH exist and also will be updated if updAlpha
@@ -153,7 +157,7 @@ int SIA::insertEdgeFromHeap()
 //    eid = g->E.size();
 //    sc.edges.push_back(e);
 
-//    g->V[g->E[eid].fromid].E.push_back(eid);
+    g->V[g->E[eid].fromid].E.push_back(eid);
     heap_checkAndUpdateEdgeMin(globalH,g->E[eid].fromid); //MUST BE HERE
     return eid;
 }
@@ -204,31 +208,18 @@ void SIA::processId(int source_id)
         //add edge
         int eid;
 
-        int once = 0;
-        while ((dijkH.size() == 0 && target_node == -1) || once == 0)//  || (globalH.size() > 0 && heap_getTopValue(dijkH)>heap_getTopValue(globalH))) //dijkH check because next in globalH can be not from current "thread", but must be added because it will be needed later
+        do //  || (globalH.size() > 0 && heap_getTopValue(dijkH)>heap_getTopValue(globalH))) //dijkH check because next in globalH can be not from current "thread", but must be added because it will be needed later
         {
-            once = 1;
             eid = insertEdgeFromHeap();
-            int fromid = g->E[eid].fromid;
+
             int toid = g->E[eid].toid;
-            //@todo
-            bool exist = false;
-            for (int i = 0; i < worklist.size(); i++)
-            {
-                if (worklist[i] == toid)
-                {
-                    exist = true;
-                    break;
-                }
-            }
-            if (!exist) worklist.push_back(toid); //@todo maybe delete this?
+
+            reserveNode(toid); // add to worklist
 
             /*
              * Dijkstra Updates
              */
             updateHeaps(eid, g->E[eid].fromid, g->E[eid].toid);
-
-            //update Heaps @todo race condition! for parallel
 
             int curid, tmp;
             while (updateH.size() > 0) {
@@ -243,9 +234,9 @@ void SIA::processId(int source_id)
             /*
              * End of dijkstra updates. If switch off => add clearing dijkstra in dijksra beginning
              */
-        }
+        } while (dijkH.size() == 0 && target_node == -1);
 
-        target_node = runDijkstra();
+        target_node = runDijkstra(source_id);
 
         int taumax = 0;
         for (int i = 0; i<noA; i++)
@@ -257,13 +248,15 @@ void SIA::processId(int source_id)
         }
     };
 
+//    assert(test_mineid_path_exist(target_node, source_id));
     augmentFlow(target_node);
+//    assert(g->test_graph_structure());
+//    assert(test_has_path(source_id));
 
     /* Flow update BEFORE releasing! */
     nodeFlow[source_id]--;
     nodeFlow[target_node]++;
 
-    //#pragma omp atomic update
     totalflow++;
 
     //release worklist
@@ -276,5 +269,35 @@ void SIA::processId(int source_id)
  */
 
 bool SIA::test_has_path(int nodeId) {
+    stack<uintT> queue;
+    bool visited[g->n];
+    fill(visited, visited+g->n, false);
+    for (uintT i = noA; i < g->n; i++) {
+        queue.push(i);
+    }
+    while (queue.size() > 0) {
+        uintT curid = queue.top();
+        queue.pop();
+        if (curid == nodeId) return true;
+        if (visited[curid] == true) continue;
+        visited[curid] = true;
+        for (uintT i = 0; i < g->V[curid].E.size(); i++) {
+            queue.push(g->get_pair(g->V[curid].E[i],curid));
+        }
+    }
+    return false;
+}
 
+bool SIA::test_mineid_path_exist(uintT target_node, uintT source_node) {
+    cout << "Testing if path from target node exists..." << endl;
+    uintT curnode = target_node;
+    while(curnode != source_node) {
+        assert(mineid[curnode] != -1);
+        uintT eid = mineid[curnode];
+        uintT neighbor = g->get_pair(eid, curnode);
+        //check if eid is in E of neighbour
+        assert(find(g->V[neighbor].E.begin(), g->V[neighbor].E.end(), eid) != g->V[neighbor].E.end());
+        curnode = neighbor;
+    }
+    return true;
 }

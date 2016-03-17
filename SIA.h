@@ -5,6 +5,9 @@
 #ifndef NETWORKFLOW_SIA_H
 #define NETWORKFLOW_SIA_H
 
+#include <stack>
+#include <algorithm>
+
 #include "Graph.h"
 #include "nheap.h"
 //TODO optimization parameter for compiler
@@ -37,7 +40,7 @@ class SIA {
     void augmentFlow(int lastid);
     int insertEdgeFromHeap();
     void processId(int source_id);
-    int runDijkstra();
+    int runDijkstra(int source_id);
     inline long getCost(int eid, int fromid, int toid)
     { return (fromid<noA) ? g->E[eid].weight-psi[fromid]+psi[toid] : -g->E[eid].weight-psi[fromid]+psi[toid]; };
     inline long getEdgeCost(int edge_w, int fromid)
@@ -48,7 +51,6 @@ class SIA {
     inline int heap_checkAndUpdateEdgeMin(mmHeap& heap, int fromid) // update if new value is less
     {
         if (fromid >= noA) return 0;
-
         if (heap.isExisted(fromid))
         {
             int weight = g->E[g->fullE[fromid][QryCnt[fromid]-1]].weight;
@@ -102,6 +104,19 @@ class SIA {
             }
         }
     }
+    int reserveNode(int node_id) {
+        bool exist = false;
+        for (int i = 0; i < worklist.size(); i++)
+        {
+            if (worklist[i] == node_id)
+            {
+                exist = true;
+                break;
+            }
+        }
+        if (!exist) worklist.push_back(node_id);
+        return 0;
+    }
 
 public:
     intT totalCost;
@@ -127,14 +142,21 @@ public:
         cout << "Running SIA..." << endl;
 
         assert(g->test_sorting());
+        reset();
 
         while (totalflow < noA)
         {
+            int check;
             for(int i = 0; i < noA; i++)
             {
-                processId(i);
-                assert(test_has_path(i));
-                assert(g->test_graph_structure());
+                check=free[i];
+                free[i]|=1;
+
+                if (check == 0) {
+                    processId(i);
+                    assert(g->test_graph_structure());
+                    break;
+                }
             }
         }
 
@@ -150,6 +172,7 @@ public:
 
     // Unit tests
     bool test_has_path(int nodeId); // tests if nodeId is full (has path from Q to P)
+    bool test_mineid_path_exist(uintT target_node, uintT source_node);
 };
 
 #endif //NETWORKFLOW_SIA_H

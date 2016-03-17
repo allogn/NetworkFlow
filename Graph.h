@@ -23,6 +23,10 @@ public:
     uintT capacity;
     uintT lower;
     uintT ID;
+
+    Edge(uintT id) {
+        ID = id;
+    }
 };
 
 class Vertex {
@@ -121,6 +125,8 @@ public:
     // operators
     bool operator==(const Graph &other) const {
         // compare E, V, fullE
+        if (V.size() != other.V.size() || E.size() != other.E.size())
+            return false;
         for (uintT i = 0; i < n; i++) {
             if (V[i].E != other.V[i].E ||
                     V[i].ID != other.V[i].ID ||
