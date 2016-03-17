@@ -154,7 +154,6 @@ public:
 
                 if (check == 0) {
                     processId(i);
-                    assert(g->test_graph_structure());
                     break;
                 }
             }

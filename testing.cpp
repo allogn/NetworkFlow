@@ -43,7 +43,10 @@ int main(int argc, const char** argv) {
         path[path.size()-1] = 'r';
         path[path.size()-2] = 'g';
         g.load_graph(path);
+        g.init_neighbors();
+        g.sort_neighbors();
         SIA SIAsolv(&g);
+        SIAsolv.runOSIA();
         assert(SIAsolv.totalCost == answer);
     }
 

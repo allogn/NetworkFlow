@@ -242,20 +242,17 @@ void SIA::processId(int source_id)
 
         target_node = runDijkstra(source_id);
 
-        int taumax = 0;
+        int gettaumax = 0;
         for (int i = 0; i<noA; i++)
         {
-            if (mindist[i]<globalH.getTopValue() && taumax < psi[i])
+            if (mindist[i]<globalH.getTopValue() && gettaumax < psi[i])
             {
-                taumax = psi[i];
+                gettaumax = psi[i];
             }
         }
+        taumax = gettaumax;
     };
-
-//    assert(test_mineid_path_exist(target_node, source_id));
     augmentFlow(target_node);
-//    assert(g->test_graph_structure());
-//    assert(test_has_path(source_id));
 
     /* Flow update BEFORE releasing! */
     nodeFlow[source_id]--;
