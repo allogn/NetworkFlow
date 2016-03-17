@@ -116,24 +116,28 @@ int SIA::runDijkstra(int source_id) {
             if (isUpdated) dijkH.enqueue(node_id,mindist[node_id]);
         }
 
-        if (nodeFlow[current_node] < 0)
-        {
-            return current_node;
-        }
+        if (!isBroken) {
+            if (nodeFlow[current_node] < 0)
+            {
+                return current_node;
+            }
 
 //            if (current_node < noA)
 //                enqueueNextEdge(sc,pc,current_node);
-        heap_checkAndUpdateEdgeMin(globalH,current_node);
-        watched[current_node] = 1;
+            heap_checkAndUpdateEdgeMin(globalH,current_node);
+            watched[current_node] = 1;
 
-        dijkH.dequeue();
-        if (dijkH.size() == 0)
-        {
-            current_node = -1;
-            break;
+            dijkH.dequeue();
+            if (dijkH.size() == 0)
+            {
+                current_node = -1;
+                break;
+            }
+            current_node = dijkH.getTopIdx();
         }
-        current_node = dijkH.getTopIdx();
+
     }
+    return current_node;
 }
 
 int SIA::insertEdgeFromHeap()
