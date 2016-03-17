@@ -9,6 +9,8 @@
 #include <iostream>
 #include <sys/time.h>
 #include <fstream>
+#include <random>
+#include <chrono>
 
 #include "Common.h"
 #include "parallel.h"
@@ -115,12 +117,13 @@ public:
     };
 
     // graph generators
-    void generate_full_bipartite_graph(uintT size, uintT min_weight = 0, uintT max_weight = UINT_T_MAX);
+    void generate_full_bipartite_graph(uintT size, uintT param1, uintT param2 = 1000, int distr = 0);
 
     void print_graph();
     void save_graph(string& filename);
     void load_graph(string& filename);
     void save_graph_info(string& filename, int experiment_id);
+    void save_graph_blossom(string& filname);
 
     // operators
     bool operator==(const Graph &other) const {

@@ -13,7 +13,14 @@ void Graph::clear_graph() {
     cursor.clear();
 }
 
-void Graph::generate_full_bipartite_graph(uintT size, uintT min_weight, uintT max_weight) {
+/*
+ * @input
+ * distr - type of weight distribution
+ * 0 : uniform (param1: min, param2: max)
+ * 1 : gaussian (param1: mean, param2: std)
+ * 2 : exponential (param1: lambda)
+ */
+void Graph::generate_full_bipartite_graph(uintT size, uintT param1, uintT param2, int distr) {
     std::cout << "Bipartite graph generation..." << std::endl;
     clear_graph();
 
@@ -26,14 +33,11 @@ void Graph::generate_full_bipartite_graph(uintT size, uintT min_weight, uintT ma
     E.reserve(m);
     V.reserve(n);
 
-    // reset random generator
-    struct timeval time;
-    gettimeofday(&time,NULL);
-
-    // microsecond has 1 000 000
-    // Assuming you did not need quite that accuracy
-    // Also do not assume the system clock has that accuracy.
-    srand((time.tv_sec * 1000) + (time.tv_usec / 1000));
+    long seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::default_random_engine generator (seed);
+    uniform_int_distribution<uintT> uniGen(param1, param2);
+    normal_distribution<double> gausGen(param1, param2);
+    exponential_distribution<double> expGen((double)param1/100.);
 
     parallel_for(uintT i = 0; i < n/2; i++) {
         for (uintT j = n/2; j < n; j++) {
@@ -42,7 +46,20 @@ void Graph::generate_full_bipartite_graph(uintT size, uintT min_weight, uintT ma
             e.fromid = i;
             e.toid = j;
             e.lower = 0;
-            e.weight = (min_weight + rand() % (UINT_T_MAX - min_weight)) % max_weight;
+            switch(distr) {
+                case 0:
+                    e.weight = uniGen(generator);
+                    break;
+                case 1:
+                    e.weight = (uintT)abs(gausGen(generator));
+                    break;
+                case 2:
+                    e.weight = (uintT)abs(expGen(generator));
+                    break;
+                default:
+                    cout << "Error: incorrect distribution" << endl;
+                    exit(1);
+            }
             E.push_back(e);
         }
     }
@@ -176,6 +193,12 @@ void Graph::load_graph(string& filename) {
     cout << "Loading graph from " << filename << "..." << endl;
     ifstream infile(filename);
 
+    if (FILE *file = fopen(filename.c_str(), "r")) {
+        fclose(file);
+    } else {
+        cout << "File " << filename << " does not exist" << endl;
+        exit(1);
+    }
     clear_graph();
     infile >> n >> m;
     intT supply;
@@ -211,5 +234,16 @@ void Graph::save_graph_info(string &filename, int experiment_id) {
     ofstream outf(filename);
     outf << experiment_id << ",nodes," << n << "\n";
     outf << experiment_id << ",edges," << m << "\n";
+    outf.close();
+}
+
+void Graph::save_graph_blossom(string &filename) {
+    cout << "Saving blossom graph to " << filename << "..." << endl;
+    ofstream outf(filename);
+    outf << n << " " << m << "\n";
+    for (int i = 0; i < m; i++)
+    {
+        outf << E[i].fromid << " " << E[i].toid << " " << E[i].weight << "\n";
+    }
     outf.close();
 }

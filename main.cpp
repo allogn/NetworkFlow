@@ -46,12 +46,12 @@ int main(int argc, const char** argv) {
 
     po::variables_map vm;
     po::store(po::parse_command_line(argc, argv, desc), vm);
-    po::notify(vm);
-
     if (vm.count("help")) {
         cout << desc << "\n";
         return 1;
     }
+    po::notify(vm);
+
 
     // check if file exists
     if (FILE *file = fopen(input_graph.c_str(), "r")) {
