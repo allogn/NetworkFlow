@@ -47,7 +47,6 @@ public:
 #endif
 
     }
-protected:
 
 #ifdef WIN32
 	LONGLONG clock_freq;
@@ -58,7 +57,7 @@ protected:
         if(instance==NULL) instance=new Timer();
         return instance;
     }
-private:
+
     Timer()
     {
 
@@ -88,6 +87,11 @@ private:
         for ( const auto& n : timings ) {
             outf << experiment_id << "," << n.first << "," << n.second << "\n";
         }
+    }
+
+    inline void finish(string title, double start_time) {
+        double curtime = this->getTime();
+        timings.insert({title, curtime - start_time});
     }
 };
 

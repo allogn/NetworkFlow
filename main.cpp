@@ -1,10 +1,11 @@
 #include <iostream>
-#include <string>
 #include <boost/program_options.hpp>
 
 #include "Common.h"
 #include "Graph.h"
 #include "SIA.h"
+#include "CostScaling.h"
+#include "LocalDominant.h"
 
 using namespace std;
 namespace po = boost::program_options;
@@ -37,7 +38,7 @@ int main(int argc, const char** argv) {
     po::options_description desc("Allowed options");
     desc.add_options()
             ("help,h", "produce help message")
-            ("algorithm,a", po::value<int>(&algorithm)->default_value(0), "0:ALL, 1:SIA, 2:ASIA, 3:COSTSCALING")
+            ("algorithm,a", po::value<int>(&algorithm)->default_value(1), "0:ALL, 1:SIA, 2:CostScaling, 3:LD")
             ("graph,g", po::value<int>(&graph_type)->default_value(0),"graph type 0:bipartite")
             ("output,o", po::value<string>(), "save generated graph")
             ("size,s", po::value<uintT>(&size)->default_value(100), "size of generated graph")
@@ -65,16 +66,37 @@ int main(int argc, const char** argv) {
 
     g.load_graph(input_graph);
     g.init_neighbors();
-    g.sort_neighbors();
-    g.test_graph_structure();
-    g.test_sorting();
 
     switch(algorithm) {
-        case 0:
-            SIA SIAsolv(&g);
-            SIAsolv.runOSIA();
-            cout << "Total cost of SIA: " << SIAsolv.totalCost << endl;
+        case 1:
+            //prepare graph
+            g.sort_neighbors();
+            g.test_graph_structure();
+            g.test_sorting();
+            {
+                SIA SIAsolv(&g);
+                SIAsolv.runOSIA();
+                cout << "Total cost of SIA: " << SIAsolv.totalCost << endl;
+            }
             break;
+        case 2:
+            g.add_all();
+            {
+                CostScaling CostScalingSolv(&g);
+                CostScalingSolv.runCostScaling();
+                cout << "Total cost of CostScaling: " << CostScalingSolv.totalCost << endl;
+            }
+            break;
+        case 3:
+            g.add_all();
+            {
+                LocalDominant LocalDominantSolv(&g);
+                LocalDominantSolv.runLocalDominant();
+                cout << "Total cost of LocalDominant: " << LocalDominantSolv.totalCost << endl;
+            }
+        default:
+            cout << "Error: no such algorithm" << endl;
+            exit(1);
     }
 
     cout << "Done." << endl;

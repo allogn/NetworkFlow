@@ -11,6 +11,9 @@
 #include <fstream>
 #include <random>
 #include <chrono>
+#include <lemon/list_graph.h>
+#include <lemon/lgf_reader.h>
+#include <lemon/lgf_writer.h>
 
 #include "Common.h"
 #include "parallel.h"
@@ -21,7 +24,7 @@ class Edge {
 public:
     uintT fromid;
     uintT toid;
-    intT weight;
+    uintT weight;
     uintT capacity;
     uintT lower;
     uintT ID;
@@ -60,6 +63,9 @@ public:
 
     inline uintT get_pair(uintT edgeId, uintT nodeId) {
         return (E[edgeId].fromid == nodeId)?E[edgeId].toid:E[edgeId].fromid;
+    }
+    inline bool is_forward(uintT edgeId, uintT nodeId) {
+        return E[edgeId].fromid == nodeId;
     }
 
     // initialization for simple graph includes sorting and storing sorted edges
@@ -108,6 +114,12 @@ public:
             myqsort(fullE[i], 0, fullE[i].size()-1);
         }
     }
+    void add_all() {
+        cout << "Adding all edges to the edge lists of nodes..." << endl;
+        for (uintT i = 0; i < m; i++) {
+            V[E[i].fromid].E.push_back(i);
+        }
+    }
     int get_next_neighbour(uintT nodeId) {
         if (cursor[nodeId] >= V[nodeId].E.size()) {
             cout << "Error: cursor is out of range" << endl;
@@ -122,6 +134,7 @@ public:
     void print_graph();
     void save_graph(string& filename);
     void load_graph(string& filename);
+    void load_lgf_graph(string& filename);
     void save_graph_info(string& filename, int experiment_id);
     void save_graph_blossom(string& filname);
 

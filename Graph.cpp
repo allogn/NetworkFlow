@@ -247,3 +247,31 @@ void Graph::save_graph_blossom(string &filename) {
     }
     outf.close();
 }
+
+void Graph::load_lgf_graph(string &filename) {
+    //TODO
+//    ListDigraph g;
+//    ListDigraph::ArcMap<int> weight(g);
+//    ListDigraph::ArcMap<int> flow(g);
+//    ListDigraph::NodeMap<int> potential(g);
+//
+//    digraphReader(g, argv[1])
+//            .arcMap("weight", weight)
+//            .run();
+//
+//    ListDigraph::ArcMap<int> cap(g);
+//    for (ListDigraph::ArcIt it(g); it != INVALID; ++it) {
+//        cap[it] = 1;
+//    }
+//
+//    //set lower values on flow
+//    //by default: first node is an excess, last - a deficit
+//
+//    ListDigraph::Node source = g.nodeFromId(0);
+//    ListDigraph::Node target = g.nodeFromId(countNodes(g)-1);
+//
+//    ListDigraph::ArcMap<int> lower(g);
+//    for (ListDigraph::ArcIt it(g); it != INVALID; ++it) {
+//        lower[it] = 0;
+//    }
+}
