@@ -4,12 +4,12 @@
 
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <assert.h>
 
 #include "Common.h"
 #include "Graph.h"
 #include "SIA.h"
+#include "CostScaling.h"
 
 int main(int argc, const char** argv) {
 
@@ -23,7 +23,7 @@ int main(int argc, const char** argv) {
     g.test_save_load();
 
     // load answer sheet and compare results
-    cout << "Compare results with answer sheet..." << endl;
+    cout << BASH_YELLOW << "Compare results with answer sheet..." << BASH_NC << endl;
     string ansfname = "AnswerSheet.txt";
     ifstream infile(ansfname);
     if (FILE *file = fopen(ansfname.c_str(), "r")) {
@@ -48,6 +48,14 @@ int main(int argc, const char** argv) {
         SIA SIAsolv(&g);
         SIAsolv.runOSIA();
         assert(SIAsolv.totalCost == answer);
+
+        g.clear_graph();
+        g.load_graph(path);
+        g.init_neighbors();
+        g.add_all();
+        CostScaling CostScalingSolv(&g);
+        CostScalingSolv.runCostScaling();
+        assert(CostScalingSolv.totalCost == answer);
     }
 
     cout << "Testing done" << endl;

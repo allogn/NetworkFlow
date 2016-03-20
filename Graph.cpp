@@ -113,7 +113,6 @@ bool Graph::test_graph_structure() {
                 assert(j == i);
         }
     }
-
     // test if nodes are unique
     parallel_for(uintT i = 0; i < n; i++) {
         uintT curId = V[i].ID;

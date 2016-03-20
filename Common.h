@@ -34,6 +34,11 @@ typedef unsigned int uintE;
 #define UINT_E_MAX UINT_MAX
 #endif
 
+#define BASH_RED "\033[0;31m"
+#define BASH_GREEN "\033[0;32m"
+#define BASH_YELLOW "\033[1;33m"
+#define BASH_NC "\033[0m"
+
 typedef fHeap<intT> mmHeap;
 
 #endif //NETWORKFLOW_COMMON_H
