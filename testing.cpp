@@ -128,7 +128,7 @@ int main(int argc, const char** argv) {
                 lower[e] = g.E[i].lower;
             }
 
-            lemon::CostScaling<lemon::ListDigraph,int,int> cost_scaling(_graph);
+            lemon::ModifiedCostScaling<lemon::ListDigraph,int,int> cost_scaling(_graph);
             cost_scaling.costMap(weight);
             cost_scaling.upperMap(cap);
             cost_scaling.lowerMap(lower);
