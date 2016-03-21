@@ -174,6 +174,8 @@ public:
                 _scost[j] = _graph.E[eid].weight;
                 if (!_forward[j]) _scost[j] *= -1;
 
+                if (_forward[j]) _res_cap[j] = _upper[j];
+
                 j++;
             }
         }

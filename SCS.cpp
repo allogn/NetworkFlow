@@ -5,10 +5,9 @@
 #include "SCS.h"
 
 void SCS::startAugment(int max_length) {
-
     // Perform cost scaling phases
     IntVector path;
-    BoolVector path_arc(_res_arc_num, false);
+    BoolVector path_arc(_res_arc_num, false); // visited array
     int relabel_cnt = 0;
     int eps_phase_cnt = 0;
     for (; _epsilon >= 1; _epsilon = _epsilon < _alpha && _epsilon > 1 ?
@@ -25,6 +24,7 @@ void SCS::startAugment(int max_length) {
 
         // Perform partial augment and relabel operations
         while (true) {
+
             // Select an active node (FIFO selection)
             while (_active_nodes.size() > 0 &&
                    _excess[_active_nodes.front()] <= 0) {
@@ -189,7 +189,6 @@ ProblemType SCS::init() {
 
     // Initialize maps for Circulation and remove non-zero lower bounds
     IntVector cap(_graph.m);
-    IntVector flow(_graph.m);
     IntVector sup(_graph.m);
 
     for (uintT n = 0; n < _graph.n; n++) {
