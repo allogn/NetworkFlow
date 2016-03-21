@@ -21,3 +21,4 @@ add_executable(Generator generator.cpp ${SOURCE_FILES})
 
 target_link_libraries(NetworkFlows ${Boost_LIBRARIES})
 target_link_libraries(Generator ${Boost_LIBRARIES})
+target_link_libraries(Testing ${Boost_LIBRARIES})

@@ -49,7 +49,15 @@ typedef unsigned int uintE;
 
 typedef fHeap<intT> mmHeap;
 
-
+enum Algorithm {
+    ALG_ALL,
+    ALG_SIA,
+    ALG_COST_SCALING,
+    ALG_LOCAL_DOMINANT,
+    ALG_LEMON_MODIF,
+    ALG_SCS,
+    ALG_LEMON_ORIG
+};
 
 /// \brief Problem type constants for the \c run() function.
 ///

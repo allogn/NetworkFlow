@@ -46,13 +46,14 @@ int main(int argc, const char** argv) {
     po::options_description desc("Allowed options");
     desc.add_options()
             ("help,h", "produce help message")
-            ("algorithm,a", po::value<int>(&algorithm)->default_value(1), "0:ALL"
-                    "1 : SIA"
-                    "2 : CostScaling"
-                    "3 : LocalDominant"
-                    "4 : Lemon Modified"
-                    "5 : Simplified Cost Scaling"
-                    "6 : Original Lemon Cost Scaling")
+            ("algorithm,a", po::value<int>(&algorithm)->default_value(1),
+                    "0 : ALL\n"
+                    "1 : SIA\n"
+                    "2 : CostScaling\n"
+                    "3 : LocalDominant\n"
+                    "4 : Lemon Modified\n"
+                    "5 : Simplified Cost Scaling (SCS)\n"
+                    "6 : Original Lemon Cost Scaling\n")
             ("graph,g", po::value<int>(&graph_type)->default_value(0),"graph type 0:bipartite")
             ("output,o", po::value<string>(), "save generated graph")
             ("size,s", po::value<uintT>(&size)->default_value(100), "size of generated graph")

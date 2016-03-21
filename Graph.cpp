@@ -21,7 +21,6 @@ void Graph::clear_graph() {
  * 2 : exponential (param1: lambda)
  */
 void Graph::generate_full_bipartite_graph(uintT size, uintT param1, uintT param2, int distr) {
-    std::cout << "Bipartite graph generation..." << std::endl;
     clear_graph();
 
     if (size % 2 != 0) {
@@ -174,7 +173,7 @@ bool Graph::test_sorting() {
  * ...
  * (from)nodeId1 (to)nodeId2 weight capacity lower(bound)
  */
-void Graph::save_graph(string& filename) {
+void Graph::save_graph(string filename) {
     cout << "Saving graph to " << filename << "..." << endl;
     ofstream outf(filename);
 
@@ -188,7 +187,7 @@ void Graph::save_graph(string& filename) {
     outf.close();
 }
 
-void Graph::load_graph(string& filename) {
+void Graph::load_graph(string filename) {
     cout << "Loading graph from " << filename << "..." << endl;
     ifstream infile(filename);
 
@@ -227,7 +226,7 @@ bool Graph::test_save_load() {
     return true;
 }
 
-void Graph::save_graph_info(string &filename, int experiment_id) {
+void Graph::save_graph_info(string filename, int experiment_id) {
     cout << "Saving data to log file (ID " << experiment_id << endl;
 
     ofstream outf(filename);
@@ -236,7 +235,7 @@ void Graph::save_graph_info(string &filename, int experiment_id) {
     outf.close();
 }
 
-void Graph::save_graph_blossom(string &filename) {
+void Graph::save_graph_blossom(string filename) {
     cout << "Saving blossom graph to " << filename << "..." << endl;
     ofstream outf(filename);
     outf << n << " " << m << "\n";
@@ -247,7 +246,7 @@ void Graph::save_graph_blossom(string &filename) {
     outf.close();
 }
 
-void Graph::load_lgf_graph(string &filename) {
+void Graph::load_lgf_graph(string filename) {
     //TODO
 //    ListDigraph g;
 //    ListDigraph::ArcMap<int> weight(g);

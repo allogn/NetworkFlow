@@ -1575,12 +1575,12 @@ namespace lemon {
                     }
 
                     // Global update heuristic
-                    if (relabel_cnt >= next_global_update_limit) {
+//                    if (relabel_cnt >= next_global_update_limit) {
 //            globalUpdate();
-                        for (int u = 0; u != _res_node_num; ++u)
-                            hyper[u] = false;
-                        next_global_update_limit += global_update_skip;
-                    }
+//                        for (int u = 0; u != _res_node_num; ++u)
+//                            hyper[u] = false;
+//                        next_global_update_limit += global_update_skip;
+//                    }
                 }
             }
         }
