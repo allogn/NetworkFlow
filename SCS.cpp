@@ -39,7 +39,7 @@ void SCS::startAugment(int max_length) {
                 int u;
                 LargeCost rc, min_red_cost = std::numeric_limits<LargeCost>::max();
                 LargeCost pi_tip = _pi[tip];
-                int last_out = _first_out[tip + 1];
+                int last_out = (tip<_res_node_num-1)?_first_out[tip + 1]:_res_arc_num;;
                 for (int a = _next_out[tip]; a != last_out; ++a) {
                     if (_res_cap[a] > 0) {
                         u = _target[a];
@@ -141,7 +141,7 @@ ProblemType SCS::init() {
     int last_out;
     if (_has_lower) {
         for (int i = 0; i != _res_node_num; ++i) {
-            last_out = _first_out[i + 1];
+            last_out = (i<_res_node_num-1)?_first_out[i + 1]:_res_arc_num;
             for (int j = _first_out[i]; j != last_out; ++j) {
                 if (_forward[j]) {
                     Value c = _scost[j] < 0 ? _upper[j] : _lower[j];
@@ -153,7 +153,7 @@ ProblemType SCS::init() {
         }
     } else {
         for (int i = 0; i != _res_node_num; ++i) {
-            last_out = _first_out[i + 1];
+            last_out = (i<_res_node_num-1)?_first_out[i + 1]:_res_arc_num;
             for (int j = _first_out[i]; j != last_out; ++j) {
                 if (_forward[j] && _scost[j] < 0) {
                     Value c = _upper[j];
@@ -178,7 +178,7 @@ ProblemType SCS::init() {
     _epsilon = 0;
     LargeCost lc;
     for (int i = 0; i != _res_node_num; ++i) {
-        last_out = _first_out[i + 1];
+        last_out = (i<_res_node_num-1)?_first_out[i + 1]:_res_arc_num;
         for (int j = _first_out[i]; j != last_out; ++j) {
             lc = _scost[j];//static_cast<LargeCost>(_scost[j]) * _res_node_num * _alpha;//todo
             _cost[j] = lc;

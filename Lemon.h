@@ -23,9 +23,9 @@
 
 namespace lemon {
 
-    /// \brief Default traits class of CostScaling algorithm.
+    /// \brief Default traits class of ModifiedCostScaling algorithm.
     ///
-    /// Default traits class of CostScaling algorithm.
+    /// Default traits class of ModifiedCostScaling algorithm.
     /// \tparam GR Digraph type.
     /// \tparam V The number type used for flow amounts, capacity bounds
     /// and supply values. By default it is \c int.
@@ -37,7 +37,7 @@ namespace lemon {
     template < typename GR, typename V = int, typename C = V,
             bool integer = std::numeric_limits<C>::is_integer >
 #endif
-    struct CostScalingDefaultTraits
+    struct ModifiedCostScalingDefaultTraits
     {
         /// The type of the digraph
         typedef GR Digraph;
@@ -57,7 +57,7 @@ namespace lemon {
 
     // Default traits class for integer cost types
     template <typename GR, typename V, typename C>
-    struct CostScalingDefaultTraits<GR, V, C, true>
+    struct ModifiedCostScalingDefaultTraits<GR, V, C, true>
     {
         typedef GR Digraph;
         typedef V Value;
@@ -76,7 +76,7 @@ namespace lemon {
     /// \brief Implementation of the Cost Scaling algorithm for
     /// finding a \ref min_cost_flow "minimum cost flow".
     ///
-    /// \ref CostScaling implements a cost scaling algorithm that performs
+    /// \ref ModifiedCostScaling implements a cost scaling algorithm that performs
     /// push/augment and relabel operations for finding a \ref min_cost_flow
     /// "minimum cost flow" \cite amo93networkflows,
     /// \cite goldberg90approximation,
@@ -87,7 +87,7 @@ namespace lemon {
     /// It is a polynomial algorithm, its running time complexity is
     /// \f$O(n^2m\log(nK))\f$, where <i>K</i> denotes the maximum arc cost.
     ///
-    /// In general, \ref NetworkSimplex and \ref CostScaling are the fastest
+    /// In general, \ref NetworkSimplex and \ref ModifiedCostScaling are the fastest
     /// implementations available in LEMON for solving this problem.
     /// (For more information, see \ref min_cost_flow_algs "the module page".)
     ///
@@ -102,8 +102,8 @@ namespace lemon {
     /// \tparam C The number type used for costs and potentials in the
     /// algorithm. By default, it is the same as \c V.
     /// \tparam TR The traits class that defines various types used by the
-    /// algorithm. By default, it is \ref CostScalingDefaultTraits
-    /// "CostScalingDefaultTraits<GR, V, C>".
+    /// algorithm. By default, it is \ref ModifiedCostScalingDefaultTraits
+    /// "ModifiedCostScalingDefaultTraits<GR, V, C>".
     /// In most cases, this parameter should not be set directly,
     /// consider to use the named template parameters instead.
     ///
@@ -113,16 +113,16 @@ namespace lemon {
     /// \warning This algorithm does not support negative costs for
     /// arcs having infinite upper bound.
     ///
-    /// \note %CostScaling provides three different internal methods,
+    /// \note %ModifiedCostScaling provides three different internal methods,
     /// from which the most efficient one is used by default.
     /// For more information, see \ref Method.
 #ifdef DOXYGEN
     template <typename GR, typename V, typename C, typename TR>
 #else
     template < typename GR, typename V = int, typename C = V,
-            typename TR = CostScalingDefaultTraits<GR, V, C> >
+            typename TR = ModifiedCostScalingDefaultTraits<GR, V, C> >
 #endif
-    class CostScaling
+    class ModifiedCostScaling
     {
     public:
 
@@ -140,7 +140,7 @@ namespace lemon {
         /// otherwise it is \c double.
         typedef typename TR::LargeCost LargeCost;
 
-        /// \brief The \ref lemon::CostScalingDefaultTraits "traits class"
+        /// \brief The \ref lemon::ModifiedCostScalingDefaultTraits "traits class"
         /// of the algorithm
         typedef TR Traits;
 
@@ -170,7 +170,7 @@ namespace lemon {
         /// Enum type containing constants for selecting the internal method
         /// for the \ref run() function.
         ///
-        /// \ref CostScaling provides three internal methods that differ mainly
+        /// \ref ModifiedCostScaling provides three internal methods that differ mainly
         /// in their base operations, which are used in conjunction with the
         /// relabel operation.
         /// By default, the so called \ref PARTIAL_AUGMENT
@@ -307,15 +307,15 @@ namespace lemon {
         /// \c Cost must be convertible to \c LargeCost.
         template <typename T>
         struct SetLargeCost
-                : public CostScaling<GR, V, C, SetLargeCostTraits<T> > {
-            typedef  CostScaling<GR, V, C, SetLargeCostTraits<T> > Create;
+                : public ModifiedCostScaling<GR, V, C, SetLargeCostTraits<T> > {
+            typedef  ModifiedCostScaling<GR, V, C, SetLargeCostTraits<T> > Create;
         };
 
         /// @}
 
     protected:
 
-        CostScaling() {}
+        ModifiedCostScaling() {}
 
     public:
 
@@ -324,7 +324,7 @@ namespace lemon {
         /// The constructor of the class.
         ///
         /// \param graph The digraph the algorithm runs on.
-        CostScaling(const GR& graph) :
+        ModifiedCostScaling(const GR& graph) :
                 _graph(graph), _node_id(graph), _arc_idf(graph), _arc_idb(graph),
                 INF(std::numeric_limits<Value>::has_infinity ?
                     std::numeric_limits<Value>::infinity() :
@@ -332,9 +332,9 @@ namespace lemon {
         {
             // Check the number types
             LEMON_ASSERT(std::numeric_limits<Value>::is_signed,
-                         "The flow type of CostScaling must be signed");
+                         "The flow type of ModifiedCostScaling must be signed");
             LEMON_ASSERT(std::numeric_limits<Cost>::is_signed,
-                         "The cost type of CostScaling must be signed");
+                         "The cost type of ModifiedCostScaling must be signed");
 
             // Reset data structures
             reset();
@@ -358,7 +358,7 @@ namespace lemon {
         ///
         /// \return <tt>(*this)</tt>
         template <typename LowerMap>
-        CostScaling& lowerMap(const LowerMap& map) {
+        ModifiedCostScaling& lowerMap(const LowerMap& map) {
             _has_lower = true;
             for (ArcIt a(_graph); a != INVALID; ++a) {
                 _lower[_arc_idf[a]] = map[a];
@@ -379,7 +379,7 @@ namespace lemon {
         ///
         /// \return <tt>(*this)</tt>
         template<typename UpperMap>
-        CostScaling& upperMap(const UpperMap& map) {
+        ModifiedCostScaling& upperMap(const UpperMap& map) {
             for (ArcIt a(_graph); a != INVALID; ++a) {
                 _upper[_arc_idf[a]] = map[a];
             }
@@ -398,7 +398,7 @@ namespace lemon {
         ///
         /// \return <tt>(*this)</tt>
         template<typename CostMap>
-        CostScaling& costMap(const CostMap& map) {
+        ModifiedCostScaling& costMap(const CostMap& map) {
             for (ArcIt a(_graph); a != INVALID; ++a) {
                 _scost[_arc_idf[a]] =  map[a];
                 _scost[_arc_idb[a]] = -map[a];
@@ -418,7 +418,7 @@ namespace lemon {
         ///
         /// \return <tt>(*this)</tt>
         template<typename SupplyMap>
-        CostScaling& supplyMap(const SupplyMap& map) {
+        ModifiedCostScaling& supplyMap(const SupplyMap& map) {
             for (NodeIt n(_graph); n != INVALID; ++n) {
                 _supply[_node_id[n]] = map[n];
             }
@@ -442,7 +442,7 @@ namespace lemon {
         /// (i.e. the supply of \c s and the demand of \c t).
         ///
         /// \return <tt>(*this)</tt>
-        CostScaling& stSupply(const Node& s, const Node& t, Value k) {
+        ModifiedCostScaling& stSupply(const Node& s, const Node& t, Value k) {
             for (int i = 0; i != _res_node_num; ++i) {
                 _supply[i] = 0;
             }
@@ -465,7 +465,7 @@ namespace lemon {
         /// \ref upperMap(), \ref costMap(), \ref supplyMap(), \ref stSupply().
         /// For example,
         /// \code
-        ///   CostScaling<ListDigraph> cs(graph);
+        ///   ModifiedCostScaling<ListDigraph> cs(graph);
         ///   cs.lowerMap(lower).upperMap(upper).costMap(cost)
         ///     .supplyMap(sup).run();
         /// \endcode
@@ -517,7 +517,7 @@ namespace lemon {
         ///
         /// For example,
         /// \code
-        ///   CostScaling<ListDigraph> cs(graph);
+        ///   ModifiedCostScaling<ListDigraph> cs(graph);
         ///
         ///   // First run
         ///   cs.lowerMap(lower).upperMap(upper).costMap(cost)
@@ -538,7 +538,7 @@ namespace lemon {
         /// \return <tt>(*this)</tt>
         ///
         /// \see reset(), run()
-        CostScaling& resetParams() {
+        ModifiedCostScaling& resetParams() {
             for (int i = 0; i != _res_node_num; ++i) {
                 _supply[i] = 0;
             }
@@ -577,7 +577,7 @@ namespace lemon {
         /// \return <tt>(*this)</tt>
         ///
         /// \see resetParams(), run()
-        CostScaling& reset() {
+        ModifiedCostScaling& reset() {
             // Resize vectors
             _node_num = countNodes(_graph);
             _arc_num = countArcs(_graph);
@@ -1585,7 +1585,7 @@ namespace lemon {
             }
         }
 
-    }; //class CostScaling
+    }; //class ModifiedCostScaling
 
     ///@}
 

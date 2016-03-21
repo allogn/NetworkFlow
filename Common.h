@@ -12,13 +12,21 @@
 #if defined(LONG)
 typedef long intT;
 typedef unsigned long uintT;
+typedef long long lintT;
+typedef unsigned long long ulintT;
 #define INT_T_MAX LONG_MAX
 #define UINT_T_MAX ULONG_MAX
+#define LINT_T_MAX LONG_LONG_MAX
+#define ULINT_T_MAX ULONG_LONG_MAX
 #else
 typedef int intT;
 typedef unsigned int uintT;
+typedef long lintT;
+typedef unsigned long ulintT;
 #define INT_T_MAX INT_MAX
 #define UINT_T_MAX UINT_MAX
+#define LINT_T_MAX LONG_MAX
+#define ULINT_T_MAX ULONG_MAX
 #endif
 
 //edges store 32-bit quantities unless EDGELONG is defined

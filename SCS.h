@@ -204,7 +204,7 @@ private:
     void initPhase() {
         // Saturate arcs not satisfying the optimality condition
         for (int u = 0; u != _res_node_num; ++u) {
-            int last_out = _first_out[u + 1];
+            int last_out =(u<_res_node_num-1)?_first_out[u + 1]:_res_arc_num;
             LargeCost pi_u = _pi[u];
             for (int a = _first_out[u]; a != last_out; ++a) {
                 Value delta = _res_cap[a];
