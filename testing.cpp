@@ -11,6 +11,8 @@
 #include "SIA.h"
 #include "CostScaling.h"
 
+//#define NDEBUG
+
 int main(int argc, const char** argv) {
 
     Graph g;
@@ -47,7 +49,10 @@ int main(int argc, const char** argv) {
         g.sort_neighbors();
         SIA SIAsolv(&g);
         SIAsolv.runOSIA();
-        assert(SIAsolv.totalCost == answer);
+        if (SIAsolv.totalCost != answer) {
+            cout << "SIA wrong answer: " << SIAsolv.totalCost << " correct: " << answer << endl;
+            exit(1);
+        };
 
         g.clear_graph();
         g.load_graph(path);
@@ -55,7 +60,10 @@ int main(int argc, const char** argv) {
         g.add_all();
         CostScaling CostScalingSolv(&g);
         CostScalingSolv.runCostScaling();
-        assert(CostScalingSolv.totalCost == answer);
+        if (CostScalingSolv.totalCost != answer) {
+            cout << "CostScaling wrong answer: " << CostScalingSolv.totalCost << " correct: " << answer << endl;
+            exit(1);
+        };
     }
 
     cout << "Testing done" << endl;

@@ -6,6 +6,8 @@
 #include "SIA.h"
 #include "CostScaling.h"
 #include "LocalDominant.h"
+#include "Lemon.h"
+#include "SCS.h"
 
 using namespace std;
 namespace po = boost::program_options;
@@ -38,7 +40,12 @@ int main(int argc, const char** argv) {
     po::options_description desc("Allowed options");
     desc.add_options()
             ("help,h", "produce help message")
-            ("algorithm,a", po::value<int>(&algorithm)->default_value(1), "0:ALL, 1:SIA, 2:CostScaling, 3:LD")
+            ("algorithm,a", po::value<int>(&algorithm)->default_value(1), "0:ALL"
+                    "1 : SIA"
+                    "2 : CostScaling"
+                    "3 : LocalDominant"
+                    "4 : Lemon Modified"
+                    "5 : Simplified Cost Scaling")
             ("graph,g", po::value<int>(&graph_type)->default_value(0),"graph type 0:bipartite")
             ("output,o", po::value<string>(), "save generated graph")
             ("size,s", po::value<uintT>(&size)->default_value(100), "size of generated graph")
@@ -94,6 +101,15 @@ int main(int argc, const char** argv) {
                 LocalDominantSolv.runLocalDominant();
                 cout << "Total cost of LocalDominant: " << LocalDominantSolv.totalCost << endl;
             }
+            break;
+        case 5:
+            g.add_all();
+            {
+                SCS SCSsolv(g);
+                SCSsolv.runSCS();
+                cout << "Total cost of SCS: " << SCSsolv.totalCost << endl;
+            }
+            break;
         default:
             cout << "Error: no such algorithm" << endl;
             exit(1);

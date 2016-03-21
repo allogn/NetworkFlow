@@ -24,7 +24,7 @@ class Edge {
 public:
     uintT fromid;
     uintT toid;
-    uintT weight;
+    intT weight;
     uintT capacity;
     uintT lower;
     uintT ID;
@@ -56,15 +56,16 @@ public:
     std::vector<Edge> E;
 
     // additional data for incremental neighbour addition
-    vector<vector<uintT>> fullE;
+    vector<vector<uintT>> fullE; //contains IDs of all outgoing edges
+    vector<vector<uintT>> completeE; //contains IDs of all edges where a node participates
     vector<uintT> cursor;
 
     void clear_graph();
 
-    inline uintT get_pair(uintT edgeId, uintT nodeId) {
+    inline uintT get_pair(uintT edgeId, uintT nodeId) const {
         return (E[edgeId].fromid == nodeId)?E[edgeId].toid:E[edgeId].fromid;
     }
-    inline bool is_forward(uintT edgeId, uintT nodeId) {
+    inline bool is_forward(uintT edgeId, uintT nodeId) const {
         return E[edgeId].fromid == nodeId;
     }
 
@@ -72,14 +73,12 @@ public:
     // for spatial data - building NN data structure
     void init_neighbors() {
         fullE.resize(n);
-        parallel_for(uintT i = 0; i < n; i++) {
-            fullE[i].clear();
-            // add only forward edges!
-            for(uintT j = 0; j < m; j++) {
-                if (E[j].fromid == i) {
-                    fullE[i].push_back(j);
-                }
-            }
+        completeE.resize(n); // needed for SCS and Lemon
+
+        parallel_for(uintT i = 0; i < m; i++) {
+            fullE[E[i].fromid].push_back(i); // only forward edges in fullE
+            completeE[E[i].fromid].push_back(i);
+            completeE[E[i].toid].push_back(i);
         }
         // pointer to the next element for insertion to E_sub
         cursor.resize(n,0);
