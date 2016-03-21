@@ -164,7 +164,11 @@ public:
             _first_out[i] = j;
             for (uintT a = 0; a < _graph.completeE[i].size(); a++) {
                 uintT eid = _graph.completeE[i][a];
-                _arc_idf[eid] = j;
+                if (_graph.is_forward(eid,i)) {
+                    _arc_idf[eid] = j;
+                } else {
+                    _arc_idb[eid] = j;
+                }
                 _forward[j] = _graph.is_forward(eid,i);
                 _source[j] = i;
                 _target[j] = _node_id[_graph.get_pair(eid, i)];

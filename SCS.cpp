@@ -180,7 +180,7 @@ ProblemType SCS::init() {
     for (int i = 0; i != _res_node_num; ++i) {
         last_out = (i<_res_node_num-1)?_first_out[i + 1]:_res_arc_num;
         for (int j = _first_out[i]; j != last_out; ++j) {
-            lc = _scost[j];//static_cast<LargeCost>(_scost[j]) * _res_node_num * _alpha;//todo
+            lc = static_cast<LargeCost>(_scost[j]) * _res_node_num * _alpha;
             _cost[j] = lc;
             if (lc > _epsilon) _epsilon = lc;
         }

@@ -13,6 +13,7 @@
 #include "SIA.h"
 #include "CostScaling.h"
 #include "Lemon.h"
+#include "SCS.h"
 
 //#define NDEBUG
 
@@ -98,6 +99,19 @@ int main(int argc, const char** argv) {
             CostScalingSolv.runCostScaling();
             if (CostScalingSolv.totalCost != answer) {
                 cout << "CostScaling wrong answer: " << CostScalingSolv.totalCost << " correct: " << answer << endl;
+                exit(1);
+            };
+        }
+
+        if (algorithm == 0 || algorithm == ALG_SCS) {
+            g.clear_graph();
+            g.load_graph(path);
+            g.init_neighbors();
+            g.add_all();
+            SCS SCSsolv(g);
+            SCSsolv.runSCS();
+            if (SCSsolv.totalCost != answer) {
+                cout << "Simplified CostScaling wrong answer: " << SCSsolv.totalCost << " correct: " << answer << endl;
                 exit(1);
             };
         }

@@ -807,7 +807,7 @@ namespace lemon {
             for (int i = 0; i != _root; ++i) {
                 last_out = _first_out[i+1];
                 for (int j = _first_out[i]; j != last_out; ++j) {
-                    lc = static_cast<LargeCost>(_scost[j]) * _res_node_num * _alpha;
+                    lc = static_cast<LargeCost>(_scost[j]) * _res_node_num * _alpha; //COST MODIFICATION
                     _cost[j] = lc;
                     if (lc > _epsilon) _epsilon = lc;
                 }
@@ -919,62 +919,62 @@ namespace lemon {
             }
 
             // Compute node potentials (dual solution)
-            for (int i = 0; i != _res_node_num; ++i) {
-                _pi[i] = static_cast<Cost>(_pi[i] / (_res_node_num * _alpha));
-            }
-            bool optimal = true;
-            for (int i = 0; optimal && i != _res_node_num; ++i) {
-                LargeCost pi_i = _pi[i];
-                int last_out = _first_out[i+1];
-                for (int j = _first_out[i]; j != last_out; ++j) {
-                    if (_res_cap[j] > 0 && _scost[j] + pi_i - _pi[_target[j]] < 0) {
-                        optimal = false;
-                        break;
-                    }
-                }
-            }
-
-            if (!optimal) {
-                // Compute node potentials for the original costs with BellmanFord
-                // (if it is necessary)
-                typedef std::pair<int, int> IntPair;
-                StaticDigraph sgr;
-                std::vector<IntPair> arc_vec;
-                std::vector<LargeCost> cost_vec;
-                LargeCostArcMap cost_map(cost_vec);
-
-                arc_vec.clear();
-                cost_vec.clear();
-                for (int j = 0; j != _res_arc_num; ++j) {
-                    if (_res_cap[j] > 0) {
-                        int u = _source[j], v = _target[j];
-                        arc_vec.push_back(IntPair(u, v));
-                        cost_vec.push_back(_scost[j] + _pi[u] - _pi[v]);
-                    }
-                }
-                sgr.build(_res_node_num, arc_vec.begin(), arc_vec.end());
-
-                typename BellmanFord<StaticDigraph, LargeCostArcMap>::Create
-                        bf(sgr, cost_map);
-                bf.init(0);
-                bf.start();
-
-                for (int i = 0; i != _res_node_num; ++i) {
-                    _pi[i] += bf.dist(sgr.node(i));
-                }
-            }
-
-            // Shift potentials to meet the requirements of the GEQ type
-            // optimality conditions
-            LargeCost max_pot = _pi[_root];
-            for (int i = 0; i != _res_node_num; ++i) {
-                if (_pi[i] > max_pot) max_pot = _pi[i];
-            }
-            if (max_pot != 0) {
-                for (int i = 0; i != _res_node_num; ++i) {
-                    _pi[i] -= max_pot;
-                }
-            }
+//            for (int i = 0; i != _res_node_num; ++i) {
+//                _pi[i] = static_cast<Cost>(_pi[i] / (_res_node_num * _alpha));
+//            }
+//            bool optimal = true;
+//            for (int i = 0; optimal && i != _res_node_num; ++i) {
+//                LargeCost pi_i = _pi[i];
+//                int last_out = _first_out[i+1];
+//                for (int j = _first_out[i]; j != last_out; ++j) {
+//                    if (_res_cap[j] > 0 && _scost[j] + pi_i - _pi[_target[j]] < 0) {
+//                        optimal = false;
+//                        break;
+//                    }
+//                }
+//            }
+//
+//            if (!optimal) {
+//                // Compute node potentials for the original costs with BellmanFord
+//                // (if it is necessary)
+//                typedef std::pair<int, int> IntPair;
+//                StaticDigraph sgr;
+//                std::vector<IntPair> arc_vec;
+//                std::vector<LargeCost> cost_vec;
+//                LargeCostArcMap cost_map(cost_vec);
+//
+//                arc_vec.clear();
+//                cost_vec.clear();
+//                for (int j = 0; j != _res_arc_num; ++j) {
+//                    if (_res_cap[j] > 0) {
+//                        int u = _source[j], v = _target[j];
+//                        arc_vec.push_back(IntPair(u, v));
+//                        cost_vec.push_back(_scost[j] + _pi[u] - _pi[v]);
+//                    }
+//                }
+//                sgr.build(_res_node_num, arc_vec.begin(), arc_vec.end());
+//
+//                typename BellmanFord<StaticDigraph, LargeCostArcMap>::Create
+//                        bf(sgr, cost_map);
+//                bf.init(0);
+//                bf.start();
+//
+//                for (int i = 0; i != _res_node_num; ++i) {
+//                    _pi[i] += bf.dist(sgr.node(i));
+//                }
+//            }
+//
+//            // Shift potentials to meet the requirements of the GEQ type
+//            // optimality conditions
+//            LargeCost max_pot = _pi[_root];
+//            for (int i = 0; i != _res_node_num; ++i) {
+//                if (_pi[i] > max_pot) max_pot = _pi[i];
+//            }
+//            if (max_pot != 0) {
+//                for (int i = 0; i != _res_node_num; ++i) {
+//                    _pi[i] -= max_pot;
+//                }
+//            }
 
             // Handle non-zero lower bounds
             if (_has_lower) {
@@ -1337,11 +1337,11 @@ namespace lemon {
         /// Execute the algorithm performing augment and relabel operations
         void startAugment(int max_length) {
             // Paramters for heuristics
-            const int PRICE_REFINEMENT_LIMIT = 2;
-            const double GLOBAL_UPDATE_FACTOR = 1.0;
-            const int global_update_skip = static_cast<int>(GLOBAL_UPDATE_FACTOR *
-                                                            (_res_node_num + _sup_node_num * _sup_node_num));
-            int next_global_update_limit = global_update_skip;
+//            const int PRICE_REFINEMENT_LIMIT = 2;
+//            const double GLOBAL_UPDATE_FACTOR = 1.0;
+//            const int global_update_skip = static_cast<int>(GLOBAL_UPDATE_FACTOR *
+//                                                            (_res_node_num + _sup_node_num * _sup_node_num));
+//            int next_global_update_limit = global_update_skip;
 
             // Perform cost scaling phases
             IntVector path;
@@ -1451,7 +1451,7 @@ namespace lemon {
                     // Global update heuristic
 //          if (relabel_cnt >= next_global_update_limit) {
 //            globalUpdate();
-                    next_global_update_limit += global_update_skip;
+//                    next_global_update_limit += global_update_skip;
 //          }
                 }
 
