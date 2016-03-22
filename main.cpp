@@ -71,34 +71,20 @@ int main(int argc, const char** argv) {
     }
     po::notify(vm);
 
-
-    // check if file exists
-    if (FILE *file = fopen(input_graph.c_str(), "r")) {
-        fclose(file);
-    } else {
-        cout << "File " << input_graph << " does not exist" << endl;
-        exit(1);
-    }
-
+    //init experiment ID
     struct timeval time;
     gettimeofday(&time,NULL);
     srand((time.tv_sec * 1000) + (time.tv_usec / 1000));
     experiment_id = rand();
     cout << "Experiment ID " << experiment_id << endl;
 
-    Graph g;
-
-    g.load_graph(input_graph, log_filename, experiment_id);
-    g.init_neighbors();
-
+    //init log file
     ofstream logf(log_filename, ios::app);
-
-    //get time
-    time_t rawtime;
-    struct tm * timeinfo;
-
-    timeinfo = localtime ( &rawtime );
-    logf << experiment_id << "," << "DateTime" << "," << asctime (timeinfo) << "\n";
+    char buffer[30];
+    time_t curtime;
+    curtime=time.tv_sec;
+    strftime(buffer,30,"%m-%d-%Y  %T.",localtime(&curtime));
+    logf << experiment_id << "," << "DateTime" << "," << buffer << "\n";
 
     //save to log file algorithm name
     switch(algorithm) {
@@ -121,6 +107,20 @@ int main(int argc, const char** argv) {
             cout << "Error: No such algorithm" << endl;
             exit(1);
     }
+    logf.close(); //allow timers to write to the same file
+
+    // check if file with graph exists
+    if (FILE *file = fopen(input_graph.c_str(), "r")) {
+        fclose(file);
+    } else {
+        cout << "File " << input_graph << " does not exist" << endl;
+        exit(1);
+    }
+
+    //init Graph (Common for all algorithms)
+    Graph g;
+    g.load_graph(input_graph, log_filename, experiment_id);
+    g.init_neighbors();
 
     for (int current_round = 0; current_round < rounds; current_round++ ) {
         cout << "== Round " << current_round << "/" << rounds << endl;
@@ -189,6 +189,9 @@ int main(int argc, const char** argv) {
                     cout << "Total Cost of Modified Lemon CostScaling: " << cost_scaling.totalCost() << endl;
                     cout << "Total Time of Modified Lemon CostScaling: " << algtimer.timings["Total time"].back() << endl;
                     algtimer.output(log_filename, experiment_id);
+                    logf.open(log_filename, ios::app);
+                    logf << experiment_id << ",Total cost," << cost_scaling.totalCost() << "\n";
+                    logf.close();
                 }
                 break;
             case 5:
@@ -236,6 +239,9 @@ int main(int argc, const char** argv) {
                     cout << "Total Cost of Modified Lemon CostScaling: " << cost_scaling.totalCost() << endl;
                     cout << "Total Time of Modified Lemon CostScaling: " << algtimer.timings["Total time"].back() << endl;
                     algtimer.output(log_filename, experiment_id);
+                    logf.open(log_filename, ios::app);
+                    logf << experiment_id << ",Total cost," << cost_scaling.totalCost() << "\n";
+                    logf.close();
                 }
                 break;
             default:

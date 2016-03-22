@@ -98,6 +98,7 @@ public:
             sum /= curtimes.size();
             outf << experiment_id << "," << n.first << "," << sum << "\n";
         }
+        outf.close();
     }
 
     double get_av_time(string title) {
