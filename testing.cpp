@@ -72,7 +72,7 @@ int main(int argc, const char** argv) {
     while(infile >> graphfile >> answer) {
         cout << "Checking file " << graphfile << " with answer " << answer << "..." << endl;
         g.clear_graph();
-        string path = "../../data/NetworkFlowTests/bipartite/";
+        string path = "../../data/tests/bipartite/";
         path.append(graphfile);
         path[path.size()-1] = 'r';
         path[path.size()-2] = 'g';

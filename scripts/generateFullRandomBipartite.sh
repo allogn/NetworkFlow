@@ -1,5 +1,5 @@
 #!/bin/bash
-DATADIR="../../data/bipartite/"
+DATADIR="../../data/tests/bipartite/"
 
 #generate uniform weights from 0 to 1000, 10 files per size
 for SIZE in {100..1000..100};

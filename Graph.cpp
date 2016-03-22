@@ -207,7 +207,7 @@ void Graph::load_graph(string filename, string log_filename = "", int experiment
             exit(1);
         }
     }
-    ofstream log(filename);
+    ofstream log(log_filename);
 
     //parse comments in the beginning of the file with parameters of data
     string line;

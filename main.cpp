@@ -39,7 +39,6 @@ int main(int argc, const char** argv) {
 
     // parsing parameters
     int algorithm;
-    int graph_type;
     int rounds;
     int experiment_id;
     string input_graph;
@@ -48,15 +47,13 @@ int main(int argc, const char** argv) {
     po::options_description desc("Allowed options");
     desc.add_options()
             ("help,h", "produce help message")
-            ("algorithm,a", po::value<int>(&algorithm)->default_value(1),
+            ("algorithm,a", po::value<int>(&algorithm)->required(),
                     "0 : SIA\n"
                     "1 : CostScaling\n"
                     "2 : LocalDominant\n"
                     "3 : Lemon Modified\n"
                     "4 : Simplified Cost Scaling (SCS)\n"
                     "5 : Original Lemon Cost Scaling\n")
-            ("graph,g", po::value<int>(&graph_type)->default_value(0),"graph type 0:bipartite")
-            ("output,o", po::value<string>(), "save generated graph")
             ("size,s", po::value<uintT>(&size)->default_value(100), "size of generated graph")
             ("input,i", po::value<string>(&input_graph)->required(), "input graph")
             ("rounds,r", po::value<int>(&rounds)->default_value(1), "rounds for an experiment")
@@ -103,6 +100,9 @@ int main(int argc, const char** argv) {
         case ALG_LOCAL_DOMINANT:
             logf << experiment_id << ",Algorithm,Local Dominant" << "\n";
             break;
+        case ALG_COST_SCALING:
+            logf << experiment_id << ",Algorithm,CostScaling" << "\n";
+            break;
         default:
             cout << "Error: No such algorithm" << endl;
             exit(1);
@@ -125,7 +125,7 @@ int main(int argc, const char** argv) {
     for (int current_round = 0; current_round < rounds; current_round++ ) {
         cout << "== Round " << current_round << "/" << rounds << endl;
         switch(algorithm) {
-            case 1:
+            case 0:
                 //prepare graph
                 g.sort_neighbors();
                 g.test_graph_structure();
@@ -136,7 +136,7 @@ int main(int argc, const char** argv) {
                     cout << "Total cost of SIA: " << SIAsolv.totalCost << endl;
                 }
                 break;
-            case 2:
+            case 1:
                 g.add_all();
                 {
                     CostScaling CostScalingSolv(&g);
@@ -144,7 +144,7 @@ int main(int argc, const char** argv) {
                     cout << "Total cost of CostScaling: " << CostScalingSolv.totalCost << endl;
                 }
                 break;
-            case 3:
+            case 2:
                 g.add_all();
                 {
                     LocalDominant LocalDominantSolv(&g);
@@ -152,7 +152,7 @@ int main(int argc, const char** argv) {
                     cout << "Total cost of LocalDominant: " << LocalDominantSolv.totalCost << endl;
                 }
                 break;
-            case 4:
+            case 3:
                 g.add_all();
                 {
                     Timer algtimer;
@@ -194,7 +194,7 @@ int main(int argc, const char** argv) {
                     logf.close();
                 }
                 break;
-            case 5:
+            case 4:
                 g.add_all();
                 {
                     SCS SCSsolv(g);
@@ -202,7 +202,7 @@ int main(int argc, const char** argv) {
                     cout << "Total cost of SCS: " << SCSsolv.totalCost << endl;
                 }
                 break;
-            case 6:
+            case 5:
                 g.add_all();
                 {
                     Timer algtimer;
@@ -236,8 +236,8 @@ int main(int argc, const char** argv) {
                     double total = timer.getTime();
                     cost_scaling.run();
                     algtimer.save_time("Total time", total);
-                    cout << "Total Cost of Modified Lemon CostScaling: " << cost_scaling.totalCost() << endl;
-                    cout << "Total Time of Modified Lemon CostScaling: " << algtimer.timings["Total time"].back() << endl;
+                    cout << "Total Cost of Lemon CostScaling: " << cost_scaling.totalCost() << endl;
+                    cout << "Total Time of Lemon CostScaling: " << algtimer.timings["Total time"].back() << endl;
                     algtimer.output(log_filename, experiment_id);
                     logf.open(log_filename, ios::app);
                     logf << experiment_id << ",Total cost," << cost_scaling.totalCost() << "\n";
