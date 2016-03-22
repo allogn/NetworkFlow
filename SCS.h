@@ -90,42 +90,13 @@ private:
 
 public:
 
-    /// \brief Constructor.
-    ///
-    /// The constructor of the class.
-    ///
-    /// \param graph The digraph the algorithm runs on.
     SCS(const Graph &graph) :
             _graph(graph) {
-        // Check the number types
-        LEMON_ASSERT(std::numeric_limits<Value>::is_signed,
-                     "The flow type of CostScaling must be signed");
-        LEMON_ASSERT(std::numeric_limits<Cost>::is_signed,
-                     "The cost type of CostScaling must be signed");
 
         // Reset data structures
         reset();
     }
 
-    /// \brief Reset the internal data structures and all the parameters
-    /// that have been given before.
-    ///
-    /// This function resets the internal data structures and all the
-    /// paramaters that have been given before using functions \ref lowerMap(),
-    /// \ref upperMap(), \ref costMap(), \ref supplyMap(), \ref stSupply().
-    ///
-    /// It is useful for multiple \ref run() calls. By default, all the given
-    /// parameters are kept for the next \ref run() call, unless
-    /// \ref resetParams() or \ref reset() is used.
-    /// If the underlying digraph was also modified after the construction
-    /// of the class or the last \ref reset() call, then the \ref reset()
-    /// function must be used, otherwise \ref resetParams() is sufficient.
-    ///
-    /// See \ref resetParams() for examples.
-    ///
-    /// \return <tt>(*this)</tt>
-    ///
-    /// \see resetParams(), run()
     SCS &reset() {
         // Resize vectors
         _node_num = _graph.n;
@@ -244,6 +215,7 @@ public:
     // Execute the algorithm and transform the results
     void runSCS() {
         init();
+
         startAugment(_res_node_num - 1);
 
         totalCost = 0;

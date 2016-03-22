@@ -848,47 +848,19 @@ namespace lemon {
             if (!circ.flowMap(flow).run()) return INFEASIBLE;
 
             // Set residual capacities and handle GEQ supply type
-            if (_sum_supply < 0) {
-                for (ArcIt a(_graph); a != INVALID; ++a) {
-                    Value fa = flow[a];
-                    _res_cap[_arc_idf[a]] = cap[a] - fa;
-                    _res_cap[_arc_idb[a]] = fa;
-                    sup[_graph.source(a)] -= fa;
-                    sup[_graph.target(a)] += fa;
-                }
-                for (NodeIt n(_graph); n != INVALID; ++n) {
-                    _excess[_node_id[n]] = sup[n];
-                }
-                for (int a = _first_out[_root]; a != _res_arc_num; ++a) {
-                    int u = _target[a];
-                    int ra = _reverse[a];
-                    _res_cap[a] = -_sum_supply + 1;
-                    _res_cap[ra] = -_excess[u];
-                    _cost[a] = 0;
-                    _cost[ra] = 0;
-                    _excess[u] = 0;
-                }
-            } else {
-                for (ArcIt a(_graph); a != INVALID; ++a) {
-                    Value fa = flow[a];
-                    _res_cap[_arc_idf[a]] = cap[a] - fa;
-                    _res_cap[_arc_idb[a]] = fa;
-                }
-                for (int a = _first_out[_root]; a != _res_arc_num; ++a) {
-                    int ra = _reverse[a];
-                    _res_cap[a] = 0;
-                    _res_cap[ra] = 0;
-                    _cost[a] = 0;
-                    _cost[ra] = 0;
-                }
+            assert(_sum_supply == 0);
+            for (ArcIt a(_graph); a != INVALID; ++a) {
+                Value fa = flow[a];
+                _res_cap[_arc_idf[a]] = cap[a] - fa;
+                _res_cap[_arc_idb[a]] = fa;
             }
-
-            // Initialize data structures for buckets
-            _max_rank = _alpha * _res_node_num;
-            _buckets.resize(_max_rank);
-            _bucket_next.resize(_res_node_num + 1);
-            _bucket_prev.resize(_res_node_num + 1);
-            _rank.resize(_res_node_num + 1);
+            for (int a = _first_out[_root]; a != _res_arc_num; ++a) {
+                int ra = _reverse[a];
+                _res_cap[a] = 0;
+                _res_cap[ra] = 0;
+                _cost[a] = 0;
+                _cost[ra] = 0;
+            }
 
             return OPTIMAL;
         }
@@ -907,9 +879,6 @@ namespace lemon {
             const int MAX_PARTIAL_PATH_LENGTH = 4;
 
             switch (method) {
-                case PUSH:
-                    startPush();
-                    break;
                 case AUGMENT:
                     startAugment(_res_node_num - 1);
                     break;
@@ -919,9 +888,9 @@ namespace lemon {
             }
 
             // Compute node potentials (dual solution)
-//            for (int i = 0; i != _res_node_num; ++i) {
-//                _pi[i] = static_cast<Cost>(_pi[i] / (_res_node_num * _alpha));
-//            }
+            for (int i = 0; i != _res_node_num; ++i) {
+                _pi[i] = static_cast<Cost>(_pi[i] / (_res_node_num * _alpha));
+            }
 //            bool optimal = true;
 //            for (int i = 0; optimal && i != _res_node_num; ++i) {
 //                LargeCost pi_i = _pi[i];
@@ -1016,332 +985,14 @@ namespace lemon {
             }
         }
 
-        // Price (potential) refinement heuristic
-        bool priceRefinement() {
-
-            // Stack for stroing the topological order
-            IntVector stack(_res_node_num);
-            int stack_top;
-
-            // Perform phases
-            while (topologicalSort(stack, stack_top)) {
-
-                // Compute node ranks in the acyclic admissible network and
-                // store the nodes in buckets
-                for (int i = 0; i != _res_node_num; ++i) {
-                    _rank[i] = 0;
-                }
-                const int bucket_end = _root + 1;
-                for (int r = 0; r != _max_rank; ++r) {
-                    _buckets[r] = bucket_end;
-                }
-                int top_rank = 0;
-                for ( ; stack_top >= 0; --stack_top) {
-                    int u = stack[stack_top], v;
-                    int rank_u = _rank[u];
-
-                    LargeCost rc, pi_u = _pi[u];
-                    int last_out = _first_out[u+1];
-                    for (int a = _first_out[u]; a != last_out; ++a) {
-                        if (_res_cap[a] > 0) {
-                            v = _target[a];
-                            rc = _cost[a] + pi_u - _pi[v];
-                            if (rc < 0) {
-                                LargeCost nrc = static_cast<LargeCost>((-rc - 0.5) / _epsilon);
-                                if (nrc < LargeCost(_max_rank)) {
-                                    int new_rank_v = rank_u + static_cast<int>(nrc);
-                                    if (new_rank_v > _rank[v]) {
-                                        _rank[v] = new_rank_v;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    if (rank_u > 0) {
-                        top_rank = std::max(top_rank, rank_u);
-                        int bfirst = _buckets[rank_u];
-                        _bucket_next[u] = bfirst;
-                        _bucket_prev[bfirst] = u;
-                        _buckets[rank_u] = u;
-                    }
-                }
-
-                // Check if the current flow is epsilon-optimal
-                if (top_rank == 0) {
-                    return true;
-                }
-
-                // Process buckets in top-down order
-                for (int rank = top_rank; rank > 0; --rank) {
-                    while (_buckets[rank] != bucket_end) {
-                        // Remove the first node from the current bucket
-                        int u = _buckets[rank];
-                        _buckets[rank] = _bucket_next[u];
-
-                        // Search the outgoing arcs of u
-                        LargeCost rc, pi_u = _pi[u];
-                        int last_out = _first_out[u+1];
-                        int v, old_rank_v, new_rank_v;
-                        for (int a = _first_out[u]; a != last_out; ++a) {
-                            if (_res_cap[a] > 0) {
-                                v = _target[a];
-                                old_rank_v = _rank[v];
-
-                                if (old_rank_v < rank) {
-
-                                    // Compute the new rank of node v
-                                    rc = _cost[a] + pi_u - _pi[v];
-                                    if (rc < 0) {
-                                        new_rank_v = rank;
-                                    } else {
-                                        LargeCost nrc = rc / _epsilon;
-                                        new_rank_v = 0;
-                                        if (nrc < LargeCost(_max_rank)) {
-                                            new_rank_v = rank - 1 - static_cast<int>(nrc);
-                                        }
-                                    }
-
-                                    // Change the rank of node v
-                                    if (new_rank_v > old_rank_v) {
-                                        _rank[v] = new_rank_v;
-
-                                        // Remove v from its old bucket
-                                        if (old_rank_v > 0) {
-                                            if (_buckets[old_rank_v] == v) {
-                                                _buckets[old_rank_v] = _bucket_next[v];
-                                            } else {
-                                                int pv = _bucket_prev[v], nv = _bucket_next[v];
-                                                _bucket_next[pv] = nv;
-                                                _bucket_prev[nv] = pv;
-                                            }
-                                        }
-
-                                        // Insert v into its new bucket
-                                        int nv = _buckets[new_rank_v];
-                                        _bucket_next[v] = nv;
-                                        _bucket_prev[nv] = v;
-                                        _buckets[new_rank_v] = v;
-                                    }
-                                }
-                            }
-                        }
-
-                        // Refine potential of node u
-                        _pi[u] -= rank * _epsilon;
-                    }
-                }
-
-            }
-
-            return false;
-        }
-
-        // Find and cancel cycles in the admissible network and
-        // determine topological order using DFS
-        bool topologicalSort(IntVector &stack, int &stack_top) {
-            const int MAX_CYCLE_CANCEL = 1;
-
-            BoolVector reached(_res_node_num, false);
-            BoolVector processed(_res_node_num, false);
-            IntVector pred(_res_node_num);
-            for (int i = 0; i != _res_node_num; ++i) {
-                _next_out[i] = _first_out[i];
-            }
-            stack_top = -1;
-
-            int cycle_cnt = 0;
-            for (int start = 0; start != _res_node_num; ++start) {
-                if (reached[start]) continue;
-
-                // Start DFS search from this start node
-                pred[start] = -1;
-                int tip = start, v;
-                while (true) {
-                    // Check the outgoing arcs of the current tip node
-                    reached[tip] = true;
-                    LargeCost pi_tip = _pi[tip];
-                    int a, last_out = _first_out[tip+1];
-                    for (a = _next_out[tip]; a != last_out; ++a) {
-                        if (_res_cap[a] > 0) {
-                            v = _target[a];
-                            if (_cost[a] + pi_tip - _pi[v] < 0) {
-                                if (!reached[v]) {
-                                    // A new node is reached
-                                    reached[v] = true;
-                                    pred[v] = tip;
-                                    _next_out[tip] = a;
-                                    tip = v;
-                                    a = _next_out[tip];
-                                    last_out = _first_out[tip+1];
-                                    break;
-                                }
-                                else if (!processed[v]) {
-                                    // A cycle is found
-                                    ++cycle_cnt;
-                                    _next_out[tip] = a;
-
-                                    // Find the minimum residual capacity along the cycle
-                                    Value d, delta = _res_cap[a];
-                                    int u, delta_node = tip;
-                                    for (u = tip; u != v; ) {
-                                        u = pred[u];
-                                        d = _res_cap[_next_out[u]];
-                                        if (d <= delta) {
-                                            delta = d;
-                                            delta_node = u;
-                                        }
-                                    }
-
-                                    // Augment along the cycle
-                                    _res_cap[a] -= delta;
-                                    _res_cap[_reverse[a]] += delta;
-                                    for (u = tip; u != v; ) {
-                                        u = pred[u];
-                                        int ca = _next_out[u];
-                                        _res_cap[ca] -= delta;
-                                        _res_cap[_reverse[ca]] += delta;
-                                    }
-
-                                    // Check the maximum number of cycle canceling
-                                    if (cycle_cnt >= MAX_CYCLE_CANCEL) {
-                                        return false;
-                                    }
-
-                                    // Roll back search to delta_node
-                                    if (delta_node != tip) {
-                                        for (u = tip; u != delta_node; u = pred[u]) {
-                                            reached[u] = false;
-                                        }
-                                        tip = delta_node;
-                                        a = _next_out[tip] + 1;
-                                        last_out = _first_out[tip+1];
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    // Step back to the previous node
-                    if (a == last_out) {
-                        processed[tip] = true;
-                        stack[++stack_top] = tip;
-                        tip = pred[tip];
-                        if (tip < 0) {
-                            // Finish DFS from the current start node
-                            break;
-                        }
-                        ++_next_out[tip];
-                    }
-                }
-
-            }
-
-            return (cycle_cnt == 0);
-        }
-
-        // Global potential update heuristic
-        void globalUpdate() {
-            const int bucket_end = _root + 1;
-
-            // Initialize buckets
-            for (int r = 0; r != _max_rank; ++r) {
-                _buckets[r] = bucket_end;
-            }
-            Value total_excess = 0;
-            int b0 = bucket_end;
-            for (int i = 0; i != _res_node_num; ++i) {
-                if (_excess[i] < 0) {
-                    _rank[i] = 0;
-                    _bucket_next[i] = b0;
-                    _bucket_prev[b0] = i;
-                    b0 = i;
-                } else {
-                    total_excess += _excess[i];
-                    _rank[i] = _max_rank;
-                }
-            }
-            if (total_excess == 0) return;
-            _buckets[0] = b0;
-
-            // Search the buckets
-            int r = 0;
-            for ( ; r != _max_rank; ++r) {
-                while (_buckets[r] != bucket_end) {
-                    // Remove the first node from the current bucket
-                    int u = _buckets[r];
-                    _buckets[r] = _bucket_next[u];
-
-                    // Search the incoming arcs of u
-                    LargeCost pi_u = _pi[u];
-                    int last_out = _first_out[u+1];
-                    for (int a = _first_out[u]; a != last_out; ++a) {
-                        int ra = _reverse[a];
-                        if (_res_cap[ra] > 0) {
-                            int v = _source[ra];
-                            int old_rank_v = _rank[v];
-                            if (r < old_rank_v) {
-                                // Compute the new rank of v
-                                LargeCost nrc = (_cost[ra] + _pi[v] - pi_u) / _epsilon;
-                                int new_rank_v = old_rank_v;
-                                if (nrc < LargeCost(_max_rank)) {
-                                    new_rank_v = r + 1 + static_cast<int>(nrc);
-                                }
-
-                                // Change the rank of v
-                                if (new_rank_v < old_rank_v) {
-                                    _rank[v] = new_rank_v;
-                                    _next_out[v] = _first_out[v];
-
-                                    // Remove v from its old bucket
-                                    if (old_rank_v < _max_rank) {
-                                        if (_buckets[old_rank_v] == v) {
-                                            _buckets[old_rank_v] = _bucket_next[v];
-                                        } else {
-                                            int pv = _bucket_prev[v], nv = _bucket_next[v];
-                                            _bucket_next[pv] = nv;
-                                            _bucket_prev[nv] = pv;
-                                        }
-                                    }
-
-                                    // Insert v into its new bucket
-                                    int nv = _buckets[new_rank_v];
-                                    _bucket_next[v] = nv;
-                                    _bucket_prev[nv] = v;
-                                    _buckets[new_rank_v] = v;
-                                }
-                            }
-                        }
-                    }
-
-                    // Finish search if there are no more active nodes
-                    if (_excess[u] > 0) {
-                        total_excess -= _excess[u];
-                        if (total_excess <= 0) break;
-                    }
-                }
-                if (total_excess <= 0) break;
-            }
-
-            // Relabel nodes
-            for (int u = 0; u != _res_node_num; ++u) {
-                int k = std::min(_rank[u], r);
-                if (k > 0) {
-                    _pi[u] -= _epsilon * k;
-                    _next_out[u] = _first_out[u];
-                }
-            }
-        }
-
         /// Execute the algorithm performing augment and relabel operations
         void startAugment(int max_length) {
             // Paramters for heuristics
-//            const int PRICE_REFINEMENT_LIMIT = 2;
-//            const double GLOBAL_UPDATE_FACTOR = 1.0;
-//            const int global_update_skip = static_cast<int>(GLOBAL_UPDATE_FACTOR *
-//                                                            (_res_node_num + _sup_node_num * _sup_node_num));
-//            int next_global_update_limit = global_update_skip;
+            const int PRICE_REFINEMENT_LIMIT = 2;
+            const double GLOBAL_UPDATE_FACTOR = 1.0;
+            const int global_update_skip = static_cast<int>(GLOBAL_UPDATE_FACTOR *
+                                                            (_res_node_num + _sup_node_num * _sup_node_num));
+            int next_global_update_limit = global_update_skip;
 
             // Perform cost scaling phases
             IntVector path;
@@ -1451,140 +1102,13 @@ namespace lemon {
                     // Global update heuristic
 //          if (relabel_cnt >= next_global_update_limit) {
 //            globalUpdate();
-//                    next_global_update_limit += global_update_skip;
+                    next_global_update_limit += global_update_skip;
 //          }
                 }
 
             }
 
         }
-
-        /// Execute the algorithm performing push and relabel operations
-        void startPush() {
-            // Paramters for heuristics
-            const int PRICE_REFINEMENT_LIMIT = 2;
-            const double GLOBAL_UPDATE_FACTOR = 2.0;
-
-            const int global_update_skip = static_cast<int>(GLOBAL_UPDATE_FACTOR *
-                                                            (_res_node_num + _sup_node_num * _sup_node_num));
-            int next_global_update_limit = global_update_skip;
-
-            // Perform cost scaling phases
-            BoolVector hyper(_res_node_num, false);
-            LargeCostVector hyper_cost(_res_node_num);
-            int relabel_cnt = 0;
-            int eps_phase_cnt = 0;
-            for ( ; _epsilon >= 1; _epsilon = _epsilon < _alpha && _epsilon > 1 ?
-                                              1 : _epsilon / _alpha )
-            {
-                ++eps_phase_cnt;
-
-                // Price refinement heuristic
-//        if (eps_phase_cnt >= PRICE_REFINEMENT_LIMIT) {
-//          if (priceRefinement()) continue;
-//        }
-
-                // Initialize current phase
-                initPhase();
-
-                // Perform push and relabel operations
-                while (_active_nodes.size() > 0) {
-                    LargeCost min_red_cost, rc, pi_n;
-                    Value delta;
-                    int n, t, a, last_out = _res_arc_num;
-
-                    next_node:
-                    // Select an active node (FIFO selection)
-                    n = _active_nodes.front();
-                    last_out = _first_out[n+1];
-                    pi_n = _pi[n];
-
-                    // Perform push operations if there are admissible arcs
-                    if (_excess[n] > 0) {
-                        for (a = _next_out[n]; a != last_out; ++a) {
-                            if (_res_cap[a] > 0 &&
-                                _cost[a] + pi_n - _pi[_target[a]] < 0) {
-                                delta = std::min(_res_cap[a], _excess[n]);
-                                t = _target[a];
-
-                                // Push-look-ahead heuristic
-                                Value ahead = -_excess[t];
-                                int last_out_t = _first_out[t+1];
-                                LargeCost pi_t = _pi[t];
-                                for (int ta = _next_out[t]; ta != last_out_t; ++ta) {
-                                    if (_res_cap[ta] > 0 &&
-                                        _cost[ta] + pi_t - _pi[_target[ta]] < 0)
-                                        ahead += _res_cap[ta];
-                                    if (ahead >= delta) break;
-                                }
-                                if (ahead < 0) ahead = 0;
-
-                                // Push flow along the arc
-                                if (ahead < delta && !hyper[t]) {
-                                    _res_cap[a] -= ahead;
-                                    _res_cap[_reverse[a]] += ahead;
-                                    _excess[n] -= ahead;
-                                    _excess[t] += ahead;
-                                    _active_nodes.push_front(t);
-                                    hyper[t] = true;
-                                    hyper_cost[t] = _cost[a] + pi_n - pi_t;
-                                    _next_out[n] = a;
-                                    goto next_node;
-                                } else {
-                                    _res_cap[a] -= delta;
-                                    _res_cap[_reverse[a]] += delta;
-                                    _excess[n] -= delta;
-                                    _excess[t] += delta;
-                                    if (_excess[t] > 0 && _excess[t] <= delta)
-                                        _active_nodes.push_back(t);
-                                }
-
-                                if (_excess[n] == 0) {
-                                    _next_out[n] = a;
-                                    goto remove_nodes;
-                                }
-                            }
-                        }
-                        _next_out[n] = a;
-                    }
-
-                    // Relabel the node if it is still active (or hyper)
-                    if (_excess[n] > 0 || hyper[n]) {
-                        min_red_cost = hyper[n] ? -hyper_cost[n] :
-                                       std::numeric_limits<LargeCost>::max();
-                        for (int a = _first_out[n]; a != last_out; ++a) {
-                            if (_res_cap[a] > 0) {
-                                rc = _cost[a] + pi_n - _pi[_target[a]];
-                                if (rc < min_red_cost) {
-                                    min_red_cost = rc;
-                                }
-                            }
-                        }
-                        _pi[n] -= min_red_cost + _epsilon;
-                        _next_out[n] = _first_out[n];
-                        hyper[n] = false;
-                        ++relabel_cnt;
-                    }
-
-                    // Remove nodes that are not active nor hyper
-                    remove_nodes:
-                    while ( _active_nodes.size() > 0 &&
-                            _excess[_active_nodes.front()] <= 0 &&
-                            !hyper[_active_nodes.front()] ) {
-                        _active_nodes.pop_front();
-                    }
-
-                    // Global update heuristic
-//                    if (relabel_cnt >= next_global_update_limit) {
-//            globalUpdate();
-//                        for (int u = 0; u != _res_node_num; ++u)
-//                            hyper[u] = false;
-//                        next_global_update_limit += global_update_skip;
-//                    }
-                }
-            }
-        }
-
     }; //class ModifiedCostScaling
 
     ///@}

@@ -7,7 +7,7 @@
 void SCS::startAugment(int max_length) {
     // Perform cost scaling phases
     IntVector path;
-    BoolVector path_arc(_res_arc_num, false); // visited array
+    BoolVector path_arc(_graph.n, false); // visited array
     int relabel_cnt = 0;
     int eps_phase_cnt = 0;
     for (; _epsilon >= 1; _epsilon = _epsilon < _alpha && _epsilon > 1 ?

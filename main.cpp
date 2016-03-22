@@ -90,7 +90,7 @@ int main(int argc, const char** argv) {
     g.init_neighbors();
 
     for (int current_round = 0; current_round < rounds + 1; current_round++ ) {
-        cout << "== Round " << current_round << "/" << rounds+1 << endl;
+        cout << "== Round " << current_round+1 << "/" << rounds+1 << endl;
         switch(algorithm) {
             case 1:
                 //prepare graph
