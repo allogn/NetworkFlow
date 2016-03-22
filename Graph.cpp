@@ -189,7 +189,7 @@ void Graph::save_graph(string filename) {
     outf.close();
 }
 
-void Graph::load_graph(string filename, string log_filename = "", int experiment_id = 0) {
+void Graph::load_graph(string filename, string log_filename, int experiment_id) {
     cout << "Loading graph from " << filename << "..." << endl;
     if (FILE *file = fopen(filename.c_str(), "r")) {
         fclose(file);

@@ -135,7 +135,7 @@ public:
 
     void print_graph();
     void save_graph(string filename);
-    void load_graph(string filename, string log_filename, int experiment_id);
+    void load_graph(string filename, string log_filename = "", int experiment_id = 0);
     void load_lgf_graph(string filename);
     void load_adj_graph(string filename);
     void save_graph_info(string filename, int experiment_id);
