@@ -542,17 +542,10 @@ namespace lemon {
             for (int i = 0; i != _res_node_num; ++i) {
                 _supply[i] = 0;
             }
-            int limit = _first_out[_root];
-            for (int j = 0; j != limit; ++j) {
+            for (int j = 0; j != _res_arc_num; ++j) {
                 _lower[j] = 0;
                 _upper[j] = INF;
                 _scost[j] = _forward[j] ? 1 : -1;
-            }
-            for (int j = limit; j != _res_arc_num; ++j) {
-                _lower[j] = 0;
-                _upper[j] = INF;
-                _scost[j] = 0;
-                _scost[_reverse[j]] = 0;
             }
             _has_lower = false;
             return *this;
@@ -581,11 +574,10 @@ namespace lemon {
             // Resize vectors
             _node_num = countNodes(_graph);
             _arc_num = countArcs(_graph);
-            _res_node_num = _node_num + 1;
+            _res_node_num = _node_num;
             _res_arc_num = 2 * (_arc_num + _node_num);
-            _root = _node_num;
 
-            _first_out.resize(_res_node_num + 1);
+            _first_out.resize(_res_node_num);
             _forward.resize(_res_arc_num);
             _source.resize(_res_arc_num);
             _target.resize(_res_arc_num);
@@ -622,18 +614,8 @@ namespace lemon {
                     _source[j] = i;
                     _target[j] = _node_id[_graph.runningNode(a)];
                 }
-                _forward[j] = false;
-                _source[j] = i;
-                _target[j] = _root;
-                _reverse[j] = k;
-                _forward[k] = true;
-                _source[k] = _root;
-                _target[k] = i;
-                _reverse[k] = j;
-                ++j; ++k;
             }
-            _first_out[i] = j;
-            _first_out[_res_node_num] = k;
+
             for (ArcIt a(_graph); a != INVALID; ++a) {
                 int fi = _arc_idf[a];
                 int bi = _arc_idb[a];
@@ -747,7 +729,7 @@ namespace lemon {
 
             // Check the sum of supply values
             _sum_supply = 0;
-            for (int i = 0; i != _root; ++i) {
+            for (int i = 0; i != _res_node_num; ++i) {
                 _sum_supply += _supply[i];
             }
             if (_sum_supply > 0) return INFEASIBLE;
@@ -767,8 +749,8 @@ namespace lemon {
             const Value MAX = std::numeric_limits<Value>::max();
             int last_out;
             if (_has_lower) {
-                for (int i = 0; i != _root; ++i) {
-                    last_out = _first_out[i+1];
+                for (int i = 0; i != _res_node_num; ++i) {
+                    last_out = (i < _res_node_num-1)?_first_out[i+1]:_res_arc_num;
                     for (int j = _first_out[i]; j != last_out; ++j) {
                         if (_forward[j]) {
                             Value c = _scost[j] < 0 ? _upper[j] : _lower[j];
@@ -779,8 +761,8 @@ namespace lemon {
                     }
                 }
             } else {
-                for (int i = 0; i != _root; ++i) {
-                    last_out = _first_out[i+1];
+                for (int i = 0; i != _res_node_num; ++i) {
+                    last_out = (i < _res_node_num-1)?_first_out[i+1]:_res_arc_num;
                     for (int j = _first_out[i]; j != last_out; ++j) {
                         if (_forward[j] && _scost[j] < 0) {
                             Value c = _upper[j];
@@ -804,8 +786,8 @@ namespace lemon {
             // Initialize the large cost vector and the epsilon parameter
             _epsilon = 0;
             LargeCost lc;
-            for (int i = 0; i != _root; ++i) {
-                last_out = _first_out[i+1];
+            for (int i = 0; i != _res_node_num; ++i) {
+                last_out = (i < _res_node_num-1)?_first_out[i+1]:_res_arc_num;
                 for (int j = _first_out[i]; j != last_out; ++j) {
                     lc = static_cast<LargeCost>(_scost[j]) * _res_node_num * _alpha; //COST MODIFICATION
                     _cost[j] = lc;
@@ -854,13 +836,6 @@ namespace lemon {
                 _res_cap[_arc_idf[a]] = cap[a] - fa;
                 _res_cap[_arc_idb[a]] = fa;
             }
-            for (int a = _first_out[_root]; a != _res_arc_num; ++a) {
-                int ra = _reverse[a];
-                _res_cap[a] = 0;
-                _res_cap[ra] = 0;
-                _cost[a] = 0;
-                _cost[ra] = 0;
-            }
 
             return OPTIMAL;
         }
@@ -891,64 +866,12 @@ namespace lemon {
             for (int i = 0; i != _res_node_num; ++i) {
                 _pi[i] = static_cast<Cost>(_pi[i] / (_res_node_num * _alpha));
             }
-//            bool optimal = true;
-//            for (int i = 0; optimal && i != _res_node_num; ++i) {
-//                LargeCost pi_i = _pi[i];
-//                int last_out = _first_out[i+1];
-//                for (int j = _first_out[i]; j != last_out; ++j) {
-//                    if (_res_cap[j] > 0 && _scost[j] + pi_i - _pi[_target[j]] < 0) {
-//                        optimal = false;
-//                        break;
-//                    }
-//                }
-//            }
-//
-//            if (!optimal) {
-//                // Compute node potentials for the original costs with BellmanFord
-//                // (if it is necessary)
-//                typedef std::pair<int, int> IntPair;
-//                StaticDigraph sgr;
-//                std::vector<IntPair> arc_vec;
-//                std::vector<LargeCost> cost_vec;
-//                LargeCostArcMap cost_map(cost_vec);
-//
-//                arc_vec.clear();
-//                cost_vec.clear();
-//                for (int j = 0; j != _res_arc_num; ++j) {
-//                    if (_res_cap[j] > 0) {
-//                        int u = _source[j], v = _target[j];
-//                        arc_vec.push_back(IntPair(u, v));
-//                        cost_vec.push_back(_scost[j] + _pi[u] - _pi[v]);
-//                    }
-//                }
-//                sgr.build(_res_node_num, arc_vec.begin(), arc_vec.end());
-//
-//                typename BellmanFord<StaticDigraph, LargeCostArcMap>::Create
-//                        bf(sgr, cost_map);
-//                bf.init(0);
-//                bf.start();
-//
-//                for (int i = 0; i != _res_node_num; ++i) {
-//                    _pi[i] += bf.dist(sgr.node(i));
-//                }
-//            }
-//
-//            // Shift potentials to meet the requirements of the GEQ type
-//            // optimality conditions
-//            LargeCost max_pot = _pi[_root];
-//            for (int i = 0; i != _res_node_num; ++i) {
-//                if (_pi[i] > max_pot) max_pot = _pi[i];
-//            }
-//            if (max_pot != 0) {
-//                for (int i = 0; i != _res_node_num; ++i) {
-//                    _pi[i] -= max_pot;
-//                }
-//            }
+
+            //REMOVED OPTIMALITY BELLMAN_FORD CHECH HERE--------
 
             // Handle non-zero lower bounds
             if (_has_lower) {
-                int limit = _first_out[_root];
-                for (int j = 0; j != limit; ++j) {
+                for (int j = 0; j != _res_node_num; ++j) {
                     if (_forward[j]) _res_cap[_reverse[j]] += _lower[j];
                 }
             }
@@ -958,7 +881,7 @@ namespace lemon {
         void initPhase() {
             // Saturate arcs not satisfying the optimality condition
             for (int u = 0; u != _res_node_num; ++u) {
-                int last_out = _first_out[u+1];
+                int last_out = (u < _res_node_num-1)?_first_out[u+1]:_res_arc_num;
                 LargeCost pi_u = _pi[u];
                 for (int a = _first_out[u]; a != last_out; ++a) {
                     Value delta = _res_cap[a];
@@ -1028,7 +951,7 @@ namespace lemon {
                         int u;
                         LargeCost rc, min_red_cost = std::numeric_limits<LargeCost>::max();
                         LargeCost pi_tip = _pi[tip];
-                        int last_out = _first_out[tip+1];
+                        int last_out = (tip < _res_node_num-1)?_first_out[tip+1]:_res_arc_num;
                         for (int a = _next_out[tip]; a != last_out; ++a) {
                             if (_res_cap[a] > 0) {
                                 u = _target[a];
