@@ -43,7 +43,6 @@ int main(int argc, const char** argv) {
     int experiment_id;
     string input_graph;
     string log_filename;
-    uintT size;
     po::options_description desc("Allowed options");
     desc.add_options()
             ("help,h", "produce help message")
@@ -54,7 +53,6 @@ int main(int argc, const char** argv) {
                     "3 : Lemon Modified\n"
                     "4 : Simplified Cost Scaling (SCS)\n"
                     "5 : Original Lemon Cost Scaling\n")
-            ("size,s", po::value<uintT>(&size)->default_value(100), "size of generated graph")
             ("input,i", po::value<string>(&input_graph)->required(), "input graph")
             ("rounds,r", po::value<int>(&rounds)->default_value(1), "rounds for an experiment")
             ("log,l", po::value<string>(&log_filename)->required(), "log file for timings")
@@ -122,8 +120,8 @@ int main(int argc, const char** argv) {
     g.load_graph(input_graph, log_filename, experiment_id);
     g.init_neighbors();
 
-    for (int current_round = 0; current_round < rounds; current_round++ ) {
-        cout << "== Round " << current_round << "/" << rounds << endl;
+    for (int current_round = 1; current_round <= rounds; current_round++ ) {
+        cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
         switch(algorithm) {
             case 0:
                 //prepare graph

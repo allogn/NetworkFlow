@@ -211,22 +211,26 @@ void Graph::load_graph(string filename, string log_filename, int experiment_id) 
 
     //parse comments in the beginning of the file with parameters of data
     string line;
-    while (infile >> line) {
+    int commentLines = 0;
+    string parameter,value;
+    while (infile >> line >> parameter >> value) {
         if (line[0] != '#') {
             infile.close();
             infile.open(filename);
             break;
         }
-        char parameter[1000];
-        char value[1000];
-        sscanf(line.c_str(),"# %s %s",parameter,value);
+        commentLines++;
         if (log_filename != "") log << experiment_id << "," << parameter << "," << value << "\n";
     };
 
     clear_graph();
+    for (int i = 0; i<commentLines; i++) infile >> line >> parameter >> value; //skip comments
     infile >> n >> m;
+
     if (log_filename != "") log << experiment_id << ",Edges," << m << "\n";
     if (log_filename != "") log << experiment_id << ",Nodes," << n << "\n";
+    log.close();
+
     intT supply;
     for (uintT i = 0; i < n; i++) {
         infile >> supply;
