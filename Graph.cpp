@@ -207,7 +207,7 @@ void Graph::load_graph(string filename, string log_filename, int experiment_id) 
             exit(1);
         }
     }
-    ofstream log(log_filename);
+    ofstream log(log_filename, ios::app);
 
     //parse comments in the beginning of the file with parameters of data
     string line;

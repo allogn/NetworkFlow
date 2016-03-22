@@ -80,6 +80,7 @@ int main(int argc, const char** argv) {
     curtime=time.tv_sec;
     strftime(buffer,30,"%m-%d-%Y  %T.",localtime(&curtime));
     logf << experiment_id << "," << "DateTime" << "," << buffer << "\n";
+    logf << experiment_id << ",Input file," << input_graph << "\n";
 
     //save to log file algorithm name
     switch(algorithm) {
