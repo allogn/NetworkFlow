@@ -268,7 +268,7 @@ void CostScaling::runCostScaling() {
         refine();
         epsilon = epsilon / 2.;
     }
-    timer.finish("Total CostScaling", total);
+    timer.save_time("Total CostScaling", total);
 
     uintT self_totalcost = 0;
     for (uintT eid = 0; eid < g->m; eid++) {

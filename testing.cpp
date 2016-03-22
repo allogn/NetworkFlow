@@ -79,7 +79,7 @@ int main(int argc, const char** argv) {
 
         if (algorithm == 0 || algorithm == ALG_SIA) {
             g.clear_graph();
-            g.load_graph(path);
+            g.load_graph(path, "temp.log", 0);
             g.init_neighbors();
             g.sort_neighbors();
             SIA SIAsolv(&g);
@@ -92,7 +92,7 @@ int main(int argc, const char** argv) {
 
         if (algorithm == 0 || algorithm == ALG_COST_SCALING) {
             g.clear_graph();
-            g.load_graph(path);
+            g.load_graph(path, "temp.log", 0);
             g.init_neighbors();
             g.add_all();
             CostScaling CostScalingSolv(&g);
@@ -105,7 +105,7 @@ int main(int argc, const char** argv) {
 
         if (algorithm == 0 || algorithm == ALG_SCS) {
             g.clear_graph();
-            g.load_graph(path);
+            g.load_graph(path, "temp.log", 0);
             g.init_neighbors();
             g.add_all();
             SCS SCSsolv(g);
@@ -118,7 +118,7 @@ int main(int argc, const char** argv) {
 
         if (algorithm == 0 || algorithm == ALG_LEMON_MODIF) {
             g.clear_graph();
-            g.load_graph(path);
+            g.load_graph(path, "temp.log", 0);
             g.init_neighbors();
             g.add_all();
             lemon::ListDigraph _graph;

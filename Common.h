@@ -47,10 +47,11 @@ typedef unsigned int uintE;
 #define BASH_YELLOW "\033[1;33m"
 #define BASH_NC "\033[0m"
 
+#define newA(__E,__n) (__E*) malloc((__n)*sizeof(__E))
+
 typedef fHeap<intT> mmHeap;
 
 enum Algorithm {
-    ALG_ALL,
     ALG_SIA,
     ALG_COST_SCALING,
     ALG_LOCAL_DOMINANT,
@@ -77,5 +78,16 @@ enum ProblemType {
     /// these cases.
             UNBOUNDED
 };
+
+inline bool isSpace(char c) {
+    switch (c)  {
+        case '\r':
+        case '\t':
+        case '\n':
+        case 0:
+        case ' ' : return true;
+        default : return false;
+    }
+}
 
 #endif //NETWORKFLOW_COMMON_H

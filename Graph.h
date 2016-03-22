@@ -14,9 +14,12 @@
 #include <lemon/list_graph.h>
 #include <lemon/lgf_reader.h>
 #include <lemon/lgf_writer.h>
+#include <cstring>
 
 #include "Common.h"
 #include "parallel.h"
+#include "quickSort.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -83,7 +86,7 @@ public:
         // pointer to the next element for insertion to E_sub
         cursor.resize(n,0);
     };
-    void myqsort(std::vector<uintT>& edgelist, int start, int end)
+    void myqsort(std::vector<uintT>& edgelist, int start, int end) //TODO change to quicksort.h
     {
         if (start >= end) return;
 
@@ -132,8 +135,9 @@ public:
 
     void print_graph();
     void save_graph(string filename);
-    void load_graph(string filename);
+    void load_graph(string filename, string log_filename, int experiment_id);
     void load_lgf_graph(string filename);
+    void load_adj_graph(string filename);
     void save_graph_info(string filename, int experiment_id);
     void save_graph_blossom(string filname);
 
@@ -161,7 +165,82 @@ public:
         return true;
     }
 
-    // Unit Tests
+    /*
+     * Part of Ligra to read Adj
+     */
+    typedef pair<uintE,uintE> intPair;
+    template <class E>
+    struct pairFirstCmp {
+        bool operator() (pair<uintE,E> a, pair<uintE,E> b) {
+            return a.first < b.first; }
+    };
+    struct vertex {
+        uintE* inNeighbors, *outNeighbors;
+        uintT outDegree;
+        uintT inDegree;
+        void del() {free(inNeighbors); free(outNeighbors);}
+        vertex(uintE* iN, uintE* oN, uintT id, uintT od)
+        : inNeighbors(iN), outNeighbors(oN), inDegree(id), outDegree(od) {}
+        uintE getInNeighbor(uintT j) { return inNeighbors[j]; }
+        uintE getOutNeighbor(uintT j) { return outNeighbors[j]; }
+        void setInNeighbors(uintE* _i) { inNeighbors = _i; }
+        void setOutNeighbors(uintE* _i) { outNeighbors = _i; }
+        uintT getInDegree() { return inDegree; }
+        uintT getOutDegree() { return outDegree; }
+        void setInDegree(uintT _d) { inDegree = _d; }
+        void setOutDegree(uintT _d) { outDegree = _d; }
+        void flipEdges() { swap(inNeighbors,outNeighbors); swap(inDegree,outDegree); }
+    };
+    struct words {
+        long n; // total number of characters
+        char* Chars;  // array storing all strings
+        long m; // number of substrings
+        char** Strings; // pointers to strings (all should be null terminated)
+        words() {}
+        words(char* C, long nn, char** S, long mm)
+                : Chars(C), n(nn), Strings(S), m(mm) {}
+        void del() {free(Chars); free(Strings);}
+    };
+    _seq<char> readStringFromFile(char *fileName) {
+        ifstream file (fileName, ios::in | ios::binary | ios::ate);
+        if (!file.is_open()) {
+            std::cout << "Unable to open file: " << fileName << std::endl;
+            abort();
+        }
+        long end = file.tellg();
+        file.seekg (0, ios::beg);
+        long n = end - file.tellg();
+        char* bytes = newA(char,n+1);
+        file.read (bytes,n);
+        file.close();
+        return _seq<char>(bytes,n);
+    }
+    // parallel code for converting a string to words
+    words stringToWords(char *Str, long n) {
+        {parallel_for (long i=0; i < n; i++)
+                if (isSpace(Str[i])) Str[i] = 0; }
+
+        // mark start of words
+        bool *FL = newA(bool,n);
+        FL[0] = Str[0];
+        {parallel_for (long i=1; i < n; i++) FL[i] = Str[i] && !Str[i-1];}
+
+        // offset for each start of word
+        _seq<long> Off = sequence::packIndex<long>(FL, n);
+        long m = Off.n;
+        long *offsets = Off.A;
+
+        // pointer to each start of word
+        char **SA = newA(char*, m);
+        {parallel_for (long j=0; j < m; j++) SA[j] = Str+offsets[j];}
+
+        free(offsets); free(FL);
+        return words(Str,n,SA,m);
+    }
+
+    /*
+     * Unit Tests
+     */
     bool test_graph_structure();
     bool test_sorting();
     bool test_save_load();

@@ -167,6 +167,8 @@ bool Graph::test_sorting() {
 
 /*
  * My Graph Format: .gr
+ * # Parameter Value
+ * # Parameter2 1023
  * nodes edges
  * supply for nodeId1
  * supply for nodeId2
@@ -175,7 +177,7 @@ bool Graph::test_sorting() {
  */
 void Graph::save_graph(string filename) {
     cout << "Saving graph to " << filename << "..." << endl;
-    ofstream outf(filename);
+    ofstream outf(filename,ios::app); // appending because graph annotation and parameters can be before
 
     outf << n << " " << m << "\n";
     for (uintT i = 0; i < n; i++) {
@@ -187,18 +189,44 @@ void Graph::save_graph(string filename) {
     outf.close();
 }
 
-void Graph::load_graph(string filename) {
+void Graph::load_graph(string filename, string log_filename = "", int experiment_id = 0) {
     cout << "Loading graph from " << filename << "..." << endl;
-    ifstream infile(filename);
-
     if (FILE *file = fopen(filename.c_str(), "r")) {
         fclose(file);
     } else {
         cout << "File " << filename << " does not exist" << endl;
         exit(1);
     }
+    ifstream infile(filename);
+
+    if (log_filename != "") {
+        if (FILE *file = fopen(log_filename.c_str(), "r")) {
+            fclose(file);
+        } else {
+            cout << "File " << log_filename << " does not exist" << endl;
+            exit(1);
+        }
+    }
+    ofstream log(filename);
+
+    //parse comments in the beginning of the file with parameters of data
+    string line;
+    while (infile >> line) {
+        if (line[0] != '#') {
+            infile.close();
+            infile.open(filename);
+            break;
+        }
+        char parameter[1000];
+        char value[1000];
+        sscanf(line.c_str(),"# %s %s",parameter,value);
+        if (log_filename != "") log << experiment_id << "," << parameter << "," << value << "\n";
+    };
+
     clear_graph();
     infile >> n >> m;
+    if (log_filename != "") log << experiment_id << ",Edges," << m << "\n";
+    if (log_filename != "") log << experiment_id << ",Nodes," << n << "\n";
     intT supply;
     for (uintT i = 0; i < n; i++) {
         infile >> supply;
@@ -221,7 +249,7 @@ bool Graph::test_save_load() {
 
     string fname = "test_save_load.gr";
     save_graph(fname);
-    load_graph(fname);
+    load_graph(fname, "test.log", 0);
     assert(g == *this);
     return true;
 }
@@ -272,4 +300,104 @@ void Graph::load_lgf_graph(string filename) {
 //    for (ListDigraph::ArcIt it(g); it != INVALID; ++it) {
 //        lower[it] = 0;
 //    }
+}
+
+void Graph::load_adj_graph(string filename) {
+    char fname[1000];
+    strcpy(fname, filename.c_str());
+
+    _seq<char> S = readStringFromFile(fname);
+    words W = stringToWords(S.A, S.n);
+    if (W.Strings[0] != (string) "AdjacencyGraph") {
+        cout << "Bad input file" << endl;
+        abort();
+    }
+
+    long len = W.m -1;
+    long n = atol(W.Strings[1]);
+    long m = atol(W.Strings[2]);
+    if (len != n + m + 2) {
+        cout << "Bad input file" << endl;
+        abort();
+    }
+
+    uintT* offsets = newA(uintT,n);
+    uintE* edges = newA(uintE,m);
+
+    /*
+     * an array of edges contain two elements per edge: neighbor and id of extra info
+     * in the array of ei;
+     */
+
+    {parallel_for(long i=0; i < n; i++) offsets[i] = atol(W.Strings[i + 3]);}
+    {parallel_for(long i=0; i<m; i++) {
+            edges[i] = atol(W.Strings[i+n+3]);
+        }}
+    //W.del(); // to deal with performance bug in malloc
+
+    vertex* v = newA(vertex,n);
+
+    {parallel_for (uintT i=0; i < n; i++) {
+            uintT o = offsets[i];
+            uintT l = ((i == n-1) ? m : offsets[i+1])-offsets[i];
+            v[i].setOutDegree(l);
+            v[i].setOutNeighbors(edges+o);
+        }}
+
+    uintT* tOffsets = newA(uintT,n);
+    {parallel_for(long i=0;i<n;i++) tOffsets[i] = INT_T_MAX;}
+    uintE* inEdges = newA(uintE,m);
+    intPair* temp = newA(intPair,m);
+    {parallel_for(long i=0;i<n;i++){
+            uintT o = offsets[i];
+            for(uintT j=0;j<v[i].getOutDegree();j++){
+                temp[o+j] = make_pair(v[i].getOutNeighbor(j),i);
+            }
+        }}
+    free(offsets);
+
+    quickSort(temp,m,pairFirstCmp<uintE>());
+
+    tOffsets[temp[0].first] = 0;
+    inEdges[0] = temp[0].second;
+    {parallel_for(long i=1;i<m;i++) {
+            inEdges[i] = temp[i].second;
+            if(temp[i].first != temp[i-1].first) {
+                tOffsets[temp[i].first] = i;
+            }
+        }}
+
+    free(temp);
+
+    //fill in offsets of degree 0 vertices by taking closest non-zero
+    //offset to the right
+    sequence::scanIBack(tOffsets,tOffsets,n,minF<uintT>(),(uintT)m);
+
+    {parallel_for(long i=0;i<n;i++){
+            uintT o = tOffsets[i];
+            uintT l = ((i == n-1) ? m : tOffsets[i+1])-tOffsets[i];
+            v[i].setInDegree(l);
+            v[i].setInNeighbors(inEdges+o);
+        }}
+
+    free(tOffsets);
+
+    //now graph is loaded, structured according to Ligra
+    //copying to internal structure
+    this->n = n;
+    this->m = m;
+    long eid = 0;
+    for (long i = 0; i < n; i++) {
+        this->V.push_back(Vertex(i,0));
+        for (long j = 0; j < v[i].outDegree; j++) {
+            Edge e(eid++);
+            e.fromid = i;
+            e.toid = v[i].getOutNeighbor(j);
+            e.capacity = 1;
+            e.lower = 0;
+            e.weight = 1;
+            this->E.push_back(e);
+
+        }
+    }
 }

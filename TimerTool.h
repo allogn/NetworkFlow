@@ -22,13 +22,14 @@
 #include <unordered_map>
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 using namespace std;
 
 class Timer
 {
 public:
-    unordered_map<string, double> timings;
+    unordered_map<string, vector<double>> timings;
 
     static Timer *instance;
     static double getTime()
@@ -72,26 +73,46 @@ public:
         if(instance!=NULL) delete instance;
     }
 
-    // create double value outside the class to avoid search in unordered_map
-    void save_time(string name, double time) {
-        if (timings.find(name) != timings.end()) {
-            cout << "Error: Double timing value for " << name << endl;
-            exit(1);
+    void save_time(string title, double start_time) {
+        double curtime = this->getTime();
+
+        std::unordered_map<std::string,vector<double>>::iterator got = timings.find(title);
+        if (got == timings.end()) {
+            vector<double> list;
+            list.push_back(curtime - start_time);
+            timings.insert({title, list});
+        } else {
+            timings[title].push_back(curtime - start_time);
         }
-        timings.insert({name,time});
     }
 
-    void save_all_timings(string& filename, int experiment_id) {
+    void output(string filename, int experiment_id) {
         ofstream outf(filename,ios::app);
 
-        for ( const auto& n : timings ) {
-            outf << experiment_id << "," << n.first << "," << n.second << "\n";
+        for ( auto& n : timings ) {
+            vector<double>& curtimes = n.second;
+            double sum = 0;
+            for (vector<double>::iterator it = curtimes.begin(); it != curtimes.end(); ++it) {
+                sum += *it;
+            }
+            sum /= curtimes.size();
+            outf << experiment_id << "," << n.first << "," << sum << "\n";
         }
     }
 
-    inline void finish(string title, double start_time) {
-        double curtime = this->getTime();
-        timings.insert({title, curtime - start_time});
+    double get_av_time(string title) {
+        std::unordered_map<std::string,vector<double>>::iterator got = timings.find(title);
+        if (got == timings.end()) {
+            cout << "Error: no title " << title << " is found in the timer" << endl;
+            exit(1);
+        }
+        vector<double>& curtimes = timings[title];
+        double sum = 0;
+        for (vector<double>::iterator it = curtimes.begin(); it != curtimes.end(); ++it) {
+            sum += *it;
+        }
+        sum /= curtimes.size();
+        return sum;
     }
 };
 

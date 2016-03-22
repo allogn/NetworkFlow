@@ -18,7 +18,8 @@ namespace po = boost::program_options;
 
 int main(int argc, const char** argv) {
     std::cout << "Network Flows (c) Alvis Logins 2016" << std::endl;
-
+    Timer timer;
+    double totalRunningTime = timer.getTime();
 
     // check for parallelism
     // should be enabled at least for fast graph generation
@@ -42,23 +43,24 @@ int main(int argc, const char** argv) {
     int rounds;
     int experiment_id;
     string input_graph;
+    string log_filename;
     uintT size;
     po::options_description desc("Allowed options");
     desc.add_options()
             ("help,h", "produce help message")
             ("algorithm,a", po::value<int>(&algorithm)->default_value(1),
-                    "0 : ALL\n"
-                    "1 : SIA\n"
-                    "2 : CostScaling\n"
-                    "3 : LocalDominant\n"
-                    "4 : Lemon Modified\n"
-                    "5 : Simplified Cost Scaling (SCS)\n"
-                    "6 : Original Lemon Cost Scaling\n")
+                    "0 : SIA\n"
+                    "1 : CostScaling\n"
+                    "2 : LocalDominant\n"
+                    "3 : Lemon Modified\n"
+                    "4 : Simplified Cost Scaling (SCS)\n"
+                    "5 : Original Lemon Cost Scaling\n")
             ("graph,g", po::value<int>(&graph_type)->default_value(0),"graph type 0:bipartite")
             ("output,o", po::value<string>(), "save generated graph")
             ("size,s", po::value<uintT>(&size)->default_value(100), "size of generated graph")
             ("input,i", po::value<string>(&input_graph)->required(), "input graph")
-            ("rounds,r", po::value<int>(&rounds)->default_value(0), "rounds for an experiment, 0th round for init")
+            ("rounds,r", po::value<int>(&rounds)->default_value(1), "rounds for an experiment")
+            ("log,l", po::value<string>(&log_filename)->required(), "log file for timings")
             ;
 
     po::variables_map vm;
@@ -86,11 +88,42 @@ int main(int argc, const char** argv) {
 
     Graph g;
 
-    g.load_graph(input_graph);
+    g.load_graph(input_graph, log_filename, experiment_id);
     g.init_neighbors();
 
-    for (int current_round = 0; current_round < rounds + 1; current_round++ ) {
-        cout << "== Round " << current_round+1 << "/" << rounds+1 << endl;
+    ofstream logf(log_filename, ios::app);
+
+    //get time
+    time_t rawtime;
+    struct tm * timeinfo;
+
+    timeinfo = localtime ( &rawtime );
+    logf << experiment_id << "," << "DateTime" << "," << asctime (timeinfo) << "\n";
+
+    //save to log file algorithm name
+    switch(algorithm) {
+        case ALG_LEMON_MODIF:
+            logf << experiment_id << ",Algorithm,Modified Lemon CostScaling" << "\n";
+            break;
+        case ALG_SCS:
+            logf << experiment_id << ",Algorithm,Simplified CostScaling" << "\n";
+            break;
+        case ALG_SIA:
+            logf << experiment_id << ",Algorithm,SIA" << "\n";
+            break;
+        case ALG_LEMON_ORIG:
+            logf << experiment_id << ",Algorithm,Lemon CostScaling" << "\n";
+            break;
+        case ALG_LOCAL_DOMINANT:
+            logf << experiment_id << ",Algorithm,Local Dominant" << "\n";
+            break;
+        default:
+            cout << "Error: No such algorithm" << endl;
+            exit(1);
+    }
+
+    for (int current_round = 0; current_round < rounds; current_round++ ) {
+        cout << "== Round " << current_round << "/" << rounds << endl;
         switch(algorithm) {
             case 1:
                 //prepare graph
@@ -122,7 +155,7 @@ int main(int argc, const char** argv) {
             case 4:
                 g.add_all();
                 {
-                    Timer timer;
+                    Timer algtimer;
                     lemon::ListDigraph _graph;
 
                     lemon::ListDigraph::ArcMap<int> weight(_graph);
@@ -152,9 +185,10 @@ int main(int argc, const char** argv) {
                     cost_scaling.supplyMap(supply);
                     double total = timer.getTime();
                     cost_scaling.run();
-                    timer.save_time("Total Modified Lemon CostScaling", total);
+                    algtimer.save_time("Total time", total);
                     cout << "Total Cost of Modified Lemon CostScaling: " << cost_scaling.totalCost() << endl;
-                    cout << "Total Time of Modified Lemon CostScaling: " << timer.timings.at("Total Modified Lemon CostScaling") << endl;
+                    cout << "Total Time of Modified Lemon CostScaling: " << algtimer.timings["Total time"].back() << endl;
+                    algtimer.output(log_filename, experiment_id);
                 }
                 break;
             case 5:
@@ -168,7 +202,7 @@ int main(int argc, const char** argv) {
             case 6:
                 g.add_all();
                 {
-                    Timer timer;
+                    Timer algtimer;
                     lemon::ListDigraph _graph;
 
                     lemon::ListDigraph::ArcMap<int> weight(_graph);
@@ -198,9 +232,10 @@ int main(int argc, const char** argv) {
                     cost_scaling.supplyMap(supply);
                     double total = timer.getTime();
                     cost_scaling.run();
-                    timer.save_time("Total Original Lemon CostScaling", total);
-                    cout << "Total Cost of Original Lemon CostScaling: " << cost_scaling.totalCost() << endl;
-                    cout << "Total Time of Original Lemon CostScaling: " << timer.timings.at("Total Original Lemon CostScaling") << endl;
+                    algtimer.save_time("Total time", total);
+                    cout << "Total Cost of Modified Lemon CostScaling: " << cost_scaling.totalCost() << endl;
+                    cout << "Total Time of Modified Lemon CostScaling: " << algtimer.timings["Total time"].back() << endl;
+                    algtimer.output(log_filename, experiment_id);
                 }
                 break;
             default:
@@ -209,6 +244,8 @@ int main(int argc, const char** argv) {
         }
     }
 
+    timer.save_time("Total execution time", totalRunningTime);
+    timer.output(log_filename, experiment_id);
     cout << "Done." << endl;
     return 0;
 }

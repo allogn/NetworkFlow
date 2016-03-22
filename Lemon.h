@@ -825,17 +825,17 @@ namespace lemon {
             }
 
             // Find a feasible flow using Circulation
-            Circulation<Digraph, ConstMap<Arc, Value>, ValueArcMap, ValueNodeMap>
-                    circ(_graph, low, cap, sup);
-            if (!circ.flowMap(flow).run()) return INFEASIBLE;
-
-            // Set residual capacities and handle GEQ supply type
-            assert(_sum_supply == 0);
-            for (ArcIt a(_graph); a != INVALID; ++a) {
-                Value fa = flow[a];
-                _res_cap[_arc_idf[a]] = cap[a] - fa;
-                _res_cap[_arc_idb[a]] = fa;
-            }
+//            Circulation<Digraph, ConstMap<Arc, Value>, ValueArcMap, ValueNodeMap>
+//                    circ(_graph, low, cap, sup);
+//            if (!circ.flowMap(flow).run()) return INFEASIBLE;
+//
+//            // Set residual capacities and handle GEQ supply type
+//            assert(_sum_supply == 0);
+//            for (ArcIt a(_graph); a != INVALID; ++a) {
+//                Value fa = flow[a];
+//                _res_cap[_arc_idf[a]] = cap[a] - fa;
+//                _res_cap[_arc_idb[a]] = fa;
+//            }
 
             return OPTIMAL;
         }

@@ -14,10 +14,12 @@ set(gtest_SOURCE_DIR /media/alvis/Data/MasterThesis/NetworkFlow/lib/googletest/g
 include_directories(${Boost_INCLUDE_DIRS})
 
 set(SOURCE_FILES Graph.cpp Graph.h Common.h parallel.h SIA.cpp SIA.h TimerTool.cpp TimerTool.h
-        CostScaling.cpp CostScaling.h NodeList.h LocalDominant.cpp LocalDominant.h Lemon.h SCS.cpp SCS.h)
+        CostScaling.cpp CostScaling.h NodeList.h LocalDominant.cpp LocalDominant.h Lemon.h SCS.cpp SCS.h
+        quickSort.h utils.h)
 add_executable(NetworkFlows main.cpp ${SOURCE_FILES})
 add_executable(Testing testing.cpp ${SOURCE_FILES})
 add_executable(Generator generator.cpp ${SOURCE_FILES})
+add_executable(AdjToGr adjToGr.cpp ${SOURCE_FILES})
 
 target_link_libraries(NetworkFlows ${Boost_LIBRARIES})
 target_link_libraries(Generator ${Boost_LIBRARIES})

@@ -32,8 +32,8 @@ int main(int argc, const char** argv) {
             ("nodes,n", po::value<uintT>(&n)->required(), "number of nodes")
             ("edges,m", po::value<uintT>(&m), "number of edges (default: clique)")
             ("distr,d", po::value<int>(&distr)->default_value(0), "type of distribution for weights (0:u,1:g,2:e)")
-            ("minweight,l", po::value<uintT>(&min_weight)->default_value(0), "parameter1 for distribution")
-            ("maxweight,u", po::value<uintT>(&max_weight)->default_value(1000), "parameter2 for distribution");
+            ("par1,l", po::value<uintT>(&min_weight)->default_value(0), "parameter1 for distribution")
+            ("par2,u", po::value<uintT>(&max_weight)->default_value(1000), "parameter2 for distribution");
 
     po::variables_map vm;
     po::store(po::parse_command_line(argc, argv, desc), vm);
@@ -47,6 +47,23 @@ int main(int argc, const char** argv) {
     Graph g;
     switch(graph_type) {
         case 0:
+            ofstream grfile(outf);
+            grfile << "# Type FullBipartite\n";
+            switch(distr) {
+                case 0:
+                    grfile << "# Distribution Uniform\n";
+                    grfile << "# MinCost " << min_weight << "\n";
+                    grfile << "# MaxCost " << max_weight << "\n";
+                    break;
+                case 1:
+                    grfile << "# Distribution Gaussian\n";
+                    grfile << "# Mean " << min_weight << "\n";
+                    grfile << "# Std " << max_weight << "\n";
+                    break;
+                case 2:
+                    grfile << "# Distribution Exponential\n";
+                    grfile << "# Lambda " << min_weight << "\n";
+            }
             g.generate_full_bipartite_graph(n, min_weight, max_weight, distr);
             break;
     }
