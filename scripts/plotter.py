@@ -44,6 +44,8 @@ exp = np.array(db['expID'],dtype=int)
 print(len(params),"objects in DB")
 for cond in where_list:
     q = np.logical_and(params == cond[0],values == cond[1])
+    expIDs = np.unique(exp[q])
+    q = np.in1d(exp,expIDs)
     params = params[q]
     values = values[q]
     exp = exp[q]
@@ -74,16 +76,16 @@ for var in vars:
         # assuming they go together
         x = np.array(values[np.logical_and(params == x_name, q)], dtype=float)
         y = np.array(values[np.logical_and(params == y_name, q)], dtype=float)
+        argx = np.argsort(x)
+        x = x[argx]
+        y = y[argx]
+        if len(x) != len(y):
+            print("Wrong input data: x and y sizes differ for",var)
+            exit()
         y_split = np.split(y, np.where(np.diff(x))[0]+1)
         x_split = np.unique(x)
         y_mean = np.mean(y_split, 1)
         y_std = np.std(y_split, 1)
-        print(x_split)
-        print(y_mean)
-        print(y_std)
-        if len(x) != len(y):
-            print("Wrong input data: x and y sizes differ for",var)
-            exit()
         if i >= len(styles):
             print("Provide more styles")
             exit()
