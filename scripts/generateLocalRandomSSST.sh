@@ -11,7 +11,7 @@ SIZE=16
 #14: 131 072
 #17: 1M (2^20)
 
-for mult in {1..7..1};
+for mult in {1..10..1};
 do
 	for i in $(seq 1 5);
 	do
