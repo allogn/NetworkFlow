@@ -245,7 +245,7 @@ namespace lemon {
         // Parameters of the problem
         bool _has_lower;
         Value _sum_supply;
-        int _sup_node_num;
+//        int _sup_node_num;
 
         // Data structures for storing the digraph
         IntNodeMap _node_id;
@@ -773,15 +773,15 @@ namespace lemon {
                     }
                 }
             }
-            Value ex, max_cap = 0;
-            for (int i = 0; i != _res_node_num; ++i) {
-                ex = _excess[i];
-                _excess[i] = 0;
-                if (ex < 0) max_cap -= ex;
-            }
-            for (int j = 0; j != _res_arc_num; ++j) {
-                if (_upper[j] >= MAX) _upper[j] = max_cap;
-            }
+//            Value ex, max_cap = 0;
+//            for (int i = 0; i != _res_node_num; ++i) {
+//                ex = _excess[i];
+//                _excess[i] = 0;
+//                if (ex < 0) max_cap -= ex;
+//            }
+//            for (int j = 0; j != _res_arc_num; ++j) {
+//                if (_upper[j] >= MAX) _upper[j] = max_cap;
+//            }
 
             // Initialize the large cost vector and the epsilon parameter
             _epsilon = 0;
@@ -797,44 +797,51 @@ namespace lemon {
             _epsilon /= _alpha;
 
             // Initialize maps for Circulation and remove non-zero lower bounds
-            ConstMap<Arc, Value> low(0);
-            typedef typename Digraph::template ArcMap<Value> ValueArcMap;
-            typedef typename Digraph::template NodeMap<Value> ValueNodeMap;
-            ValueArcMap cap(_graph), flow(_graph);
-            ValueNodeMap sup(_graph);
-            for (NodeIt n(_graph); n != INVALID; ++n) {
-                sup[n] = _supply[_node_id[n]];
-            }
-            if (_has_lower) {
-                for (ArcIt a(_graph); a != INVALID; ++a) {
-                    int j = _arc_idf[a];
-                    Value c = _lower[j];
-                    cap[a] = _upper[j] - c;
-                    sup[_graph.source(a)] -= c;
-                    sup[_graph.target(a)] += c;
-                }
-            } else {
-                for (ArcIt a(_graph); a != INVALID; ++a) {
-                    cap[a] = _upper[_arc_idf[a]];
-                }
-            }
+//            ConstMap<Arc, Value> low(0);
+//            typedef typename Digraph::template ArcMap<Value> ValueArcMap;
+//            typedef typename Digraph::template NodeMap<Value> ValueNodeMap;
+//            ValueArcMap cap(_graph), flow(_graph);
+//            ValueNodeMap sup(_graph);
+//            for (NodeIt n(_graph); n != INVALID; ++n) {
+//                sup[n] = _supply[_node_id[n]];
+//            }
+//            if (_has_lower) {
+//                for (ArcIt a(_graph); a != INVALID; ++a) {
+//                    int j = _arc_idf[a];
+//                    Value c = _lower[j];
+//                    cap[a] = _upper[j] - c;
+//                    sup[_graph.source(a)] -= c;
+//                    sup[_graph.target(a)] += c;
+//                }
+//            } else {
+//                for (ArcIt a(_graph); a != INVALID; ++a) {
+//                    cap[a] = _upper[_arc_idf[a]];
+//                }
+//            }
+            //TODO no any lower values supported now
 
-            _sup_node_num = 0;
-            for (NodeIt n(_graph); n != INVALID; ++n) {
-                if (sup[n] > 0) ++_sup_node_num;
-            }
+//            _sup_node_num = 0;
+//            for (NodeIt n(_graph); n != INVALID; ++n) {
+//                if (sup[n] > 0) ++_sup_node_num;
+//            }
 
             // Find a feasible flow using Circulation
-            Circulation<Digraph, ConstMap<Arc, Value>, ValueArcMap, ValueNodeMap>
-                    circ(_graph, low, cap, sup);
-            if (!circ.flowMap(flow).run()) return INFEASIBLE;
+//            Circulation<Digraph, ConstMap<Arc, Value>, ValueArcMap, ValueNodeMap>
+//                    circ(_graph, low, cap, sup);
+//            if (!circ.flowMap(flow).run()) return INFEASIBLE;
 
             // Set residual capacities and handle GEQ supply type
-            assert(_sum_supply == 0);
+//            assert(_sum_supply == 0);
+//            for (ArcIt a(_graph); a != INVALID; ++a) {
+//                Value fa = flow[a];
+//                _res_cap[_arc_idf[a]] = cap[a] - fa;
+//                _res_cap[_arc_idb[a]] = fa;
+//            }
+
+            // initialize _res_cap with supply value for each node with positive supply for arbitrary edge
             for (ArcIt a(_graph); a != INVALID; ++a) {
-                Value fa = flow[a];
-                _res_cap[_arc_idf[a]] = cap[a] - fa;
-                _res_cap[_arc_idb[a]] = fa;
+                _res_cap[_arc_idf[a]] = _upper[_arc_idf[a]];
+                _res_cap[_arc_idb[a]] = 0;
             }
 
             return OPTIMAL;
@@ -870,11 +877,11 @@ namespace lemon {
             //REMOVED OPTIMALITY BELLMAN_FORD CHECH HERE--------
 
             // Handle non-zero lower bounds
-            if (_has_lower) {
-                for (int j = 0; j != _res_node_num; ++j) {
-                    if (_forward[j]) _res_cap[_reverse[j]] += _lower[j];
-                }
-            }
+//            if (_has_lower) {
+//                for (int j = 0; j != _res_node_num; ++j) {
+//                    if (_forward[j]) _res_cap[_reverse[j]] += _lower[j];
+//                }
+//            }
         }
 
         // Initialize a cost scaling phase
@@ -911,11 +918,11 @@ namespace lemon {
         /// Execute the algorithm performing augment and relabel operations
         void startAugment(int max_length) {
             // Paramters for heuristics
-            const int PRICE_REFINEMENT_LIMIT = 2;
-            const double GLOBAL_UPDATE_FACTOR = 1.0;
-            const int global_update_skip = static_cast<int>(GLOBAL_UPDATE_FACTOR *
-                                                            (_res_node_num + _sup_node_num * _sup_node_num));
-            int next_global_update_limit = global_update_skip;
+//            const int PRICE_REFINEMENT_LIMIT = 2;
+//            const double GLOBAL_UPDATE_FACTOR = 1.0;
+//            const int global_update_skip = static_cast<int>(GLOBAL_UPDATE_FACTOR *
+//                                                            (_res_node_num + _sup_node_num * _sup_node_num));
+//            int next_global_update_limit = global_update_skip;
 
             // Perform cost scaling phases
             IntVector path;
@@ -1025,7 +1032,7 @@ namespace lemon {
                     // Global update heuristic
 //          if (relabel_cnt >= next_global_update_limit) {
 //            globalUpdate();
-                    next_global_update_limit += global_update_skip;
+//                    next_global_update_limit += global_update_skip;
 //          }
                 }
 
