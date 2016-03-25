@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 __author__ = 'alvis'
 from os.path import isfile
 import argparse
@@ -30,6 +32,13 @@ while True:
         break;
     new_value = input("EQ:")
     where_list.append([new_name,new_value])
+
+if x_name == "":
+    x_name = "Nodes"
+if y_name == "":
+    y_name = "Total time"
+if param == "":
+    param = "Algorithm"
 
 print("Your query: PLOT",y_name,"(",x_name,") FOR EACH",param,"WHERE")
 for cond in where_list:
@@ -74,14 +83,15 @@ for var in vars:
         print(len(expIDs),"objects for", var)
         q = np.in1d(exp,expIDs)
         # assuming they go together
+        # np.set_printoptions(threshold=np.nan)
         x = np.array(values[np.logical_and(params == x_name, q)], dtype=float)
         y = np.array(values[np.logical_and(params == y_name, q)], dtype=float)
+        if len(x) != len(y):
+            print("Wrong input data: x and y sizes differ for",var,":",len(x),"and",len(y))
+            exit()
         argx = np.argsort(x)
         x = x[argx]
         y = y[argx]
-        if len(x) != len(y):
-            print("Wrong input data: x and y sizes differ for",var)
-            exit()
         y_split = np.split(y, np.where(np.diff(x))[0]+1)
         x_split = np.unique(x)
         y_mean = np.mean(y_split, 1)

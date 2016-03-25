@@ -1,0 +1,21 @@
+1636801280,DateTime,03-25-2016  13:45:24.
+1636801280,Input file,../../data/bipartite/bi_full_32_1_100_uni_1.gr
+1636801280,Algorithm,Modified Lemon CostScaling
+1087152940,DateTime,03-25-2016  13:45:36.
+1087152940,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+1087152940,Algorithm,Modified Lemon CostScaling
+1087152940,Type,FullBipartite
+1087152940,Distribution,Uniform
+1087152940,MinCost,1
+1087152940,MaxCost,100
+1087152940,Edges,256
+1087152940,Nodes,32
+2137454832,DateTime,03-25-2016  13:47:48.
+2137454832,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+2137454832,Algorithm,Modified Lemon CostScaling
+2137454832,Type,FullBipartite
+2137454832,Distribution,Uniform
+2137454832,MinCost,1
+2137454832,MaxCost,100
+2137454832,Edges,256
+2137454832,Nodes,32
