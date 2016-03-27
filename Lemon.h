@@ -958,6 +958,7 @@ namespace lemon {
                         int u;
                         LargeCost rc, min_red_cost = std::numeric_limits<LargeCost>::max();
                         LargeCost pi_tip = _pi[tip];
+
                         int last_out = (tip < _res_node_num-1)?_first_out[tip+1]:_res_arc_num;
                         for (int a = _next_out[tip]; a != last_out; ++a) {
                             if (_res_cap[a] > 0) {
@@ -980,11 +981,11 @@ namespace lemon {
                         }
 
                         // Relabel tip node
-                        if (tip != start) {
-                            int ra = _reverse[path.back()];
-                            min_red_cost =
-                                    std::min(min_red_cost, _cost[ra] + pi_tip - _pi[_target[ra]]);
-                        }
+//                        if (tip != start) {
+//                            int ra = _reverse[path.back()];
+//                            min_red_cost =
+//                                    std::min(min_red_cost, _cost[ra] + pi_tip - _pi[_target[ra]]);
+//                        }
                         last_out = _next_out[tip];
                         for (int a = _first_out[tip]; a != last_out; ++a) {
                             if (_res_cap[a] > 0) {

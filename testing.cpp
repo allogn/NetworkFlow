@@ -105,7 +105,7 @@ int main(int argc, const char** argv) {
 
         if (algorithm == 0 || algorithm == ALG_SCS) {
             g.clear_graph();
-            g.load_graph(path, "temp.log", 0);
+            g.load_graph(path);
             g.init_neighbors();
             g.add_all();
             SCS SCSsolv(g);

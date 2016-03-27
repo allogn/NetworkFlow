@@ -16,7 +16,7 @@
 using namespace std;
 namespace po = boost::program_options;
 
-int main(int argc, const char** argv) {
+int main(int argc, const char **argv) {
     std::cout << "Network Flows (c) Alvis Logins 2016" << std::endl;
     Timer timer;
     double totalRunningTime = timer.getTime();
@@ -47,16 +47,15 @@ int main(int argc, const char** argv) {
     desc.add_options()
             ("help,h", "produce help message")
             ("algorithm,a", po::value<int>(&algorithm)->required(),
-                    "0 : SIA\n"
-                    "1 : CostScaling\n"
-                    "2 : LocalDominant\n"
-                    "3 : Lemon Modified\n"
-                    "4 : Simplified Cost Scaling (SCS)\n"
-                    "5 : Original Lemon Cost Scaling\n")
+             "0 : SIA\n"
+                     "1 : CostScaling\n"
+                     "2 : LocalDominant\n"
+                     "3 : Lemon Modified\n"
+                     "4 : Simplified Cost Scaling (SCS)\n"
+                     "5 : Original Lemon Cost Scaling\n")
             ("input,i", po::value<string>(&input_graph)->required(), "input graph")
             ("rounds,r", po::value<int>(&rounds)->default_value(1), "rounds for an experiment")
-            ("log,l", po::value<string>(&log_filename)->required(), "log file for timings")
-            ;
+            ("log,l", po::value<string>(&log_filename)->required(), "log file for timings");
 
     po::variables_map vm;
     po::store(po::parse_command_line(argc, argv, desc), vm);
@@ -68,7 +67,7 @@ int main(int argc, const char** argv) {
 
     //init experiment ID
     struct timeval time;
-    gettimeofday(&time,NULL);
+    gettimeofday(&time, NULL);
     srand((time.tv_sec * 1000) + (time.tv_usec / 1000));
     experiment_id = rand();
     cout << "Experiment ID " << experiment_id << endl;
@@ -77,13 +76,13 @@ int main(int argc, const char** argv) {
     ofstream logf(log_filename, ios::app);
     char buffer[30];
     time_t curtime;
-    curtime=time.tv_sec;
-    strftime(buffer,30,"%m-%d-%Y  %T.",localtime(&curtime));
+    curtime = time.tv_sec;
+    strftime(buffer, 30, "%m-%d-%Y  %T.", localtime(&curtime));
     logf << experiment_id << "," << "DateTime" << "," << buffer << "\n";
     logf << experiment_id << ",Input file," << input_graph << "\n";
 
     //save to log file algorithm name
-    switch(algorithm) {
+    switch (algorithm) {
         case ALG_LEMON_MODIF:
             logf << experiment_id << ",Algorithm,Modified Lemon CostScaling" << "\n";
             break;
@@ -120,134 +119,158 @@ int main(int argc, const char** argv) {
     Graph g;
     g.load_graph(input_graph, log_filename, experiment_id);
     g.init_neighbors();
+    double result_cost;
+    Timer algtimer;
+    switch (algorithm) {
+        case 0:
+            //prepare graph
+            g.sort_neighbors();
+            g.test_graph_structure();
+            g.test_sorting();
 
-    for (int current_round = 1; current_round <= rounds; current_round++ ) {
-        cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
-        switch(algorithm) {
-            case 0:
-                //prepare graph
-                g.sort_neighbors();
-                g.test_graph_structure();
-                g.test_sorting();
-                {
-                    SIA SIAsolv(&g);
-                    SIAsolv.runOSIA();
-                    cout << "Total cost of SIA: " << SIAsolv.totalCost << endl;
+            for (int current_round = 1; current_round <= rounds; current_round++) {
+                cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
+                SIA SIAsolv(&g);
+                SIAsolv.runOSIA();
+                cout << "Total cost of SIA: " << SIAsolv.totalCost << endl;
+            }
+            break;
+        case 1:
+            g.add_all();
+            for (int current_round = 1; current_round <= rounds; current_round++) {
+                cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
+                CostScaling CostScalingSolv(&g);
+                CostScalingSolv.runCostScaling();
+                cout << "Total cost of CostScaling: " << CostScalingSolv.totalCost << endl;
+            }
+            break;
+        case 2:
+            g.add_all();
+            for (int current_round = 1; current_round <= rounds; current_round++) {
+                cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
+                LocalDominant LocalDominantSolv(&g);
+                LocalDominantSolv.runLocalDominant();
+                cout << "Total cost of LocalDominant: " << LocalDominantSolv.totalCost << endl;
+            }
+            break;
+        case 3:
+            g.add_all();
+            for (int current_round = 1; current_round <= rounds; current_round++) {
+                cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
+                lemon::ListDigraph _graph;
+
+                lemon::ListDigraph::ArcMap<int> weight(_graph);
+                lemon::ListDigraph::ArcMap<int> flow(_graph);
+                lemon::ListDigraph::ArcMap<int> cap(_graph);
+                lemon::ListDigraph::ArcMap<int> lower(_graph);
+                lemon::ListDigraph::NodeMap<int> supply(_graph);
+
+                lemon::ListDigraph::Node *nodes;
+                nodes = (lemon::ListDigraph::Node *) malloc(sizeof(lemon::ListDigraph::Node) * g.n);
+                for (int i = g.n-1; i >=0; i--) {//inverse because ids in lemon for some reason assigned inversed
+                    nodes[i] = _graph.addNode();
+                    supply[nodes[i]] = g.V[i].supply;
                 }
-                break;
-            case 1:
-                g.add_all();
-                {
-                    CostScaling CostScalingSolv(&g);
-                    CostScalingSolv.runCostScaling();
-                    cout << "Total cost of CostScaling: " << CostScalingSolv.totalCost << endl;
+
+                for (int i = g.m-1; i >= 0; i--) {
+                    lemon::ListDigraph::Arc e = _graph.addArc(nodes[g.E[i].fromid], nodes[g.E[i].toid]);
+                    weight[e] = g.E[i].weight;
+                    cap[e] = g.E[i].capacity;
+                    lower[e] = g.E[i].lower;
                 }
-                break;
-            case 2:
-                g.add_all();
-                {
-                    LocalDominant LocalDominantSolv(&g);
-                    LocalDominantSolv.runLocalDominant();
-                    cout << "Total cost of LocalDominant: " << LocalDominantSolv.totalCost << endl;
+
+                lemon::ModifiedCostScaling<lemon::ListDigraph, int, int> cost_scaling(_graph);
+                cost_scaling.costMap(weight);
+                cost_scaling.upperMap(cap);
+                cost_scaling.lowerMap(lower);
+                cost_scaling.supplyMap(supply);
+                double total = timer.getTime();
+                cost_scaling.run();
+                algtimer.save_time("Total time", total);
+                cout << "Total Cost of Modified Lemon CostScaling: " << cost_scaling.totalCost() << endl;
+                cout << "Total Time of Modified Lemon CostScaling: " << algtimer.timings["Total time"].back() << endl;
+                if (current_round == 1)
+                    result_cost = cost_scaling.totalCost();
+                else
+                if (result_cost != cost_scaling.totalCost()) {
+                    cout << "Error: two rounds gave different results" << endl;
+                    exit(1);
                 }
-                break;
-            case 3:
-                g.add_all();
-                {
-                    Timer algtimer;
-                    lemon::ListDigraph _graph;
-
-                    lemon::ListDigraph::ArcMap<int> weight(_graph);
-                    lemon::ListDigraph::ArcMap<int> flow(_graph);
-                    lemon::ListDigraph::ArcMap<int> cap(_graph);
-                    lemon::ListDigraph::ArcMap<int> lower(_graph);
-                    lemon::ListDigraph::NodeMap<int> supply(_graph);
-
-                    lemon::ListDigraph::Node* nodes;
-                    nodes = (lemon::ListDigraph::Node*)malloc(sizeof(lemon::ListDigraph::Node)*g.n);
-                    for (int i = 0; i < g.n; i++) {
-                        nodes[i] = _graph.addNode();
-                        supply[nodes[i]] = g.V[i].supply;
-                    }
-
-                    for (uintT i = 0; i < g.m; i++) {
-                        lemon::ListDigraph::Arc e = _graph.addArc(nodes[g.E[i].fromid], nodes[g.E[i].toid]);
-                        weight[e] = g.E[i].weight;
-                        cap[e] = g.E[i].capacity;
-                        lower[e] = g.E[i].lower;
-                    }
-
-                    lemon::ModifiedCostScaling<lemon::ListDigraph,int,int> cost_scaling(_graph);
-                    cost_scaling.costMap(weight);
-                    cost_scaling.upperMap(cap);
-                    cost_scaling.lowerMap(lower);
-                    cost_scaling.supplyMap(supply);
-                    double total = timer.getTime();
-                    cost_scaling.run();
-                    algtimer.save_time("Total time", total);
-                    cout << "Total Cost of Modified Lemon CostScaling: " << cost_scaling.totalCost() << endl;
-                    cout << "Total Time of Modified Lemon CostScaling: " << algtimer.timings["Total time"].back() << endl;
-                    algtimer.output(log_filename, experiment_id);
-                    logf.open(log_filename, ios::app);
-                    logf << experiment_id << ",Total cost," << cost_scaling.totalCost() << "\n";
-                    logf.close();
-                }
-                break;
-            case 4:
-                g.add_all();
-                {
-                    SCS SCSsolv(g);
-                    SCSsolv.runSCS();
-                    cout << "Total cost of SCS: " << SCSsolv.totalCost << endl;
-                }
-                break;
-            case 5:
-                g.add_all();
-                {
-                    Timer algtimer;
-                    lemon::ListDigraph _graph;
-
-                    lemon::ListDigraph::ArcMap<int> weight(_graph);
-                    lemon::ListDigraph::ArcMap<int> flow(_graph);
-                    lemon::ListDigraph::ArcMap<int> cap(_graph);
-                    lemon::ListDigraph::ArcMap<int> lower(_graph);
-                    lemon::ListDigraph::NodeMap<int> supply(_graph);
-
-                    lemon::ListDigraph::Node* nodes;
-                    nodes = (lemon::ListDigraph::Node*)malloc(sizeof(lemon::ListDigraph::Node)*g.n);
-                    for (int i = 0; i < g.n; i++) {
-                        nodes[i] = _graph.addNode();
-                        supply[nodes[i]] = g.V[i].supply;
-                    }
-
-                    for (uintT i = 0; i < g.m; i++) {
-                        lemon::ListDigraph::Arc e = _graph.addArc(nodes[g.E[i].fromid], nodes[g.E[i].toid]);
-                        weight[e] = g.E[i].weight;
-                        cap[e] = g.E[i].capacity;
-                        lower[e] = g.E[i].lower;
-                    }
-
-                    lemon::CostScaling<lemon::ListDigraph,int,int> cost_scaling(_graph);
-                    cost_scaling.costMap(weight);
-                    cost_scaling.upperMap(cap);
-                    cost_scaling.lowerMap(lower);
-                    cost_scaling.supplyMap(supply);
-                    double total = timer.getTime();
-                    cost_scaling.run();
-                    algtimer.save_time("Total time", total);
-                    cout << "Total Cost of Lemon CostScaling: " << cost_scaling.totalCost() << endl;
-                    cout << "Total Time of Lemon CostScaling: " << algtimer.timings["Total time"].back() << endl;
-                    algtimer.output(log_filename, experiment_id);
-                    logf.open(log_filename, ios::app);
-                    logf << experiment_id << ",Total cost," << cost_scaling.totalCost() << "\n";
-                    logf.close();
-                }
-                break;
-            default:
-                cout << "Error: no such algorithm" << endl;
-                exit(1);
+            }
+            algtimer.output(log_filename, experiment_id);
+            logf.open(log_filename, ios::app);
+            logf << experiment_id << ",Total cost," << result_cost << "\n";
+            logf.close();
+            break;
+        case 4: {
+            SCS SCSsolv(g);
+            for (int current_round = 1; current_round <= rounds; current_round++) {
+                cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
+                SCSsolv._graph.add_all(); // reset E lists
+                SCSsolv.runSCS();
+                cout << "Total cost of SCS: " << SCSsolv.totalCost << endl;
+                cout << "Total time of SCS: " << SCSsolv.timer.get_last_time("Total time") << endl;
+            }
+            SCSsolv.timer.output(log_filename, experiment_id);
+            logf.open(log_filename, ios::app);
+            logf << experiment_id << ",Total cost," << SCSsolv.totalCost << "\n";
+            logf.close();
         }
+            break;
+        case 5:
+            g.add_all();
+            for (int current_round = 1; current_round <= rounds; current_round++) {
+                cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
+                lemon::ListDigraph _graph;
+
+                lemon::ListDigraph::ArcMap<int> weight(_graph);
+                lemon::ListDigraph::ArcMap<int> flow(_graph);
+                lemon::ListDigraph::ArcMap<int> cap(_graph);
+                lemon::ListDigraph::ArcMap<int> lower(_graph);
+                lemon::ListDigraph::NodeMap<int> supply(_graph);
+
+                lemon::ListDigraph::Node *nodes;
+                nodes = (lemon::ListDigraph::Node *) malloc(sizeof(lemon::ListDigraph::Node) * g.n);
+                for (int i = g.n-1; i >=0; i--) {
+                    nodes[i] = _graph.addNode();
+                    supply[nodes[i]] = g.V[i].supply;
+                }
+
+                for (uintT i = 0; i < g.m; i++) {
+                    lemon::ListDigraph::Arc e = _graph.addArc(nodes[g.E[i].fromid], nodes[g.E[i].toid]);
+                    weight[e] = g.E[i].weight;
+                    cap[e] = g.E[i].capacity;
+                    lower[e] = g.E[i].lower;
+                }
+
+                lemon::CostScaling<lemon::ListDigraph, int, int> cost_scaling(_graph);
+                cost_scaling.costMap(weight);
+                cost_scaling.upperMap(cap);
+                cost_scaling.lowerMap(lower);
+                cost_scaling.supplyMap(supply);
+                double total = timer.getTime();
+                cost_scaling.run();
+                algtimer.save_time("Total time", total);
+                cout << "Total Cost of Lemon CostScaling: " << cost_scaling.totalCost() << endl;
+                cout << "Total Time of Lemon CostScaling: " << algtimer.timings["Total time"].back() << endl;
+                if (current_round == 1)
+                    result_cost = cost_scaling.totalCost();
+                else
+                    if (result_cost != cost_scaling.totalCost()) {
+                        cout << "Error: two rounds gave different results" << endl;
+                        exit(1);
+                    }
+            }
+            algtimer.output(log_filename, experiment_id);
+            logf.open(log_filename, ios::app);
+            logf << experiment_id << ",Total cost," << result_cost << "\n";
+            logf.close();
+            break;
+        default:
+            cout << "Error: no such algorithm" << endl;
+            exit(1);
     }
+
 
     timer.save_time("Total execution time", totalRunningTime);
     timer.output(log_filename, experiment_id);

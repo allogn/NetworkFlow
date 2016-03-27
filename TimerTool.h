@@ -92,11 +92,16 @@ public:
         for ( auto& n : timings ) {
             vector<double>& curtimes = n.second;
             double sum = 0;
+            double max = -1;
+            double min = -1;
             for (vector<double>::iterator it = curtimes.begin(); it != curtimes.end(); ++it) {
                 sum += *it;
+                if (min == -1 || min > *it) min = *it;
+                if (max == -1 || max < *it) max = *it;
             }
             sum /= curtimes.size();
             outf << experiment_id << "," << n.first << "," << sum << "\n";
+            outf << experiment_id << "," << n.first << " error," << std::max<double>(max - sum, sum - min) << "\n";
         }
         outf.close();
     }
@@ -114,6 +119,16 @@ public:
         }
         sum /= curtimes.size();
         return sum;
+    }
+
+    double get_last_time(string title) {
+        std::unordered_map<std::string,vector<double>>::iterator got = timings.find(title);
+        if (got == timings.end()) {
+            cout << "Error: no title " << title << " is found in the timer" << endl;
+            exit(1);
+        }
+        vector<double>& curtimes = timings[title];
+        return curtimes.back();
     }
 };
 

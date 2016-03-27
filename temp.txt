@@ -19,3 +19,188 @@
 2137454832,MaxCost,100
 2137454832,Edges,256
 2137454832,Nodes,32
+145853351,DateTime,03-27-2016  13:05:40.
+145853351,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+145853351,Algorithm,Simplified CostScaling
+145853351,Type,FullBipartite
+145853351,Distribution,Uniform
+145853351,MinCost,1
+145853351,MaxCost,100
+145853351,Edges,256
+145853351,Nodes,32
+1414400184,DateTime,03-27-2016  13:34:30.
+1414400184,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+1414400184,Algorithm,Simplified CostScaling
+1414400184,Type,FullBipartite
+1414400184,Distribution,Uniform
+1414400184,MinCost,1
+1414400184,MaxCost,100
+1414400184,Edges,256
+1414400184,Nodes,32
+792116706,DateTime,03-27-2016  13:35:53.
+792116706,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+792116706,Algorithm,Simplified CostScaling
+792116706,Type,FullBipartite
+792116706,Distribution,Uniform
+792116706,MinCost,1
+792116706,MaxCost,100
+792116706,Edges,256
+792116706,Nodes,32
+442810414,DateTime,03-27-2016  13:42:24.
+442810414,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+442810414,Algorithm,Simplified CostScaling
+442810414,Type,FullBipartite
+442810414,Distribution,Uniform
+442810414,MinCost,1
+442810414,MaxCost,100
+442810414,Edges,256
+442810414,Nodes,32
+897615111,DateTime,03-27-2016  13:44:05.
+897615111,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+897615111,Algorithm,Simplified CostScaling
+897615111,Type,FullBipartite
+897615111,Distribution,Uniform
+897615111,MinCost,1
+897615111,MaxCost,100
+897615111,Edges,256
+897615111,Nodes,32
+548369318,DateTime,03-27-2016  14:05:34.
+548369318,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+548369318,Algorithm,Simplified CostScaling
+548369318,Type,FullBipartite
+548369318,Distribution,Uniform
+548369318,MinCost,1
+548369318,MaxCost,100
+548369318,Edges,256
+548369318,Nodes,32
+1637320891,DateTime,03-27-2016  14:06:04.
+1637320891,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+1637320891,Algorithm,Simplified CostScaling
+1637320891,Type,FullBipartite
+1637320891,Distribution,Uniform
+1637320891,MinCost,1
+1637320891,MaxCost,100
+1637320891,Edges,256
+1637320891,Nodes,32
+38102374,DateTime,03-27-2016  14:12:56.
+38102374,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+38102374,Algorithm,Simplified CostScaling
+38102374,Type,FullBipartite
+38102374,Distribution,Uniform
+38102374,MinCost,1
+38102374,MaxCost,100
+38102374,Edges,256
+38102374,Nodes,32
+1586251747,DateTime,03-27-2016  14:15:15.
+1586251747,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+1586251747,Algorithm,Simplified CostScaling
+1586251747,Type,FullBipartite
+1586251747,Distribution,Uniform
+1586251747,MinCost,1
+1586251747,MaxCost,100
+1586251747,Edges,256
+1586251747,Nodes,32
+397415124,DateTime,03-27-2016  14:15:53.
+397415124,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+397415124,Algorithm,Simplified CostScaling
+397415124,Type,FullBipartite
+397415124,Distribution,Uniform
+397415124,MinCost,1
+397415124,MaxCost,100
+397415124,Edges,256
+397415124,Nodes,32
+344561134,DateTime,03-27-2016  14:17:49.
+344561134,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+344561134,Algorithm,Simplified CostScaling
+344561134,Type,FullBipartite
+344561134,Distribution,Uniform
+344561134,MinCost,1
+344561134,MaxCost,100
+344561134,Edges,256
+344561134,Nodes,32
+1172559653,DateTime,03-27-2016  14:29:36.
+1172559653,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+1172559653,Algorithm,Simplified CostScaling
+1172559653,Type,FullBipartite
+1172559653,Distribution,Uniform
+1172559653,MinCost,1
+1172559653,MaxCost,100
+1172559653,Edges,256
+1172559653,Nodes,32
+151301249,DateTime,03-27-2016  14:30:02.
+151301249,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+151301249,Algorithm,Simplified CostScaling
+151301249,Type,FullBipartite
+151301249,Distribution,Uniform
+151301249,MinCost,1
+151301249,MaxCost,100
+151301249,Edges,256
+151301249,Nodes,32
+246669920,DateTime,03-27-2016  14:30:41.
+246669920,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+246669920,Algorithm,Simplified CostScaling
+246669920,Type,FullBipartite
+246669920,Distribution,Uniform
+246669920,MinCost,1
+246669920,MaxCost,100
+246669920,Edges,256
+246669920,Nodes,32
+246669920,Total execution time,0.0021121
+246669920,Total execution time error,0
+2095339754,DateTime,03-27-2016  15:26:00.
+2095339754,Input file,../data/bipartite/bi_full_32_1_100_uni_1.gr
+2095339754,Algorithm,Simplified CostScaling
+2095339754,Type,FullBipartite
+2095339754,Distribution,Uniform
+2095339754,MinCost,1
+2095339754,MaxCost,100
+2095339754,Edges,256
+2095339754,Nodes,32
+1108638306,DateTime,03-27-2016  15:26:36.
+1108638306,Input file,../data/bipartite/bi_full_16_1_100_uni_2.gr
+1108638306,Algorithm,Simplified CostScaling
+1108638306,Type,FullBipartite
+1108638306,Distribution,Uniform
+1108638306,MinCost,1
+1108638306,MaxCost,100
+1108638306,Edges,64
+1108638306,Nodes,16
+1481738457,DateTime,03-27-2016  15:38:17.
+1481738457,Input file,../data/bipartite/bi_full_16_1_100_uni_2.gr
+1481738457,Algorithm,Simplified CostScaling
+1481738457,Type,FullBipartite
+1481738457,Distribution,Uniform
+1481738457,MinCost,1
+1481738457,MaxCost,100
+1481738457,Edges,64
+1481738457,Nodes,16
+1481738457,Total cost,103
+1481738457,Total execution time,0.00355779
+1481738457,Total execution time error,0
+1349960292,DateTime,03-27-2016  15:38:28.
+1349960292,Input file,../data/bipartite/bi_full_16_1_100_uni_2.gr
+1349960292,Algorithm,Modified Lemon CostScaling
+1349960292,Type,FullBipartite
+1349960292,Distribution,Uniform
+1349960292,MinCost,1
+1349960292,MaxCost,100
+1349960292,Edges,64
+1349960292,Nodes,16
+328663897,DateTime,03-27-2016  15:40:03.
+328663897,Input file,../data/bipartite/bi_full_16_1_100_uni_2.gr
+328663897,Algorithm,Modified Lemon CostScaling
+328663897,Type,FullBipartite
+328663897,Distribution,Uniform
+328663897,MinCost,1
+328663897,MaxCost,100
+328663897,Edges,64
+328663897,Nodes,16
+1062321601,DateTime,03-27-2016  15:41:48.
+1062321601,Input file,../data/bipartite/bi_full_16_1_100_uni_2.gr
+1062321601,Algorithm,Modified Lemon CostScaling
+1062321601,Type,FullBipartite
+1062321601,Distribution,Uniform
+1062321601,MinCost,1
+1062321601,MaxCost,100
+1062321601,Edges,64
+1062321601,Nodes,16

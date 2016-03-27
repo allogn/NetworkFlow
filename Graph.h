@@ -118,6 +118,10 @@ public:
     }
     void add_all() {
         cout << "Adding all edges to the edge lists of nodes..." << endl;
+        //clear first
+        for (uintT i = 0; i < n; i++) {
+            V[i].E.clear();
+        }
         for (uintT i = 0; i < m; i++) {
             V[E[i].fromid].E.push_back(i);
         }
