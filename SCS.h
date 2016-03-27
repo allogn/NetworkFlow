@@ -150,7 +150,14 @@ public:
                 j++;
             }
         }
-        _has_lower = true;
+        _has_lower = false;
+
+        for (int eid = 0; eid < _graph.m; eid++) {
+            int fi = _arc_idf[eid];
+            int bi = _arc_idb[eid];
+            _reverse[fi] = bi;
+            _reverse[bi] = fi;
+        }
 
         return *this;
     }
@@ -301,7 +308,7 @@ public:
         totalCost = 0;
         for (uintT a = 0; a < _graph.m; a++) {
             int i = _arc_idb[a];
-            totalCost += _res_cap[i] * _scost[i];
+            totalCost += _res_cap[i] * _scost[a];
         }
     }
 

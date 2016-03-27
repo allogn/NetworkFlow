@@ -367,3 +367,66 @@
 1765984732,MaxCost,100
 1765984732,Edges,64
 1765984732,Nodes,16
+1400831356,DateTime,03-27-2016  19:23:45.
+1400831356,Input file,../data/bipartite/bi_full_16_1_100_uni_2.gr
+1400831356,Algorithm,Simplified CostScaling
+1400831356,Type,FullBipartite
+1400831356,Distribution,Uniform
+1400831356,MinCost,1
+1400831356,MaxCost,100
+1400831356,Edges,64
+1400831356,Nodes,16
+1079170871,DateTime,03-27-2016  19:31:15.
+1079170871,Input file,../data/bipartite/bi_full_16_1_100_uni_2.gr
+1079170871,Algorithm,Simplified CostScaling
+1079170871,Type,FullBipartite
+1079170871,Distribution,Uniform
+1079170871,MinCost,1
+1079170871,MaxCost,100
+1079170871,Edges,64
+1079170871,Nodes,16
+1079170871,Total time,3.71163
+1079170871,Total time error,0
+1079170871,Total cost,4294967195
+1079170871,Total execution time,3.71346
+1079170871,Total execution time error,0
+1318848756,DateTime,03-27-2016  19:33:29.
+1318848756,Input file,../data/bipartite/bi_full_16_1_100_uni_2.gr
+1318848756,Algorithm,Simplified CostScaling
+1318848756,Type,FullBipartite
+1318848756,Distribution,Uniform
+1318848756,MinCost,1
+1318848756,MaxCost,100
+1318848756,Edges,64
+1318848756,Nodes,16
+1610632482,DateTime,03-27-2016  19:37:29.
+1610632482,Input file,../data/bipartite/bi_full_16_1_100_uni_2.gr
+1610632482,Algorithm,Simplified CostScaling
+1610632482,Type,FullBipartite
+1610632482,Distribution,Uniform
+1610632482,MinCost,1
+1610632482,MaxCost,100
+1610632482,Edges,64
+1610632482,Nodes,16
+1610632482,Total time,4.8075e-05
+1610632482,Total time error,0
+1610632482,Total cost,101
+1610632482,Total execution time,0.00164377
+1610632482,Total execution time error,0
+106519123,DateTime,03-27-2016  19:38:40.
+106519123,Input file,../data/bipartite/bi_full_1000_1_100_uni_2.gr
+106519123,Algorithm,Simplified CostScaling
+246644762,DateTime,03-27-2016  19:39:04.
+246644762,Input file,../data/tests/bipartite/bi_full_1000_1_100_uni_2.gr
+246644762,Algorithm,Simplified CostScaling
+246644762,Type,FullBipartite
+246644762,Distribution,Uniform
+246644762,MinCost,1
+246644762,MaxCost,100
+246644762,Edges,250000
+246644762,Nodes,1000
+246644762,Total time,1.00263
+246644762,Total time error,0
+246644762,Total cost,509
+246644762,Total execution time,1.26641
+246644762,Total execution time error,0

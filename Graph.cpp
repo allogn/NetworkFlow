@@ -10,6 +10,7 @@ void Graph::clear_graph() {
     m = 0;
     n = 0;
     fullE.clear();
+    completeE.clear();
     cursor.clear();
 }
 
