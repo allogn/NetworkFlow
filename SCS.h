@@ -5,126 +5,270 @@
 #ifndef NETWORKFLOW_SCS_H
 #define NETWORKFLOW_SCS_H
 
+/*
+ * Simplified Cost Scaling
+ *
+ * Inherits code from Lemon with embedding of SIA graph structure
+ */
+
 #include <vector>
 #include <deque>
 #include <limits>
 
+#include "Common.h"
 #include "Graph.h"
 #include "TimerTool.h"
 
 class SCS {
-public:
+
+    /*
+     * Working with integer cost type
+     * and long long Large
+     */
+
+    typedef long long LargeCost;
     typedef int Value;
     typedef int Cost;
-    typedef long LargeCost;
+    //TODO change this in other algorithms
+
+private:
+
+
     typedef std::vector<int> IntVector;
-    typedef std::vector<Value> ValueVector;
-    typedef std::vector<LargeCost> LargeCostVector;
+    typedef std::vector <Value> ValueVector;
+    typedef std::vector <Cost> CostVector;
+    typedef std::vector <LargeCost> LargeCostVector;
     typedef std::vector<char> BoolVector;
+    // Note: vector<char> is used instead of vector<bool>
+    // for efficiency reasons
+
+public:
+
+    Timer timer;
 
     // Data related to the underlying digraph
-    Graph &_graph;
+    const Graph &_graph;
+    int _node_num;
+    int _arc_num;
     int _res_node_num;
     int _res_arc_num;
 
+    // Parameters of the problem
+    bool _has_lower;
+    Value _sum_supply;
+
+    // Data structures for storing the digraph
+    IntVector _node_id;
+    IntVector _arc_idf;
+    IntVector _arc_idb;
+    IntVector _first_out;
+    BoolVector _forward;
+    IntVector _source;
+    IntVector _target;
+    IntVector _reverse;
+
+    // Node and arc data
+    ValueVector _lower;
+    ValueVector _upper;
+    CostVector _scost;
+    ValueVector _supply;
+
+    ValueVector _res_cap;
     LargeCostVector _cost;
     LargeCostVector _pi;
     ValueVector _excess;
     IntVector _next_out;
     std::deque<int> _active_nodes;
 
-    long totalCost = -1;
-
     // Data for scaling
     LargeCost _epsilon;
     int _alpha;
 
-    Timer timer;
+public:
 
-    SCS(Graph& g) :
-            _graph(g) {
+    SCS(const Graph &graph) :
+            _graph(graph) {
+
+        // Reset data structures
+        reset();
     }
 
-    ProblemType runSCS(int factor = 16) {
-        _alpha = factor;
-        init();
-        double total = timer.getTime();
-        startAugment(_res_node_num - 1);
-        timer.save_time("Total time", total);
-        totalCost = 0;
-        for (int i = 0; i < _res_node_num; i++) {
-            for (int j = 0; j < _graph.V[i].E.size(); j++) {
-                int eid = _graph.V[i].E[j];
-                if (!_graph.is_forward(eid, i)) {
-                    totalCost += _graph.E[eid].weight; //unit capacities implied
-                }
-            }
-        }
-        return OPTIMAL;
-    }
+    SCS &reset() {
+        // Resize vectors
+        _node_num = _graph.n;
+        _arc_num = _graph.m;
+        _res_node_num = _node_num;
+        _res_arc_num = 2 * _arc_num;
 
-    inline long get_cp(int nodeid, int edge) {
-        int eid = _graph.V[nodeid].E[edge];
-        int nb = _graph.get_pair(eid, nodeid);
-        long cost = _cost[eid];//_graph.E[eid].weight;
-        if (!_graph.is_forward(eid, nodeid))
-            cost *= -1;
-        cost = cost - _pi[nb] + _pi[nodeid]; // - Delta(Pi)
-        return cost;
-    };
+        _first_out.resize(_res_node_num);
+        _forward.resize(_res_arc_num);
+        _source.resize(_res_arc_num);
+        _target.resize(_res_arc_num);
+        _reverse.resize(_res_arc_num);
+        _node_id.resize(_res_arc_num);
 
-    inline void raiseFlow(uintT nodeid, int edge) {
-        //assuming unit capacity
-        uintT eid = _graph.V[nodeid].E[edge];
-        int nb = _graph.get_pair(eid, nodeid);
-        //add to nb E list
-        _graph.V[nb].E.push_back(eid);
-        //delete from nodeid
-        _graph.V[nodeid].E[edge] = *_graph.V[nodeid].E.rbegin();
-        _graph.V[nodeid].E.pop_back();
-        //change excesses
-        _excess[nodeid]--;
-        _excess[nb]++;
-    }
+        _lower.resize(_res_arc_num);
+        _upper.resize(_res_arc_num);
+        _scost.resize(_res_arc_num);
+        _supply.resize(_res_node_num);
 
-    ProblemType init() {
-        _res_node_num = _graph.n;
-        _res_arc_num = _graph.m;
+        _res_cap.resize(_res_arc_num);
         _cost.resize(_res_arc_num);
         _pi.resize(_res_node_num);
         _excess.resize(_res_node_num);
         _next_out.resize(_res_node_num);
 
+        _arc_idf.resize(_res_arc_num);
+        _arc_idb.resize(_res_arc_num);
+
+        // Copy the graph
+        int j = 0;
+        for (uintT i = 0; i < _graph.n; i++) {
+            _node_id[i] = i;
+            _supply[i] = _graph.V[i].supply;
+        }
+        for (uintT i = 0; i < _graph.n; i++) {
+            _first_out[i] = j;
+            for (uintT a = 0; a < _graph.completeE[i].size(); a++) {
+                uintT eid = _graph.completeE[i][a];
+                if (_graph.is_forward(eid,i)) {
+                    _arc_idf[eid] = j;
+                } else {
+                    _arc_idb[eid] = j;
+                }
+                _forward[j] = _graph.is_forward(eid,i);
+                _source[j] = i;
+                _target[j] = _node_id[_graph.get_pair(eid, i)];
+
+                _lower[j] = _graph.E[eid].lower;
+                _upper[j] = _graph.E[eid].capacity;
+                _scost[j] = _graph.E[eid].weight;
+                if (!_forward[j]) _scost[j] *= -1;
+
+                if (_forward[j]) _res_cap[j] = _upper[j];
+
+                j++;
+            }
+        }
+        _has_lower = true;
+
+        return *this;
+    }
+
+private:
+
+
+
+    // Initialize the algorithm
+    ProblemType init() {
         if (_res_node_num <= 1) return INFEASIBLE;
+
+        // Check the sum of supply values
+        _sum_supply = 0;
+        for (int i = 0; i != _res_node_num; ++i) {
+            _sum_supply += _supply[i];
+        }
+        if (_sum_supply > 0) return INFEASIBLE;
+
+        // Check lower and upper bounds
+        LEMON_DEBUG(checkBoundMaps(),
+                    "Upper bounds must be greater or equal to the lower bounds");
+
 
         // Initialize vectors
         for (int i = 0; i != _res_node_num; ++i) {
             _pi[i] = 0;
-            _excess[i] = _graph.V[i].supply;
+            _excess[i] = _supply[i];
         }
+
+        // Remove infinite upper bounds and check negative arcs
+        const Value MAX = std::numeric_limits<Value>::max();
+        int last_out;
+//    if (_has_lower) {
+//        for (int i = 0; i != _res_node_num; ++i) {
+//            last_out = (i < _res_node_num-1)?_first_out[i+1]:_res_arc_num;
+//            for (int j = _first_out[i]; j != last_out; ++j) {
+//                if (_forward[j]) {
+//                    Value c = _scost[j] < 0 ? _upper[j] : _lower[j];
+//                    if (c >= MAX) return UNBOUNDED;
+//                    _excess[i] -= c;
+//                    _excess[_target[j]] += c;
+//                }
+//            }
+//        }
+//    } else {
+//        for (int i = 0; i != _res_node_num; ++i) {
+//            last_out = (i < _res_node_num-1)?_first_out[i+1]:_res_arc_num;
+//            for (int j = _first_out[i]; j != last_out; ++j) {
+//                if (_forward[j] && _scost[j] < 0) {
+//                    Value c = _upper[j];
+//                    if (c >= MAX) return UNBOUNDED;
+//                    _excess[i] -= c;
+//                    _excess[_target[j]] += c;
+//                }
+//            }
+//        }
+//    }
+//            Value ex, max_cap = 0;
+//            for (int i = 0; i != _res_node_num; ++i) {
+//                ex = _excess[i];
+//                _excess[i] = 0;
+//                if (ex < 0) max_cap -= ex;
+//            }
+//            for (int j = 0; j != _res_arc_num; ++j) {
+//                if (_upper[j] >= MAX) _upper[j] = max_cap;
+//            }
 
         // Initialize the large cost vector and the epsilon parameter
         _epsilon = 0;
         LargeCost lc;
-        for (long i = 0; i < _res_arc_num; i++) {
-            lc = static_cast<LargeCost>(_graph.E[i].weight) * _res_node_num * _alpha;
-            _cost[i] = lc;
-            if (lc > _epsilon) _epsilon = lc;
+        for (int i = 0; i != _res_node_num; ++i) {
+            last_out = (i < _res_node_num-1)?_first_out[i+1]:_res_arc_num;
+            for (int j = _first_out[i]; j != last_out; ++j) {
+                lc = static_cast<LargeCost>(_scost[j]) * _res_node_num * _alpha; //COST MODIFICATION
+                _cost[j] = lc;
+                if (lc > _epsilon) _epsilon = lc;
+            }
         }
         _epsilon /= _alpha;
 
+        // initialize _res_cap with supply value for each node with positive supply for arbitrary edge
+        for (int a = 0; a < _res_arc_num; a++) {
+            if (_forward[a]) {
+                _res_cap[a] = _upper[a];
+            } else {
+                _res_cap[a] = 0;
+            }
+        }
+
         return OPTIMAL;
+    }
+
+    // Check if the upper bound is greater than or equal to the lower bound
+    // on each forward arc.
+    bool checkBoundMaps() {
+        for (int j = 0; j != _res_arc_num; ++j) {
+            if (_forward[j] && _upper[j] < _lower[j]) return false;
+        }
+        return true;
     }
 
     // Initialize a cost scaling phase
     void initPhase() {
         // Saturate arcs not satisfying the optimality condition
-        for (int u = 0; u < _res_node_num; u++) {
-            for (int e = 0; e < _graph.V[u].E.size(); e++) {
-                //if this edge is in node's E then it has an excess
-                //check admissibility
-                if (get_cp(u, e) < 0) {
-                    raiseFlow(u, e);
+        for (int u = 0; u != _res_node_num; ++u) {
+            int last_out = (u < _res_node_num-1)?_first_out[u+1]:_res_arc_num;
+            LargeCost pi_u = _pi[u];
+            for (int a = _first_out[u]; a != last_out; ++a) {
+                Value delta = _res_cap[a];
+                if (delta > 0) {
+                    int v = _target[a];
+                    if (_cost[a] + pi_u - _pi[v] < 0) {
+                        _excess[u] -= delta;
+                        _excess[v] += delta;
+                        _res_cap[a] = 0;
+                        _res_cap[_reverse[a]] += delta;
+                    }
                 }
             }
         }
@@ -136,117 +280,32 @@ public:
 
         // Initialize the next arcs
         for (int u = 0; u != _res_node_num; ++u) {
-            _next_out[u] = 0;
+            _next_out[u] = _first_out[u];
         }
     }
 
     /// Execute the algorithm performing augment and relabel operations
-    void startAugment(int max_length) {
+    void startAugment(int max_length);
 
-        // Perform cost scaling phases
-        IntVector path;
-        IntVector node_path; //for back propagation
-        BoolVector path_arc(_res_arc_num, false);
-        int relabel_cnt = 0;
-        int eps_phase_cnt = 0;
-        for (; _epsilon >= 1; _epsilon = _epsilon < _alpha && _epsilon > 1 ?
-                                         1 : _epsilon / _alpha) {
-            ++eps_phase_cnt;
+public:
+    uintT totalCost;
 
-            // Initialize current phase
-            initPhase();
-
-            // Perform partial augment and relabel operations
-            while (true) {
-                // Select an active node (FIFO selection)
-                while (_active_nodes.size() > 0 &&
-                       _excess[_active_nodes.front()] <= 0) {
-                    _active_nodes.pop_front();
-                }
-                if (_active_nodes.size() == 0) break;
-                int start = _active_nodes.front();
-
-                // Find an augmenting path from the start node
-                int tip = start;
-                int last_pushed;
-                while (int(path.size()) < max_length && _excess[tip] >= 0) {
-                    LargeCost rc, min_red_cost = std::numeric_limits<LargeCost>::max();
-                    LargeCost pi_tip = _pi[tip];
-
-                    for (int a = _next_out[tip]; a < _graph.V[tip].E.size(); a++) {
-                        long rc = get_cp(tip, a);
-                        if (rc < 0) {
-                            path.push_back(a);
-                            node_path.push_back(tip);
-                            last_pushed = tip;
-                            _next_out[tip] = a;
-                            long eid = _graph.V[tip].E[a];
-                            if (path_arc[eid]) {
-                                goto augment;   // a cycle is found, stop path search
-                            }
-                            tip = _graph.get_pair(eid,tip);
-                            path_arc[eid] = true;
-                            goto next_step;
-                        }
-                        else if (rc < min_red_cost) {
-                            min_red_cost = rc;
-                        }
-                    }
-
-                    // Relabel tip node
-//                    assert(path.size() == 0 ||
-//                                   _graph.get_pair(_graph.V[last_pushed].E[path.back()],last_pushed) == tip); //TODO removethis if true or fix if false
-//                    if (tip != start) {
-//                        int ra = _reverse[path.back()];
-//                        min_red_cost =
-//                                std::min(min_red_cost, _cost[ra] + pi_tip - _pi[_target[ra]]);
-//                    }
-                    for (int a = 0; a < _graph.V[tip].E.size(); a++) {
-                        long cp = get_cp(tip, a);
-                        if (cp < min_red_cost) {
-                            min_red_cost = cp;
-                        }
-                    }
-                    _pi[tip] -= min_red_cost + _epsilon;
-                    _next_out[tip] = 0;
-                    ++relabel_cnt;
-
-                    // Step back
-                    if (tip != start) {
-                        int pa = path.back(); // last edge that lead from node_path.back() to tip
-                        int nb = node_path.back();
-                        int eid = _graph.V[nb].E[pa];
-                        path_arc[eid] = false;
-                        tip = nb;
-                        path.pop_back();
-                        node_path.pop_back();
-                    }
-
-                    next_step:;
-                }
-                // Augment along the found path (as much flow as possible)
-                augment:
-                Value delta;
-                int eid, pa, u, v = start;
-                for (int i = 0; i != int(path.size()); ++i) {
-                    pa = path[i];
-                    u = v;
-                    eid = _graph.V[u].E[pa];
-                    v = _graph.get_pair(eid, u);
-                    path_arc[eid] = false;
-
-                    raiseFlow(u, pa);
-                    if (_excess[v] > 0) {
-                        _active_nodes.push_back(v);//add target node if needed
-                    }
-                }
-                path.clear();
-                node_path.clear();
-            }
-
+    // Execute the algorithm and transform the results
+    void runSCS() {
+        _alpha = 16;
+        reset();
+        init();
+        double total = timer.getTime();
+        startAugment(_res_node_num - 1);
+        timer.save_time("Total time", total);
+        totalCost = 0;
+        for (uintT a = 0; a < _graph.m; a++) {
+            int i = _arc_idb[a];
+            totalCost += _res_cap[i] * _scost[i];
         }
-
     }
+
 };
+
 
 #endif //NETWORKFLOW_SCS_H
