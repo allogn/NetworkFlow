@@ -14,6 +14,7 @@
 #include <vector>
 #include <deque>
 #include <limits>
+#include <map>
 
 #include "Common.h"
 #include "Graph.h"
@@ -83,6 +84,8 @@ public:
     // Data for scaling
     LargeCost _epsilon;
     int _alpha;
+
+    mmHeap dijkH;
 
 public:
 
@@ -270,7 +273,7 @@ private:
                 Value delta = _res_cap[a];
                 if (delta > 0) {
                     int v = _target[a];
-                    if (_cost[a] + pi_u - _pi[v] < 0) {
+                    if (_cost[a] - pi_u + _pi[v] < 0) {
                         _excess[u] -= delta;
                         _excess[v] += delta;
                         _res_cap[a] = 0;
@@ -286,9 +289,9 @@ private:
         }
 
         // Initialize the next arcs
-        for (int u = 0; u != _res_node_num; ++u) {
-            _next_out[u] = _first_out[u];
-        }
+//        for (int u = 0; u != _res_node_num; ++u) {
+//            _next_out[u] = _first_out[u];
+//        }
     }
 
     /// Execute the algorithm performing augment and relabel operations
@@ -308,7 +311,8 @@ public:
         totalCost = 0;
         for (uintT a = 0; a < _graph.m; a++) {
             int i = _arc_idb[a];
-            totalCost += _res_cap[i] * _scost[a];
+            assert(_scost[i] <= 0);
+            totalCost += _res_cap[i] * (-_scost[i]);
         }
     }
 
