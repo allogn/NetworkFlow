@@ -1,0 +1,250 @@
+751626470,DateTime,03-28-2016  11:51:14.
+751626470,Input file,../data/randSSST/rand_16_1.gr
+751626470,Algorithm,Simplified CostScaling
+751626470,Edges,160
+751626470,Nodes,16
+1003198595,DateTime,03-28-2016  11:52:16.
+1003198595,Input file,../data/randSSST/rand_16_1.gr
+1003198595,Algorithm,Simplified CostScaling
+1003198595,Edges,160
+1003198595,Nodes,16
+542929538,DateTime,03-28-2016  12:00:44.
+542929538,Input file,../data/randSSST/rand_16_1.gr
+542929538,Algorithm,Simplified CostScaling
+542929538,Edges,160
+542929538,Nodes,16
+2017782420,DateTime,03-28-2016  12:02:54.
+2017782420,Input file,../data/randSSST/rand_16_1.gr
+2017782420,Algorithm,Simplified CostScaling
+2017782420,Edges,160
+2017782420,Nodes,16
+1705327584,DateTime,03-28-2016  12:03:16.
+1705327584,Input file,../data/randSSST/rand_16_1.gr
+1705327584,Algorithm,Simplified CostScaling
+1705327584,Edges,160
+1705327584,Nodes,16
+660424821,DateTime,03-28-2016  12:05:48.
+660424821,Input file,../data/randSSST/rand_16_1.gr
+660424821,Algorithm,Simplified CostScaling
+660424821,Edges,160
+660424821,Nodes,16
+1524662657,DateTime,03-28-2016  12:29:31.
+1524662657,Input file,../data/randSSST/rand_16_1.gr
+1524662657,Algorithm,Simplified CostScaling
+1524662657,Edges,160
+1524662657,Nodes,16
+1754509877,DateTime,03-28-2016  12:30:24.
+1754509877,Input file,../data/randSSST/rand_16_1.gr
+1754509877,Algorithm,Simplified CostScaling
+1754509877,Edges,160
+1754509877,Nodes,16
+801281618,DateTime,03-28-2016  12:50:39.
+801281618,Input file,../data/randSSST/rand_16_1.gr
+801281618,Algorithm,Simplified CostScaling
+801281618,Edges,160
+801281618,Nodes,16
+1449974279,DateTime,03-28-2016  12:51:08.
+1449974279,Input file,../data/randSSST/rand_16_1.gr
+1449974279,Algorithm,Simplified CostScaling
+1449974279,Edges,160
+1449974279,Nodes,16
+253816376,DateTime,03-28-2016  12:51:28.
+253816376,Input file,../data/randSSST/rand_16_1.gr
+253816376,Algorithm,Simplified CostScaling
+253816376,Edges,160
+253816376,Nodes,16
+1160004509,DateTime,03-28-2016  12:52:40.
+1160004509,Input file,../data/randSSST/rand_16_1.gr
+1160004509,Algorithm,Simplified CostScaling
+1160004509,Edges,160
+1160004509,Nodes,16
+647230811,DateTime,03-28-2016  12:53:53.
+647230811,Input file,../data/randSSST/rand_16_1.gr
+647230811,Algorithm,Simplified CostScaling
+647230811,Edges,160
+647230811,Nodes,16
+1968801342,DateTime,03-28-2016  12:55:19.
+1968801342,Input file,../data/randSSST/rand_16_1.gr
+1968801342,Algorithm,Simplified CostScaling
+1968801342,Edges,160
+1968801342,Nodes,16
+598596793,DateTime,03-28-2016  13:00:03.
+598596793,Input file,../data/randSSST/rand_16_1.gr
+598596793,Algorithm,Simplified CostScaling
+598596793,Edges,160
+598596793,Nodes,16
+727633232,DateTime,03-28-2016  13:02:37.
+727633232,Input file,../data/randSSST/rand_16_1.gr
+727633232,Algorithm,Simplified CostScaling
+727633232,Edges,160
+727633232,Nodes,16
+1159938125,DateTime,03-28-2016  13:05:16.
+1159938125,Input file,../data/randSSST/rand_16_1.gr
+1159938125,Algorithm,Simplified CostScaling
+1159938125,Edges,160
+1159938125,Nodes,16
+1794473147,DateTime,03-28-2016  13:08:04.
+1794473147,Input file,../data/randSSST/rand_16_1.gr
+1794473147,Algorithm,Simplified CostScaling
+1794473147,Edges,160
+1794473147,Nodes,16
+1208772958,DateTime,03-28-2016  13:12:26.
+1208772958,Input file,../data/randSSST/rand_16_1.gr
+1208772958,Algorithm,Simplified CostScaling
+1208772958,Edges,160
+1208772958,Nodes,16
+2114032350,DateTime,03-28-2016  13:13:11.
+2114032350,Input file,../data/randSSST/rand_16_1.gr
+2114032350,Algorithm,Simplified CostScaling
+2114032350,Edges,160
+2114032350,Nodes,16
+172138838,DateTime,03-28-2016  13:14:11.
+172138838,Input file,../data/randSSST/rand_16_1.gr
+172138838,Algorithm,Simplified CostScaling
+172138838,Edges,160
+172138838,Nodes,16
+1604395429,DateTime,03-28-2016  13:24:49.
+1604395429,Input file,../data/randSSST/rand_16_1.gr
+1604395429,Algorithm,Simplified CostScaling
+1604395429,Edges,160
+1604395429,Nodes,16
+391294310,DateTime,03-28-2016  13:27:03.
+391294310,Input file,../data/randSSST/rand_16_1.gr
+391294310,Algorithm,Simplified CostScaling
+391294310,Edges,160
+391294310,Nodes,16
+330002966,DateTime,03-28-2016  13:42:55.
+330002966,Input file,../data/randSSST/rand_16_1.gr
+330002966,Algorithm,Simplified CostScaling
+330002966,Edges,160
+330002966,Nodes,16
+813348762,DateTime,03-28-2016  13:47:33.
+813348762,Input file,../data/randSSST/rand_16_1.gr
+813348762,Algorithm,Simplified CostScaling
+813348762,Edges,160
+813348762,Nodes,16
+1284537366,DateTime,03-28-2016  13:56:21.
+1284537366,Input file,../data/randSSST/rand_16_1.gr
+1284537366,Algorithm,Simplified CostScaling
+1284537366,Edges,160
+1284537366,Nodes,16
+1004395874,DateTime,03-28-2016  13:56:51.
+1004395874,Input file,../data/randSSST/rand_16_1.gr
+1004395874,Algorithm,Simplified CostScaling
+1004395874,Edges,160
+1004395874,Nodes,16
+1691239269,DateTime,03-28-2016  15:43:47.
+1691239269,Input file,../data/randSSST/rand_16_1.gr
+1691239269,Algorithm,Simplified CostScaling
+1691239269,Edges,160
+1691239269,Nodes,16
+1691239269,Total time,0.00191187
+1691239269,Total time error,0
+1691239269,Total cost,4294966649
+1691239269,Total execution time,0.00369905
+1691239269,Total execution time error,0
+1037334664,DateTime,03-28-2016  15:45:53.
+1037334664,Input file,../data/randSSST/rand_16_1.gr
+1037334664,Algorithm,Simplified CostScaling
+1037334664,Edges,160
+1037334664,Nodes,16
+1037334664,Total time,0.000285419
+1037334664,Total time error,0
+1037334664,Total cost,4294966649
+1037334664,Total execution time,0.00207019
+1037334664,Total execution time error,0
+519263507,DateTime,03-28-2016  15:47:12.
+519263507,Input file,../data/randSSST/rand_16_1.gr
+519263507,Algorithm,Simplified CostScaling
+519263507,Edges,160
+519263507,Nodes,16
+1223371870,DateTime,03-28-2016  15:50:26.
+1223371870,Input file,../data/randSSST/rand_16_1.gr
+1223371870,Algorithm,Simplified CostScaling
+1223371870,Edges,160
+1223371870,Nodes,16
+559082545,DateTime,03-28-2016  15:54:10.
+559082545,Input file,../data/randSSST/rand_16_1.gr
+559082545,Algorithm,Simplified CostScaling
+559082545,Edges,160
+559082545,Nodes,16
+663500961,DateTime,03-28-2016  15:56:57.
+663500961,Input file,../data/randSSST/rand_16_1.gr
+663500961,Algorithm,Simplified CostScaling
+663500961,Edges,160
+663500961,Nodes,16
+1832647851,DateTime,03-28-2016  16:01:37.
+1832647851,Input file,../data/randSSST/rand_16_1.gr
+1832647851,Algorithm,Simplified CostScaling
+1832647851,Edges,160
+1832647851,Nodes,16
+1832647851,Total time,0.000384669
+1832647851,Total time error,0
+1832647851,Total cost,4294966649
+1832647851,Total execution time,0.121905
+1832647851,Total execution time error,0
+472600879,DateTime,03-28-2016  16:03:44.
+472600879,Input file,../data/randSSST/rand_16_1.gr
+472600879,Algorithm,Simplified CostScaling
+472600879,Edges,160
+472600879,Nodes,16
+472600879,Total time,0.00037158
+472600879,Total time error,0
+472600879,Total cost,4294966649
+472600879,Total execution time,0.00262077
+472600879,Total execution time error,0
+1795635420,DateTime,03-28-2016  16:04:50.
+1795635420,Input file,../data/randSSST/rand_16_1.gr
+1795635420,Algorithm,Simplified CostScaling
+1795635420,Edges,160
+1795635420,Nodes,16
+1795635420,Total time,0.000256457
+1795635420,Total time error,0
+1795635420,Total cost,4294966649
+1795635420,Total execution time,0.00217977
+1795635420,Total execution time error,0
+251492994,DateTime,03-28-2016  16:06:32.
+251492994,Input file,../data/randSSST/rand_16_1.gr
+251492994,Algorithm,Simplified CostScaling
+251492994,Edges,160
+251492994,Nodes,16
+251492994,Total time,0.000254525
+251492994,Total time error,0
+251492994,Total cost,688
+251492994,Total execution time,0.00227314
+251492994,Total execution time error,0
+162441053,DateTime,03-28-2016  16:20:22.
+162441053,Input file,../data/randSSST/rand_256_1.gr
+162441053,Algorithm,Simplified CostScaling
+162441053,Edges,2560
+162441053,Nodes,256
+162441053,Total time,0.0545763
+162441053,Total time error,0
+162441053,Total cost,1581
+162441053,Total execution time,0.0599496
+162441053,Total execution time error,0
+811514903,DateTime,03-28-2016  16:24:27.
+811514903,Input file,../data/randSSST/rand_256_1.gr
+811514903,Algorithm,Simplified CostScaling
+811514903,Edges,2560
+811514903,Nodes,256
+811514903,Total time,0.0512067
+811514903,Total time error,0
+811514903,Total cost,1581
+811514903,Total execution time,0.0767995
+811514903,Total execution time error,0
+1679582267,DateTime,03-28-2016  16:26:18.
+1679582267,Input file,../data/randSSST/rand_256_1.gr
+1679582267,Algorithm,Simplified CostScaling
+1679582267,Edges,2560
+1679582267,Nodes,256
+189650680,DateTime,03-28-2016  16:27:40.
+189650680,Input file,../data/randSSST/rand_256_1.gr
+189650680,Algorithm,Simplified CostScaling
+189650680,Edges,2560
+189650680,Nodes,256
+189650680,Total time,0.0443288
+189650680,Total time error,0
+189650680,Total cost,858
+189650680,Total execution time,0.0512019
+189650680,Total execution time error,0
