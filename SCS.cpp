@@ -49,6 +49,7 @@ void SCS::startAugment(int max_length) {
             // increase flow on maximum value of flow possible (blocking flow)
             // assert target is not an excess (unit capacity) - remove source of a flow from active nodes
             // rerun dijkstra since all visited nodes were updated
+
             fHeap<LargeCost> dijkH;
             vector<pair<int,LargeCost>> visited;
             vector<int> parent(_res_node_num,-1); //parent node and an edge to a child
@@ -71,14 +72,13 @@ void SCS::startAugment(int max_length) {
                 //take one node and add every neighbor to another bucket
                 if (_excess[tip] < 0) goto increasePotentials;
                 visited.push_back(pair<int,LargeCost>(tip,curcost));
-                int last_out = (tip < _res_node_num -1) ? _first_out[tip+1]:_res_arc_num;
                 LargeCost rc, l;
                 LargeCost pi_tip = _pi[tip];
-                for (int a = _first_out[tip]; a != last_out; a++) {
-                    if (_res_cap[a] == 0) continue; // only feasible arcs
-                    assert(_res_cap[a] > 0);
-                    u = _target[a];
-                    rc = _cost[a] - pi_tip + _pi[u]; //exactly +delta_pi because we increase potential
+                for (vector<int>::iterator a = _first_out[tip].begin(); a != _first_out[tip].end(); a++) {
+                    if (_res_cap[*a] == 0) continue; // only feasible arcs
+                    assert(_res_cap[*a] > 0);
+                    u = _target[*a];
+                    rc = _cost[*a] - pi_tip + _pi[u]; //exactly +delta_pi because we increase potential
                     l = rc + _epsilon;
                     assert(l >= 0); //epsilon-optimality
                     //todo add visited array
@@ -89,7 +89,7 @@ void SCS::startAugment(int max_length) {
                         } else {
                             dijkH.updatequeue(u, curcost + l);
                         }
-                        parent[u] = a;
+                        parent[u] = *a;
                         mindist[u] = curcost + l;
                     }
                 }

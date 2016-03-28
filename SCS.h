@@ -62,7 +62,7 @@ public:
     IntVector _node_id;
     IntVector _arc_idf;
     IntVector _arc_idb;
-    IntVector _first_out;
+    vector<vector<int>> _first_out;
     BoolVector _forward;
     IntVector _source;
     IntVector _target;
@@ -103,7 +103,7 @@ public:
         _res_node_num = _node_num;
         _res_arc_num = 2 * _arc_num;
 
-        _first_out.resize(_res_node_num);
+        _first_out.resize(_res_node_num, vector<int>());
         _forward.resize(_res_arc_num);
         _source.resize(_res_arc_num);
         _target.resize(_res_arc_num);
@@ -131,8 +131,8 @@ public:
             _supply[i] = _graph.V[i].supply;
         }
         for (uintT i = 0; i < _graph.n; i++) {
-            _first_out[i] = j;
             for (uintT a = 0; a < _graph.completeE[i].size(); a++) {
+                _first_out[i].push_back(j);
                 uintT eid = _graph.completeE[i][a];
                 if (_graph.is_forward(eid,i)) {
                     _arc_idf[eid] = j;
@@ -233,10 +233,9 @@ private:
         _epsilon = 0;
         LargeCost lc;
         for (int i = 0; i != _res_node_num; ++i) {
-            last_out = (i < _res_node_num-1)?_first_out[i+1]:_res_arc_num;
-            for (int j = _first_out[i]; j != last_out; ++j) {
-                lc = static_cast<LargeCost>(_scost[j]) * _res_node_num * _alpha; //COST MODIFICATION
-                _cost[j] = lc;
+            for (vector<int>::iterator j = _first_out[i].begin(); j != _first_out[i].end(); ++j) {
+                lc = static_cast<LargeCost>(_scost[*j]) * _res_node_num * _alpha; //COST MODIFICATION
+                _cost[*j] = lc;
                 if (lc > _epsilon) _epsilon = lc;
             }
         }
@@ -267,17 +266,16 @@ private:
     void initPhase() {
         // Saturate arcs not satisfying the optimality condition
         for (int u = 0; u != _res_node_num; ++u) {
-            int last_out = (u < _res_node_num-1)?_first_out[u+1]:_res_arc_num;
             LargeCost pi_u = _pi[u];
-            for (int a = _first_out[u]; a != last_out; ++a) {
-                Value delta = _res_cap[a];
+            for (vector<int>::iterator a = _first_out[u].begin(); a != _first_out[u].end(); ++a) {
+                Value delta = _res_cap[*a];
                 if (delta > 0) {
-                    int v = _target[a];
-                    if (_cost[a] - pi_u + _pi[v] < 0) {
+                    int v = _target[*a];
+                    if (_cost[*a] - pi_u + _pi[v] < 0) {
                         _excess[u] -= delta;
                         _excess[v] += delta;
-                        _res_cap[a] = 0;
-                        _res_cap[_reverse[a]] += delta;
+                        _res_cap[*a] = 0;
+                        _res_cap[_reverse[*a]] += delta;
                     }
                 }
             }
