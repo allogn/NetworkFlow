@@ -55,12 +55,14 @@ void SCS::startAugment(int max_length) {
             LargeCost mindist[_res_node_num];
             fill(mindist, mindist+_res_node_num, std::numeric_limits<LargeCost>::max()); //those who were not popped yet, but are in the bucket already
             if (_active_nodes.size() == 0) break;
-            for (deque<int>::iterator it = _active_nodes.begin(); it != _active_nodes.end(); ++it) {
-                assert(_active_nodes.size() > 0);
-                assert(_excess[*it] > 0);
-                dijkH.enqueue(*it,0);
-                mindist[*it] = 0;
-            }
+//            for (deque<int>::iterator it = _active_nodes.begin(); it != _active_nodes.end(); ++it) {
+//                assert(_active_nodes.size() > 0);
+//                assert(_excess[*it] > 0);
+//                dijkH.enqueue(*it,0);
+//                mindist[*it] = 0;
+//            }
+            dijkH.enqueue(_active_nodes.front(),0);
+            mindist[_active_nodes.front()] = 0;  
 
             LargeCost curcost;
             int u, tip;
