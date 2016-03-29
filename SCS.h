@@ -85,7 +85,7 @@ public:
     LargeCost _epsilon;
     int _alpha;
 
-    mmHeap dijkH;
+//    mmHeap dijkH;
 
 public:
 
@@ -250,6 +250,12 @@ private:
             }
         }
 
+
+        // init spatial structures
+        QryCnt.resize(_res_node_num,0);
+        globalH.clear();
+        taumax = 0;
+
         return OPTIMAL;
     }
 
@@ -311,6 +317,74 @@ public:
             int i = _arc_idb[a];
             assert(_scost[i] <= 0);
             totalCost += _res_cap[i] * (-_scost[i]);
+        }
+    }
+
+
+    /*
+     * from SIA
+     */
+    vector<int> QryCnt;
+    vector<LargeCost> mindist;
+    vector<pair<int,LargeCost>> visited;
+    vector<bool> watched; //traversed all children
+    vector<int> parent; //parent node and an edge to a child
+    LargeCost taumax;
+
+    fHeap<LargeCost> dijkH;
+    fHeap<LargeCost> globalH;
+    fHeap<LargeCost> updateH;
+    inline int heap_checkAndUpdateEdgeMin(fHeap<LargeCost>& heap, int fromid) // update if new value is less
+    {
+        //todo add sorting of fullE
+
+        //if fromid is in the heap - update distance to the nearest not added node since mindist to fromid may change
+        if (heap.isExisted(fromid))
+        {
+            int weight = _graph.E[_graph.fullE[fromid][QryCnt[fromid]-1]].weight;
+            heap.updatequeue(fromid, weight + mindist[fromid]);
+            return 1;
+        }
+
+        heap.enqueue(fromid, _graph.E[_graph.fullE[fromid][QryCnt[fromid]]].weight + mindist[fromid]);
+        QryCnt[fromid]++;
+        return 0;
+    }
+    int heap_checkAndUpdateMin(fHeap<LargeCost>& heap, int id, int new_value) // update if new value is less
+    {
+        if (heap.isExisted(id))
+        {
+            heap.updatequeue(id,new_value);
+            return 1;
+        }
+        else
+            heap.enqueue(id,new_value);
+        return 0;
+    }
+    int updateMinDist(int eid, int fromid, int toid)
+    {
+        long cost = _cost[eid] - _pi[fromid] + _pi[toid] + _epsilon;
+        if (mindist[toid]>mindist[fromid]+cost) {
+            mindist[toid] = mindist[fromid] + cost;
+            parent[toid] = eid;
+            heap_checkAndUpdateEdgeMin(globalH, toid);
+            return 1;
+        }
+        return 0;
+    }
+    void updateHeaps(int eid, int fromid, int toid)
+    {
+        if (watched[fromid] == 0) return; //case when prefinal node : not all neighbours are considered => not watched,
+        // but in globalH and in DijkH (!). so, if in dijkH => everything is fine (will be updated later)
+        if (updateMinDist(eid,fromid,toid)) {
+            //no isUpdated because enheap only if updated dist
+            if (!dijkH.isExisted(toid)) {
+                //isUpdated omitted here
+                if (watched[toid] == 1) heap_checkAndUpdateMin(updateH, toid, mindist[toid]);
+                else dijkH.enqueue(toid, mindist[toid]);
+            } else {
+                dijkH.updatequeue(toid, mindist[toid]);
+            }
         }
     }
 

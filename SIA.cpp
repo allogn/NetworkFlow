@@ -113,7 +113,7 @@ int SIA::runDijkstra(int source_id) {
 
 //            if (watched[node_id] == 1) continue;
 
-            if (isUpdated) dijkH.enqueue(node_id,mindist[node_id]);
+            if (isUpdated) dijkH.enqueue(node_id,mindist[node_id]); //todo if object exists already?
         }
 
         if (!isBroken) {

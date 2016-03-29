@@ -40,21 +40,13 @@ void SCS::startAugment(int max_length) {
 //            if (_active_nodes.size() == 0) break;
 //            int start = _active_nodes.front();
 
+            //iteration reset
+            dijkH.clear();
+            updateH.clear();
+            watched.resize(_res_node_num,false);
+            parent.resize(_res_node_num,-1);
+            mindist.resize(_res_node_num,std::numeric_limits<LargeCost>::max());
 
-            // Dijkstra
-            // put all excess nodes in first bucket of dijkstra
-            // run dijkstra until deficit is found
-            // increase potentials for all visited nodes
-            // clear dijkstra buckets
-            // increase flow on maximum value of flow possible (blocking flow)
-            // assert target is not an excess (unit capacity) - remove source of a flow from active nodes
-            // rerun dijkstra since all visited nodes were updated
-
-            fHeap<LargeCost> dijkH;
-            vector<pair<int,LargeCost>> visited;
-            vector<int> parent(_res_node_num,-1); //parent node and an edge to a child
-            LargeCost mindist[_res_node_num];
-            fill(mindist, mindist+_res_node_num, std::numeric_limits<LargeCost>::max()); //those who were not popped yet, but are in the bucket already
             if (_active_nodes.size() == 0) break;
 //            for (deque<int>::iterator it = _active_nodes.begin(); it != _active_nodes.end(); ++it) {
 //                assert(_active_nodes.size() > 0);
@@ -62,38 +54,131 @@ void SCS::startAugment(int max_length) {
 //                dijkH.enqueue(*it,0);
 //                mindist[*it] = 0;
 //            }
-            dijkH.enqueue(_active_nodes.front(),0);
-            mindist[_active_nodes.front()] = 0;  
+            int q = _active_nodes.front();
+            dijkH.enqueue(q,0);
+            mindist[q] = 0;
+            watched[q] = 0;
+            heap_checkAndUpdateEdgeMin(globalH,q);
 
+            // main loop (process_id)
             LargeCost curcost;
-            int u, tip;
-            while (true) {
-                dijkH.dequeue(tip, curcost);
-                //take one node and add every neighbor to another bucket
-                if (_excess[tip] < 0) goto increasePotentials;
-                visited.push_back(pair<int,LargeCost>(tip,curcost));
-                LargeCost rc, l;
-                LargeCost pi_tip = _pi[tip];
-                for (vector<int>::iterator a = _first_out[tip].begin(); a != _first_out[tip].end(); a++) {
-                    if (_res_cap[*a] == 0) continue; // only feasible arcs
-                    assert(_res_cap[*a] > 0);
-                    u = _target[*a];
-                    rc = _cost[*a] - pi_tip + _pi[u]; //exactly +delta_pi because we increase potential
-                    l = rc + _epsilon;
-                    assert(l >= 0); //epsilon-optimality
-                    //todo add visited array
-                    if (mindist[u] > curcost + l) {
-                        //check if exists in a heap
-                        if (!dijkH.isExisted(u)) {
-                            dijkH.enqueue(u, curcost + l);
-                        } else {
-                            dijkH.updatequeue(u, curcost + l);
+            int u, tip = -1;
+            while (tip == -1 || (globalH.size() > 0 && mindist[tip]>globalH.getTopValue() - taumax)) {
+
+                do //  || (globalH.size() > 0 && heap_getTopValue(dijkH)>heap_getTopValue(globalH))) //dijkH check because next in globalH can be not from current "thread", but must be added because it will be needed later
+                {
+                    int fromid;
+                    LargeCost tmp;
+                    globalH.dequeue(fromid, tmp);
+
+                    //create new edge
+                    uintT eid = _graph.fullE[fromid][QryCnt[fromid]-1];
+                    //todo rewrite adding new nodes
+                    uintT local_eid = _res_arc_num;
+                    //todo why flow = 1??
+
+                    //for spatial data this does not work
+                    _first_out[fromid].push_back(local_eid);
+                    int toid = _graph.get_pair(eid, fromid);
+                    _first_out[toid].push_back(local_eid+1);//reverse edge
+                    _arc_idf[eid] = local_eid;
+                    _arc_idb[eid] = local_eid+1;
+                    _forward.push_back(true);
+                    _forward.push_back(false);
+                    _source.push_back(fromid);
+                    _source.push_back(toid);
+                    _target.push_back(toid);
+                    _target.push_back(fromid);
+                    //skipped lower
+                    _upper.push_back(_graph.E[eid].capacity);
+                    _upper.push_back(_graph.E[eid].capacity);
+                    _scost.push_back(_graph.E[eid].weight);
+                    _scost.push_back(-_graph.E[eid].weight);
+                    _res_cap.push_back(_upper[local_eid]);
+                    _res_cap.push_back(0);
+
+                    //todo reserve space for all vectors in init
+
+                    _reverse.push_back(local_eid+1);
+                    _reverse.push_back(local_eid);
+
+                    heap_checkAndUpdateEdgeMin(globalH,fromid); //MUST BE HERE
+                    _res_arc_num += 2;
+
+                    /*
+                     * Dijkstra Updates
+                     */
+                    updateHeaps(eid, fromid, toid);
+
+                    int curid;
+                    while (updateH.size() > 0) {
+                        updateH.dequeue(curid, tmp);
+                        //            isUpdated[curid] = 0;
+                        for (vector<int>::iterator it = _first_out[curid].begin(); it < _first_out[curid].end(); it++) {
+                            toid = _target[*it];
+                            updateHeaps(eid, curid, toid);
                         }
-                        parent[u] = *a;
-                        mindist[u] = curcost + l;
+                    }
+                    /*
+                     * End of dijkstra updates. If switch off => add clearing dijkstra in dijksra beginning
+                     */
+                } while (dijkH.size() == 0 && tip == -1); //todo why here tip==-1 needed??
+
+                //running Dijkstra
+                assert(dijkH.size() > 0);
+                tip = dijkH.getTopIdx();
+                while (true) {
+                    //take one node and add every neighbor to another bucket
+                    if (_excess[tip] < 0) goto increasePotentials;
+                    visited.push_back(pair<int, LargeCost>(tip, curcost));
+                    LargeCost rc, l;
+                    LargeCost pi_tip = _pi[tip];
+                    for (vector<int>::iterator a = _first_out[tip].begin(); a != _first_out[tip].end(); a++) {
+                        if (_res_cap[*a] == 0) continue; // only feasible arcs
+                        assert(_res_cap[*a] > 0);
+                        u = _target[*a];
+                        rc = _cost[*a] - pi_tip + _pi[u]; //exactly +delta_pi because we increase potential
+                        l = rc + _epsilon;
+                        assert(l >= 0); //epsilon-optimality
+                        //todo add visited array
+                        if (mindist[u] > curcost + l) {
+                            //check if exists in a heap
+                            if (!dijkH.isExisted(u)) {
+                                dijkH.enqueue(u, curcost + l);
+                            } else {
+                                dijkH.updatequeue(u, curcost + l);
+                                heap_checkAndUpdateEdgeMin(globalH, u);
+                            }
+                            parent[u] = *a;
+                            mindist[u] = curcost + l;
+                        }
+                    }
+                    heap_checkAndUpdateEdgeMin(globalH, tip);
+                    watched[tip] = true;
+                    dijkH.dequeue();
+                    if (dijkH.size() == 0) {
+                        tip = -1;
+                        break;
+                    }
+                    tip = dijkH.getTopIdx();
+                }
+
+                //TODO keep up with taumax
+                int gettaumax = 0;
+                for (int i = 0; i<_res_node_num; i++)
+                {
+                    if (mindist[i]<globalH.getTopValue() && gettaumax < _pi[i])
+                    {
+                        gettaumax = _pi[i];
                     }
                 }
+                taumax = gettaumax;
+
             }
+
+
+
+
             increasePotentials:
             // increase potentials for all visited nodes
             for (int i = 0; i < visited.size(); i++) {
