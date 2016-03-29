@@ -1,0 +1,4510 @@
+1911328847,DateTime,03-28-2016  21:46:31.
+1911328847,Input file,../../data/bipartite/bi_full_1024_1_100_uni_10.gr
+1911328847,Algorithm,Lemon CostScaling
+1911328847,Type,FullBipartite
+1911328847,Distribution,Uniform
+1911328847,MinCost,1
+1911328847,MaxCost,100
+1911328847,Edges,262144
+1911328847,Nodes,1024
+1911328847,Total time,0.0676419
+1911328847,Total time error,0.000187606
+1911328847,Total cost,515
+1911328847,Total execution time,0.382239
+1911328847,Total execution time error,0
+1845106588,DateTime,03-28-2016  21:46:31.
+1845106588,Input file,../../data/bipartite/bi_full_1024_1_100_uni_1.gr
+1845106588,Algorithm,Lemon CostScaling
+1845106588,Type,FullBipartite
+1845106588,Distribution,Uniform
+1845106588,MinCost,1
+1845106588,MaxCost,100
+1845106588,Edges,262144
+1845106588,Nodes,1024
+1845106588,Total time,0.0739532
+1845106588,Total time error,0.00399761
+1845106588,Total cost,518
+1845106588,Total execution time,0.398432
+1845106588,Total execution time error,0
+2002633778,DateTime,03-28-2016  21:46:32.
+2002633778,Input file,../../data/bipartite/bi_full_1024_1_100_uni_2.gr
+2002633778,Algorithm,Lemon CostScaling
+2002633778,Type,FullBipartite
+2002633778,Distribution,Uniform
+2002633778,MinCost,1
+2002633778,MaxCost,100
+2002633778,Edges,262144
+2002633778,Nodes,1024
+2002633778,Total time,0.0699556
+2002633778,Total time error,9.52993e-05
+2002633778,Total cost,522
+2002633778,Total execution time,0.374762
+2002633778,Total execution time error,0
+548999900,DateTime,03-28-2016  21:46:32.
+548999900,Input file,../../data/bipartite/bi_full_1024_1_100_uni_3.gr
+548999900,Algorithm,Lemon CostScaling
+548999900,Type,FullBipartite
+548999900,Distribution,Uniform
+548999900,MinCost,1
+548999900,MaxCost,100
+548999900,Edges,262144
+548999900,Nodes,1024
+548999900,Total time,0.0675461
+548999900,Total time error,0.000159772
+548999900,Total cost,519
+548999900,Total execution time,0.374093
+548999900,Total execution time error,0
+785074236,DateTime,03-28-2016  21:46:32.
+785074236,Input file,../../data/bipartite/bi_full_1024_1_100_uni_4.gr
+785074236,Algorithm,Lemon CostScaling
+785074236,Type,FullBipartite
+785074236,Distribution,Uniform
+785074236,MinCost,1
+785074236,MaxCost,100
+785074236,Edges,262144
+785074236,Nodes,1024
+785074236,Total time,0.0763211
+785074236,Total time error,9.25363e-05
+785074236,Total cost,517
+785074236,Total execution time,0.403055
+785074236,Total execution time error,0
+497704321,DateTime,03-28-2016  21:46:33.
+497704321,Input file,../../data/bipartite/bi_full_1024_1_100_uni_5.gr
+497704321,Algorithm,Lemon CostScaling
+497704321,Type,FullBipartite
+497704321,Distribution,Uniform
+497704321,MinCost,1
+497704321,MaxCost,100
+497704321,Edges,262144
+497704321,Nodes,1024
+497704321,Total time,0.0682583
+497704321,Total time error,0.000214052
+497704321,Total cost,517
+497704321,Total execution time,0.377307
+497704321,Total execution time error,0
+1648670437,DateTime,03-28-2016  21:46:33.
+1648670437,Input file,../../data/bipartite/bi_full_1024_1_100_uni_6.gr
+1648670437,Algorithm,Lemon CostScaling
+1648670437,Type,FullBipartite
+1648670437,Distribution,Uniform
+1648670437,MinCost,1
+1648670437,MaxCost,100
+1648670437,Edges,262144
+1648670437,Nodes,1024
+1648670437,Total time,0.0819303
+1648670437,Total time error,8.18807e-05
+1648670437,Total cost,517
+1648670437,Total execution time,0.409047
+1648670437,Total execution time error,0
+912649991,DateTime,03-28-2016  21:46:33.
+912649991,Input file,../../data/bipartite/bi_full_1024_1_100_uni_7.gr
+912649991,Algorithm,Lemon CostScaling
+912649991,Type,FullBipartite
+912649991,Distribution,Uniform
+912649991,MinCost,1
+912649991,MaxCost,100
+912649991,Edges,262144
+912649991,Nodes,1024
+912649991,Total time,0.0781637
+912649991,Total time error,0.00043345
+912649991,Total cost,517
+912649991,Total execution time,0.409821
+912649991,Total execution time error,0
+315858517,DateTime,03-28-2016  21:46:34.
+315858517,Input file,../../data/bipartite/bi_full_1024_1_100_uni_8.gr
+315858517,Algorithm,Lemon CostScaling
+315858517,Type,FullBipartite
+315858517,Distribution,Uniform
+315858517,MinCost,1
+315858517,MaxCost,100
+315858517,Edges,262144
+315858517,Nodes,1024
+315858517,Total time,0.0873011
+315858517,Total time error,0.000252637
+315858517,Total cost,522
+315858517,Total execution time,0.441753
+315858517,Total execution time error,0
+1353601822,DateTime,03-28-2016  21:46:34.
+1353601822,Input file,../../data/bipartite/bi_full_1024_1_100_uni_9.gr
+1353601822,Algorithm,Lemon CostScaling
+1353601822,Type,FullBipartite
+1353601822,Distribution,Uniform
+1353601822,MinCost,1
+1353601822,MaxCost,100
+1353601822,Edges,262144
+1353601822,Nodes,1024
+1353601822,Total time,0.0687137
+1353601822,Total time error,0.00012074
+1353601822,Total cost,520
+1353601822,Total execution time,0.383658
+1353601822,Total execution time error,0
+1769748254,DateTime,03-28-2016  21:46:35.
+1769748254,Input file,../../data/bipartite/bi_full_1024_1_exp_10.gr
+1769748254,Algorithm,Lemon CostScaling
+1769748254,Type,FullBipartite
+1769748254,Distribution,Exponential
+1769748254,Lambda,1
+1769748254,Edges,262144
+1769748254,Nodes,1024
+1769748254,Total time,0.0808065
+1769748254,Total time error,0.000151587
+1769748254,Total cost,8
+1769748254,Total execution time,0.4086
+1769748254,Total execution time error,0
+1484921951,DateTime,03-28-2016  21:46:35.
+1484921951,Input file,../../data/bipartite/bi_full_1024_1_exp_1.gr
+1484921951,Algorithm,Lemon CostScaling
+1484921951,Type,FullBipartite
+1484921951,Distribution,Exponential
+1484921951,Lambda,1
+1484921951,Edges,262144
+1484921951,Nodes,1024
+1484921951,Total time,0.0631771
+1484921951,Total time error,0.000162517
+1484921951,Total cost,5
+1484921951,Total execution time,0.370908
+1484921951,Total execution time error,0
+172225627,DateTime,03-28-2016  21:46:36.
+172225627,Input file,../../data/bipartite/bi_full_1024_1_exp_2.gr
+172225627,Algorithm,Lemon CostScaling
+172225627,Type,FullBipartite
+172225627,Distribution,Exponential
+172225627,Lambda,1
+172225627,Edges,262144
+172225627,Nodes,1024
+172225627,Total time,0.0657151
+172225627,Total time error,0.000208461
+172225627,Total cost,6
+172225627,Total execution time,0.38005
+172225627,Total execution time error,0
+1507613441,DateTime,03-28-2016  21:46:36.
+1507613441,Input file,../../data/bipartite/bi_full_1024_1_exp_3.gr
+1507613441,Algorithm,Lemon CostScaling
+1507613441,Type,FullBipartite
+1507613441,Distribution,Exponential
+1507613441,Lambda,1
+1507613441,Edges,262144
+1507613441,Nodes,1024
+1507613441,Total time,0.0789182
+1507613441,Total time error,0.000393091
+1507613441,Total cost,7
+1507613441,Total execution time,0.447079
+1507613441,Total execution time error,0
+2090457492,DateTime,03-28-2016  21:46:36.
+2090457492,Input file,../../data/bipartite/bi_full_1024_1_exp_4.gr
+2090457492,Algorithm,Lemon CostScaling
+2090457492,Type,FullBipartite
+2090457492,Distribution,Exponential
+2090457492,Lambda,1
+2090457492,Edges,262144
+2090457492,Nodes,1024
+2090457492,Total time,0.0805258
+2090457492,Total time error,0.000203777
+2090457492,Total cost,8
+2090457492,Total execution time,0.416848
+2090457492,Total execution time error,0
+1517129460,DateTime,03-28-2016  21:46:37.
+1517129460,Input file,../../data/bipartite/bi_full_1024_1_exp_5.gr
+1517129460,Algorithm,Lemon CostScaling
+1517129460,Type,FullBipartite
+1517129460,Distribution,Exponential
+1517129460,Lambda,1
+1517129460,Edges,262144
+1517129460,Nodes,1024
+1517129460,Total time,0.0805333
+1517129460,Total time error,0.00019614
+1517129460,Total cost,8
+1517129460,Total execution time,0.409641
+1517129460,Total execution time error,0
+2001759832,DateTime,03-28-2016  21:46:37.
+2001759832,Input file,../../data/bipartite/bi_full_1024_1_exp_6.gr
+2001759832,Algorithm,Lemon CostScaling
+2001759832,Type,FullBipartite
+2001759832,Distribution,Exponential
+2001759832,Lambda,1
+2001759832,Edges,262144
+2001759832,Nodes,1024
+2001759832,Total time,0.0963681
+2001759832,Total time error,0.000416213
+2001759832,Total cost,5
+2001759832,Total execution time,0.465553
+2001759832,Total execution time error,0
+1114439887,DateTime,03-28-2016  21:46:38.
+1114439887,Input file,../../data/bipartite/bi_full_1024_1_exp_7.gr
+1114439887,Algorithm,Lemon CostScaling
+1114439887,Type,FullBipartite
+1114439887,Distribution,Exponential
+1114439887,Lambda,1
+1114439887,Edges,262144
+1114439887,Nodes,1024
+1114439887,Total time,0.0757528
+1114439887,Total time error,0.000372492
+1114439887,Total cost,4
+1114439887,Total execution time,0.399568
+1114439887,Total execution time error,0
+958431492,DateTime,03-28-2016  21:46:38.
+958431492,Input file,../../data/bipartite/bi_full_1024_1_exp_8.gr
+958431492,Algorithm,Lemon CostScaling
+958431492,Type,FullBipartite
+958431492,Distribution,Exponential
+958431492,Lambda,1
+958431492,Edges,262144
+958431492,Nodes,1024
+958431492,Total time,0.0680605
+958431492,Total time error,0.000181735
+958431492,Total cost,11
+958431492,Total execution time,0.381538
+958431492,Total execution time error,0
+901180755,DateTime,03-28-2016  21:46:38.
+901180755,Input file,../../data/bipartite/bi_full_1024_1_exp_9.gr
+901180755,Algorithm,Lemon CostScaling
+901180755,Type,FullBipartite
+901180755,Distribution,Exponential
+901180755,Lambda,1
+901180755,Edges,262144
+901180755,Nodes,1024
+901180755,Total time,0.0756928
+901180755,Total time error,0.000279617
+901180755,Total cost,6
+901180755,Total execution time,0.403999
+901180755,Total execution time error,0
+1381558489,DateTime,03-28-2016  21:46:39.
+1381558489,Input file,../../data/bipartite/bi_full_1024_30_10_gauss_10.gr
+1381558489,Algorithm,Lemon CostScaling
+1381558489,Type,FullBipartite
+1381558489,Distribution,Gaussian
+1381558489,Mean,30
+1381558489,Std,10
+1381558489,Edges,262144
+1381558489,Nodes,1024
+1381558489,Total time,0.0698462
+1381558489,Total time error,0.000293066
+1381558489,Total cost,1124
+1381558489,Total execution time,0.388547
+1381558489,Total execution time error,0
+2117438451,DateTime,03-28-2016  21:46:39.
+2117438451,Input file,../../data/bipartite/bi_full_1024_30_10_gauss_1.gr
+2117438451,Algorithm,Lemon CostScaling
+2117438451,Type,FullBipartite
+2117438451,Distribution,Gaussian
+2117438451,Mean,30
+2117438451,Std,10
+2117438451,Edges,262144
+2117438451,Nodes,1024
+2117438451,Total time,0.0836999
+2117438451,Total time error,0.000146439
+2117438451,Total cost,1139
+2117438451,Total execution time,0.429347
+2117438451,Total execution time error,0
+47432981,DateTime,03-28-2016  21:46:40.
+47432981,Input file,../../data/bipartite/bi_full_1024_30_10_gauss_2.gr
+47432981,Algorithm,Lemon CostScaling
+47432981,Type,FullBipartite
+47432981,Distribution,Gaussian
+47432981,Mean,30
+47432981,Std,10
+47432981,Edges,262144
+47432981,Nodes,1024
+47432981,Total time,0.0665648
+47432981,Total time error,0.000231733
+47432981,Total cost,1209
+47432981,Total execution time,0.382485
+47432981,Total execution time error,0
+162075422,DateTime,03-28-2016  21:46:40.
+162075422,Input file,../../data/bipartite/bi_full_1024_30_10_gauss_3.gr
+162075422,Algorithm,Lemon CostScaling
+162075422,Type,FullBipartite
+162075422,Distribution,Gaussian
+162075422,Mean,30
+162075422,Std,10
+162075422,Edges,262144
+162075422,Nodes,1024
+162075422,Total time,0.0785667
+162075422,Total time error,0.000348088
+162075422,Total cost,1222
+162075422,Total execution time,0.409499
+162075422,Total execution time error,0
+951672994,DateTime,03-28-2016  21:46:40.
+951672994,Input file,../../data/bipartite/bi_full_1024_30_10_gauss_4.gr
+951672994,Algorithm,Lemon CostScaling
+951672994,Type,FullBipartite
+951672994,Distribution,Gaussian
+951672994,Mean,30
+951672994,Std,10
+951672994,Edges,262144
+951672994,Nodes,1024
+951672994,Total time,0.0979236
+951672994,Total time error,0.000492297
+951672994,Total cost,1122
+951672994,Total execution time,0.473613
+951672994,Total execution time error,0
+232663091,DateTime,03-28-2016  21:46:41.
+232663091,Input file,../../data/bipartite/bi_full_1024_30_10_gauss_5.gr
+232663091,Algorithm,Lemon CostScaling
+232663091,Type,FullBipartite
+232663091,Distribution,Gaussian
+232663091,Mean,30
+232663091,Std,10
+232663091,Edges,262144
+232663091,Nodes,1024
+232663091,Total time,0.0927113
+232663091,Total time error,0.000487369
+232663091,Total cost,1260
+232663091,Total execution time,0.472368
+232663091,Total execution time error,0
+1188517639,DateTime,03-28-2016  21:46:41.
+1188517639,Input file,../../data/bipartite/bi_full_1024_30_10_gauss_6.gr
+1188517639,Algorithm,Lemon CostScaling
+1188517639,Type,FullBipartite
+1188517639,Distribution,Gaussian
+1188517639,Mean,30
+1188517639,Std,10
+1188517639,Edges,262144
+1188517639,Nodes,1024
+1188517639,Total time,0.0930734
+1188517639,Total time error,0.000277815
+1188517639,Total cost,1142
+1188517639,Total execution time,0.451334
+1188517639,Total execution time error,0
+2089216806,DateTime,03-28-2016  21:46:42.
+2089216806,Input file,../../data/bipartite/bi_full_1024_30_10_gauss_7.gr
+2089216806,Algorithm,Lemon CostScaling
+2089216806,Type,FullBipartite
+2089216806,Distribution,Gaussian
+2089216806,Mean,30
+2089216806,Std,10
+2089216806,Edges,262144
+2089216806,Nodes,1024
+2089216806,Total time,0.0796229
+2089216806,Total time error,0.000220944
+2089216806,Total cost,1177
+2089216806,Total execution time,0.408143
+2089216806,Total execution time error,0
+2122242302,DateTime,03-28-2016  21:46:42.
+2122242302,Input file,../../data/bipartite/bi_full_1024_30_10_gauss_8.gr
+2122242302,Algorithm,Lemon CostScaling
+2122242302,Type,FullBipartite
+2122242302,Distribution,Gaussian
+2122242302,Mean,30
+2122242302,Std,10
+2122242302,Edges,262144
+2122242302,Nodes,1024
+2122242302,Total time,0.0927387
+2122242302,Total time error,0.000275625
+2122242302,Total cost,1108
+2122242302,Total execution time,0.462559
+2122242302,Total execution time error,0
+1829209315,DateTime,03-28-2016  21:46:43.
+1829209315,Input file,../../data/bipartite/bi_full_1024_30_10_gauss_9.gr
+1829209315,Algorithm,Lemon CostScaling
+1829209315,Type,FullBipartite
+1829209315,Distribution,Gaussian
+1829209315,Mean,30
+1829209315,Std,10
+1829209315,Edges,262144
+1829209315,Nodes,1024
+1829209315,Total time,0.0953
+1829209315,Total time error,0.000738485
+1829209315,Total cost,1132
+1829209315,Total execution time,0.476251
+1829209315,Total execution time error,0
+483793830,DateTime,03-28-2016  21:46:43.
+483793830,Input file,../../data/bipartite/bi_full_128_1_100_uni_10.gr
+483793830,Algorithm,Lemon CostScaling
+483793830,Type,FullBipartite
+483793830,Distribution,Uniform
+483793830,MinCost,1
+483793830,MaxCost,100
+483793830,Edges,4096
+483793830,Nodes,128
+483793830,Total time,0.00178938
+483793830,Total time error,0.000953786
+483793830,Total cost,198
+483793830,Total execution time,0.0121765
+483793830,Total execution time error,0
+1896278085,DateTime,03-28-2016  21:46:43.
+1896278085,Input file,../../data/bipartite/bi_full_128_1_100_uni_1.gr
+1896278085,Algorithm,Lemon CostScaling
+1896278085,Type,FullBipartite
+1896278085,Distribution,Uniform
+1896278085,MinCost,1
+1896278085,MaxCost,100
+1896278085,Edges,4096
+1896278085,Nodes,128
+1896278085,Total time,0.000935293
+1896278085,Total time error,1.0379e-05
+1896278085,Total cost,187
+1896278085,Total execution time,0.00559954
+1896278085,Total execution time error,0
+860752545,DateTime,03-28-2016  21:46:43.
+860752545,Input file,../../data/bipartite/bi_full_128_1_100_uni_2.gr
+860752545,Algorithm,Lemon CostScaling
+860752545,Type,FullBipartite
+860752545,Distribution,Uniform
+860752545,MinCost,1
+860752545,MaxCost,100
+860752545,Edges,4096
+860752545,Nodes,128
+860752545,Total time,0.00115344
+860752545,Total time error,5.16227e-05
+860752545,Total cost,198
+860752545,Total execution time,0.00619213
+860752545,Total execution time error,0
+865602824,DateTime,03-28-2016  21:46:43.
+865602824,Input file,../../data/bipartite/bi_full_128_1_100_uni_3.gr
+865602824,Algorithm,Lemon CostScaling
+865602824,Type,FullBipartite
+865602824,Distribution,Uniform
+865602824,MinCost,1
+865602824,MaxCost,100
+865602824,Edges,4096
+865602824,Nodes,128
+865602824,Total time,0.00248653
+865602824,Total time error,5.43654e-05
+865602824,Total cost,198
+865602824,Total execution time,0.0199383
+865602824,Total execution time error,0
+927532685,DateTime,03-28-2016  21:46:43.
+927532685,Input file,../../data/bipartite/bi_full_128_1_100_uni_4.gr
+927532685,Algorithm,Lemon CostScaling
+927532685,Type,FullBipartite
+927532685,Distribution,Uniform
+927532685,MinCost,1
+927532685,MaxCost,100
+927532685,Edges,4096
+927532685,Nodes,128
+927532685,Total time,0.00251139
+927532685,Total time error,0.00140576
+927532685,Total cost,175
+927532685,Total execution time,0.0109814
+927532685,Total execution time error,0
+494105317,DateTime,03-28-2016  21:46:43.
+494105317,Input file,../../data/bipartite/bi_full_128_1_100_uni_5.gr
+494105317,Algorithm,Lemon CostScaling
+494105317,Type,FullBipartite
+494105317,Distribution,Uniform
+494105317,MinCost,1
+494105317,MaxCost,100
+494105317,Edges,4096
+494105317,Nodes,128
+494105317,Total time,0.000840477
+494105317,Total time error,2.13701e-05
+494105317,Total cost,201
+494105317,Total execution time,0.00528156
+494105317,Total execution time error,0
+821147034,DateTime,03-28-2016  21:46:43.
+821147034,Input file,../../data/bipartite/bi_full_128_1_100_uni_6.gr
+821147034,Algorithm,Lemon CostScaling
+821147034,Type,FullBipartite
+821147034,Distribution,Uniform
+821147034,MinCost,1
+821147034,MaxCost,100
+821147034,Edges,4096
+821147034,Nodes,128
+821147034,Total time,0.00354014
+821147034,Total time error,0.000669722
+821147034,Total cost,196
+821147034,Total execution time,0.0174202
+821147034,Total execution time error,0
+1793063473,DateTime,03-28-2016  21:46:43.
+1793063473,Input file,../../data/bipartite/bi_full_128_1_100_uni_7.gr
+1793063473,Algorithm,Lemon CostScaling
+1793063473,Type,FullBipartite
+1793063473,Distribution,Uniform
+1793063473,MinCost,1
+1793063473,MaxCost,100
+1793063473,Edges,4096
+1793063473,Nodes,128
+1793063473,Total time,0.0022076
+1793063473,Total time error,0.000492477
+1793063473,Total cost,188
+1793063473,Total execution time,0.0105444
+1793063473,Total execution time error,0
+1357879902,DateTime,03-28-2016  21:46:43.
+1357879902,Input file,../../data/bipartite/bi_full_128_1_100_uni_8.gr
+1357879902,Algorithm,Lemon CostScaling
+1357879902,Type,FullBipartite
+1357879902,Distribution,Uniform
+1357879902,MinCost,1
+1357879902,MaxCost,100
+1357879902,Edges,4096
+1357879902,Nodes,128
+1357879902,Total time,0.00266826
+1357879902,Total time error,0.00117832
+1357879902,Total cost,212
+1357879902,Total execution time,0.0137198
+1357879902,Total execution time error,0
+1097115170,DateTime,03-28-2016  21:46:43.
+1097115170,Input file,../../data/bipartite/bi_full_128_1_100_uni_9.gr
+1097115170,Algorithm,Lemon CostScaling
+1097115170,Type,FullBipartite
+1097115170,Distribution,Uniform
+1097115170,MinCost,1
+1097115170,MaxCost,100
+1097115170,Edges,4096
+1097115170,Nodes,128
+1097115170,Total time,0.00119347
+1097115170,Total time error,2.49413e-05
+1097115170,Total cost,222
+1097115170,Total execution time,0.00738689
+1097115170,Total execution time error,0
+188018444,DateTime,03-28-2016  21:46:43.
+188018444,Input file,../../data/bipartite/bi_full_128_1_exp_10.gr
+188018444,Algorithm,Lemon CostScaling
+188018444,Type,FullBipartite
+188018444,Distribution,Exponential
+188018444,Lambda,1
+188018444,Edges,4096
+188018444,Nodes,128
+188018444,Total time,0.0013588
+188018444,Total time error,1.36843e-05
+188018444,Total cost,144
+188018444,Total execution time,0.00830562
+188018444,Total execution time error,0
+1457082018,DateTime,03-28-2016  21:46:43.
+1457082018,Input file,../../data/bipartite/bi_full_128_1_exp_1.gr
+1457082018,Algorithm,Lemon CostScaling
+1457082018,Type,FullBipartite
+1457082018,Distribution,Exponential
+1457082018,Lambda,1
+1457082018,Edges,4096
+1457082018,Nodes,128
+1457082018,Total time,0.00211629
+1457082018,Total time error,0.00116327
+1457082018,Total cost,149
+1457082018,Total execution time,0.0133047
+1457082018,Total execution time error,0
+420044850,DateTime,03-28-2016  21:46:43.
+420044850,Input file,../../data/bipartite/bi_full_128_1_exp_2.gr
+420044850,Algorithm,Lemon CostScaling
+420044850,Type,FullBipartite
+420044850,Distribution,Exponential
+420044850,Lambda,1
+420044850,Edges,4096
+420044850,Nodes,128
+420044850,Total time,0.00205421
+420044850,Total time error,0.00113804
+420044850,Total cost,123
+420044850,Total execution time,0.0130607
+420044850,Total execution time error,0
+1215987503,DateTime,03-28-2016  21:46:43.
+1215987503,Input file,../../data/bipartite/bi_full_128_1_exp_3.gr
+1215987503,Algorithm,Lemon CostScaling
+1215987503,Type,FullBipartite
+1215987503,Distribution,Exponential
+1215987503,Lambda,1
+1215987503,Edges,4096
+1215987503,Nodes,128
+1215987503,Total time,0.0016298
+1215987503,Total time error,0.00108866
+1215987503,Total cost,126
+1215987503,Total execution time,0.00847056
+1215987503,Total execution time error,0
+1706791859,DateTime,03-28-2016  21:46:43.
+1706791859,Input file,../../data/bipartite/bi_full_128_1_exp_4.gr
+1706791859,Algorithm,Lemon CostScaling
+1706791859,Type,FullBipartite
+1706791859,Distribution,Exponential
+1706791859,Lambda,1
+1706791859,Edges,4096
+1706791859,Nodes,128
+1706791859,Total time,0.00179796
+1706791859,Total time error,0.00092472
+1706791859,Total cost,127
+1706791859,Total execution time,0.0123754
+1706791859,Total execution time error,0
+659892281,DateTime,03-28-2016  21:46:43.
+659892281,Input file,../../data/bipartite/bi_full_128_1_exp_5.gr
+659892281,Algorithm,Lemon CostScaling
+659892281,Type,FullBipartite
+659892281,Distribution,Exponential
+659892281,Lambda,1
+659892281,Edges,4096
+659892281,Nodes,128
+659892281,Total time,0.00160677
+659892281,Total time error,2.27826e-05
+659892281,Total cost,137
+659892281,Total execution time,0.00956716
+659892281,Total execution time error,0
+237770684,DateTime,03-28-2016  21:46:43.
+237770684,Input file,../../data/bipartite/bi_full_128_1_exp_6.gr
+237770684,Algorithm,Lemon CostScaling
+237770684,Type,FullBipartite
+237770684,Distribution,Exponential
+237770684,Lambda,1
+237770684,Edges,4096
+237770684,Nodes,128
+237770684,Total time,0.00154132
+237770684,Total time error,0.000973185
+237770684,Total cost,149
+237770684,Total execution time,0.0105417
+237770684,Total execution time error,0
+116990616,DateTime,03-28-2016  21:46:43.
+116990616,Input file,../../data/bipartite/bi_full_128_1_exp_7.gr
+116990616,Algorithm,Lemon CostScaling
+116990616,Type,FullBipartite
+116990616,Distribution,Exponential
+116990616,Lambda,1
+116990616,Edges,4096
+116990616,Nodes,128
+116990616,Total time,0.0018251
+116990616,Total time error,0.000807122
+116990616,Total cost,129
+116990616,Total execution time,0.0119867
+116990616,Total execution time error,0
+1226247837,DateTime,03-28-2016  21:46:43.
+1226247837,Input file,../../data/bipartite/bi_full_128_1_exp_8.gr
+1226247837,Algorithm,Lemon CostScaling
+1226247837,Type,FullBipartite
+1226247837,Distribution,Exponential
+1226247837,Lambda,1
+1226247837,Edges,4096
+1226247837,Nodes,128
+1226247837,Total time,0.00141488
+1226247837,Total time error,0.00079752
+1226247837,Total cost,157
+1226247837,Total execution time,0.0104956
+1226247837,Total execution time error,0
+1107084254,DateTime,03-28-2016  21:46:43.
+1107084254,Input file,../../data/bipartite/bi_full_128_1_exp_9.gr
+1107084254,Algorithm,Lemon CostScaling
+1107084254,Type,FullBipartite
+1107084254,Distribution,Exponential
+1107084254,Lambda,1
+1107084254,Edges,4096
+1107084254,Nodes,128
+1107084254,Total time,0.00228223
+1107084254,Total time error,0.000855239
+1107084254,Total cost,105
+1107084254,Total execution time,0.0125918
+1107084254,Total execution time error,0
+64307863,DateTime,03-28-2016  21:46:43.
+64307863,Input file,../../data/bipartite/bi_full_128_30_10_gauss_10.gr
+64307863,Algorithm,Lemon CostScaling
+64307863,Type,FullBipartite
+64307863,Distribution,Gaussian
+64307863,Mean,30
+64307863,Std,10
+64307863,Edges,4096
+64307863,Nodes,128
+64307863,Total time,0.00183738
+64307863,Total time error,0.00124937
+64307863,Total cost,508
+64307863,Total execution time,0.00886664
+64307863,Total execution time error,0
+1321043321,DateTime,03-28-2016  21:46:44.
+1321043321,Input file,../../data/bipartite/bi_full_128_30_10_gauss_1.gr
+1321043321,Algorithm,Lemon CostScaling
+1321043321,Type,FullBipartite
+1321043321,Distribution,Gaussian
+1321043321,Mean,30
+1321043321,Std,10
+1321043321,Edges,4096
+1321043321,Nodes,128
+1321043321,Total time,0.00114182
+1321043321,Total time error,1.13526e-05
+1321043321,Total cost,514
+1321043321,Total execution time,0.00614703
+1321043321,Total execution time error,0
+268938923,DateTime,03-28-2016  21:46:44.
+268938923,Input file,../../data/bipartite/bi_full_128_30_10_gauss_2.gr
+268938923,Algorithm,Lemon CostScaling
+268938923,Type,FullBipartite
+268938923,Distribution,Gaussian
+268938923,Mean,30
+268938923,Std,10
+268938923,Edges,4096
+268938923,Nodes,128
+268938923,Total time,0.000752043
+268938923,Total time error,9.03395e-06
+268938923,Total cost,517
+268938923,Total execution time,0.00499558
+268938923,Total execution time error,0
+585721497,DateTime,03-28-2016  21:46:44.
+585721497,Input file,../../data/bipartite/bi_full_128_30_10_gauss_3.gr
+585721497,Algorithm,Lemon CostScaling
+585721497,Type,FullBipartite
+585721497,Distribution,Gaussian
+585721497,Mean,30
+585721497,Std,10
+585721497,Edges,4096
+585721497,Nodes,128
+585721497,Total time,0.000917858
+585721497,Total time error,1.57027e-05
+585721497,Total cost,541
+585721497,Total execution time,0.00547035
+585721497,Total execution time error,0
+908346118,DateTime,03-28-2016  21:46:44.
+908346118,Input file,../../data/bipartite/bi_full_128_30_10_gauss_4.gr
+908346118,Algorithm,Lemon CostScaling
+908346118,Type,FullBipartite
+908346118,Distribution,Gaussian
+908346118,Mean,30
+908346118,Std,10
+908346118,Edges,4096
+908346118,Nodes,128
+908346118,Total time,0.000918107
+908346118,Total time error,1.3622e-05
+908346118,Total cost,555
+908346118,Total execution time,0.00603945
+908346118,Total execution time error,0
+927098927,DateTime,03-28-2016  21:46:44.
+927098927,Input file,../../data/bipartite/bi_full_128_30_10_gauss_5.gr
+927098927,Algorithm,Lemon CostScaling
+927098927,Type,FullBipartite
+927098927,Distribution,Gaussian
+927098927,Mean,30
+927098927,Std,10
+927098927,Edges,4096
+927098927,Nodes,128
+927098927,Total time,0.00159394
+927098927,Total time error,0.000642309
+927098927,Total cost,481
+927098927,Total execution time,0.00756817
+927098927,Total execution time error,0
+34416572,DateTime,03-28-2016  21:46:44.
+34416572,Input file,../../data/bipartite/bi_full_128_30_10_gauss_6.gr
+34416572,Algorithm,Lemon CostScaling
+34416572,Type,FullBipartite
+34416572,Distribution,Gaussian
+34416572,Mean,30
+34416572,Std,10
+34416572,Edges,4096
+34416572,Nodes,128
+34416572,Total time,0.00194224
+34416572,Total time error,0.000139701
+34416572,Total cost,523
+34416572,Total execution time,0.0114038
+34416572,Total execution time error,0
+1450087515,DateTime,03-28-2016  21:46:44.
+1450087515,Input file,../../data/bipartite/bi_full_128_30_10_gauss_7.gr
+1450087515,Algorithm,Lemon CostScaling
+1450087515,Type,FullBipartite
+1450087515,Distribution,Gaussian
+1450087515,Mean,30
+1450087515,Std,10
+1450087515,Edges,4096
+1450087515,Nodes,128
+1450087515,Total time,0.00122907
+1450087515,Total time error,0.000231676
+1450087515,Total cost,555
+1450087515,Total execution time,0.00867393
+1450087515,Total execution time error,0
+1324473950,DateTime,03-28-2016  21:46:44.
+1324473950,Input file,../../data/bipartite/bi_full_128_30_10_gauss_8.gr
+1324473950,Algorithm,Lemon CostScaling
+1324473950,Type,FullBipartite
+1324473950,Distribution,Gaussian
+1324473950,Mean,30
+1324473950,Std,10
+1324473950,Edges,4096
+1324473950,Nodes,128
+1324473950,Total time,0.0013832
+1324473950,Total time error,0.00110607
+1324473950,Total cost,537
+1324473950,Total execution time,0.0104777
+1324473950,Total execution time error,0
+130718153,DateTime,03-28-2016  21:46:44.
+130718153,Input file,../../data/bipartite/bi_full_128_30_10_gauss_9.gr
+130718153,Algorithm,Lemon CostScaling
+130718153,Type,FullBipartite
+130718153,Distribution,Gaussian
+130718153,Mean,30
+130718153,Std,10
+130718153,Edges,4096
+130718153,Nodes,128
+130718153,Total time,0.000784572
+130718153,Total time error,1.19443e-05
+130718153,Total cost,488
+130718153,Total execution time,0.00517305
+130718153,Total execution time error,0
+1525937855,DateTime,03-28-2016  21:46:44.
+1525937855,Input file,../../data/bipartite/bi_full_16_1_100_uni_10.gr
+1525937855,Algorithm,Lemon CostScaling
+1525937855,Type,FullBipartite
+1525937855,Distribution,Uniform
+1525937855,MinCost,1
+1525937855,MaxCost,100
+1525937855,Edges,64
+1525937855,Nodes,16
+1525937855,Total time,2.74167e-05
+1525937855,Total time error,6.47832e-06
+1525937855,Total cost,124
+1525937855,Total execution time,0.000481054
+1525937855,Total execution time error,0
+1213650184,DateTime,03-28-2016  21:46:44.
+1213650184,Input file,../../data/bipartite/bi_full_16_1_100_uni_1.gr
+1213650184,Algorithm,Lemon CostScaling
+1213650184,Type,FullBipartite
+1213650184,Distribution,Uniform
+1213650184,MinCost,1
+1213650184,MaxCost,100
+1213650184,Edges,64
+1213650184,Nodes,16
+1213650184,Total time,3.18673e-05
+1213650184,Total time error,6.54064e-06
+1213650184,Total cost,135
+1213650184,Total execution time,0.000497495
+1213650184,Total execution time error,0
+1688443081,DateTime,03-28-2016  21:46:44.
+1688443081,Input file,../../data/bipartite/bi_full_16_1_100_uni_2.gr
+1688443081,Algorithm,Lemon CostScaling
+1688443081,Type,FullBipartite
+1688443081,Distribution,Uniform
+1688443081,MinCost,1
+1688443081,MaxCost,100
+1688443081,Edges,64
+1688443081,Nodes,16
+1688443081,Total time,3.59143e-05
+1688443081,Total time error,1.08526e-05
+1688443081,Total cost,200
+1688443081,Total execution time,0.000504389
+1688443081,Total execution time error,0
+1389111836,DateTime,03-28-2016  21:46:44.
+1389111836,Input file,../../data/bipartite/bi_full_16_1_100_uni_3.gr
+1389111836,Algorithm,Lemon CostScaling
+1389111836,Type,FullBipartite
+1389111836,Distribution,Uniform
+1389111836,MinCost,1
+1389111836,MaxCost,100
+1389111836,Edges,64
+1389111836,Nodes,16
+1389111836,Total time,2.5883e-05
+1389111836,Total time error,6.28503e-06
+1389111836,Total cost,161
+1389111836,Total execution time,0.000470459
+1389111836,Total execution time error,0
+1850992190,DateTime,03-28-2016  21:46:44.
+1850992190,Input file,../../data/bipartite/bi_full_16_1_100_uni_4.gr
+1850992190,Algorithm,Lemon CostScaling
+1850992190,Type,FullBipartite
+1850992190,Distribution,Uniform
+1850992190,MinCost,1
+1850992190,MaxCost,100
+1850992190,Edges,64
+1850992190,Nodes,16
+1850992190,Total time,2.8005e-05
+1850992190,Total time error,6.65896e-06
+1850992190,Total cost,112
+1850992190,Total execution time,0.000480183
+1850992190,Total execution time error,0
+1549487415,DateTime,03-28-2016  21:46:44.
+1549487415,Input file,../../data/bipartite/bi_full_16_1_100_uni_5.gr
+1549487415,Algorithm,Lemon CostScaling
+1549487415,Type,FullBipartite
+1549487415,Distribution,Uniform
+1549487415,MinCost,1
+1549487415,MaxCost,100
+1549487415,Edges,64
+1549487415,Nodes,16
+1549487415,Total time,2.84193e-05
+1549487415,Total time error,8.96573e-06
+1549487415,Total cost,111
+1549487415,Total execution time,0.000477815
+1549487415,Total execution time error,0
+2018496480,DateTime,03-28-2016  21:46:44.
+2018496480,Input file,../../data/bipartite/bi_full_16_1_100_uni_6.gr
+2018496480,Algorithm,Lemon CostScaling
+2018496480,Type,FullBipartite
+2018496480,Distribution,Uniform
+2018496480,MinCost,1
+2018496480,MaxCost,100
+2018496480,Edges,64
+2018496480,Nodes,16
+2018496480,Total time,2.5945e-05
+2018496480,Total time error,6.03606e-06
+2018496480,Total cost,144
+2018496480,Total execution time,0.000475304
+2018496480,Total execution time error,0
+325794991,DateTime,03-28-2016  21:46:44.
+325794991,Input file,../../data/bipartite/bi_full_16_1_100_uni_7.gr
+325794991,Algorithm,Lemon CostScaling
+325794991,Type,FullBipartite
+325794991,Distribution,Uniform
+325794991,MinCost,1
+325794991,MaxCost,100
+325794991,Edges,64
+325794991,Nodes,16
+325794991,Total time,2.50413e-05
+325794991,Total time error,7.45264e-06
+325794991,Total cost,162
+325794991,Total execution time,0.000478301
+325794991,Total execution time error,0
+1096609770,DateTime,03-28-2016  21:46:44.
+1096609770,Input file,../../data/bipartite/bi_full_16_1_100_uni_8.gr
+1096609770,Algorithm,Lemon CostScaling
+1096609770,Type,FullBipartite
+1096609770,Distribution,Uniform
+1096609770,MinCost,1
+1096609770,MaxCost,100
+1096609770,Edges,64
+1096609770,Nodes,16
+1096609770,Total time,3.04893e-05
+1096609770,Total time error,7.46067e-06
+1096609770,Total cost,217
+1096609770,Total execution time,0.000487273
+1096609770,Total execution time error,0
+800887875,DateTime,03-28-2016  21:46:44.
+800887875,Input file,../../data/bipartite/bi_full_16_1_100_uni_9.gr
+800887875,Algorithm,Lemon CostScaling
+800887875,Type,FullBipartite
+800887875,Distribution,Uniform
+800887875,MinCost,1
+800887875,MaxCost,100
+800887875,Edges,64
+800887875,Nodes,16
+800887875,Total time,3.53007e-05
+800887875,Total time error,8.79033e-06
+800887875,Total cost,133
+800887875,Total execution time,0.000503939
+800887875,Total execution time error,0
+182026189,DateTime,03-28-2016  21:46:44.
+182026189,Input file,../../data/bipartite/bi_full_16_1_exp_10.gr
+182026189,Algorithm,Lemon CostScaling
+182026189,Type,FullBipartite
+182026189,Distribution,Exponential
+182026189,Lambda,1
+182026189,Edges,64
+182026189,Nodes,16
+182026189,Total time,2.63407e-05
+182026189,Total time error,7.41833e-06
+182026189,Total cost,153
+182026189,Total execution time,0.000541936
+182026189,Total execution time error,0
+1726946484,DateTime,03-28-2016  21:46:44.
+1726946484,Input file,../../data/bipartite/bi_full_16_1_exp_1.gr
+1726946484,Algorithm,Lemon CostScaling
+1726946484,Type,FullBipartite
+1726946484,Distribution,Exponential
+1726946484,Lambda,1
+1726946484,Edges,64
+1726946484,Nodes,16
+1726946484,Total time,2.74707e-05
+1726946484,Total time error,7.20933e-06
+1726946484,Total cost,153
+1726946484,Total execution time,0.000546923
+1726946484,Total execution time error,0
+1411408543,DateTime,03-28-2016  21:46:44.
+1411408543,Input file,../../data/bipartite/bi_full_16_1_exp_2.gr
+1411408543,Algorithm,Lemon CostScaling
+1411408543,Type,FullBipartite
+1411408543,Distribution,Exponential
+1411408543,Lambda,1
+1411408543,Edges,64
+1411408543,Nodes,16
+1411408543,Total time,3.21867e-05
+1411408543,Total time error,6.68534e-06
+1411408543,Total cost,147
+1411408543,Total execution time,0.000562578
+1411408543,Total execution time error,0
+806069646,DateTime,03-28-2016  21:46:44.
+806069646,Input file,../../data/bipartite/bi_full_16_1_exp_3.gr
+806069646,Algorithm,Lemon CostScaling
+806069646,Type,FullBipartite
+806069646,Distribution,Exponential
+806069646,Lambda,1
+806069646,Edges,64
+806069646,Nodes,16
+806069646,Total time,3.2471e-05
+806069646,Total time error,8.25804e-06
+806069646,Total cost,141
+806069646,Total execution time,0.000557043
+806069646,Total execution time error,0
+1268652841,DateTime,03-28-2016  21:46:44.
+1268652841,Input file,../../data/bipartite/bi_full_16_1_exp_4.gr
+1268652841,Algorithm,Lemon CostScaling
+1268652841,Type,FullBipartite
+1268652841,Distribution,Exponential
+1268652841,Lambda,1
+1268652841,Edges,64
+1268652841,Nodes,16
+1268652841,Total time,3.3603e-05
+1268652841,Total time error,8.01605e-06
+1268652841,Total cost,149
+1268652841,Total execution time,0.000564701
+1268652841,Total execution time error,0
+968552990,DateTime,03-28-2016  21:46:44.
+968552990,Input file,../../data/bipartite/bi_full_16_1_exp_5.gr
+968552990,Algorithm,Lemon CostScaling
+968552990,Type,FullBipartite
+968552990,Distribution,Exponential
+968552990,Lambda,1
+968552990,Edges,64
+968552990,Nodes,16
+968552990,Total time,3.50157e-05
+968552990,Total time error,7.47138e-06
+968552990,Total cost,240
+968552990,Total execution time,0.000565641
+968552990,Total execution time error,0
+362319773,DateTime,03-28-2016  21:46:44.
+362319773,Input file,../../data/bipartite/bi_full_16_1_exp_6.gr
+362319773,Algorithm,Lemon CostScaling
+362319773,Type,FullBipartite
+362319773,Distribution,Exponential
+362319773,Lambda,1
+362319773,Edges,64
+362319773,Nodes,16
+362319773,Total time,3.18513e-05
+362319773,Total time error,7.48562e-06
+362319773,Total cost,142
+362319773,Total execution time,0.000555671
+362319773,Total execution time error,0
+1904110308,DateTime,03-28-2016  21:46:44.
+1904110308,Input file,../../data/bipartite/bi_full_16_1_exp_7.gr
+1904110308,Algorithm,Lemon CostScaling
+1904110308,Type,FullBipartite
+1904110308,Distribution,Exponential
+1904110308,Lambda,1
+1904110308,Edges,64
+1904110308,Nodes,16
+1904110308,Total time,2.836e-05
+1904110308,Total time error,7.29602e-06
+1904110308,Total cost,186
+1904110308,Total execution time,0.000544911
+1904110308,Total execution time error,0
+221237190,DateTime,03-28-2016  21:46:44.
+221237190,Input file,../../data/bipartite/bi_full_16_1_exp_8.gr
+221237190,Algorithm,Lemon CostScaling
+221237190,Type,FullBipartite
+221237190,Distribution,Exponential
+221237190,Lambda,1
+221237190,Edges,64
+221237190,Nodes,16
+221237190,Total time,3.23583e-05
+221237190,Total time error,8.79669e-06
+221237190,Total cost,71
+221237190,Total execution time,0.000555542
+221237190,Total execution time error,0
+1001683235,DateTime,03-28-2016  21:46:44.
+1001683235,Input file,../../data/bipartite/bi_full_16_1_exp_9.gr
+1001683235,Algorithm,Lemon CostScaling
+1001683235,Type,FullBipartite
+1001683235,Distribution,Exponential
+1001683235,Lambda,1
+1001683235,Edges,64
+1001683235,Nodes,16
+1001683235,Total time,2.88723e-05
+1001683235,Total time error,7.72866e-06
+1001683235,Total cost,78
+1001683235,Total execution time,0.000558319
+1001683235,Total execution time error,0
+382067919,DateTime,03-28-2016  21:46:44.
+382067919,Input file,../../data/bipartite/bi_full_16_30_10_gauss_10.gr
+382067919,Algorithm,Lemon CostScaling
+382067919,Type,FullBipartite
+382067919,Distribution,Gaussian
+382067919,Mean,30
+382067919,Std,10
+382067919,Edges,64
+382067919,Nodes,16
+382067919,Total time,2.86613e-05
+382067919,Total time error,7.17759e-06
+382067919,Total cost,128
+382067919,Total execution time,0.000552017
+382067919,Total execution time error,0
+75057901,DateTime,03-28-2016  21:46:44.
+75057901,Input file,../../data/bipartite/bi_full_16_30_10_gauss_1.gr
+75057901,Algorithm,Lemon CostScaling
+75057901,Type,FullBipartite
+75057901,Distribution,Gaussian
+75057901,Mean,30
+75057901,Std,10
+75057901,Edges,64
+75057901,Nodes,16
+75057901,Total time,2.53267e-05
+75057901,Total time error,7.57623e-06
+75057901,Total cost,131
+75057901,Total execution time,0.000537222
+75057901,Total execution time error,0
+1613694961,DateTime,03-28-2016  21:46:44.
+1613694961,Input file,../../data/bipartite/bi_full_16_30_10_gauss_2.gr
+1613694961,Algorithm,Lemon CostScaling
+1613694961,Type,FullBipartite
+1613694961,Distribution,Gaussian
+1613694961,Mean,30
+1613694961,Std,10
+1613694961,Edges,64
+1613694961,Nodes,16
+1613694961,Total time,2.49284e-05
+1613694961,Total time error,7.18267e-06
+1613694961,Total cost,108
+1613694961,Total execution time,0.000533615
+1613694961,Total execution time error,0
+1008683951,DateTime,03-28-2016  21:46:44.
+1008683951,Input file,../../data/bipartite/bi_full_16_30_10_gauss_3.gr
+1008683951,Algorithm,Lemon CostScaling
+1008683951,Type,FullBipartite
+1008683951,Distribution,Gaussian
+1008683951,Mean,30
+1008683951,Std,10
+1008683951,Edges,64
+1008683951,Nodes,16
+1008683951,Total time,3.27877e-05
+1008683951,Total time error,7.76933e-06
+1008683951,Total cost,138
+1008683951,Total execution time,0.000556623
+1008683951,Total execution time error,0
+401983364,DateTime,03-28-2016  21:46:44.
+401983364,Input file,../../data/bipartite/bi_full_16_30_10_gauss_4.gr
+401983364,Algorithm,Lemon CostScaling
+401983364,Type,FullBipartite
+401983364,Distribution,Gaussian
+401983364,Mean,30
+401983364,Std,10
+401983364,Edges,64
+401983364,Nodes,16
+401983364,Total time,2.6541e-05
+401983364,Total time error,8.07903e-06
+401983364,Total cost,142
+401983364,Total execution time,0.000513576
+401983364,Total execution time error,0
+1943139145,DateTime,03-28-2016  21:46:44.
+1943139145,Input file,../../data/bipartite/bi_full_16_30_10_gauss_5.gr
+1943139145,Algorithm,Lemon CostScaling
+1943139145,Type,FullBipartite
+1943139145,Distribution,Gaussian
+1943139145,Mean,30
+1943139145,Std,10
+1943139145,Edges,64
+1943139145,Nodes,16
+1943139145,Total time,2.6603e-05
+1943139145,Total time error,7.42101e-06
+1943139145,Total cost,138
+1943139145,Total execution time,0.00050739
+1943139145,Total execution time error,0
+1642318297,DateTime,03-28-2016  21:46:44.
+1642318297,Input file,../../data/bipartite/bi_full_16_30_10_gauss_6.gr
+1642318297,Algorithm,Lemon CostScaling
+1642318297,Type,FullBipartite
+1642318297,Distribution,Gaussian
+1642318297,Mean,30
+1642318297,Std,10
+1642318297,Edges,64
+1642318297,Nodes,16
+1642318297,Total time,2.25693e-05
+1642318297,Total time error,6.33369e-06
+1642318297,Total cost,168
+1642318297,Total execution time,0.000501981
+1642318297,Total execution time error,0
+1326737073,DateTime,03-28-2016  21:46:44.
+1326737073,Input file,../../data/bipartite/bi_full_16_30_10_gauss_7.gr
+1326737073,Algorithm,Lemon CostScaling
+1326737073,Type,FullBipartite
+1326737073,Distribution,Gaussian
+1326737073,Mean,30
+1326737073,Std,10
+1326737073,Edges,64
+1326737073,Nodes,16
+1326737073,Total time,3.92396e-05
+1326737073,Total time error,1.07593e-05
+1326737073,Total cost,159
+1326737073,Total execution time,0.000552886
+1326737073,Total execution time error,0
+1801126756,DateTime,03-28-2016  21:46:44.
+1801126756,Input file,../../data/bipartite/bi_full_16_30_10_gauss_8.gr
+1801126756,Algorithm,Lemon CostScaling
+1801126756,Type,FullBipartite
+1801126756,Distribution,Gaussian
+1801126756,Mean,30
+1801126756,Std,10
+1801126756,Edges,64
+1801126756,Nodes,16
+1801126756,Total time,3.75576e-05
+1801126756,Total time error,7.93933e-06
+1801126756,Total cost,148
+1801126756,Total execution time,0.000552861
+1801126756,Total execution time error,0
+108884965,DateTime,03-28-2016  21:46:44.
+108884965,Input file,../../data/bipartite/bi_full_16_30_10_gauss_9.gr
+108884965,Algorithm,Lemon CostScaling
+108884965,Type,FullBipartite
+108884965,Distribution,Gaussian
+108884965,Mean,30
+108884965,Std,10
+108884965,Edges,64
+108884965,Nodes,16
+108884965,Total time,2.20964e-05
+108884965,Total time error,6.24564e-06
+108884965,Total cost,133
+108884965,Total execution time,0.000503255
+108884965,Total execution time error,0
+885429496,DateTime,03-28-2016  21:46:44.
+885429496,Input file,../../data/bipartite/bi_full_16384_1_100_uni_10.gr
+885429496,Algorithm,Lemon CostScaling
+885429496,Type,FullBipartite
+885429496,Distribution,Uniform
+885429496,MinCost,1
+885429496,MaxCost,100
+885429496,Edges,67108864
+885429496,Nodes,16384
+885429496,Total time,24.193
+885429496,Total time error,0.0824972
+885429496,Total cost,8192
+885429496,Total execution time,146.381
+885429496,Total execution time error,0
+1440455364,DateTime,03-28-2016  21:49:10.
+1440455364,Input file,../../data/bipartite/bi_full_16384_1_100_uni_1.gr
+1440455364,Algorithm,Lemon CostScaling
+1440455364,Type,FullBipartite
+1440455364,Distribution,Uniform
+1440455364,MinCost,1
+1440455364,MaxCost,100
+1440455364,Edges,67108864
+1440455364,Nodes,16384
+1440455364,Total time,21.3524
+1440455364,Total time error,0.121927
+1440455364,Total cost,8192
+1440455364,Total execution time,129.801
+1440455364,Total execution time error,0
+1614839382,DateTime,03-28-2016  21:51:20.
+1614839382,Input file,../../data/bipartite/bi_full_16384_1_100_uni_2.gr
+1614839382,Algorithm,Lemon CostScaling
+1614839382,Type,FullBipartite
+1614839382,Distribution,Uniform
+1614839382,MinCost,1
+1614839382,MaxCost,100
+1614839382,Edges,67108864
+1614839382,Nodes,16384
+1614839382,Total time,20.8882
+1614839382,Total time error,0.0267169
+1614839382,Total cost,8192
+1614839382,Total execution time,123.452
+1614839382,Total execution time error,0
+1934244138,DateTime,03-28-2016  21:53:24.
+1934244138,Input file,../../data/bipartite/bi_full_16384_1_100_uni_3.gr
+1934244138,Algorithm,Lemon CostScaling
+1934244138,Type,FullBipartite
+1934244138,Distribution,Uniform
+1934244138,MinCost,1
+1934244138,MaxCost,100
+1934244138,Edges,67108864
+1934244138,Nodes,16384
+1934244138,Total time,21.657
+1934244138,Total time error,0.249107
+1934244138,Total cost,8192
+1934244138,Total execution time,125.777
+1934244138,Total execution time error,0
+743340340,DateTime,03-28-2016  21:55:30.
+743340340,Input file,../../data/bipartite/bi_full_16384_1_100_uni_4.gr
+743340340,Algorithm,Lemon CostScaling
+743340340,Type,FullBipartite
+743340340,Distribution,Uniform
+743340340,MinCost,1
+743340340,MaxCost,100
+743340340,Edges,67108864
+743340340,Nodes,16384
+743340340,Total time,22.6991
+743340340,Total time error,0.249568
+743340340,Total cost,8192
+743340340,Total execution time,128.544
+743340340,Total execution time error,0
+2146275687,DateTime,03-28-2016  21:57:38.
+2146275687,Input file,../../data/bipartite/bi_full_16384_1_100_uni_5.gr
+2146275687,Algorithm,Lemon CostScaling
+2146275687,Type,FullBipartite
+2146275687,Distribution,Uniform
+2146275687,MinCost,1
+2146275687,MaxCost,100
+2146275687,Edges,67108864
+2146275687,Nodes,16384
+2146275687,Total time,21.7403
+2146275687,Total time error,0.122862
+2146275687,Total cost,8192
+2146275687,Total execution time,126.674
+2146275687,Total execution time error,0
+2106414342,DateTime,03-28-2016  21:59:45.
+2106414342,Input file,../../data/bipartite/bi_full_16384_1_100_uni_6.gr
+2106414342,Algorithm,Lemon CostScaling
+2106414342,Type,FullBipartite
+2106414342,Distribution,Uniform
+2106414342,MinCost,1
+2106414342,MaxCost,100
+2106414342,Edges,67108864
+2106414342,Nodes,16384
+2106414342,Total time,23.8827
+2106414342,Total time error,0.15886
+2106414342,Total cost,8192
+2106414342,Total execution time,132.361
+2106414342,Total execution time error,0
+586855290,DateTime,03-28-2016  22:01:58.
+586855290,Input file,../../data/bipartite/bi_full_16384_1_100_uni_7.gr
+586855290,Algorithm,Lemon CostScaling
+586855290,Type,FullBipartite
+586855290,Distribution,Uniform
+586855290,MinCost,1
+586855290,MaxCost,100
+586855290,Edges,67108864
+586855290,Nodes,16384
+586855290,Total time,23.0822
+586855290,Total time error,0.133756
+586855290,Total cost,8192
+586855290,Total execution time,129.664
+586855290,Total execution time error,0
+1695075877,DateTime,03-28-2016  22:04:07.
+1695075877,Input file,../../data/bipartite/bi_full_16384_1_100_uni_8.gr
+1695075877,Algorithm,Lemon CostScaling
+1695075877,Type,FullBipartite
+1695075877,Distribution,Uniform
+1695075877,MinCost,1
+1695075877,MaxCost,100
+1695075877,Edges,67108864
+1695075877,Nodes,16384
+1695075877,Total time,22.6606
+1695075877,Total time error,0.145526
+1695075877,Total cost,8192
+1695075877,Total execution time,127.914
+1695075877,Total execution time error,0
+1672100221,DateTime,03-28-2016  22:06:15.
+1672100221,Input file,../../data/bipartite/bi_full_16384_1_100_uni_9.gr
+1672100221,Algorithm,Lemon CostScaling
+1672100221,Type,FullBipartite
+1672100221,Distribution,Uniform
+1672100221,MinCost,1
+1672100221,MaxCost,100
+1672100221,Edges,67108864
+1672100221,Nodes,16384
+1672100221,Total time,21.8193
+1672100221,Total time error,0.0610533
+1672100221,Total cost,8192
+1672100221,Total execution time,125.238
+1672100221,Total execution time error,0
+871813859,DateTime,03-28-2016  22:08:21.
+871813859,Input file,../../data/bipartite/bi_full_16384_1_exp_10.gr
+871813859,Algorithm,Lemon CostScaling
+871813859,Type,FullBipartite
+871813859,Distribution,Exponential
+871813859,Lambda,1
+871813859,Edges,67108864
+871813859,Nodes,16384
+871813859,Total time,26.3824
+871813859,Total time error,0.203533
+871813859,Total cost,0
+871813859,Total execution time,140.117
+871813859,Total execution time error,0
+1267857876,DateTime,03-28-2016  22:10:41.
+1267857876,Input file,../../data/bipartite/bi_full_16384_1_exp_1.gr
+1267857876,Algorithm,Lemon CostScaling
+1267857876,Type,FullBipartite
+1267857876,Distribution,Exponential
+1267857876,Lambda,1
+1267857876,Edges,67108864
+1267857876,Nodes,16384
+1267857876,Total time,24.4776
+1267857876,Total time error,0.142149
+1267857876,Total cost,0
+1267857876,Total execution time,135.141
+1267857876,Total execution time error,0
+1515519533,DateTime,03-28-2016  22:12:56.
+1515519533,Input file,../../data/bipartite/bi_full_16384_1_exp_2.gr
+1515519533,Algorithm,Lemon CostScaling
+1515519533,Type,FullBipartite
+1515519533,Distribution,Exponential
+1515519533,Lambda,1
+1515519533,Edges,67108864
+1515519533,Nodes,16384
+1515519533,Total time,22.9332
+1515519533,Total time error,0.1947
+1515519533,Total cost,0
+1515519533,Total execution time,130.181
+1515519533,Total execution time error,0
+695345853,DateTime,03-28-2016  22:15:06.
+695345853,Input file,../../data/bipartite/bi_full_16384_1_exp_3.gr
+695345853,Algorithm,Lemon CostScaling
+695345853,Type,FullBipartite
+695345853,Distribution,Exponential
+695345853,Lambda,1
+695345853,Edges,67108864
+695345853,Nodes,16384
+695345853,Total time,26.0685
+695345853,Total time error,0.197151
+695345853,Total cost,0
+695345853,Total execution time,139.161
+695345853,Total execution time error,0
+1298561876,DateTime,03-28-2016  22:17:25.
+1298561876,Input file,../../data/bipartite/bi_full_16384_1_exp_4.gr
+1298561876,Algorithm,Lemon CostScaling
+1298561876,Type,FullBipartite
+1298561876,Distribution,Exponential
+1298561876,Lambda,1
+1298561876,Edges,67108864
+1298561876,Nodes,16384
+1298561876,Total time,25.4437
+1298561876,Total time error,0.181739
+1298561876,Total cost,0
+1298561876,Total execution time,137.629
+1298561876,Total execution time error,0
+1828555262,DateTime,03-28-2016  22:19:43.
+1828555262,Input file,../../data/bipartite/bi_full_16384_1_exp_5.gr
+1828555262,Algorithm,Lemon CostScaling
+1828555262,Type,FullBipartite
+1828555262,Distribution,Exponential
+1828555262,Lambda,1
+1828555262,Edges,67108864
+1828555262,Nodes,16384
+1828555262,Total time,24.9292
+1828555262,Total time error,0.0899739
+1828555262,Total cost,0
+1828555262,Total execution time,135.922
+1828555262,Total execution time error,0
+730030336,DateTime,03-28-2016  22:21:59.
+730030336,Input file,../../data/bipartite/bi_full_16384_1_exp_6.gr
+730030336,Algorithm,Lemon CostScaling
+730030336,Type,FullBipartite
+730030336,Distribution,Exponential
+730030336,Lambda,1
+730030336,Edges,67108864
+730030336,Nodes,16384
+730030336,Total time,25.8377
+730030336,Total time error,0.22643
+730030336,Total cost,0
+730030336,Total execution time,138.801
+730030336,Total execution time error,0
+1987350918,DateTime,03-28-2016  22:24:18.
+1987350918,Input file,../../data/bipartite/bi_full_16384_1_exp_7.gr
+1987350918,Algorithm,Lemon CostScaling
+1987350918,Type,FullBipartite
+1987350918,Distribution,Exponential
+1987350918,Lambda,1
+1987350918,Edges,67108864
+1987350918,Nodes,16384
+1987350918,Total time,24.453
+1987350918,Total time error,0.140176
+1987350918,Total cost,0
+1987350918,Total execution time,134.55
+1987350918,Total execution time error,0
+991099685,DateTime,03-28-2016  22:26:33.
+991099685,Input file,../../data/bipartite/bi_full_16384_1_exp_8.gr
+991099685,Algorithm,Lemon CostScaling
+991099685,Type,FullBipartite
+991099685,Distribution,Exponential
+991099685,Lambda,1
+991099685,Edges,67108864
+991099685,Nodes,16384
+991099685,Total time,24.4464
+991099685,Total time error,0.175033
+991099685,Total cost,0
+991099685,Total execution time,134.485
+991099685,Total execution time error,0
+173507221,DateTime,03-28-2016  22:28:47.
+173507221,Input file,../../data/bipartite/bi_full_16384_1_exp_9.gr
+173507221,Algorithm,Lemon CostScaling
+173507221,Type,FullBipartite
+173507221,Distribution,Exponential
+173507221,Lambda,1
+173507221,Edges,67108864
+173507221,Nodes,16384
+173507221,Total time,26.2908
+173507221,Total time error,0.0542525
+173507221,Total cost,0
+173507221,Total execution time,139.714
+173507221,Total execution time error,0
+724416867,DateTime,03-28-2016  22:31:07.
+724416867,Input file,../../data/bipartite/bi_full_16384_30_10_gauss_10.gr
+724416867,Algorithm,Lemon CostScaling
+724416867,Type,FullBipartite
+724416867,Distribution,Gaussian
+724416867,Mean,30
+724416867,Std,10
+724416867,Edges,67108864
+724416867,Nodes,16384
+724416867,Total time,28.7358
+724416867,Total time error,0.0754872
+724416867,Total cost,9
+724416867,Total execution time,147.111
+724416867,Total execution time error,0
+1663222546,DateTime,03-28-2016  22:33:34.
+1663222546,Input file,../../data/bipartite/bi_full_16384_30_10_gauss_1.gr
+1663222546,Algorithm,Lemon CostScaling
+1663222546,Type,FullBipartite
+1663222546,Distribution,Gaussian
+1663222546,Mean,30
+1663222546,Std,10
+1663222546,Edges,67108864
+1663222546,Nodes,16384
+1663222546,Total time,25.3438
+1663222546,Total time error,0.159577
+1663222546,Total cost,8
+1663222546,Total execution time,136.704
+1663222546,Total execution time error,0
+381386150,DateTime,03-28-2016  22:35:51.
+381386150,Input file,../../data/bipartite/bi_full_16384_30_10_gauss_2.gr
+381386150,Algorithm,Lemon CostScaling
+381386150,Type,FullBipartite
+381386150,Distribution,Gaussian
+381386150,Mean,30
+381386150,Std,10
+381386150,Edges,67108864
+381386150,Nodes,16384
+381386150,Total time,30.2238
+381386150,Total time error,0.0951386
+381386150,Total cost,11
+381386150,Total execution time,151.032
+381386150,Total execution time error,0
+1996802023,DateTime,03-28-2016  22:38:22.
+1996802023,Input file,../../data/bipartite/bi_full_16384_30_10_gauss_3.gr
+1996802023,Algorithm,Lemon CostScaling
+1996802023,Type,FullBipartite
+1996802023,Distribution,Gaussian
+1996802023,Mean,30
+1996802023,Std,10
+1996802023,Edges,67108864
+1996802023,Nodes,16384
+1996802023,Total time,26.0469
+1996802023,Total time error,0.16306
+1996802023,Total cost,8
+1996802023,Total execution time,139.011
+1996802023,Total execution time error,0
+559357941,DateTime,03-28-2016  22:40:41.
+559357941,Input file,../../data/bipartite/bi_full_16384_30_10_gauss_4.gr
+559357941,Algorithm,Lemon CostScaling
+559357941,Type,FullBipartite
+559357941,Distribution,Gaussian
+559357941,Mean,30
+559357941,Std,10
+559357941,Edges,67108864
+559357941,Nodes,16384
+559357941,Total time,30.4834
+559357941,Total time error,0.0964116
+559357941,Total cost,12
+559357941,Total execution time,151.978
+559357941,Total execution time error,0
+1707954014,DateTime,03-28-2016  22:43:13.
+1707954014,Input file,../../data/bipartite/bi_full_16384_30_10_gauss_5.gr
+1707954014,Algorithm,Lemon CostScaling
+1707954014,Type,FullBipartite
+1707954014,Distribution,Gaussian
+1707954014,Mean,30
+1707954014,Std,10
+1707954014,Edges,67108864
+1707954014,Nodes,16384
+1707954014,Total time,25.9026
+1707954014,Total time error,0.0961869
+1707954014,Total cost,14
+1707954014,Total execution time,138.309
+1707954014,Total execution time error,0
+394284603,DateTime,03-28-2016  22:45:32.
+394284603,Input file,../../data/bipartite/bi_full_16384_30_10_gauss_6.gr
+394284603,Algorithm,Lemon CostScaling
+394284603,Type,FullBipartite
+394284603,Distribution,Gaussian
+394284603,Mean,30
+394284603,Std,10
+394284603,Edges,67108864
+394284603,Nodes,16384
+394284603,Total time,31.3246
+394284603,Total time error,0.165346
+394284603,Total cost,8
+394284603,Total execution time,154.806
+394284603,Total execution time error,0
+548236932,DateTime,03-28-2016  22:48:07.
+548236932,Input file,../../data/bipartite/bi_full_16384_30_10_gauss_7.gr
+548236932,Algorithm,Lemon CostScaling
+548236932,Type,FullBipartite
+548236932,Distribution,Gaussian
+548236932,Mean,30
+548236932,Std,10
+548236932,Edges,67108864
+548236932,Nodes,16384
+548236932,Total time,26.0777
+548236932,Total time error,0.202299
+548236932,Total cost,14
+548236932,Total execution time,138.857
+548236932,Total execution time error,0
+2068458368,DateTime,03-28-2016  22:50:26.
+2068458368,Input file,../../data/bipartite/bi_full_16384_30_10_gauss_8.gr
+2068458368,Algorithm,Lemon CostScaling
+2068458368,Type,FullBipartite
+2068458368,Distribution,Gaussian
+2068458368,Mean,30
+2068458368,Std,10
+2068458368,Edges,67108864
+2068458368,Nodes,16384
+2068458368,Total time,31.2955
+2068458368,Total time error,0.0926268
+2068458368,Total cost,9
+2068458368,Total execution time,154.332
+2068458368,Total execution time error,0
+1887934037,DateTime,03-28-2016  22:53:00.
+1887934037,Input file,../../data/bipartite/bi_full_16384_30_10_gauss_9.gr
+1887934037,Algorithm,Lemon CostScaling
+1887934037,Type,FullBipartite
+1887934037,Distribution,Gaussian
+1887934037,Mean,30
+1887934037,Std,10
+1887934037,Edges,67108864
+1887934037,Nodes,16384
+1887934037,Total time,30.5109
+1887934037,Total time error,0.0555121
+1887934037,Total cost,7
+1887934037,Total execution time,152.31
+1887934037,Total execution time error,0
+503468504,DateTime,03-28-2016  22:55:32.
+503468504,Input file,../../data/bipartite/bi_full_2048_1_100_uni_10.gr
+503468504,Algorithm,Lemon CostScaling
+503468504,Type,FullBipartite
+503468504,Distribution,Uniform
+503468504,MinCost,1
+503468504,MaxCost,100
+503468504,Edges,1048576
+503468504,Nodes,2048
+503468504,Total time,0.220799
+503468504,Total time error,0.00106236
+503468504,Total cost,1024
+503468504,Total execution time,1.38941
+503468504,Total execution time error,0
+1453903220,DateTime,03-28-2016  22:55:34.
+1453903220,Input file,../../data/bipartite/bi_full_2048_1_100_uni_1.gr
+1453903220,Algorithm,Lemon CostScaling
+1453903220,Type,FullBipartite
+1453903220,Distribution,Uniform
+1453903220,MinCost,1
+1453903220,MaxCost,100
+1453903220,Edges,1048576
+1453903220,Nodes,2048
+1453903220,Total time,0.231118
+1453903220,Total time error,0.00102824
+1453903220,Total cost,1024
+1453903220,Total execution time,1.44115
+1453903220,Total execution time error,0
+1139160639,DateTime,03-28-2016  22:55:35.
+1139160639,Input file,../../data/bipartite/bi_full_2048_1_100_uni_2.gr
+1139160639,Algorithm,Lemon CostScaling
+1139160639,Type,FullBipartite
+1139160639,Distribution,Uniform
+1139160639,MinCost,1
+1139160639,MaxCost,100
+1139160639,Edges,1048576
+1139160639,Nodes,2048
+1139160639,Total time,0.231192
+1139160639,Total time error,0.000739295
+1139160639,Total cost,1024
+1139160639,Total execution time,1.40912
+1139160639,Total execution time error,0
+608363278,DateTime,03-28-2016  22:55:37.
+608363278,Input file,../../data/bipartite/bi_full_2048_1_100_uni_3.gr
+608363278,Algorithm,Lemon CostScaling
+608363278,Type,FullBipartite
+608363278,Distribution,Uniform
+608363278,MinCost,1
+608363278,MaxCost,100
+608363278,Edges,1048576
+608363278,Nodes,2048
+608363278,Total time,0.220827
+608363278,Total time error,0.000246029
+608363278,Total cost,1024
+608363278,Total execution time,1.37966
+608363278,Total execution time error,0
+1981825336,DateTime,03-28-2016  22:55:38.
+1981825336,Input file,../../data/bipartite/bi_full_2048_1_100_uni_4.gr
+1981825336,Algorithm,Lemon CostScaling
+1981825336,Type,FullBipartite
+1981825336,Distribution,Uniform
+1981825336,MinCost,1
+1981825336,MaxCost,100
+1981825336,Edges,1048576
+1981825336,Nodes,2048
+1981825336,Total time,0.244392
+1981825336,Total time error,0.000882794
+1981825336,Total cost,1025
+1981825336,Total execution time,1.50633
+1981825336,Total execution time error,0
+1700541331,DateTime,03-28-2016  22:55:40.
+1700541331,Input file,../../data/bipartite/bi_full_2048_1_100_uni_5.gr
+1700541331,Algorithm,Lemon CostScaling
+1700541331,Type,FullBipartite
+1700541331,Distribution,Uniform
+1700541331,MinCost,1
+1700541331,MaxCost,100
+1700541331,Edges,1048576
+1700541331,Nodes,2048
+1700541331,Total time,0.212689
+1700541331,Total time error,0.00044465
+1700541331,Total cost,1024
+1700541331,Total execution time,1.39531
+1700541331,Total execution time error,0
+824055781,DateTime,03-28-2016  22:55:41.
+824055781,Input file,../../data/bipartite/bi_full_2048_1_100_uni_6.gr
+824055781,Algorithm,Lemon CostScaling
+824055781,Type,FullBipartite
+824055781,Distribution,Uniform
+824055781,MinCost,1
+824055781,MaxCost,100
+824055781,Edges,1048576
+824055781,Nodes,2048
+824055781,Total time,0.219053
+824055781,Total time error,0.00119035
+824055781,Total cost,1024
+824055781,Total execution time,1.38804
+824055781,Total execution time error,0
+996416925,DateTime,03-28-2016  22:55:42.
+996416925,Input file,../../data/bipartite/bi_full_2048_1_100_uni_7.gr
+996416925,Algorithm,Lemon CostScaling
+996416925,Type,FullBipartite
+996416925,Distribution,Uniform
+996416925,MinCost,1
+996416925,MaxCost,100
+996416925,Edges,1048576
+996416925,Nodes,2048
+996416925,Total time,0.224778
+996416925,Total time error,0.00322169
+996416925,Total cost,1024
+996416925,Total execution time,1.42668
+996416925,Total execution time error,0
+1434748052,DateTime,03-28-2016  22:55:44.
+1434748052,Input file,../../data/bipartite/bi_full_2048_1_100_uni_8.gr
+1434748052,Algorithm,Lemon CostScaling
+1434748052,Type,FullBipartite
+1434748052,Distribution,Uniform
+1434748052,MinCost,1
+1434748052,MaxCost,100
+1434748052,Edges,1048576
+1434748052,Nodes,2048
+1434748052,Total time,0.216525
+1434748052,Total time error,0.000703663
+1434748052,Total cost,1024
+1434748052,Total execution time,1.43891
+1434748052,Total execution time error,0
+344638420,DateTime,03-28-2016  22:55:45.
+344638420,Input file,../../data/bipartite/bi_full_2048_1_100_uni_9.gr
+344638420,Algorithm,Lemon CostScaling
+344638420,Type,FullBipartite
+344638420,Distribution,Uniform
+344638420,MinCost,1
+344638420,MaxCost,100
+344638420,Edges,1048576
+344638420,Nodes,2048
+344638420,Total time,0.227836
+344638420,Total time error,0.000320509
+344638420,Total cost,1024
+344638420,Total execution time,1.43301
+344638420,Total execution time error,0
+1871716300,DateTime,03-28-2016  22:55:47.
+1871716300,Input file,../../data/bipartite/bi_full_2048_1_exp_10.gr
+1871716300,Algorithm,Lemon CostScaling
+1871716300,Type,FullBipartite
+1871716300,Distribution,Exponential
+1871716300,Lambda,1
+1871716300,Edges,1048576
+1871716300,Nodes,2048
+1871716300,Total time,0.272727
+1871716300,Total time error,0.000384097
+1871716300,Total cost,0
+1871716300,Total execution time,1.56159
+1871716300,Total execution time error,0
+511352964,DateTime,03-28-2016  22:55:48.
+511352964,Input file,../../data/bipartite/bi_full_2048_1_exp_1.gr
+511352964,Algorithm,Lemon CostScaling
+511352964,Type,FullBipartite
+511352964,Distribution,Exponential
+511352964,Lambda,1
+511352964,Edges,1048576
+511352964,Nodes,2048
+511352964,Total time,0.260291
+511352964,Total time error,0.000379117
+511352964,Total cost,0
+511352964,Total execution time,1.53574
+511352964,Total execution time error,0
+1077778472,DateTime,03-28-2016  22:55:50.
+1077778472,Input file,../../data/bipartite/bi_full_2048_1_exp_2.gr
+1077778472,Algorithm,Lemon CostScaling
+1077778472,Type,FullBipartite
+1077778472,Distribution,Exponential
+1077778472,Lambda,1
+1077778472,Edges,1048576
+1077778472,Nodes,2048
+1077778472,Total time,0.257753
+1077778472,Total time error,0.000259525
+1077778472,Total cost,0
+1077778472,Total execution time,1.53022
+1077778472,Total execution time error,0
+241947509,DateTime,03-28-2016  22:55:51.
+241947509,Input file,../../data/bipartite/bi_full_2048_1_exp_3.gr
+241947509,Algorithm,Lemon CostScaling
+241947509,Type,FullBipartite
+241947509,Distribution,Exponential
+241947509,Lambda,1
+241947509,Edges,1048576
+241947509,Nodes,2048
+241947509,Total time,0.260294
+241947509,Total time error,0.000468271
+241947509,Total cost,0
+241947509,Total execution time,1.51486
+241947509,Total execution time error,0
+1520472589,DateTime,03-28-2016  22:55:53.
+1520472589,Input file,../../data/bipartite/bi_full_2048_1_exp_4.gr
+1520472589,Algorithm,Lemon CostScaling
+1520472589,Type,FullBipartite
+1520472589,Distribution,Exponential
+1520472589,Lambda,1
+1520472589,Edges,1048576
+1520472589,Nodes,2048
+1520472589,Total time,0.257879
+1520472589,Total time error,0.000687515
+1520472589,Total cost,0
+1520472589,Total execution time,1.53133
+1520472589,Total execution time error,0
+385491788,DateTime,03-28-2016  22:55:54.
+385491788,Input file,../../data/bipartite/bi_full_2048_1_exp_5.gr
+385491788,Algorithm,Lemon CostScaling
+385491788,Type,FullBipartite
+385491788,Distribution,Exponential
+385491788,Lambda,1
+385491788,Edges,1048576
+385491788,Nodes,2048
+385491788,Total time,0.268963
+385491788,Total time error,0.00121141
+385491788,Total cost,0
+385491788,Total execution time,1.54305
+385491788,Total execution time error,0
+2047422777,DateTime,03-28-2016  22:55:56.
+2047422777,Input file,../../data/bipartite/bi_full_2048_1_exp_6.gr
+2047422777,Algorithm,Lemon CostScaling
+2047422777,Type,FullBipartite
+2047422777,Distribution,Exponential
+2047422777,Lambda,1
+2047422777,Edges,1048576
+2047422777,Nodes,2048
+2047422777,Total time,0.266601
+2047422777,Total time error,0.000585811
+2047422777,Total cost,0
+2047422777,Total execution time,1.55519
+2047422777,Total execution time error,0
+815607681,DateTime,03-28-2016  22:55:57.
+815607681,Input file,../../data/bipartite/bi_full_2048_1_exp_7.gr
+815607681,Algorithm,Lemon CostScaling
+815607681,Type,FullBipartite
+815607681,Distribution,Exponential
+815607681,Lambda,1
+815607681,Edges,1048576
+815607681,Nodes,2048
+815607681,Total time,0.260694
+815607681,Total time error,0.00128695
+815607681,Total cost,0
+815607681,Total execution time,1.52469
+815607681,Total execution time error,0
+1519100645,DateTime,03-28-2016  22:55:59.
+1519100645,Input file,../../data/bipartite/bi_full_2048_1_exp_8.gr
+1519100645,Algorithm,Lemon CostScaling
+1519100645,Type,FullBipartite
+1519100645,Distribution,Exponential
+1519100645,Lambda,1
+1519100645,Edges,1048576
+1519100645,Nodes,2048
+1519100645,Total time,0.273263
+1519100645,Total time error,0.00147671
+1519100645,Total cost,1
+1519100645,Total execution time,1.55991
+1519100645,Total execution time error,0
+1211335541,DateTime,03-28-2016  22:56:01.
+1211335541,Input file,../../data/bipartite/bi_full_2048_1_exp_9.gr
+1211335541,Algorithm,Lemon CostScaling
+1211335541,Type,FullBipartite
+1211335541,Distribution,Exponential
+1211335541,Lambda,1
+1211335541,Edges,1048576
+1211335541,Nodes,2048
+1211335541,Total time,0.273088
+1211335541,Total time error,0.00172619
+1211335541,Total cost,0
+1211335541,Total execution time,1.58982
+1211335541,Total execution time error,0
+390450994,DateTime,03-28-2016  22:56:02.
+390450994,Input file,../../data/bipartite/bi_full_2048_30_10_gauss_10.gr
+390450994,Algorithm,Lemon CostScaling
+390450994,Type,FullBipartite
+390450994,Distribution,Gaussian
+390450994,Mean,30
+390450994,Std,10
+390450994,Edges,1048576
+390450994,Nodes,2048
+390450994,Total time,0.376077
+390450994,Total time error,0.00110333
+390450994,Total cost,1062
+390450994,Total execution time,1.87229
+390450994,Total execution time error,0
+1857129796,DateTime,03-28-2016  22:56:04.
+1857129796,Input file,../../data/bipartite/bi_full_2048_30_10_gauss_1.gr
+1857129796,Algorithm,Lemon CostScaling
+1857129796,Type,FullBipartite
+1857129796,Distribution,Gaussian
+1857129796,Mean,30
+1857129796,Std,10
+1857129796,Edges,1048576
+1857129796,Nodes,2048
+1857129796,Total time,0.390952
+1857129796,Total time error,0.000322653
+1857129796,Total cost,1122
+1857129796,Total execution time,1.91512
+1857129796,Total execution time error,0
+1743565943,DateTime,03-28-2016  22:56:06.
+1743565943,Input file,../../data/bipartite/bi_full_2048_30_10_gauss_2.gr
+1743565943,Algorithm,Lemon CostScaling
+1743565943,Type,FullBipartite
+1743565943,Distribution,Gaussian
+1743565943,Mean,30
+1743565943,Std,10
+1743565943,Edges,1048576
+1743565943,Nodes,2048
+1743565943,Total time,0.321852
+1743565943,Total time error,0.000762403
+1743565943,Total cost,1119
+1743565943,Total execution time,1.69753
+1743565943,Total execution time error,0
+741483811,DateTime,03-28-2016  22:56:08.
+741483811,Input file,../../data/bipartite/bi_full_2048_30_10_gauss_3.gr
+741483811,Algorithm,Lemon CostScaling
+741483811,Type,FullBipartite
+741483811,Distribution,Gaussian
+741483811,Mean,30
+741483811,Std,10
+741483811,Edges,1048576
+741483811,Nodes,2048
+741483811,Total time,0.371505
+741483811,Total time error,0.000364984
+741483811,Total cost,1171
+741483811,Total execution time,1.87954
+741483811,Total execution time error,0
+1912745790,DateTime,03-28-2016  22:56:10.
+1912745790,Input file,../../data/bipartite/bi_full_2048_30_10_gauss_4.gr
+1912745790,Algorithm,Lemon CostScaling
+1912745790,Type,FullBipartite
+1912745790,Distribution,Gaussian
+1912745790,Mean,30
+1912745790,Std,10
+1912745790,Edges,1048576
+1912745790,Nodes,2048
+1912745790,Total time,0.362135
+1912745790,Total time error,0.00134548
+1912745790,Total cost,1230
+1912745790,Total execution time,1.8304
+1912745790,Total execution time error,0
+1886019394,DateTime,03-28-2016  22:56:11.
+1886019394,Input file,../../data/bipartite/bi_full_2048_30_10_gauss_5.gr
+1886019394,Algorithm,Lemon CostScaling
+1886019394,Type,FullBipartite
+1886019394,Distribution,Gaussian
+1886019394,Mean,30
+1886019394,Std,10
+1886019394,Edges,1048576
+1886019394,Nodes,2048
+1886019394,Total time,0.341868
+1886019394,Total time error,0.00436074
+1886019394,Total cost,1192
+1886019394,Total execution time,1.77886
+1886019394,Total execution time error,0
+20231871,DateTime,03-28-2016  22:56:13.
+20231871,Input file,../../data/bipartite/bi_full_2048_30_10_gauss_6.gr
+20231871,Algorithm,Lemon CostScaling
+20231871,Type,FullBipartite
+20231871,Distribution,Gaussian
+20231871,Mean,30
+20231871,Std,10
+20231871,Edges,1048576
+20231871,Nodes,2048
+20231871,Total time,0.380383
+20231871,Total time error,0.000124258
+20231871,Total cost,1117
+20231871,Total execution time,1.88818
+20231871,Total execution time error,0
+1680109398,DateTime,03-28-2016  22:56:15.
+1680109398,Input file,../../data/bipartite/bi_full_2048_30_10_gauss_7.gr
+1680109398,Algorithm,Lemon CostScaling
+1680109398,Type,FullBipartite
+1680109398,Distribution,Gaussian
+1680109398,Mean,30
+1680109398,Std,10
+1680109398,Edges,1048576
+1680109398,Nodes,2048
+1680109398,Total time,0.371682
+1680109398,Total time error,0.000618192
+1680109398,Total cost,1141
+1680109398,Total execution time,1.85013
+1680109398,Total execution time error,0
+1235777094,DateTime,03-28-2016  22:56:17.
+1235777094,Input file,../../data/bipartite/bi_full_2048_30_10_gauss_8.gr
+1235777094,Algorithm,Lemon CostScaling
+1235777094,Type,FullBipartite
+1235777094,Distribution,Gaussian
+1235777094,Mean,30
+1235777094,Std,10
+1235777094,Edges,1048576
+1235777094,Nodes,2048
+1235777094,Total time,0.40786
+1235777094,Total time error,0.00154179
+1235777094,Total cost,1221
+1235777094,Total execution time,1.96943
+1235777094,Total execution time error,0
+818513277,DateTime,03-28-2016  22:56:19.
+818513277,Input file,../../data/bipartite/bi_full_2048_30_10_gauss_9.gr
+818513277,Algorithm,Lemon CostScaling
+818513277,Type,FullBipartite
+818513277,Distribution,Gaussian
+818513277,Mean,30
+818513277,Std,10
+818513277,Edges,1048576
+818513277,Nodes,2048
+818513277,Total time,0.4094
+818513277,Total time error,0.000556252
+818513277,Total cost,1150
+818513277,Total execution time,2.0044
+818513277,Total execution time error,0
+776402674,DateTime,03-28-2016  22:56:21.
+776402674,Input file,../../data/bipartite/bi_full_256_1_100_uni_10.gr
+776402674,Algorithm,Lemon CostScaling
+776402674,Type,FullBipartite
+776402674,Distribution,Uniform
+776402674,MinCost,1
+776402674,MaxCost,100
+776402674,Edges,16384
+776402674,Nodes,256
+776402674,Total time,0.00474527
+776402674,Total time error,0.00115533
+776402674,Total cost,223
+776402674,Total execution time,0.0471119
+776402674,Total execution time error,0
+917154705,DateTime,03-28-2016  22:56:21.
+917154705,Input file,../../data/bipartite/bi_full_256_1_100_uni_1.gr
+917154705,Algorithm,Lemon CostScaling
+917154705,Type,FullBipartite
+917154705,Distribution,Uniform
+917154705,MinCost,1
+917154705,MaxCost,100
+917154705,Edges,16384
+917154705,Nodes,256
+917154705,Total time,0.00553584
+917154705,Total time error,0.00111913
+917154705,Total cost,241
+917154705,Total execution time,0.0315742
+917154705,Total execution time error,0
+527706090,DateTime,03-28-2016  22:56:21.
+527706090,Input file,../../data/bipartite/bi_full_256_1_100_uni_2.gr
+527706090,Algorithm,Lemon CostScaling
+527706090,Type,FullBipartite
+527706090,Distribution,Uniform
+527706090,MinCost,1
+527706090,MaxCost,100
+527706090,Edges,16384
+527706090,Nodes,256
+527706090,Total time,0.00463284
+527706090,Total time error,0.000477982
+527706090,Total cost,241
+527706090,Total execution time,0.0244788
+527706090,Total execution time error,0
+1206011008,DateTime,03-28-2016  22:56:21.
+1206011008,Input file,../../data/bipartite/bi_full_256_1_100_uni_3.gr
+1206011008,Algorithm,Lemon CostScaling
+1206011008,Type,FullBipartite
+1206011008,Distribution,Uniform
+1206011008,MinCost,1
+1206011008,MaxCost,100
+1206011008,Edges,16384
+1206011008,Nodes,256
+1206011008,Total time,0.00428533
+1206011008,Total time error,0.000718723
+1206011008,Total cost,222
+1206011008,Total execution time,0.0248941
+1206011008,Total execution time error,0
+1590075324,DateTime,03-28-2016  22:56:21.
+1590075324,Input file,../../data/bipartite/bi_full_256_1_100_uni_4.gr
+1590075324,Algorithm,Lemon CostScaling
+1590075324,Type,FullBipartite
+1590075324,Distribution,Uniform
+1590075324,MinCost,1
+1590075324,MaxCost,100
+1590075324,Edges,16384
+1590075324,Nodes,256
+1590075324,Total time,0.00549967
+1590075324,Total time error,0.000672063
+1590075324,Total cost,196
+1590075324,Total execution time,0.0269983
+1590075324,Total execution time error,0
+287671019,DateTime,03-28-2016  22:56:21.
+287671019,Input file,../../data/bipartite/bi_full_256_1_100_uni_5.gr
+287671019,Algorithm,Lemon CostScaling
+287671019,Type,FullBipartite
+287671019,Distribution,Uniform
+287671019,MinCost,1
+287671019,MaxCost,100
+287671019,Edges,16384
+287671019,Nodes,256
+287671019,Total time,0.00498571
+287671019,Total time error,0.000617107
+287671019,Total cost,235
+287671019,Total execution time,0.0255242
+287671019,Total execution time error,0
+1734696141,DateTime,03-28-2016  22:56:21.
+1734696141,Input file,../../data/bipartite/bi_full_256_1_100_uni_6.gr
+1734696141,Algorithm,Lemon CostScaling
+1734696141,Type,FullBipartite
+1734696141,Distribution,Uniform
+1734696141,MinCost,1
+1734696141,MaxCost,100
+1734696141,Edges,16384
+1734696141,Nodes,256
+1734696141,Total time,0.00360308
+1734696141,Total time error,0.000748808
+1734696141,Total cost,241
+1734696141,Total execution time,0.0225994
+1734696141,Total execution time error,0
+1664294474,DateTime,03-28-2016  22:56:21.
+1664294474,Input file,../../data/bipartite/bi_full_256_1_100_uni_7.gr
+1664294474,Algorithm,Lemon CostScaling
+1664294474,Type,FullBipartite
+1664294474,Distribution,Uniform
+1664294474,MinCost,1
+1664294474,MaxCost,100
+1664294474,Edges,16384
+1664294474,Nodes,256
+1664294474,Total time,0.00473805
+1664294474,Total time error,0.000671214
+1664294474,Total cost,229
+1664294474,Total execution time,0.0261712
+1664294474,Total execution time error,0
+1729171186,DateTime,03-28-2016  22:56:21.
+1729171186,Input file,../../data/bipartite/bi_full_256_1_100_uni_8.gr
+1729171186,Algorithm,Lemon CostScaling
+1729171186,Type,FullBipartite
+1729171186,Distribution,Uniform
+1729171186,MinCost,1
+1729171186,MaxCost,100
+1729171186,Edges,16384
+1729171186,Nodes,256
+1729171186,Total time,0.00418872
+1729171186,Total time error,0.000304421
+1729171186,Total cost,229
+1729171186,Total execution time,0.0229503
+1729171186,Total execution time error,0
+1641382403,DateTime,03-28-2016  22:56:21.
+1641382403,Input file,../../data/bipartite/bi_full_256_1_100_uni_9.gr
+1641382403,Algorithm,Lemon CostScaling
+1641382403,Type,FullBipartite
+1641382403,Distribution,Uniform
+1641382403,MinCost,1
+1641382403,MaxCost,100
+1641382403,Edges,16384
+1641382403,Nodes,256
+1641382403,Total time,0.0045189
+1641382403,Total time error,0.000567395
+1641382403,Total cost,231
+1641382403,Total execution time,0.0238865
+1641382403,Total execution time error,0
+174679940,DateTime,03-28-2016  22:56:21.
+174679940,Input file,../../data/bipartite/bi_full_256_1_exp_10.gr
+174679940,Algorithm,Lemon CostScaling
+174679940,Type,FullBipartite
+174679940,Distribution,Exponential
+174679940,Lambda,1
+174679940,Edges,16384
+174679940,Nodes,256
+174679940,Total time,0.00618915
+174679940,Total time error,0.00167431
+174679940,Total cost,120
+174679940,Total execution time,0.0455632
+174679940,Total execution time error,0
+1687852002,DateTime,03-28-2016  22:56:21.
+1687852002,Input file,../../data/bipartite/bi_full_256_1_exp_1.gr
+1687852002,Algorithm,Lemon CostScaling
+1687852002,Type,FullBipartite
+1687852002,Distribution,Exponential
+1687852002,Lambda,1
+1687852002,Edges,16384
+1687852002,Nodes,256
+1687852002,Total time,0.00453154
+1687852002,Total time error,0.000439172
+1687852002,Total cost,132
+1687852002,Total execution time,0.0386562
+1687852002,Total execution time error,0
+1327627489,DateTime,03-28-2016  22:56:21.
+1327627489,Input file,../../data/bipartite/bi_full_256_1_exp_2.gr
+1327627489,Algorithm,Lemon CostScaling
+1327627489,Type,FullBipartite
+1327627489,Distribution,Exponential
+1327627489,Lambda,1
+1327627489,Edges,16384
+1327627489,Nodes,256
+1327627489,Total time,0.00540727
+1327627489,Total time error,0.000808196
+1327627489,Total cost,96
+1327627489,Total execution time,0.0274675
+1327627489,Total execution time error,0
+1112884037,DateTime,03-28-2016  22:56:21.
+1112884037,Input file,../../data/bipartite/bi_full_256_1_exp_3.gr
+1112884037,Algorithm,Lemon CostScaling
+1112884037,Type,FullBipartite
+1112884037,Distribution,Exponential
+1112884037,Lambda,1
+1112884037,Edges,16384
+1112884037,Nodes,256
+1112884037,Total time,0.00626871
+1112884037,Total time error,0.000750819
+1112884037,Total cost,104
+1112884037,Total execution time,0.0291164
+1112884037,Total execution time error,0
+2108566715,DateTime,03-28-2016  22:56:21.
+2108566715,Input file,../../data/bipartite/bi_full_256_1_exp_4.gr
+2108566715,Algorithm,Lemon CostScaling
+2108566715,Type,FullBipartite
+2108566715,Distribution,Exponential
+2108566715,Lambda,1
+2108566715,Edges,16384
+2108566715,Nodes,256
+2108566715,Total time,0.00432597
+2108566715,Total time error,0.000743164
+2108566715,Total cost,88
+2108566715,Total execution time,0.0254638
+2108566715,Total execution time error,0
+1413198350,DateTime,03-28-2016  22:56:21.
+1413198350,Input file,../../data/bipartite/bi_full_256_1_exp_5.gr
+1413198350,Algorithm,Lemon CostScaling
+1413198350,Type,FullBipartite
+1413198350,Distribution,Exponential
+1413198350,Lambda,1
+1413198350,Edges,16384
+1413198350,Nodes,256
+1413198350,Total time,0.00528351
+1413198350,Total time error,0.000620991
+1413198350,Total cost,109
+1413198350,Total execution time,0.0264488
+1413198350,Total execution time error,0
+1493907546,DateTime,03-28-2016  22:56:21.
+1493907546,Input file,../../data/bipartite/bi_full_256_1_exp_6.gr
+1493907546,Algorithm,Lemon CostScaling
+1493907546,Type,FullBipartite
+1493907546,Distribution,Exponential
+1493907546,Lambda,1
+1493907546,Edges,16384
+1493907546,Nodes,256
+1493907546,Total time,0.00598798
+1493907546,Total time error,0.000843269
+1493907546,Total cost,104
+1493907546,Total execution time,0.0286551
+1493907546,Total execution time error,0
+1738590547,DateTime,03-28-2016  22:56:21.
+1738590547,Input file,../../data/bipartite/bi_full_256_1_exp_7.gr
+1738590547,Algorithm,Lemon CostScaling
+1738590547,Type,FullBipartite
+1738590547,Distribution,Exponential
+1738590547,Lambda,1
+1738590547,Edges,16384
+1738590547,Nodes,256
+1738590547,Total time,0.00639546
+1738590547,Total time error,0.000619776
+1738590547,Total cost,90
+1738590547,Total execution time,0.0292479
+1738590547,Total execution time error,0
+890673285,DateTime,03-28-2016  22:56:21.
+890673285,Input file,../../data/bipartite/bi_full_256_1_exp_8.gr
+890673285,Algorithm,Lemon CostScaling
+890673285,Type,FullBipartite
+890673285,Distribution,Exponential
+890673285,Lambda,1
+890673285,Edges,16384
+890673285,Nodes,256
+890673285,Total time,0.00490036
+890673285,Total time error,0.000450364
+890673285,Total cost,105
+890673285,Total execution time,0.025331
+890673285,Total execution time error,0
+189287744,DateTime,03-28-2016  22:56:21.
+189287744,Input file,../../data/bipartite/bi_full_256_1_exp_9.gr
+189287744,Algorithm,Lemon CostScaling
+189287744,Type,FullBipartite
+189287744,Distribution,Exponential
+189287744,Lambda,1
+189287744,Edges,16384
+189287744,Nodes,256
+189287744,Total time,0.00576373
+189287744,Total time error,0.000389545
+189287744,Total cost,86
+189287744,Total execution time,0.0290093
+189287744,Total execution time error,0
+1189289159,DateTime,03-28-2016  22:56:22.
+1189289159,Input file,../../data/bipartite/bi_full_256_30_10_gauss_10.gr
+1189289159,Algorithm,Lemon CostScaling
+1189289159,Type,FullBipartite
+1189289159,Distribution,Gaussian
+1189289159,Mean,30
+1189289159,Std,10
+1189289159,Edges,16384
+1189289159,Nodes,256
+1189289159,Total time,0.00512531
+1189289159,Total time error,0.000968853
+1189289159,Total cost,721
+1189289159,Total execution time,0.0325119
+1189289159,Total execution time error,0
+528547394,DateTime,03-28-2016  22:56:22.
+528547394,Input file,../../data/bipartite/bi_full_256_30_10_gauss_1.gr
+528547394,Algorithm,Lemon CostScaling
+528547394,Type,FullBipartite
+528547394,Distribution,Gaussian
+528547394,Mean,30
+528547394,Std,10
+528547394,Edges,16384
+528547394,Nodes,256
+528547394,Total time,0.00535898
+528547394,Total time error,0.00118811
+528547394,Total cost,761
+528547394,Total execution time,0.0290179
+528547394,Total execution time error,0
+1824714868,DateTime,03-28-2016  22:56:22.
+1824714868,Input file,../../data/bipartite/bi_full_256_30_10_gauss_2.gr
+1824714868,Algorithm,Lemon CostScaling
+1824714868,Type,FullBipartite
+1824714868,Distribution,Gaussian
+1824714868,Mean,30
+1824714868,Std,10
+1824714868,Edges,16384
+1824714868,Nodes,256
+1824714868,Total time,0.00370339
+1824714868,Total time error,0.000248648
+1824714868,Total cost,763
+1824714868,Total execution time,0.0221922
+1824714868,Total execution time error,0
+2039215040,DateTime,03-28-2016  22:56:22.
+2039215040,Input file,../../data/bipartite/bi_full_256_30_10_gauss_3.gr
+2039215040,Algorithm,Lemon CostScaling
+2039215040,Type,FullBipartite
+2039215040,Distribution,Gaussian
+2039215040,Mean,30
+2039215040,Std,10
+2039215040,Edges,16384
+2039215040,Nodes,256
+2039215040,Total time,0.00415283
+2039215040,Total time error,0.000118473
+2039215040,Total cost,746
+2039215040,Total execution time,0.0237265
+2039215040,Total execution time error,0
+577428021,DateTime,03-28-2016  22:56:22.
+577428021,Input file,../../data/bipartite/bi_full_256_30_10_gauss_4.gr
+577428021,Algorithm,Lemon CostScaling
+577428021,Type,FullBipartite
+577428021,Distribution,Gaussian
+577428021,Mean,30
+577428021,Std,10
+577428021,Edges,16384
+577428021,Nodes,256
+577428021,Total time,0.00427964
+577428021,Total time error,0.000444893
+577428021,Total cost,728
+577428021,Total execution time,0.0244528
+577428021,Total execution time error,0
+194472905,DateTime,03-28-2016  22:56:22.
+194472905,Input file,../../data/bipartite/bi_full_256_30_10_gauss_5.gr
+194472905,Algorithm,Lemon CostScaling
+194472905,Type,FullBipartite
+194472905,Distribution,Gaussian
+194472905,Mean,30
+194472905,Std,10
+194472905,Edges,16384
+194472905,Nodes,256
+194472905,Total time,0.00375118
+194472905,Total time error,0.000222645
+194472905,Total cost,778
+194472905,Total execution time,0.022182
+194472905,Total execution time error,0
+1478978194,DateTime,03-28-2016  22:56:22.
+1478978194,Input file,../../data/bipartite/bi_full_256_30_10_gauss_6.gr
+1478978194,Algorithm,Lemon CostScaling
+1478978194,Type,FullBipartite
+1478978194,Distribution,Gaussian
+1478978194,Mean,30
+1478978194,Std,10
+1478978194,Edges,16384
+1478978194,Nodes,256
+1478978194,Total time,0.00516257
+1478978194,Total time error,0.00173764
+1478978194,Total cost,788
+1478978194,Total execution time,0.0307498
+1478978194,Total execution time error,0
+343924752,DateTime,03-28-2016  22:56:22.
+343924752,Input file,../../data/bipartite/bi_full_256_30_10_gauss_7.gr
+343924752,Algorithm,Lemon CostScaling
+343924752,Type,FullBipartite
+343924752,Distribution,Gaussian
+343924752,Mean,30
+343924752,Std,10
+343924752,Edges,16384
+343924752,Nodes,256
+343924752,Total time,0.0037146
+343924752,Total time error,0.00018531
+343924752,Total cost,740
+343924752,Total execution time,0.0218592
+343924752,Total execution time error,0
+857661768,DateTime,03-28-2016  22:56:22.
+857661768,Input file,../../data/bipartite/bi_full_256_30_10_gauss_8.gr
+857661768,Algorithm,Lemon CostScaling
+857661768,Type,FullBipartite
+857661768,Distribution,Gaussian
+857661768,Mean,30
+857661768,Std,10
+857661768,Edges,16384
+857661768,Nodes,256
+857661768,Total time,0.00448169
+857661768,Total time error,0.000300142
+857661768,Total cost,739
+857661768,Total execution time,0.0243447
+857661768,Total execution time error,0
+1543661190,DateTime,03-28-2016  22:56:22.
+1543661190,Input file,../../data/bipartite/bi_full_256_30_10_gauss_9.gr
+1543661190,Algorithm,Lemon CostScaling
+1543661190,Type,FullBipartite
+1543661190,Distribution,Gaussian
+1543661190,Mean,30
+1543661190,Std,10
+1543661190,Edges,16384
+1543661190,Nodes,256
+1543661190,Total time,0.00431937
+1543661190,Total time error,0.000224949
+1543661190,Total cost,731
+1543661190,Total execution time,0.023366
+1543661190,Total execution time error,0
+1453526538,DateTime,03-28-2016  22:56:22.
+1453526538,Input file,../../data/bipartite/bi_full_32_1_100_uni_10.gr
+1453526538,Algorithm,Lemon CostScaling
+1453526538,Type,FullBipartite
+1453526538,Distribution,Uniform
+1453526538,MinCost,1
+1453526538,MaxCost,100
+1453526538,Edges,256
+1453526538,Nodes,32
+1453526538,Total time,5.96513e-05
+1453526538,Total time error,8.24768e-06
+1453526538,Total cost,131
+1453526538,Total execution time,0.00430562
+1453526538,Total execution time error,0
+392973285,DateTime,03-28-2016  22:56:22.
+392973285,Input file,../../data/bipartite/bi_full_32_1_100_uni_1.gr
+392973285,Algorithm,Lemon CostScaling
+392973285,Type,FullBipartite
+392973285,Distribution,Uniform
+392973285,MinCost,1
+392973285,MaxCost,100
+392973285,Edges,256
+392973285,Nodes,32
+392973285,Total time,0.00024037
+392973285,Total time error,3.42697e-05
+392973285,Total cost,119
+392973285,Total execution time,0.00700718
+392973285,Total execution time error,0
+1186937292,DateTime,03-28-2016  22:56:22.
+1186937292,Input file,../../data/bipartite/bi_full_32_1_100_uni_2.gr
+1186937292,Algorithm,Lemon CostScaling
+1186937292,Type,FullBipartite
+1186937292,Distribution,Uniform
+1186937292,MinCost,1
+1186937292,MaxCost,100
+1186937292,Edges,256
+1186937292,Nodes,32
+1186937292,Total time,0.00011308
+1186937292,Total time error,7.05636e-05
+1186937292,Total cost,107
+1186937292,Total execution time,0.00195206
+1186937292,Total execution time error,0
+259707347,DateTime,03-28-2016  22:56:22.
+259707347,Input file,../../data/bipartite/bi_full_32_1_100_uni_3.gr
+259707347,Algorithm,Lemon CostScaling
+259707347,Type,FullBipartite
+259707347,Distribution,Uniform
+259707347,MinCost,1
+259707347,MaxCost,100
+259707347,Edges,256
+259707347,Nodes,32
+259707347,Total time,0.000239758
+259707347,Total time error,6.53624e-05
+259707347,Total cost,137
+259707347,Total execution time,0.00185056
+259707347,Total execution time error,0
+904287590,DateTime,03-28-2016  22:56:22.
+904287590,Input file,../../data/bipartite/bi_full_32_1_100_uni_4.gr
+904287590,Algorithm,Lemon CostScaling
+904287590,Type,FullBipartite
+904287590,Distribution,Uniform
+904287590,MinCost,1
+904287590,MaxCost,100
+904287590,Edges,256
+904287590,Nodes,32
+904287590,Total time,0.000153912
+904287590,Total time error,2.22897e-05
+904287590,Total cost,162
+904287590,Total execution time,0.00178694
+904287590,Total execution time error,0
+2132591790,DateTime,03-28-2016  22:56:22.
+2132591790,Input file,../../data/bipartite/bi_full_32_1_100_uni_5.gr
+2132591790,Algorithm,Lemon CostScaling
+2132591790,Type,FullBipartite
+2132591790,Distribution,Uniform
+2132591790,MinCost,1
+2132591790,MaxCost,100
+2132591790,Edges,256
+2132591790,Nodes,32
+2132591790,Total time,0.000167461
+2132591790,Total time error,2.05127e-05
+2132591790,Total cost,155
+2132591790,Total execution time,0.00181386
+2132591790,Total execution time error,0
+1984797091,DateTime,03-28-2016  22:56:22.
+1984797091,Input file,../../data/bipartite/bi_full_32_1_100_uni_6.gr
+1984797091,Algorithm,Lemon CostScaling
+1984797091,Type,FullBipartite
+1984797091,Distribution,Uniform
+1984797091,MinCost,1
+1984797091,MaxCost,100
+1984797091,Edges,256
+1984797091,Nodes,32
+1984797091,Total time,0.000172172
+1984797091,Total time error,1.59626e-05
+1984797091,Total cost,189
+1984797091,Total execution time,0.00182964
+1984797091,Total execution time error,0
+782339112,DateTime,03-28-2016  22:56:22.
+782339112,Input file,../../data/bipartite/bi_full_32_1_100_uni_7.gr
+782339112,Algorithm,Lemon CostScaling
+782339112,Type,FullBipartite
+782339112,Distribution,Uniform
+782339112,MinCost,1
+782339112,MaxCost,100
+782339112,Edges,256
+782339112,Nodes,32
+782339112,Total time,0.000181813
+782339112,Total time error,1.99497e-05
+782339112,Total cost,155
+782339112,Total execution time,0.00148694
+782339112,Total execution time error,0
+940672865,DateTime,03-28-2016  22:56:22.
+940672865,Input file,../../data/bipartite/bi_full_32_1_100_uni_8.gr
+940672865,Algorithm,Lemon CostScaling
+940672865,Type,FullBipartite
+940672865,Distribution,Uniform
+940672865,MinCost,1
+940672865,MaxCost,100
+940672865,Edges,256
+940672865,Nodes,32
+940672865,Total time,0.000169411
+940672865,Total time error,2.55693e-05
+940672865,Total cost,168
+940672865,Total execution time,0.00188053
+940672865,Total execution time error,0
+808280285,DateTime,03-28-2016  22:56:22.
+808280285,Input file,../../data/bipartite/bi_full_32_1_100_uni_9.gr
+808280285,Algorithm,Lemon CostScaling
+808280285,Type,FullBipartite
+808280285,Distribution,Uniform
+808280285,MinCost,1
+808280285,MaxCost,100
+808280285,Edges,256
+808280285,Nodes,32
+808280285,Total time,0.000188402
+808280285,Total time error,7.52567e-06
+808280285,Total cost,187
+808280285,Total execution time,0.00168734
+808280285,Total execution time error,0
+1720754250,DateTime,03-28-2016  22:56:22.
+1720754250,Input file,../../data/bipartite/bi_full_32_1_exp_10.gr
+1720754250,Algorithm,Lemon CostScaling
+1720754250,Type,FullBipartite
+1720754250,Distribution,Exponential
+1720754250,Lambda,1
+1720754250,Edges,256
+1720754250,Nodes,32
+1720754250,Total time,0.000195845
+1720754250,Total time error,5.75793e-05
+1720754250,Total cost,173
+1720754250,Total execution time,0.00187616
+1720754250,Total execution time error,0
+1883170129,DateTime,03-28-2016  22:56:22.
+1883170129,Input file,../../data/bipartite/bi_full_32_1_exp_1.gr
+1883170129,Algorithm,Lemon CostScaling
+1883170129,Type,FullBipartite
+1883170129,Distribution,Exponential
+1883170129,Lambda,1
+1883170129,Edges,256
+1883170129,Nodes,32
+1883170129,Total time,0.000131682
+1883170129,Total time error,6.20013e-05
+1883170129,Total cost,165
+1883170129,Total execution time,0.00155844
+1883170129,Total execution time error,0
+670408225,DateTime,03-28-2016  22:56:22.
+670408225,Input file,../../data/bipartite/bi_full_32_1_exp_2.gr
+670408225,Algorithm,Lemon CostScaling
+670408225,Type,FullBipartite
+670408225,Distribution,Exponential
+670408225,Lambda,1
+670408225,Edges,256
+670408225,Nodes,32
+670408225,Total time,0.000164119
+670408225,Total time error,2.1109e-05
+670408225,Total cost,122
+670408225,Total execution time,0.00174139
+670408225,Total execution time error,0
+842889837,DateTime,03-28-2016  22:56:22.
+842889837,Input file,../../data/bipartite/bi_full_32_1_exp_3.gr
+842889837,Algorithm,Lemon CostScaling
+842889837,Type,FullBipartite
+842889837,Distribution,Exponential
+842889837,Lambda,1
+842889837,Edges,256
+842889837,Nodes,32
+842889837,Total time,0.000178991
+842889837,Total time error,2.2472e-05
+842889837,Total cost,138
+842889837,Total execution time,0.00174779
+842889837,Total execution time error,0
+2074810584,DateTime,03-28-2016  22:56:22.
+2074810584,Input file,../../data/bipartite/bi_full_32_1_exp_4.gr
+2074810584,Algorithm,Lemon CostScaling
+2074810584,Type,FullBipartite
+2074810584,Distribution,Exponential
+2074810584,Lambda,1
+2074810584,Edges,256
+2074810584,Nodes,32
+2074810584,Total time,0.000175234
+2074810584,Total time error,2.28417e-05
+2074810584,Total cost,143
+2074810584,Total execution time,0.00136796
+2074810584,Total execution time error,0
+1924159192,DateTime,03-28-2016  22:56:22.
+1924159192,Input file,../../data/bipartite/bi_full_32_1_exp_5.gr
+1924159192,Algorithm,Lemon CostScaling
+1924159192,Type,FullBipartite
+1924159192,Distribution,Exponential
+1924159192,Lambda,1
+1924159192,Edges,256
+1924159192,Nodes,32
+1924159192,Total time,0.000184997
+1924159192,Total time error,1.97917e-05
+1924159192,Total cost,125
+1924159192,Total execution time,0.00148209
+1924159192,Total execution time error,0
+2087839010,DateTime,03-28-2016  22:56:22.
+2087839010,Input file,../../data/bipartite/bi_full_32_1_exp_6.gr
+2087839010,Algorithm,Lemon CostScaling
+2087839010,Type,FullBipartite
+2087839010,Distribution,Exponential
+2087839010,Lambda,1
+2087839010,Edges,256
+2087839010,Nodes,32
+2087839010,Total time,0.000144321
+2087839010,Total time error,4.69047e-05
+2087839010,Total cost,175
+2087839010,Total execution time,0.00157715
+2087839010,Total execution time error,0
+1948093833,DateTime,03-28-2016  22:56:22.
+1948093833,Input file,../../data/bipartite/bi_full_32_1_exp_7.gr
+1948093833,Algorithm,Lemon CostScaling
+1948093833,Type,FullBipartite
+1948093833,Distribution,Exponential
+1948093833,Lambda,1
+1948093833,Edges,256
+1948093833,Nodes,32
+1948093833,Total time,0.000173395
+1948093833,Total time error,8.39913e-05
+1948093833,Total cost,153
+1948093833,Total execution time,0.00171915
+1948093833,Total execution time error,0
+2108389781,DateTime,03-28-2016  22:56:22.
+2108389781,Input file,../../data/bipartite/bi_full_32_1_exp_8.gr
+2108389781,Algorithm,Lemon CostScaling
+2108389781,Type,FullBipartite
+2108389781,Distribution,Exponential
+2108389781,Lambda,1
+2108389781,Edges,256
+2108389781,Nodes,32
+2108389781,Total time,0.00016646
+2108389781,Total time error,9.19213e-05
+2108389781,Total cost,171
+2108389781,Total execution time,0.00170908
+2108389781,Total execution time error,0
+888248521,DateTime,03-28-2016  22:56:22.
+888248521,Input file,../../data/bipartite/bi_full_32_1_exp_9.gr
+888248521,Algorithm,Lemon CostScaling
+888248521,Type,FullBipartite
+888248521,Distribution,Exponential
+888248521,Lambda,1
+888248521,Edges,256
+888248521,Nodes,32
+888248521,Total time,0.000220152
+888248521,Total time error,5.28914e-05
+888248521,Total cost,171
+888248521,Total execution time,0.0019691
+888248521,Total execution time error,0
+742693439,DateTime,03-28-2016  22:56:22.
+742693439,Input file,../../data/bipartite/bi_full_32_30_10_gauss_10.gr
+742693439,Algorithm,Lemon CostScaling
+742693439,Type,FullBipartite
+742693439,Distribution,Gaussian
+742693439,Mean,30
+742693439,Std,10
+742693439,Edges,256
+742693439,Nodes,32
+742693439,Total time,0.000194077
+742693439,Total time error,2.77934e-05
+742693439,Total cost,253
+742693439,Total execution time,0.00201191
+742693439,Total execution time error,0
+900380560,DateTime,03-28-2016  22:56:22.
+900380560,Input file,../../data/bipartite/bi_full_32_30_10_gauss_1.gr
+900380560,Algorithm,Lemon CostScaling
+900380560,Type,FullBipartite
+900380560,Distribution,Gaussian
+900380560,Mean,30
+900380560,Std,10
+900380560,Edges,256
+900380560,Nodes,32
+900380560,Total time,0.000151763
+900380560,Total time error,1.58021e-05
+900380560,Total cost,237
+900380560,Total execution time,0.00175029
+900380560,Total execution time error,0
+1849890320,DateTime,03-28-2016  22:56:22.
+1849890320,Input file,../../data/bipartite/bi_full_32_30_10_gauss_2.gr
+1849890320,Algorithm,Lemon CostScaling
+1849890320,Type,FullBipartite
+1849890320,Distribution,Gaussian
+1849890320,Mean,30
+1849890320,Std,10
+1849890320,Edges,256
+1849890320,Nodes,32
+1849890320,Total time,0.00016939
+1849890320,Total time error,2.12183e-05
+1849890320,Total cost,222
+1849890320,Total execution time,0.00177628
+1849890320,Total execution time error,0
+1994287522,DateTime,03-28-2016  22:56:22.
+1994287522,Input file,../../data/bipartite/bi_full_32_30_10_gauss_3.gr
+1994287522,Algorithm,Lemon CostScaling
+1994287522,Type,FullBipartite
+1994287522,Distribution,Gaussian
+1994287522,Mean,30
+1994287522,Std,10
+1994287522,Edges,256
+1994287522,Nodes,32
+1994287522,Total time,0.00018387
+1994287522,Total time error,1.46207e-05
+1994287522,Total cost,224
+1994287522,Total execution time,0.00143914
+1994287522,Total execution time error,0
+1866006569,DateTime,03-28-2016  22:56:22.
+1866006569,Input file,../../data/bipartite/bi_full_32_30_10_gauss_4.gr
+1866006569,Algorithm,Lemon CostScaling
+1866006569,Type,FullBipartite
+1866006569,Distribution,Gaussian
+1866006569,Mean,30
+1866006569,Std,10
+1866006569,Edges,256
+1866006569,Nodes,32
+1866006569,Total time,0.00017301
+1866006569,Total time error,3.19127e-05
+1866006569,Total cost,223
+1866006569,Total execution time,0.00183481
+1866006569,Total execution time error,0
+949386013,DateTime,03-28-2016  22:56:22.
+949386013,Input file,../../data/bipartite/bi_full_32_30_10_gauss_5.gr
+949386013,Algorithm,Lemon CostScaling
+949386013,Type,FullBipartite
+949386013,Distribution,Gaussian
+949386013,Mean,30
+949386013,Std,10
+949386013,Edges,256
+949386013,Nodes,32
+949386013,Total time,0.000133974
+949386013,Total time error,1.16233e-05
+949386013,Total cost,190
+949386013,Total execution time,0.00148655
+949386013,Total execution time error,0
+1881390376,DateTime,03-28-2016  22:56:22.
+1881390376,Input file,../../data/bipartite/bi_full_32_30_10_gauss_6.gr
+1881390376,Algorithm,Lemon CostScaling
+1881390376,Type,FullBipartite
+1881390376,Distribution,Gaussian
+1881390376,Mean,30
+1881390376,Std,10
+1881390376,Edges,256
+1881390376,Nodes,32
+1881390376,Total time,0.000213898
+1881390376,Total time error,1.90693e-05
+1881390376,Total cost,222
+1881390376,Total execution time,0.00196513
+1881390376,Total execution time error,0
+2029685456,DateTime,03-28-2016  22:56:22.
+2029685456,Input file,../../data/bipartite/bi_full_32_30_10_gauss_7.gr
+2029685456,Algorithm,Lemon CostScaling
+2029685456,Type,FullBipartite
+2029685456,Distribution,Gaussian
+2029685456,Mean,30
+2029685456,Std,10
+2029685456,Edges,256
+2029685456,Nodes,32
+2029685456,Total time,0.000140961
+2029685456,Total time error,8.30434e-05
+2029685456,Total cost,203
+2029685456,Total execution time,0.00163197
+2029685456,Total execution time error,0
+1890242839,DateTime,03-28-2016  22:56:22.
+1890242839,Input file,../../data/bipartite/bi_full_32_30_10_gauss_8.gr
+1890242839,Algorithm,Lemon CostScaling
+1890242839,Type,FullBipartite
+1890242839,Distribution,Gaussian
+1890242839,Mean,30
+1890242839,Std,10
+1890242839,Edges,256
+1890242839,Nodes,32
+1890242839,Total time,0.000134636
+1890242839,Total time error,1.76247e-05
+1890242839,Total cost,225
+1890242839,Total execution time,0.00157853
+1890242839,Total execution time error,0
+2060388199,DateTime,03-28-2016  22:56:22.
+2060388199,Input file,../../data/bipartite/bi_full_32_30_10_gauss_9.gr
+2060388199,Algorithm,Lemon CostScaling
+2060388199,Type,FullBipartite
+2060388199,Distribution,Gaussian
+2060388199,Mean,30
+2060388199,Std,10
+2060388199,Edges,256
+2060388199,Nodes,32
+2060388199,Total time,0.000118712
+2060388199,Total time error,2.0695e-05
+2060388199,Total cost,207
+2060388199,Total execution time,0.00156108
+2060388199,Total execution time error,0
+67235636,DateTime,03-28-2016  22:56:22.
+67235636,Input file,../../data/bipartite/bi_full_4096_1_100_uni_10.gr
+67235636,Algorithm,Lemon CostScaling
+67235636,Type,FullBipartite
+67235636,Distribution,Uniform
+67235636,MinCost,1
+67235636,MaxCost,100
+67235636,Edges,4194304
+67235636,Nodes,4096
+67235636,Total time,1.28546
+67235636,Total time error,0.000820049
+67235636,Total cost,2048
+67235636,Total execution time,7.56426
+67235636,Total execution time error,0
+2073681816,DateTime,03-28-2016  22:56:29.
+2073681816,Input file,../../data/bipartite/bi_full_4096_1_100_uni_1.gr
+2073681816,Algorithm,Lemon CostScaling
+2073681816,Type,FullBipartite
+2073681816,Distribution,Uniform
+2073681816,MinCost,1
+2073681816,MaxCost,100
+2073681816,Edges,4194304
+2073681816,Nodes,4096
+2073681816,Total time,1.36281
+2073681816,Total time error,0.00181242
+2073681816,Total cost,2048
+2073681816,Total execution time,7.66651
+2073681816,Total execution time error,0
+214635198,DateTime,03-28-2016  22:56:37.
+214635198,Input file,../../data/bipartite/bi_full_4096_1_100_uni_2.gr
+214635198,Algorithm,Lemon CostScaling
+214635198,Type,FullBipartite
+214635198,Distribution,Uniform
+214635198,MinCost,1
+214635198,MaxCost,100
+214635198,Edges,4194304
+214635198,Nodes,4096
+214635198,Total time,1.29298
+214635198,Total time error,0.000272672
+214635198,Total cost,2048
+214635198,Total execution time,7.45745
+214635198,Total execution time error,0
+398556670,DateTime,03-28-2016  22:56:45.
+398556670,Input file,../../data/bipartite/bi_full_4096_1_100_uni_3.gr
+398556670,Algorithm,Lemon CostScaling
+398556670,Type,FullBipartite
+398556670,Distribution,Uniform
+398556670,MinCost,1
+398556670,MaxCost,100
+398556670,Edges,4194304
+398556670,Nodes,4096
+398556670,Total time,1.35848
+398556670,Total time error,0.000960817
+398556670,Total cost,2048
+398556670,Total execution time,7.62589
+398556670,Total execution time error,0
+1799718811,DateTime,03-28-2016  22:56:52.
+1799718811,Input file,../../data/bipartite/bi_full_4096_1_100_uni_4.gr
+1799718811,Algorithm,Lemon CostScaling
+1799718811,Type,FullBipartite
+1799718811,Distribution,Uniform
+1799718811,MinCost,1
+1799718811,MaxCost,100
+1799718811,Edges,4194304
+1799718811,Nodes,4096
+1799718811,Total time,1.33627
+1799718811,Total time error,0.000626901
+1799718811,Total cost,2048
+1799718811,Total execution time,7.54433
+1799718811,Total execution time error,0
+234125514,DateTime,03-28-2016  22:57:00.
+234125514,Input file,../../data/bipartite/bi_full_4096_1_100_uni_5.gr
+234125514,Algorithm,Lemon CostScaling
+234125514,Type,FullBipartite
+234125514,Distribution,Uniform
+234125514,MinCost,1
+234125514,MaxCost,100
+234125514,Edges,4194304
+234125514,Nodes,4096
+234125514,Total time,1.32662
+234125514,Total time error,0.000779442
+234125514,Total cost,2048
+234125514,Total execution time,7.50082
+234125514,Total execution time error,0
+1302150763,DateTime,03-28-2016  22:57:07.
+1302150763,Input file,../../data/bipartite/bi_full_4096_1_100_uni_6.gr
+1302150763,Algorithm,Lemon CostScaling
+1302150763,Type,FullBipartite
+1302150763,Distribution,Uniform
+1302150763,MinCost,1
+1302150763,MaxCost,100
+1302150763,Edges,4194304
+1302150763,Nodes,4096
+1302150763,Total time,1.29134
+1302150763,Total time error,0.000956383
+1302150763,Total cost,2048
+1302150763,Total execution time,7.43226
+1302150763,Total execution time error,0
+511684706,DateTime,03-28-2016  22:57:15.
+511684706,Input file,../../data/bipartite/bi_full_4096_1_100_uni_7.gr
+511684706,Algorithm,Lemon CostScaling
+511684706,Type,FullBipartite
+511684706,Distribution,Uniform
+511684706,MinCost,1
+511684706,MaxCost,100
+511684706,Edges,4194304
+511684706,Nodes,4096
+511684706,Total time,1.3597
+511684706,Total time error,0.000649102
+511684706,Total cost,2048
+511684706,Total execution time,7.6402
+511684706,Total execution time error,0
+1943809248,DateTime,03-28-2016  22:57:22.
+1943809248,Input file,../../data/bipartite/bi_full_4096_1_100_uni_8.gr
+1943809248,Algorithm,Lemon CostScaling
+1943809248,Type,FullBipartite
+1943809248,Distribution,Uniform
+1943809248,MinCost,1
+1943809248,MaxCost,100
+1943809248,Edges,4194304
+1943809248,Nodes,4096
+1943809248,Total time,1.30504
+1943809248,Total time error,0.0011212
+1943809248,Total cost,2048
+1943809248,Total execution time,7.51278
+1943809248,Total execution time error,0
+434916596,DateTime,03-28-2016  22:57:30.
+434916596,Input file,../../data/bipartite/bi_full_4096_1_100_uni_9.gr
+434916596,Algorithm,Lemon CostScaling
+434916596,Type,FullBipartite
+434916596,Distribution,Uniform
+434916596,MinCost,1
+434916596,MaxCost,100
+434916596,Edges,4194304
+434916596,Nodes,4096
+434916596,Total time,1.36124
+434916596,Total time error,0.000541181
+434916596,Total cost,2048
+434916596,Total execution time,7.65702
+434916596,Total execution time error,0
+231906070,DateTime,03-28-2016  22:57:38.
+231906070,Input file,../../data/bipartite/bi_full_4096_1_exp_10.gr
+231906070,Algorithm,Lemon CostScaling
+231906070,Type,FullBipartite
+231906070,Distribution,Exponential
+231906070,Lambda,1
+231906070,Edges,4194304
+231906070,Nodes,4096
+231906070,Total time,1.59
+231906070,Total time error,0.00369651
+231906070,Total cost,0
+231906070,Total execution time,8.38755
+231906070,Total execution time error,0
+1359308624,DateTime,03-28-2016  22:57:46.
+1359308624,Input file,../../data/bipartite/bi_full_4096_1_exp_1.gr
+1359308624,Algorithm,Lemon CostScaling
+1359308624,Type,FullBipartite
+1359308624,Distribution,Exponential
+1359308624,Lambda,1
+1359308624,Edges,4194304
+1359308624,Nodes,4096
+1359308624,Total time,1.58593
+1359308624,Total time error,0.00187042
+1359308624,Total cost,0
+1359308624,Total execution time,8.32818
+1359308624,Total execution time error,0
+1860500206,DateTime,03-28-2016  22:57:54.
+1860500206,Input file,../../data/bipartite/bi_full_4096_1_exp_2.gr
+1860500206,Algorithm,Lemon CostScaling
+1860500206,Type,FullBipartite
+1860500206,Distribution,Exponential
+1860500206,Lambda,1
+1860500206,Edges,4194304
+1860500206,Nodes,4096
+1860500206,Total time,1.58245
+1860500206,Total time error,0.0012023
+1860500206,Total cost,0
+1860500206,Total execution time,8.34373
+1860500206,Total execution time error,0
+1028346317,DateTime,03-28-2016  22:58:03.
+1028346317,Input file,../../data/bipartite/bi_full_4096_1_exp_3.gr
+1028346317,Algorithm,Lemon CostScaling
+1028346317,Type,FullBipartite
+1028346317,Distribution,Exponential
+1028346317,Lambda,1
+1028346317,Edges,4194304
+1028346317,Nodes,4096
+1028346317,Total time,1.59978
+1028346317,Total time error,0.00161881
+1028346317,Total cost,0
+1028346317,Total execution time,8.38966
+1028346317,Total execution time error,0
+1536006058,DateTime,03-28-2016  22:58:11.
+1536006058,Input file,../../data/bipartite/bi_full_4096_1_exp_4.gr
+1536006058,Algorithm,Lemon CostScaling
+1536006058,Type,FullBipartite
+1536006058,Distribution,Exponential
+1536006058,Lambda,1
+1536006058,Edges,4194304
+1536006058,Nodes,4096
+1536006058,Total time,1.56704
+1536006058,Total time error,0.00088422
+1536006058,Total cost,0
+1536006058,Total execution time,8.26692
+1536006058,Total execution time error,0
+803279437,DateTime,03-28-2016  22:58:19.
+803279437,Input file,../../data/bipartite/bi_full_4096_1_exp_5.gr
+803279437,Algorithm,Lemon CostScaling
+803279437,Type,FullBipartite
+803279437,Distribution,Exponential
+803279437,Lambda,1
+803279437,Edges,4194304
+803279437,Nodes,4096
+803279437,Total time,1.50712
+803279437,Total time error,0.001567
+803279437,Total cost,0
+803279437,Total execution time,8.09438
+803279437,Total execution time error,0
+1606499526,DateTime,03-28-2016  22:58:27.
+1606499526,Input file,../../data/bipartite/bi_full_4096_1_exp_6.gr
+1606499526,Algorithm,Lemon CostScaling
+1606499526,Type,FullBipartite
+1606499526,Distribution,Exponential
+1606499526,Lambda,1
+1606499526,Edges,4194304
+1606499526,Nodes,4096
+1606499526,Total time,1.53837
+1606499526,Total time error,0.000704376
+1606499526,Total cost,0
+1606499526,Total execution time,8.17274
+1606499526,Total execution time error,0
+174955751,DateTime,03-28-2016  22:58:36.
+174955751,Input file,../../data/bipartite/bi_full_4096_1_exp_7.gr
+174955751,Algorithm,Lemon CostScaling
+174955751,Type,FullBipartite
+174955751,Distribution,Exponential
+174955751,Lambda,1
+174955751,Edges,4194304
+174955751,Nodes,4096
+174955751,Total time,1.56918
+174955751,Total time error,0.000632239
+174955751,Total cost,0
+174955751,Total execution time,8.34273
+174955751,Total execution time error,0
+1799453012,DateTime,03-28-2016  22:58:44.
+1799453012,Input file,../../data/bipartite/bi_full_4096_1_exp_8.gr
+1799453012,Algorithm,Lemon CostScaling
+1799453012,Type,FullBipartite
+1799453012,Distribution,Exponential
+1799453012,Lambda,1
+1799453012,Edges,4194304
+1799453012,Nodes,4096
+1799453012,Total time,1.61052
+1799453012,Total time error,0.00543097
+1799453012,Total cost,0
+1799453012,Total execution time,8.40701
+1799453012,Total execution time error,0
+820438781,DateTime,03-28-2016  22:58:52.
+820438781,Input file,../../data/bipartite/bi_full_4096_1_exp_9.gr
+820438781,Algorithm,Lemon CostScaling
+820438781,Type,FullBipartite
+820438781,Distribution,Exponential
+820438781,Lambda,1
+820438781,Edges,4194304
+820438781,Nodes,4096
+820438781,Total time,1.56467
+820438781,Total time error,0.00310901
+820438781,Total cost,0
+820438781,Total execution time,8.26857
+820438781,Total execution time error,0
+1321735613,DateTime,03-28-2016  22:59:01.
+1321735613,Input file,../../data/bipartite/bi_full_4096_30_10_gauss_10.gr
+1321735613,Algorithm,Lemon CostScaling
+1321735613,Type,FullBipartite
+1321735613,Distribution,Gaussian
+1321735613,Mean,30
+1321735613,Std,10
+1321735613,Edges,4194304
+1321735613,Nodes,4096
+1321735613,Total time,2.40426
+1321735613,Total time error,0.00337461
+1321735613,Total cost,836
+1321735613,Total execution time,10.7429
+1321735613,Total execution time error,0
+2121968302,DateTime,03-28-2016  22:59:11.
+2121968302,Input file,../../data/bipartite/bi_full_4096_30_10_gauss_1.gr
+2121968302,Algorithm,Lemon CostScaling
+2121968302,Type,FullBipartite
+2121968302,Distribution,Gaussian
+2121968302,Mean,30
+2121968302,Std,10
+2121968302,Edges,4194304
+2121968302,Nodes,4096
+2121968302,Total time,2.07229
+2121968302,Total time error,0.00359636
+2121968302,Total cost,855
+2121968302,Total execution time,9.76656
+2121968302,Total execution time error,0
+149177512,DateTime,03-28-2016  22:59:21.
+149177512,Input file,../../data/bipartite/bi_full_4096_30_10_gauss_2.gr
+149177512,Algorithm,Lemon CostScaling
+149177512,Type,FullBipartite
+149177512,Distribution,Gaussian
+149177512,Mean,30
+149177512,Std,10
+149177512,Edges,4194304
+149177512,Nodes,4096
+149177512,Total time,2.19827
+149177512,Total time error,0.00119376
+149177512,Total cost,858
+149177512,Total execution time,10.1661
+149177512,Total execution time error,0
+23502534,DateTime,03-28-2016  22:59:31.
+23502534,Input file,../../data/bipartite/bi_full_4096_30_10_gauss_3.gr
+23502534,Algorithm,Lemon CostScaling
+23502534,Type,FullBipartite
+23502534,Distribution,Gaussian
+23502534,Mean,30
+23502534,Std,10
+23502534,Edges,4194304
+23502534,Nodes,4096
+23502534,Total time,2.04645
+23502534,Total time error,0.000749271
+23502534,Total cost,849
+23502534,Total execution time,9.68146
+23502534,Total execution time error,0
+580751808,DateTime,03-28-2016  22:59:41.
+580751808,Input file,../../data/bipartite/bi_full_4096_30_10_gauss_4.gr
+580751808,Algorithm,Lemon CostScaling
+580751808,Type,FullBipartite
+580751808,Distribution,Gaussian
+580751808,Mean,30
+580751808,Std,10
+580751808,Edges,4194304
+580751808,Nodes,4096
+580751808,Total time,2.13516
+580751808,Total time error,0.000957109
+580751808,Total cost,766
+580751808,Total execution time,9.98911
+580751808,Total execution time error,0
+1674183656,DateTime,03-28-2016  22:59:51.
+1674183656,Input file,../../data/bipartite/bi_full_4096_30_10_gauss_5.gr
+1674183656,Algorithm,Lemon CostScaling
+1674183656,Type,FullBipartite
+1674183656,Distribution,Gaussian
+1674183656,Mean,30
+1674183656,Std,10
+1674183656,Edges,4194304
+1674183656,Nodes,4096
+1674183656,Total time,2.14451
+1674183656,Total time error,0.00418927
+1674183656,Total cost,864
+1674183656,Total execution time,9.97622
+1674183656,Total execution time error,0
+566874487,DateTime,03-28-2016  23:00:01.
+566874487,Input file,../../data/bipartite/bi_full_4096_30_10_gauss_6.gr
+566874487,Algorithm,Lemon CostScaling
+566874487,Type,FullBipartite
+566874487,Distribution,Gaussian
+566874487,Mean,30
+566874487,Std,10
+566874487,Edges,4194304
+566874487,Nodes,4096
+566874487,Total time,2.17083
+566874487,Total time error,0.000860111
+566874487,Total cost,859
+566874487,Total execution time,10.105
+566874487,Total execution time error,0
+731917337,DateTime,03-28-2016  23:00:11.
+731917337,Input file,../../data/bipartite/bi_full_4096_30_10_gauss_7.gr
+731917337,Algorithm,Lemon CostScaling
+731917337,Type,FullBipartite
+731917337,Distribution,Gaussian
+731917337,Mean,30
+731917337,Std,10
+731917337,Edges,4194304
+731917337,Nodes,4096
+731917337,Total time,2.01528
+731917337,Total time error,0.000474994
+731917337,Total cost,801
+731917337,Total execution time,9.59774
+731917337,Total execution time error,0
+1859176093,DateTime,03-28-2016  23:00:21.
+1859176093,Input file,../../data/bipartite/bi_full_4096_30_10_gauss_8.gr
+1859176093,Algorithm,Lemon CostScaling
+1859176093,Type,FullBipartite
+1859176093,Distribution,Gaussian
+1859176093,Mean,30
+1859176093,Std,10
+1859176093,Edges,4194304
+1859176093,Nodes,4096
+1859176093,Total time,2.10523
+1859176093,Total time error,0.00195059
+1859176093,Total cost,849
+1859176093,Total execution time,9.90914
+1859176093,Total execution time error,0
+1501977977,DateTime,03-28-2016  23:00:31.
+1501977977,Input file,../../data/bipartite/bi_full_4096_30_10_gauss_9.gr
+1501977977,Algorithm,Lemon CostScaling
+1501977977,Type,FullBipartite
+1501977977,Distribution,Gaussian
+1501977977,Mean,30
+1501977977,Std,10
+1501977977,Edges,4194304
+1501977977,Nodes,4096
+1501977977,Total time,2.17017
+1501977977,Total time error,0.00159296
+1501977977,Total cost,833
+1501977977,Total execution time,10.0352
+1501977977,Total execution time error,0
+706611715,DateTime,03-28-2016  23:00:41.
+706611715,Input file,../../data/bipartite/bi_full_512_1_100_uni_10.gr
+706611715,Algorithm,Lemon CostScaling
+706611715,Type,FullBipartite
+706611715,Distribution,Uniform
+706611715,MinCost,1
+706611715,MaxCost,100
+706611715,Edges,65536
+706611715,Nodes,512
+706611715,Total time,0.017799
+706611715,Total time error,9.23691e-05
+706611715,Total cost,316
+706611715,Total execution time,0.106089
+706611715,Total execution time error,0
+383433595,DateTime,03-28-2016  23:00:41.
+383433595,Input file,../../data/bipartite/bi_full_512_1_100_uni_1.gr
+383433595,Algorithm,Lemon CostScaling
+383433595,Type,FullBipartite
+383433595,Distribution,Uniform
+383433595,MinCost,1
+383433595,MaxCost,100
+383433595,Edges,65536
+383433595,Nodes,512
+383433595,Total time,0.018119
+383433595,Total time error,2.16734e-05
+383433595,Total cost,319
+383433595,Total execution time,0.109561
+383433595,Total execution time error,0
+1445825562,DateTime,03-28-2016  23:00:41.
+1445825562,Input file,../../data/bipartite/bi_full_512_1_100_uni_2.gr
+1445825562,Algorithm,Lemon CostScaling
+1445825562,Type,FullBipartite
+1445825562,Distribution,Uniform
+1445825562,MinCost,1
+1445825562,MaxCost,100
+1445825562,Edges,65536
+1445825562,Nodes,512
+1445825562,Total time,0.0180242
+1445825562,Total time error,5.8277e-05
+1445825562,Total cost,313
+1445825562,Total execution time,0.0942212
+1445825562,Total execution time error,0
+167177921,DateTime,03-28-2016  23:00:41.
+167177921,Input file,../../data/bipartite/bi_full_512_1_100_uni_3.gr
+167177921,Algorithm,Lemon CostScaling
+167177921,Type,FullBipartite
+167177921,Distribution,Uniform
+167177921,MinCost,1
+167177921,MaxCost,100
+167177921,Edges,65536
+167177921,Nodes,512
+167177921,Total time,0.0180104
+167177921,Total time error,0.000151141
+167177921,Total cost,297
+167177921,Total execution time,0.0949599
+167177921,Total execution time error,0
+1810331456,DateTime,03-28-2016  23:00:41.
+1810331456,Input file,../../data/bipartite/bi_full_512_1_100_uni_4.gr
+1810331456,Algorithm,Lemon CostScaling
+1810331456,Type,FullBipartite
+1810331456,Distribution,Uniform
+1810331456,MinCost,1
+1810331456,MaxCost,100
+1810331456,Edges,65536
+1810331456,Nodes,512
+1810331456,Total time,0.0167599
+1810331456,Total time error,5.3138e-05
+1810331456,Total cost,311
+1810331456,Total execution time,0.0911315
+1810331456,Total execution time error,0
+55873103,DateTime,03-28-2016  23:00:41.
+55873103,Input file,../../data/bipartite/bi_full_512_1_100_uni_5.gr
+55873103,Algorithm,Lemon CostScaling
+55873103,Type,FullBipartite
+55873103,Distribution,Uniform
+55873103,MinCost,1
+55873103,MaxCost,100
+55873103,Edges,65536
+55873103,Nodes,512
+55873103,Total time,0.0195129
+55873103,Total time error,0.000125032
+55873103,Total cost,314
+55873103,Total execution time,0.10174
+55873103,Total execution time error,0
+648457538,DateTime,03-28-2016  23:00:41.
+648457538,Input file,../../data/bipartite/bi_full_512_1_100_uni_6.gr
+648457538,Algorithm,Lemon CostScaling
+648457538,Type,FullBipartite
+648457538,Distribution,Uniform
+648457538,MinCost,1
+648457538,MaxCost,100
+648457538,Edges,65536
+648457538,Nodes,512
+648457538,Total time,0.0199453
+648457538,Total time error,0.000208098
+648457538,Total cost,320
+648457538,Total execution time,0.100805
+648457538,Total execution time error,0
+1533237617,DateTime,03-28-2016  23:00:41.
+1533237617,Input file,../../data/bipartite/bi_full_512_1_100_uni_7.gr
+1533237617,Algorithm,Lemon CostScaling
+1533237617,Type,FullBipartite
+1533237617,Distribution,Uniform
+1533237617,MinCost,1
+1533237617,MaxCost,100
+1533237617,Edges,65536
+1533237617,Nodes,512
+1533237617,Total time,0.0195566
+1533237617,Total time error,4.0549e-05
+1533237617,Total cost,320
+1533237617,Total execution time,0.0999842
+1533237617,Total execution time error,0
+582191226,DateTime,03-28-2016  23:00:41.
+582191226,Input file,../../data/bipartite/bi_full_512_1_100_uni_8.gr
+582191226,Algorithm,Lemon CostScaling
+582191226,Type,FullBipartite
+582191226,Distribution,Uniform
+582191226,MinCost,1
+582191226,MaxCost,100
+582191226,Edges,65536
+582191226,Nodes,512
+582191226,Total time,0.0167537
+582191226,Total time error,0.000129817
+582191226,Total cost,292
+582191226,Total execution time,0.0905227
+582191226,Total execution time error,0
+208828475,DateTime,03-28-2016  23:00:42.
+208828475,Input file,../../data/bipartite/bi_full_512_1_100_uni_9.gr
+208828475,Algorithm,Lemon CostScaling
+208828475,Type,FullBipartite
+208828475,Distribution,Uniform
+208828475,MinCost,1
+208828475,MaxCost,100
+208828475,Edges,65536
+208828475,Nodes,512
+208828475,Total time,0.0178102
+208828475,Total time error,4.25903e-05
+208828475,Total cost,315
+208828475,Total execution time,0.0937045
+208828475,Total execution time error,0
+10344623,DateTime,03-28-2016  23:00:42.
+10344623,Input file,../../data/bipartite/bi_full_512_1_exp_10.gr
+10344623,Algorithm,Lemon CostScaling
+10344623,Type,FullBipartite
+10344623,Distribution,Exponential
+10344623,Lambda,1
+10344623,Edges,65536
+10344623,Nodes,512
+10344623,Total time,0.0217731
+10344623,Total time error,5.4013e-05
+10344623,Total cost,51
+10344623,Total execution time,0.117095
+10344623,Total execution time error,0
+314387296,DateTime,03-28-2016  23:00:42.
+314387296,Input file,../../data/bipartite/bi_full_512_1_exp_1.gr
+314387296,Algorithm,Lemon CostScaling
+314387296,Type,FullBipartite
+314387296,Distribution,Exponential
+314387296,Lambda,1
+314387296,Edges,65536
+314387296,Nodes,512
+314387296,Total time,0.0208841
+314387296,Total time error,0.000460533
+314387296,Total cost,55
+314387296,Total execution time,0.108052
+314387296,Total execution time error,0
+153075182,DateTime,03-28-2016  23:00:42.
+153075182,Input file,../../data/bipartite/bi_full_512_1_exp_2.gr
+153075182,Algorithm,Lemon CostScaling
+153075182,Type,FullBipartite
+153075182,Distribution,Exponential
+153075182,Lambda,1
+153075182,Edges,65536
+153075182,Nodes,512
+153075182,Total time,0.0191818
+153075182,Total time error,9.11997e-05
+153075182,Total cost,58
+153075182,Total execution time,0.0986814
+153075182,Total execution time error,0
+578695139,DateTime,03-28-2016  23:00:42.
+578695139,Input file,../../data/bipartite/bi_full_512_1_exp_3.gr
+578695139,Algorithm,Lemon CostScaling
+578695139,Type,FullBipartite
+578695139,Distribution,Exponential
+578695139,Lambda,1
+578695139,Edges,65536
+578695139,Nodes,512
+578695139,Total time,0.0208379
+578695139,Total time error,6.28843e-05
+578695139,Total cost,54
+578695139,Total execution time,0.103004
+578695139,Total execution time error,0
+852691812,DateTime,03-28-2016  23:00:42.
+852691812,Input file,../../data/bipartite/bi_full_512_1_exp_4.gr
+852691812,Algorithm,Lemon CostScaling
+852691812,Type,FullBipartite
+852691812,Distribution,Exponential
+852691812,Lambda,1
+852691812,Edges,65536
+852691812,Nodes,512
+852691812,Total time,0.021715
+852691812,Total time error,8.4031e-05
+852691812,Total cost,49
+852691812,Total execution time,0.105934
+852691812,Total execution time error,0
+2064973896,DateTime,03-28-2016  23:00:42.
+2064973896,Input file,../../data/bipartite/bi_full_512_1_exp_5.gr
+2064973896,Algorithm,Lemon CostScaling
+2064973896,Type,FullBipartite
+2064973896,Distribution,Exponential
+2064973896,Lambda,1
+2064973896,Edges,65536
+2064973896,Nodes,512
+2064973896,Total time,0.0215892
+2064973896,Total time error,6.91544e-05
+2064973896,Total cost,73
+2064973896,Total execution time,0.105601
+2064973896,Total execution time error,0
+357764010,DateTime,03-28-2016  23:00:42.
+357764010,Input file,../../data/bipartite/bi_full_512_1_exp_6.gr
+357764010,Algorithm,Lemon CostScaling
+357764010,Type,FullBipartite
+357764010,Distribution,Exponential
+357764010,Lambda,1
+357764010,Edges,65536
+357764010,Nodes,512
+357764010,Total time,0.02425
+357764010,Total time error,1.15666e-05
+357764010,Total cost,40
+357764010,Total execution time,0.113918
+357764010,Total execution time error,0
+1888349032,DateTime,03-28-2016  23:00:42.
+1888349032,Input file,../../data/bipartite/bi_full_512_1_exp_7.gr
+1888349032,Algorithm,Lemon CostScaling
+1888349032,Type,FullBipartite
+1888349032,Distribution,Exponential
+1888349032,Lambda,1
+1888349032,Edges,65536
+1888349032,Nodes,512
+1888349032,Total time,0.0182131
+1888349032,Total time error,6.8284e-05
+1888349032,Total cost,49
+1888349032,Total execution time,0.095361
+1888349032,Total execution time error,0
+1074423033,DateTime,03-28-2016  23:00:43.
+1074423033,Input file,../../data/bipartite/bi_full_512_1_exp_8.gr
+1074423033,Algorithm,Lemon CostScaling
+1074423033,Type,FullBipartite
+1074423033,Distribution,Exponential
+1074423033,Lambda,1
+1074423033,Edges,65536
+1074423033,Nodes,512
+1074423033,Total time,0.0185127
+1074423033,Total time error,0.000110882
+1074423033,Total cost,52
+1074423033,Total execution time,0.0965633
+1074423033,Total execution time error,0
+1335681945,DateTime,03-28-2016  23:00:43.
+1335681945,Input file,../../data/bipartite/bi_full_512_1_exp_9.gr
+1335681945,Algorithm,Lemon CostScaling
+1335681945,Type,FullBipartite
+1335681945,Distribution,Exponential
+1335681945,Lambda,1
+1335681945,Edges,65536
+1335681945,Nodes,512
+1335681945,Total time,0.021523
+1335681945,Total time error,7.2404e-05
+1335681945,Total cost,59
+1335681945,Total execution time,0.104834
+1335681945,Total execution time error,0
+704053290,DateTime,03-28-2016  23:00:43.
+704053290,Input file,../../data/bipartite/bi_full_512_30_10_gauss_10.gr
+704053290,Algorithm,Lemon CostScaling
+704053290,Type,FullBipartite
+704053290,Distribution,Gaussian
+704053290,Mean,30
+704053290,Std,10
+704053290,Edges,65536
+704053290,Nodes,512
+704053290,Total time,0.017108
+704053290,Total time error,0.000256992
+704053290,Total cost,968
+704053290,Total execution time,0.103004
+704053290,Total execution time error,0
+675507490,DateTime,03-28-2016  23:00:43.
+675507490,Input file,../../data/bipartite/bi_full_512_30_10_gauss_1.gr
+675507490,Algorithm,Lemon CostScaling
+675507490,Type,FullBipartite
+675507490,Distribution,Gaussian
+675507490,Mean,30
+675507490,Std,10
+675507490,Edges,65536
+675507490,Nodes,512
+675507490,Total time,0.0188032
+675507490,Total time error,5.3533e-05
+675507490,Total cost,925
+675507490,Total execution time,0.0976691
+675507490,Total execution time error,0
+1714520194,DateTime,03-28-2016  23:00:43.
+1714520194,Input file,../../data/bipartite/bi_full_512_30_10_gauss_2.gr
+1714520194,Algorithm,Lemon CostScaling
+1714520194,Type,FullBipartite
+1714520194,Distribution,Gaussian
+1714520194,Mean,30
+1714520194,Std,10
+1714520194,Edges,65536
+1714520194,Nodes,512
+1714520194,Total time,0.0174698
+1714520194,Total time error,0.00175359
+1714520194,Total cost,955
+1714520194,Total execution time,0.0991802
+1714520194,Total execution time error,0
+761458506,DateTime,03-28-2016  23:00:43.
+761458506,Input file,../../data/bipartite/bi_full_512_30_10_gauss_3.gr
+761458506,Algorithm,Lemon CostScaling
+761458506,Type,FullBipartite
+761458506,Distribution,Gaussian
+761458506,Mean,30
+761458506,Std,10
+761458506,Edges,65536
+761458506,Nodes,512
+761458506,Total time,0.0136261
+761458506,Total time error,5.3822e-05
+761458506,Total cost,970
+761458506,Total execution time,0.0817004
+761458506,Total execution time error,0
+2044904399,DateTime,03-28-2016  23:00:43.
+2044904399,Input file,../../data/bipartite/bi_full_512_30_10_gauss_4.gr
+2044904399,Algorithm,Lemon CostScaling
+2044904399,Type,FullBipartite
+2044904399,Distribution,Gaussian
+2044904399,Mean,30
+2044904399,Std,10
+2044904399,Edges,65536
+2044904399,Nodes,512
+2044904399,Total time,0.0189256
+2044904399,Total time error,8.73221e-05
+2044904399,Total cost,1003
+2044904399,Total execution time,0.0995313
+2044904399,Total execution time error,0
+1405324883,DateTime,03-28-2016  23:00:43.
+1405324883,Input file,../../data/bipartite/bi_full_512_30_10_gauss_5.gr
+1405324883,Algorithm,Lemon CostScaling
+1405324883,Type,FullBipartite
+1405324883,Distribution,Gaussian
+1405324883,Mean,30
+1405324883,Std,10
+1405324883,Edges,65536
+1405324883,Nodes,512
+1405324883,Total time,0.0193912
+1405324883,Total time error,9.47303e-05
+1405324883,Total cost,994
+1405324883,Total execution time,0.0981843
+1405324883,Total execution time error,0
+2125743160,DateTime,03-28-2016  23:00:43.
+2125743160,Input file,../../data/bipartite/bi_full_512_30_10_gauss_6.gr
+2125743160,Algorithm,Lemon CostScaling
+2125743160,Type,FullBipartite
+2125743160,Distribution,Gaussian
+2125743160,Mean,30
+2125743160,Std,10
+2125743160,Edges,65536
+2125743160,Nodes,512
+2125743160,Total time,0.0146327
+2125743160,Total time error,6.1697e-05
+2125743160,Total cost,974
+2125743160,Total execution time,0.0848953
+2125743160,Total execution time error,0
+59580549,DateTime,03-28-2016  23:00:43.
+59580549,Input file,../../data/bipartite/bi_full_512_30_10_gauss_7.gr
+59580549,Algorithm,Lemon CostScaling
+59580549,Type,FullBipartite
+59580549,Distribution,Gaussian
+59580549,Mean,30
+59580549,Std,10
+59580549,Edges,65536
+59580549,Nodes,512
+59580549,Total time,0.0170507
+59580549,Total time error,5.1985e-05
+59580549,Total cost,953
+59580549,Total execution time,0.0914894
+59580549,Total execution time error,0
+463252779,DateTime,03-28-2016  23:00:43.
+463252779,Input file,../../data/bipartite/bi_full_512_30_10_gauss_8.gr
+463252779,Algorithm,Lemon CostScaling
+463252779,Type,FullBipartite
+463252779,Distribution,Gaussian
+463252779,Mean,30
+463252779,Std,10
+463252779,Edges,65536
+463252779,Nodes,512
+463252779,Total time,0.0162398
+463252779,Total time error,7.49257e-05
+463252779,Total cost,1001
+463252779,Total execution time,0.0902468
+463252779,Total execution time error,0
+389060392,DateTime,03-28-2016  23:00:44.
+389060392,Input file,../../data/bipartite/bi_full_512_30_10_gauss_9.gr
+389060392,Algorithm,Lemon CostScaling
+389060392,Type,FullBipartite
+389060392,Distribution,Gaussian
+389060392,Mean,30
+389060392,Std,10
+389060392,Edges,65536
+389060392,Nodes,512
+389060392,Total time,0.0186634
+389060392,Total time error,2.67574e-05
+389060392,Total cost,990
+389060392,Total execution time,0.0974805
+389060392,Total execution time error,0
+1117606321,DateTime,03-28-2016  23:00:44.
+1117606321,Input file,../../data/bipartite/bi_full_64_1_100_uni_10.gr
+1117606321,Algorithm,Lemon CostScaling
+1117606321,Type,FullBipartite
+1117606321,Distribution,Uniform
+1117606321,MinCost,1
+1117606321,MaxCost,100
+1117606321,Edges,1024
+1117606321,Nodes,64
+1117606321,Total time,0.000256776
+1117606321,Total time error,3.0405e-05
+1117606321,Total cost,144
+1117606321,Total execution time,0.00858537
+1117606321,Total execution time error,0
+999159598,DateTime,03-28-2016  23:00:44.
+999159598,Input file,../../data/bipartite/bi_full_64_1_100_uni_1.gr
+999159598,Algorithm,Lemon CostScaling
+999159598,Type,FullBipartite
+999159598,Distribution,Uniform
+999159598,MinCost,1
+999159598,MaxCost,100
+999159598,Edges,1024
+999159598,Nodes,64
+999159598,Total time,0.000767981
+999159598,Total time error,3.1703e-05
+999159598,Total cost,132
+999159598,Total execution time,0.0065542
+999159598,Total execution time error,0
+409669586,DateTime,03-28-2016  23:00:44.
+409669586,Input file,../../data/bipartite/bi_full_64_1_100_uni_2.gr
+409669586,Algorithm,Lemon CostScaling
+409669586,Type,FullBipartite
+409669586,Distribution,Uniform
+409669586,MinCost,1
+409669586,MaxCost,100
+409669586,Edges,1024
+409669586,Nodes,64
+409669586,Total time,0.000527291
+409669586,Total time error,2.65366e-05
+409669586,Total cost,148
+409669586,Total execution time,0.00440671
+409669586,Total execution time error,0
+431993971,DateTime,03-28-2016  23:00:44.
+431993971,Input file,../../data/bipartite/bi_full_64_1_100_uni_3.gr
+431993971,Algorithm,Lemon CostScaling
+431993971,Type,FullBipartite
+431993971,Distribution,Uniform
+431993971,MinCost,1
+431993971,MaxCost,100
+431993971,Edges,1024
+431993971,Nodes,64
+431993971,Total time,0.000445222
+431993971,Total time error,8.89867e-06
+431993971,Total cost,146
+431993971,Total execution time,0.00357561
+431993971,Total execution time error,0
+1054452547,DateTime,03-28-2016  23:00:44.
+1054452547,Input file,../../data/bipartite/bi_full_64_1_100_uni_4.gr
+1054452547,Algorithm,Lemon CostScaling
+1054452547,Type,FullBipartite
+1054452547,Distribution,Uniform
+1054452547,MinCost,1
+1054452547,MaxCost,100
+1054452547,Edges,1024
+1054452547,Nodes,64
+1054452547,Total time,0.000350716
+1054452547,Total time error,1.621e-05
+1054452547,Total cost,186
+1054452547,Total execution time,0.00337793
+1054452547,Total execution time error,0
+1376528923,DateTime,03-28-2016  23:00:44.
+1376528923,Input file,../../data/bipartite/bi_full_64_1_100_uni_5.gr
+1376528923,Algorithm,Lemon CostScaling
+1376528923,Type,FullBipartite
+1376528923,Distribution,Uniform
+1376528923,MinCost,1
+1376528923,MaxCost,100
+1376528923,Edges,1024
+1376528923,Nodes,64
+1376528923,Total time,0.000399063
+1376528923,Total time error,1.791e-05
+1376528923,Total cost,155
+1376528923,Total execution time,0.00317598
+1376528923,Total execution time error,0
+2004374250,DateTime,03-28-2016  23:00:44.
+2004374250,Input file,../../data/bipartite/bi_full_64_1_100_uni_6.gr
+2004374250,Algorithm,Lemon CostScaling
+2004374250,Type,FullBipartite
+2004374250,Distribution,Uniform
+2004374250,MinCost,1
+2004374250,MaxCost,100
+2004374250,Edges,1024
+2004374250,Nodes,64
+2004374250,Total time,0.000442007
+2004374250,Total time error,3.02893e-05
+2004374250,Total cost,136
+2004374250,Total execution time,0.00334303
+2004374250,Total execution time error,0
+482232523,DateTime,03-28-2016  23:00:44.
+482232523,Input file,../../data/bipartite/bi_full_64_1_100_uni_7.gr
+482232523,Algorithm,Lemon CostScaling
+482232523,Type,FullBipartite
+482232523,Distribution,Uniform
+482232523,MinCost,1
+482232523,MaxCost,100
+482232523,Edges,1024
+482232523,Nodes,64
+482232523,Total time,0.000435798
+482232523,Total time error,2.7464e-05
+482232523,Total cost,149
+482232523,Total execution time,0.00320067
+482232523,Total execution time error,0
+1101300719,DateTime,03-28-2016  23:00:44.
+1101300719,Input file,../../data/bipartite/bi_full_64_1_100_uni_8.gr
+1101300719,Algorithm,Lemon CostScaling
+1101300719,Type,FullBipartite
+1101300719,Distribution,Uniform
+1101300719,MinCost,1
+1101300719,MaxCost,100
+1101300719,Edges,1024
+1101300719,Nodes,64
+1101300719,Total time,0.000372233
+1101300719,Total time error,1.28386e-05
+1101300719,Total cost,168
+1101300719,Total execution time,0.00301786
+1101300719,Total execution time error,0
+672451392,DateTime,03-28-2016  23:00:44.
+672451392,Input file,../../data/bipartite/bi_full_64_1_100_uni_9.gr
+672451392,Algorithm,Lemon CostScaling
+672451392,Type,FullBipartite
+672451392,Distribution,Uniform
+672451392,MinCost,1
+672451392,MaxCost,100
+672451392,Edges,1024
+672451392,Nodes,64
+672451392,Total time,0.000394892
+672451392,Total time error,3.1334e-05
+672451392,Total cost,164
+672451392,Total execution time,0.00328273
+672451392,Total execution time error,0
+212692729,DateTime,03-28-2016  23:00:44.
+212692729,Input file,../../data/bipartite/bi_full_64_1_exp_10.gr
+212692729,Algorithm,Lemon CostScaling
+212692729,Type,FullBipartite
+212692729,Distribution,Exponential
+212692729,Lambda,1
+212692729,Edges,1024
+212692729,Nodes,64
+212692729,Total time,0.000619102
+212692729,Total time error,3.3762e-05
+212692729,Total cost,159
+212692729,Total execution time,0.00436191
+212692729,Total execution time error,0
+1615381696,DateTime,03-28-2016  23:00:44.
+1615381696,Input file,../../data/bipartite/bi_full_64_1_exp_1.gr
+1615381696,Algorithm,Lemon CostScaling
+1615381696,Type,FullBipartite
+1615381696,Distribution,Exponential
+1615381696,Lambda,1
+1615381696,Edges,1024
+1615381696,Nodes,64
+1615381696,Total time,0.000455187
+1615381696,Total time error,2.1105e-05
+1615381696,Total cost,137
+1615381696,Total execution time,0.00386005
+1615381696,Total execution time error,0
+859721093,DateTime,03-28-2016  23:00:44.
+859721093,Input file,../../data/bipartite/bi_full_64_1_exp_2.gr
+859721093,Algorithm,Lemon CostScaling
+859721093,Type,FullBipartite
+859721093,Distribution,Exponential
+859721093,Lambda,1
+859721093,Edges,1024
+859721093,Nodes,64
+859721093,Total time,0.000519306
+859721093,Total time error,2.54953e-05
+859721093,Total cost,172
+859721093,Total execution time,0.00365942
+859721093,Total execution time error,0
+110356421,DateTime,03-28-2016  23:00:44.
+110356421,Input file,../../data/bipartite/bi_full_64_1_exp_3.gr
+110356421,Algorithm,Lemon CostScaling
+110356421,Type,FullBipartite
+110356421,Distribution,Exponential
+110356421,Lambda,1
+110356421,Edges,1024
+110356421,Nodes,64
+110356421,Total time,0.000609648
+110356421,Total time error,3.85396e-05
+110356421,Total cost,165
+110356421,Total execution time,0.00404907
+110356421,Total execution time error,0
+1502193561,DateTime,03-28-2016  23:00:44.
+1502193561,Input file,../../data/bipartite/bi_full_64_1_exp_4.gr
+1502193561,Algorithm,Lemon CostScaling
+1502193561,Type,FullBipartite
+1502193561,Distribution,Exponential
+1502193561,Lambda,1
+1502193561,Edges,1024
+1502193561,Nodes,64
+1502193561,Total time,0.000582897
+1502193561,Total time error,2.06527e-05
+1502193561,Total cost,138
+1502193561,Total execution time,0.00401233
+1502193561,Total execution time error,0
+452886931,DateTime,03-28-2016  23:00:44.
+452886931,Input file,../../data/bipartite/bi_full_64_1_exp_5.gr
+452886931,Algorithm,Lemon CostScaling
+452886931,Type,FullBipartite
+452886931,Distribution,Exponential
+452886931,Lambda,1
+452886931,Edges,1024
+452886931,Nodes,64
+452886931,Total time,0.000426819
+452886931,Total time error,1.60707e-05
+452886931,Total cost,153
+452886931,Total execution time,0.00313002
+452886931,Total execution time error,0
+6477243,DateTime,03-28-2016  23:00:44.
+6477243,Input file,../../data/bipartite/bi_full_64_1_exp_6.gr
+6477243,Algorithm,Lemon CostScaling
+6477243,Type,FullBipartite
+6477243,Distribution,Exponential
+6477243,Lambda,1
+6477243,Edges,1024
+6477243,Nodes,64
+6477243,Total time,0.000515635
+6477243,Total time error,1.99706e-05
+6477243,Total cost,135
+6477243,Total execution time,0.00344051
+6477243,Total execution time error,0
+1693200114,DateTime,03-28-2016  23:00:44.
+1693200114,Input file,../../data/bipartite/bi_full_64_1_exp_7.gr
+1693200114,Algorithm,Lemon CostScaling
+1693200114,Type,FullBipartite
+1693200114,Distribution,Exponential
+1693200114,Lambda,1
+1693200114,Edges,1024
+1693200114,Nodes,64
+1693200114,Total time,0.000520931
+1693200114,Total time error,3.36889e-05
+1693200114,Total cost,163
+1693200114,Total execution time,0.00345931
+1693200114,Total execution time error,0
+187838674,DateTime,03-28-2016  23:00:44.
+187838674,Input file,../../data/bipartite/bi_full_64_1_exp_8.gr
+187838674,Algorithm,Lemon CostScaling
+187838674,Type,FullBipartite
+187838674,Distribution,Exponential
+187838674,Lambda,1
+187838674,Edges,1024
+187838674,Nodes,64
+187838674,Total time,0.000415487
+187838674,Total time error,1.73826e-05
+187838674,Total cost,162
+187838674,Total execution time,0.00313331
+187838674,Total execution time error,0
+1881218727,DateTime,03-28-2016  23:00:44.
+1881218727,Input file,../../data/bipartite/bi_full_64_1_exp_9.gr
+1881218727,Algorithm,Lemon CostScaling
+1881218727,Type,FullBipartite
+1881218727,Distribution,Exponential
+1881218727,Lambda,1
+1881218727,Edges,1024
+1881218727,Nodes,64
+1881218727,Total time,0.000418833
+1881218727,Total time error,1.33273e-05
+1881218727,Total cost,136
+1881218727,Total execution time,0.00308635
+1881218727,Total execution time error,0
+1436544191,DateTime,03-28-2016  23:00:44.
+1436544191,Input file,../../data/bipartite/bi_full_64_30_10_gauss_10.gr
+1436544191,Algorithm,Lemon CostScaling
+1436544191,Type,FullBipartite
+1436544191,Distribution,Gaussian
+1436544191,Mean,30
+1436544191,Std,10
+1436544191,Edges,1024
+1436544191,Nodes,64
+1436544191,Total time,0.000374872
+1436544191,Total time error,1.4244e-05
+1436544191,Total cost,354
+1436544191,Total execution time,0.00352343
+1436544191,Total execution time error,0
+1755902564,DateTime,03-28-2016  23:00:44.
+1755902564,Input file,../../data/bipartite/bi_full_64_30_10_gauss_1.gr
+1755902564,Algorithm,Lemon CostScaling
+1755902564,Type,FullBipartite
+1755902564,Distribution,Gaussian
+1755902564,Mean,30
+1755902564,Std,10
+1755902564,Edges,1024
+1755902564,Nodes,64
+1755902564,Total time,0.000383083
+1755902564,Total time error,1.88954e-05
+1755902564,Total cost,360
+1755902564,Total execution time,0.00335749
+1755902564,Total execution time error,0
+247958021,DateTime,03-28-2016  23:00:44.
+247958021,Input file,../../data/bipartite/bi_full_64_30_10_gauss_2.gr
+247958021,Algorithm,Lemon CostScaling
+247958021,Type,FullBipartite
+247958021,Distribution,Gaussian
+247958021,Mean,30
+247958021,Std,10
+247958021,Edges,1024
+247958021,Nodes,64
+247958021,Total time,0.000452527
+247958021,Total time error,3.97013e-05
+247958021,Total cost,351
+247958021,Total execution time,0.00367177
+247958021,Total execution time error,0
+559868491,DateTime,03-28-2016  23:00:44.
+559868491,Input file,../../data/bipartite/bi_full_64_30_10_gauss_3.gr
+559868491,Algorithm,Lemon CostScaling
+559868491,Type,FullBipartite
+559868491,Distribution,Gaussian
+559868491,Mean,30
+559868491,Std,10
+559868491,Edges,1024
+559868491,Nodes,64
+559868491,Total time,0.000579447
+559868491,Total time error,5.65303e-05
+559868491,Total cost,358
+559868491,Total execution time,0.00408273
+559868491,Total execution time error,0
+1951726104,DateTime,03-28-2016  23:00:44.
+1951726104,Input file,../../data/bipartite/bi_full_64_30_10_gauss_4.gr
+1951726104,Algorithm,Lemon CostScaling
+1951726104,Type,FullBipartite
+1951726104,Distribution,Gaussian
+1951726104,Mean,30
+1951726104,Std,10
+1951726104,Edges,1024
+1951726104,Nodes,64
+1951726104,Total time,0.000440762
+1951726104,Total time error,1.36813e-05
+1951726104,Total cost,330
+1951726104,Total execution time,0.00329695
+1951726104,Total execution time error,0
+1214941487,DateTime,03-28-2016  23:00:44.
+1214941487,Input file,../../data/bipartite/bi_full_64_30_10_gauss_5.gr
+1214941487,Algorithm,Lemon CostScaling
+1214941487,Type,FullBipartite
+1214941487,Distribution,Gaussian
+1214941487,Mean,30
+1214941487,Std,10
+1214941487,Edges,1024
+1214941487,Nodes,64
+1214941487,Total time,0.000377335
+1214941487,Total time error,2.00366e-05
+1214941487,Total cost,365
+1214941487,Total execution time,0.00324478
+1214941487,Total execution time error,0
+1826202730,DateTime,03-28-2016  23:00:44.
+1826202730,Input file,../../data/bipartite/bi_full_64_30_10_gauss_6.gr
+1826202730,Algorithm,Lemon CostScaling
+1826202730,Type,FullBipartite
+1826202730,Distribution,Gaussian
+1826202730,Mean,30
+1826202730,Std,10
+1826202730,Edges,1024
+1826202730,Nodes,64
+1826202730,Total time,0.000525464
+1826202730,Total time error,4.9075e-05
+1826202730,Total cost,327
+1826202730,Total execution time,0.00460079
+1826202730,Total execution time error,0
+1082676395,DateTime,03-28-2016  23:00:44.
+1082676395,Input file,../../data/bipartite/bi_full_64_30_10_gauss_7.gr
+1082676395,Algorithm,Lemon CostScaling
+1082676395,Type,FullBipartite
+1082676395,Distribution,Gaussian
+1082676395,Mean,30
+1082676395,Std,10
+1082676395,Edges,1024
+1082676395,Nodes,64
+1082676395,Total time,0.000485314
+1082676395,Total time error,2.51504e-05
+1082676395,Total cost,373
+1082676395,Total execution time,0.00364375
+1082676395,Total execution time error,0
+326630715,DateTime,03-28-2016  23:00:44.
+326630715,Input file,../../data/bipartite/bi_full_64_30_10_gauss_8.gr
+326630715,Algorithm,Lemon CostScaling
+326630715,Type,FullBipartite
+326630715,Distribution,Gaussian
+326630715,Mean,30
+326630715,Std,10
+326630715,Edges,1024
+326630715,Nodes,64
+326630715,Total time,0.000662032
+326630715,Total time error,7.10634e-06
+326630715,Total cost,313
+326630715,Total execution time,0.00434296
+326630715,Total execution time error,0
+352796134,DateTime,03-28-2016  23:00:44.
+352796134,Input file,../../data/bipartite/bi_full_64_30_10_gauss_9.gr
+352796134,Algorithm,Lemon CostScaling
+352796134,Type,FullBipartite
+352796134,Distribution,Gaussian
+352796134,Mean,30
+352796134,Std,10
+352796134,Edges,1024
+352796134,Nodes,64
+352796134,Total time,0.000493239
+352796134,Total time error,4.6035e-05
+352796134,Total cost,334
+352796134,Total execution time,0.00442649
+352796134,Total execution time error,0
+1742290047,DateTime,03-28-2016  23:00:44.
+1742290047,Input file,../../data/bipartite/bi_full_8192_1_100_uni_10.gr
+1742290047,Algorithm,Lemon CostScaling
+1742290047,Type,FullBipartite
+1742290047,Distribution,Uniform
+1742290047,MinCost,1
+1742290047,MaxCost,100
+1742290047,Edges,16777216
+1742290047,Nodes,8192
+1742290047,Total time,5.66873
+1742290047,Total time error,0.0011738
+1742290047,Total cost,4096
+1742290047,Total execution time,32.0389
+1742290047,Total execution time error,0
+1908794695,DateTime,03-28-2016  23:01:16.
+1908794695,Input file,../../data/bipartite/bi_full_8192_1_100_uni_1.gr
+1908794695,Algorithm,Lemon CostScaling
+1908794695,Type,FullBipartite
+1908794695,Distribution,Uniform
+1908794695,MinCost,1
+1908794695,MaxCost,100
+1908794695,Edges,16777216
+1908794695,Nodes,8192
+1908794695,Total time,5.6783
+1908794695,Total time error,0.00520991
+1908794695,Total cost,4096
+1908794695,Total execution time,32.0727
+1908794695,Total execution time error,0
+607221489,DateTime,03-28-2016  23:01:48.
+607221489,Input file,../../data/bipartite/bi_full_8192_1_100_uni_2.gr
+607221489,Algorithm,Lemon CostScaling
+607221489,Type,FullBipartite
+607221489,Distribution,Uniform
+607221489,MinCost,1
+607221489,MaxCost,100
+607221489,Edges,16777216
+607221489,Nodes,8192
+607221489,Total time,5.83084
+607221489,Total time error,0.00524933
+607221489,Total cost,4096
+607221489,Total execution time,32.464
+607221489,Total execution time error,0
+350601000,DateTime,03-28-2016  23:02:20.
+350601000,Input file,../../data/bipartite/bi_full_8192_1_100_uni_3.gr
+350601000,Algorithm,Lemon CostScaling
+350601000,Type,FullBipartite
+350601000,Distribution,Uniform
+350601000,MinCost,1
+350601000,MaxCost,100
+350601000,Edges,16777216
+350601000,Nodes,8192
+350601000,Total time,5.43089
+350601000,Total time error,0.000988338
+350601000,Total cost,4096
+350601000,Total execution time,31.2975
+350601000,Total execution time error,0
+1748713349,DateTime,03-28-2016  23:02:52.
+1748713349,Input file,../../data/bipartite/bi_full_8192_1_100_uni_4.gr
+1748713349,Algorithm,Lemon CostScaling
+1748713349,Type,FullBipartite
+1748713349,Distribution,Uniform
+1748713349,MinCost,1
+1748713349,MaxCost,100
+1748713349,Edges,16777216
+1748713349,Nodes,8192
+1748713349,Total time,5.40504
+1748713349,Total time error,0.00577806
+1748713349,Total cost,4096
+1748713349,Total execution time,31.1948
+1748713349,Total execution time error,0
+119852036,DateTime,03-28-2016  23:03:23.
+119852036,Input file,../../data/bipartite/bi_full_8192_1_100_uni_5.gr
+119852036,Algorithm,Lemon CostScaling
+119852036,Type,FullBipartite
+119852036,Distribution,Uniform
+119852036,MinCost,1
+119852036,MaxCost,100
+119852036,Edges,16777216
+119852036,Nodes,8192
+119852036,Total time,5.39885
+119852036,Total time error,0.00425517
+119852036,Total cost,4096
+119852036,Total execution time,31.1458
+119852036,Total execution time error,0
+195856425,DateTime,03-28-2016  23:03:54.
+195856425,Input file,../../data/bipartite/bi_full_8192_1_100_uni_6.gr
+195856425,Algorithm,Lemon CostScaling
+195856425,Type,FullBipartite
+195856425,Distribution,Uniform
+195856425,MinCost,1
+195856425,MaxCost,100
+195856425,Edges,16777216
+195856425,Nodes,8192
+195856425,Total time,5.51696
+195856425,Total time error,0.00170326
+195856425,Total cost,4096
+195856425,Total execution time,31.5304
+195856425,Total execution time error,0
+524890249,DateTime,03-28-2016  23:04:26.
+524890249,Input file,../../data/bipartite/bi_full_8192_1_100_uni_7.gr
+524890249,Algorithm,Lemon CostScaling
+524890249,Type,FullBipartite
+524890249,Distribution,Uniform
+524890249,MinCost,1
+524890249,MaxCost,100
+524890249,Edges,16777216
+524890249,Nodes,8192
+524890249,Total time,5.43589
+524890249,Total time error,0.00287929
+524890249,Total cost,4096
+524890249,Total execution time,31.2109
+524890249,Total execution time error,0
+155991930,DateTime,03-28-2016  23:04:57.
+155991930,Input file,../../data/bipartite/bi_full_8192_1_100_uni_8.gr
+155991930,Algorithm,Lemon CostScaling
+155991930,Type,FullBipartite
+155991930,Distribution,Uniform
+155991930,MinCost,1
+155991930,MaxCost,100
+155991930,Edges,16777216
+155991930,Nodes,8192
+155991930,Total time,5.61839
+155991930,Total time error,0.00226095
+155991930,Total cost,4096
+155991930,Total execution time,31.7902
+155991930,Total execution time error,0
+877773202,DateTime,03-28-2016  23:05:29.
+877773202,Input file,../../data/bipartite/bi_full_8192_1_100_uni_9.gr
+877773202,Algorithm,Lemon CostScaling
+877773202,Type,FullBipartite
+877773202,Distribution,Uniform
+877773202,MinCost,1
+877773202,MaxCost,100
+877773202,Edges,16777216
+877773202,Nodes,8192
+877773202,Total time,5.89742
+877773202,Total time error,0.00140396
+877773202,Total cost,4096
+877773202,Total execution time,32.6318
+877773202,Total execution time error,0
+1068094340,DateTime,03-28-2016  23:06:01.
+1068094340,Input file,../../data/bipartite/bi_full_8192_1_exp_10.gr
+1068094340,Algorithm,Lemon CostScaling
+1068094340,Type,FullBipartite
+1068094340,Distribution,Exponential
+1068094340,Lambda,1
+1068094340,Edges,16777216
+1068094340,Nodes,8192
+1068094340,Total time,6.36488
+1068094340,Total time error,0.000766882
+1068094340,Total cost,0
+1068094340,Total execution time,34.1058
+1068094340,Total execution time error,0
+1800310126,DateTime,03-28-2016  23:06:35.
+1800310126,Input file,../../data/bipartite/bi_full_8192_1_exp_1.gr
+1800310126,Algorithm,Lemon CostScaling
+1800310126,Type,FullBipartite
+1800310126,Distribution,Exponential
+1800310126,Lambda,1
+1800310126,Edges,16777216
+1800310126,Nodes,8192
+1800310126,Total time,6.37013
+1800310126,Total time error,0.00713204
+1800310126,Total cost,0
+1800310126,Total execution time,34.1456
+1800310126,Total execution time error,0
+36262046,DateTime,03-28-2016  23:07:10.
+36262046,Input file,../../data/bipartite/bi_full_8192_1_exp_2.gr
+36262046,Algorithm,Lemon CostScaling
+36262046,Type,FullBipartite
+36262046,Distribution,Exponential
+36262046,Lambda,1
+36262046,Edges,16777216
+36262046,Nodes,8192
+36262046,Total time,6.43736
+36262046,Total time error,0.00786598
+36262046,Total cost,0
+36262046,Total execution time,34.4298
+36262046,Total execution time error,0
+245170552,DateTime,03-28-2016  23:07:44.
+245170552,Input file,../../data/bipartite/bi_full_8192_1_exp_3.gr
+245170552,Algorithm,Lemon CostScaling
+245170552,Type,FullBipartite
+245170552,Distribution,Exponential
+245170552,Lambda,1
+245170552,Edges,16777216
+245170552,Nodes,8192
+245170552,Total time,5.91602
+245170552,Total time error,0.00112952
+245170552,Total cost,0
+245170552,Total execution time,32.8064
+245170552,Total execution time error,0
+1967602698,DateTime,03-28-2016  23:08:17.
+1967602698,Input file,../../data/bipartite/bi_full_8192_1_exp_4.gr
+1967602698,Algorithm,Lemon CostScaling
+1967602698,Type,FullBipartite
+1967602698,Distribution,Exponential
+1967602698,Lambda,1
+1967602698,Edges,16777216
+1967602698,Nodes,8192
+1967602698,Total time,6.4372
+1967602698,Total time error,0.00114195
+1967602698,Total cost,0
+1967602698,Total execution time,34.3488
+1967602698,Total execution time error,0
+1038675563,DateTime,03-28-2016  23:08:51.
+1038675563,Input file,../../data/bipartite/bi_full_8192_1_exp_5.gr
+1038675563,Algorithm,Lemon CostScaling
+1038675563,Type,FullBipartite
+1038675563,Distribution,Exponential
+1038675563,Lambda,1
+1038675563,Edges,16777216
+1038675563,Nodes,8192
+1038675563,Total time,6.3323
+1038675563,Total time error,0.00187727
+1038675563,Total cost,0
+1038675563,Total execution time,33.9891
+1038675563,Total execution time error,0
+1924288469,DateTime,03-28-2016  23:09:25.
+1924288469,Input file,../../data/bipartite/bi_full_8192_1_exp_6.gr
+1924288469,Algorithm,Lemon CostScaling
+1924288469,Type,FullBipartite
+1924288469,Distribution,Exponential
+1924288469,Lambda,1
+1924288469,Edges,16777216
+1924288469,Nodes,8192
+1924288469,Total time,6.25102
+1924288469,Total time error,0.000827665
+1924288469,Total cost,0
+1924288469,Total execution time,33.9317
+1924288469,Total execution time error,0
+1420557267,DateTime,03-28-2016  23:09:59.
+1420557267,Input file,../../data/bipartite/bi_full_8192_1_exp_7.gr
+1420557267,Algorithm,Lemon CostScaling
+1420557267,Type,FullBipartite
+1420557267,Distribution,Exponential
+1420557267,Lambda,1
+1420557267,Edges,16777216
+1420557267,Nodes,8192
+1420557267,Total time,6.25287
+1420557267,Total time error,0.00253571
+1420557267,Total cost,0
+1420557267,Total execution time,33.8136
+1420557267,Total execution time error,0
+1832147766,DateTime,03-28-2016  23:10:33.
+1832147766,Input file,../../data/bipartite/bi_full_8192_1_exp_8.gr
+1832147766,Algorithm,Lemon CostScaling
+1832147766,Type,FullBipartite
+1832147766,Distribution,Exponential
+1832147766,Lambda,1
+1832147766,Edges,16777216
+1832147766,Nodes,8192
+1832147766,Total time,6.31795
+1832147766,Total time error,0.0044412
+1832147766,Total cost,0
+1832147766,Total execution time,33.9991
+1832147766,Total execution time error,0
+445566005,DateTime,03-28-2016  23:11:07.
+445566005,Input file,../../data/bipartite/bi_full_8192_1_exp_9.gr
+445566005,Algorithm,Lemon CostScaling
+445566005,Type,FullBipartite
+445566005,Distribution,Exponential
+445566005,Lambda,1
+445566005,Edges,16777216
+445566005,Nodes,8192
+445566005,Total time,6.45834
+445566005,Total time error,0.00899984
+445566005,Total cost,0
+445566005,Total execution time,34.3755
+445566005,Total execution time error,0
+2043306406,DateTime,03-28-2016  23:11:41.
+2043306406,Input file,../../data/bipartite/bi_full_8192_30_10_gauss_10.gr
+2043306406,Algorithm,Lemon CostScaling
+2043306406,Type,FullBipartite
+2043306406,Distribution,Gaussian
+2043306406,Mean,30
+2043306406,Std,10
+2043306406,Edges,16777216
+2043306406,Nodes,8192
+2043306406,Total time,8.77995
+2043306406,Total time error,0.00124294
+2043306406,Total cost,227
+2043306406,Total execution time,41.2155
+2043306406,Total execution time error,0
+1101214840,DateTime,03-28-2016  23:12:23.
+1101214840,Input file,../../data/bipartite/bi_full_8192_30_10_gauss_1.gr
+1101214840,Algorithm,Lemon CostScaling
+1101214840,Type,FullBipartite
+1101214840,Distribution,Gaussian
+1101214840,Mean,30
+1101214840,Std,10
+1101214840,Edges,16777216
+1101214840,Nodes,8192
+1101214840,Total time,8.59769
+1101214840,Total time error,0.00116364
+1101214840,Total cost,237
+1101214840,Total execution time,40.6874
+1101214840,Total execution time error,0
+1370773977,DateTime,03-28-2016  23:13:03.
+1370773977,Input file,../../data/bipartite/bi_full_8192_30_10_gauss_2.gr
+1370773977,Algorithm,Lemon CostScaling
+1370773977,Type,FullBipartite
+1370773977,Distribution,Gaussian
+1370773977,Mean,30
+1370773977,Std,10
+1370773977,Edges,16777216
+1370773977,Nodes,8192
+1370773977,Total time,8.54361
+1370773977,Total time error,0.0542101
+1370773977,Total cost,253
+1370773977,Total execution time,40.5681
+1370773977,Total execution time error,0
+2097888745,DateTime,03-28-2016  23:13:44.
+2097888745,Input file,../../data/bipartite/bi_full_8192_30_10_gauss_3.gr
+2097888745,Algorithm,Lemon CostScaling
+2097888745,Type,FullBipartite
+2097888745,Distribution,Gaussian
+2097888745,Mean,30
+2097888745,Std,10
+2097888745,Edges,16777216
+2097888745,Nodes,8192
+2097888745,Total time,8.55736
+2097888745,Total time error,0.0415251
+2097888745,Total cost,232
+2097888745,Total execution time,40.5821
+2097888745,Total execution time error,0
+575496230,DateTime,03-28-2016  23:14:24.
+575496230,Input file,../../data/bipartite/bi_full_8192_30_10_gauss_4.gr
+575496230,Algorithm,Lemon CostScaling
+575496230,Type,FullBipartite
+575496230,Distribution,Gaussian
+575496230,Mean,30
+575496230,Std,10
+575496230,Edges,16777216
+575496230,Nodes,8192
+575496230,Total time,8.90931
+575496230,Total time error,0.0767829
+575496230,Total cost,255
+575496230,Total execution time,41.6778
+575496230,Total execution time error,0
+1345043214,DateTime,03-28-2016  23:15:06.
+1345043214,Input file,../../data/bipartite/bi_full_8192_30_10_gauss_5.gr
+1345043214,Algorithm,Lemon CostScaling
+1345043214,Type,FullBipartite
+1345043214,Distribution,Gaussian
+1345043214,Mean,30
+1345043214,Std,10
+1345043214,Edges,16777216
+1345043214,Nodes,8192
+1345043214,Total time,9.05175
+1345043214,Total time error,0.0349369
+1345043214,Total cost,254
+1345043214,Total execution time,42.1132
+1345043214,Total execution time error,0
+673196085,DateTime,03-28-2016  23:15:48.
+673196085,Input file,../../data/bipartite/bi_full_8192_30_10_gauss_6.gr
+673196085,Algorithm,Lemon CostScaling
+673196085,Type,FullBipartite
+673196085,Distribution,Gaussian
+673196085,Mean,30
+673196085,Std,10
+673196085,Edges,16777216
+673196085,Nodes,8192
+673196085,Total time,9.69848
+673196085,Total time error,0.0403379
+673196085,Total cost,255
+673196085,Total execution time,44.0351
+673196085,Total execution time error,0
+1740540553,DateTime,03-28-2016  23:16:32.
+1740540553,Input file,../../data/bipartite/bi_full_8192_30_10_gauss_7.gr
+1740540553,Algorithm,Lemon CostScaling
+1740540553,Type,FullBipartite
+1740540553,Distribution,Gaussian
+1740540553,Mean,30
+1740540553,Std,10
+1740540553,Edges,16777216
+1740540553,Nodes,8192
+1740540553,Total time,8.50109
+1740540553,Total time error,0.0337357
+1740540553,Total cost,256
+1740540553,Total execution time,40.555
+1740540553,Total execution time error,0
+1976595639,DateTime,03-28-2016  23:17:13.
+1976595639,Input file,../../data/bipartite/bi_full_8192_30_10_gauss_8.gr
+1976595639,Algorithm,Lemon CostScaling
+1976595639,Type,FullBipartite
+1976595639,Distribution,Gaussian
+1976595639,Mean,30
+1976595639,Std,10
+1976595639,Edges,16777216
+1976595639,Nodes,8192
+1976595639,Total time,8.7625
+1976595639,Total time error,0.0606046
+1976595639,Total cost,251
+1976595639,Total execution time,41.2265
+1976595639,Total execution time error,0
+1400871512,DateTime,03-28-2016  23:17:54.
+1400871512,Input file,../../data/bipartite/bi_full_8192_30_10_gauss_9.gr
+1400871512,Algorithm,Lemon CostScaling
+1400871512,Type,FullBipartite
+1400871512,Distribution,Gaussian
+1400871512,Mean,30
+1400871512,Std,10
+1400871512,Edges,16777216
+1400871512,Nodes,8192
+1400871512,Total time,8.75458
+1400871512,Total time error,0.0582257
+1400871512,Total cost,267
+1400871512,Total execution time,41.2498
+1400871512,Total execution time error,0
