@@ -33,7 +33,7 @@ class SIA {
     mmHeap dijkH;
     mmHeap globalH;
     mmHeap updateH;
-
+//todo clear globalH between iterations?
     vector<int> worklist; //list of nodes needed for current execution
 
     void iteration_reset(int nodeid_best_psi, int source_id); // worklist reset after one iteration

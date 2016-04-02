@@ -120,7 +120,7 @@ int SIA::runDijkstra(int source_id) {
             if (nodeFlow[current_node] < 0)
             {
                 return current_node;
-            }
+            }//todo why here not before looping through edges?
 
 //            if (current_node < noA)
 //                enqueueNextEdge(sc,pc,current_node);
