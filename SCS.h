@@ -59,7 +59,6 @@ public:
     Value _sum_supply;
 
     // Data structures for storing the digraph
-    IntVector _node_id;
     IntVector _arc_idf;
     IntVector _arc_idb;
     vector<vector<int>> _first_out;
@@ -101,7 +100,7 @@ public:
         _node_num = _graph.n;
         _arc_num = _graph.m;
         _res_node_num = _node_num;
-        _res_arc_num = 0;//2 * _arc_num;
+        _res_arc_num = 2 * _arc_num;
 
         _first_out.resize(_res_node_num, vector<int>());
         _forward.resize(_res_arc_num);
@@ -130,37 +129,37 @@ public:
         for (uintT i = 0; i < _graph.n; i++) {
             _supply[i] = _graph.V[i].supply;
         }
-//        for (uintT i = 0; i < _graph.n; i++) {
-//            for (uintT a = 0; a < _graph.completeE[i].size(); a++) {
-//                _first_out[i].push_back(j);
-//                uintT eid = _graph.completeE[i][a];
-//                if (_graph.is_forward(eid,i)) {
-//                    _arc_idf[eid] = j;
-//                } else {
-//                    _arc_idb[eid] = j;
-//                }
-//                _forward[j] = _graph.is_forward(eid,i);
-//                _source[j] = i;
-//                _target[j] = _node_id[_graph.get_pair(eid, i)];
-//
-//                _lower[j] = _graph.E[eid].lower;
-//                _upper[j] = _graph.E[eid].capacity;
-//                _scost[j] = _graph.E[eid].weight;
-//                if (!_forward[j]) _scost[j] *= -1;
-//
-//                if (_forward[j]) _res_cap[j] = _upper[j];
-//
-//                j++;
-//            }
-//        }
-//        _has_lower = false;
+        for (uintT i = 0; i < _graph.n; i++) {
+            for (uintT a = 0; a < _graph.completeE[i].size(); a++) {
+                _first_out[i].push_back(j);
+                uintT eid = _graph.completeE[i][a];
+                if (_graph.is_forward(eid,i)) {
+                    _arc_idf[eid] = j;
+                } else {
+                    _arc_idb[eid] = j;
+                }
+                _forward[j] = _graph.is_forward(eid,i);
+                _source[j] = i;
+                _target[j] = _graph.get_pair(eid, i);
 
-//        for (int eid = 0; eid < _graph.m; eid++) {
-//            int fi = _arc_idf[eid];
-//            int bi = _arc_idb[eid];
-//            _reverse[fi] = bi;
-//            _reverse[bi] = fi;
-//        }
+                _lower[j] = _graph.E[eid].lower;
+                _upper[j] = _graph.E[eid].capacity;
+                _scost[j] = _graph.E[eid].weight;
+                if (!_forward[j]) _scost[j] *= -1;
+
+                if (_forward[j]) _res_cap[j] = _upper[j];
+
+                j++;
+            }
+        }
+        _has_lower = false;
+
+        for (int eid = 0; eid < _graph.m; eid++) {
+            int fi = _arc_idf[eid];
+            int bi = _arc_idb[eid];
+            _reverse[fi] = bi;
+            _reverse[bi] = fi;
+        }
 
         return *this;
     }
@@ -233,15 +232,15 @@ private:
         _epsilon = 0;
         LargeCost lc;
         for (int i = 0; i != _res_node_num; ++i) {
-//            for (vector<int>::iterator j = _first_out[i].begin(); j != _first_out[i].end(); ++j) {
-//                lc = static_cast<LargeCost>(_scost[*j]) * _res_node_num * _alpha; //COST MODIFICATION
-//                _cost[*j] = lc;
-//                if (lc > _epsilon) _epsilon = lc;
-//            }
-            for (int j = 0; j < _graph.fullE[i].size(); j++) {
-                lc = static_cast<LargeCost>(_graph.E[_graph.fullE[i][j]].weight) * _res_node_num * _alpha;
+            for (vector<int>::iterator j = _first_out[i].begin(); j != _first_out[i].end(); ++j) {
+                lc = static_cast<LargeCost>(_scost[*j]) * _res_node_num * _alpha; //COST MODIFICATION
+                _cost[*j] = lc;
                 if (lc > _epsilon) _epsilon = lc;
             }
+//            for (int j = 0; j < _graph.fullE[i].size(); j++) {
+//                lc = static_cast<LargeCost>(_graph.E[_graph.fullE[i][j]].weight) * _res_node_num * _alpha;
+//                if (lc > _epsilon) _epsilon = lc;
+//            }
         }
         _epsilon /= _alpha;
 
@@ -317,6 +316,16 @@ public:
                 totalCost += _res_cap[a] * (-_scost[a]);
             }
         }
+    }
+
+    bool test_epsilon() {
+        for (int i = 0; i < _res_node_num; i++) {
+            for (int j = 0; j < _first_out[i].size(); j++){
+                if (_res_cap[_first_out[i][j]] > 0)
+                    assert(_cost[_first_out[i][j]] + _pi[_target[_first_out[i][j]]] - _pi[i] >= -_epsilon);
+            }
+        }
+        return true;
     }
 
 };
