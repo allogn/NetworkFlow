@@ -61,6 +61,15 @@ void SCS::startAugment(int max_length) {
 
             LargeCost curcost;
             int u, tip;
+
+            dijkH.clear();
+            dijkH.enqueue(start,0);
+            visited.clear();
+            std::fill(parent.begin(),parent.end(),-1);
+            fill(mindist, mindist + _res_node_num,
+                 std::numeric_limits<LargeCost>::max()); //those who were not popped yet, but are in the bucket already
+            mindist[start] = 0;
+
             do {
 
                 if (globalH.size() > 0) {
@@ -110,28 +119,20 @@ void SCS::startAugment(int max_length) {
                     LargeCost l = rc + _epsilon;
                     assert(l >= 0); //epsilon-optimality
                     //todo add visited array
-//                    assert(mindist[fromid] < std::numeric_limits<LargeCost>::max()); //because if it was placed in global => it was visited
-//                    cout << "adding " << fromid << "->" << toid << endl;
-//                    if (mindist[toid] > mindist[fromid] + l) {
-//                        //check if exists in a heap
-//                        if (!dijkH.isExisted(toid)) {
-//                            dijkH.enqueue(toid, mindist[fromid] + l);
-//                        } else {
-//                            dijkH.updatequeue(toid, mindist[fromid] + l);
-//                        }
-//                        parent[toid] = local_eid;
-//                        mindist[toid] = mindist[fromid] + l;
-//                        cout << "updated distance " << mindist[toid] << endl;
-//                    }
+                    assert(mindist[fromid] < std::numeric_limits<LargeCost>::max()); //because if it was placed in global => it was visited
+                    cout << "adding " << fromid << "->" << toid << endl;
+                    if (mindist[toid] > mindist[fromid] + l) {
+                        //check if exists in a heap
+                        if (!dijkH.isExisted(toid)) {
+                            dijkH.enqueue(toid, mindist[fromid] + l);
+                        } else {
+                            dijkH.updatequeue(toid, mindist[fromid] + l);
+                        }
+                        parent[toid] = local_eid;
+                        mindist[toid] = mindist[fromid] + l;
+                        cout << "updated distance " << mindist[toid] << endl;
+                    }
                 }
-
-                dijkH.clear();
-                dijkH.enqueue(start,0);
-                visited.clear();
-                std::fill(parent.begin(),parent.end(),-1);
-                fill(mindist, mindist + _res_node_num,
-                     std::numeric_limits<LargeCost>::max()); //those who were not popped yet, but are in the bucket already
-                mindist[start] = 0;
 
                 while (true) {
                     //take one node and add every neighbor to another bucket
@@ -175,12 +176,75 @@ void SCS::startAugment(int max_length) {
                 checkEdges:;
             } while (globalH.size() > 0);
 
+            fHeap<LargeCost> dijkH2;
+            dijkH2.enqueue(start,0);
+            vector<int> visited2;
+            vector<int> parent2(_res_node_num,-1);
+            LargeCost mindist2[_res_node_num];
+            fill(mindist2, mindist2 + _res_node_num,
+                 std::numeric_limits<LargeCost>::max()); //those who were not popped yet, but are in the bucket already
+            mindist2[start] = 0;
+            LargeCost curcost2;
+            int tip2;
+
+            while (true) {
+                //take one node and add every neighbor to another bucket
+                assert(dijkH2.size() > 0);
+                tip2 = dijkH2.getTopIdx();
+//                    cout << "tip " << tip << endl;
+                curcost2 = dijkH2.getTopValue();
+                if (_excess[tip2] < 0) {
+//                        cout << "end of dijkstra (negative excess)" << endl;
+                    goto checkEdges2;
+                }
+                dijkH2.dequeue();
+                visited2.push_back(tip2);
+                LargeCost rc, l;
+                LargeCost pi_tip = _pi[tip2];
+                assert(curcost2 == mindist2[tip2]);
+                for (vector<int>::iterator a = _first_out[tip2].begin(); a != _first_out[tip2].end(); a++) {
+                    if (_res_cap[*a] == 0) continue; // only feasible arcs
+                    assert(_res_cap[*a] > 0);
+                    u = _target[*a];
+                    rc = _cost[*a] - pi_tip + _pi[u]; //exactly +delta_pi because we increase potential
+                    l = rc + _epsilon;
+                    assert(l >= 0); //epsilon-optimality
+                    //todo add visited array
+                    if (mindist2[u] > curcost2 + l) {
+                        //check if exists in a heap
+                        if (!dijkH2.isExisted(u)) {
+                            dijkH2.enqueue(u, curcost2 + l);
+                        } else {
+                            dijkH2.updatequeue(u, curcost2 + l);
+                        }
+                        parent2[u] = *a;
+                        mindist2[u] = curcost2 + l;
+                    }
+                }
+            }
+            checkEdges2:;
+
+//            assert(tip == tip2);
+            assert(curcost == curcost2);
+            for (int k = 0; k < _res_node_num; k++) {
+                if (curcost > mindist[k])
+                    assert(mindist[k] == mindist2[k]);
+            }
+
 
             // increase potentials for all visited nodes
-            for (int i = 0; i < visited.size(); i++) {
-                if (curcost < mindist[visited[i]]);
+//            for (int i = 0; i < visited.size(); i++) {
+//                assert(QryCnt[visited[i]] == _graph.fullE[visited[i]].size());
+//                if (curcost > mindist[visited[i]])
+//                {
+//                    _pi[visited[i]] += curcost - mindist[visited[i]];
+//                } //curbucket holds distance to deficit
+//            }
+            for (int i = 0; i < _res_node_num; i++) {
+                if (curcost > mindist[i])
                 {
-                    _pi[visited[i]] += curcost - mindist[visited[i]];
+                    assert(QryCnt[i] == _graph.fullE[i].size());
+                    _pi[i] += curcost - mindist[i];
                 } //curbucket holds distance to deficit
             }
             assert(test_epsilon());
