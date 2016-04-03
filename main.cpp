@@ -11,6 +11,7 @@
 #include "LocalDominant.h"
 #include "Lemon.h"
 #include "SCS.h"
+#include "LSCS.h"
 #include "TimerTool.h"
 
 using namespace std;
@@ -52,7 +53,8 @@ int main(int argc, const char **argv) {
                      "2 : LocalDominant\n"
                      "3 : Lemon Modified\n"
                      "4 : Simplified Cost Scaling (SCS)\n"
-                     "5 : Original Lemon Cost Scaling\n")
+                     "5 : Original Lemon Cost Scaling\n"
+                     "6 : Lemon Simplified Cost Scaling (LSCS)")
             ("input,i", po::value<string>(&input_graph)->required(), "input graph")
             ("rounds,r", po::value<int>(&rounds)->default_value(1), "rounds for an experiment")
             ("log,l", po::value<string>(&log_filename)->required(), "log file for timings");
@@ -100,6 +102,9 @@ int main(int argc, const char **argv) {
             break;
         case ALG_COST_SCALING:
             logf << experiment_id << ",Algorithm,CostScaling" << "\n";
+            break;
+        case ALG_LSCS:
+            logf << experiment_id << ",Algorithm,Deep First Simplified CostScaling" << "\n";
             break;
         default:
             cout << "Error: No such algorithm" << endl;
@@ -267,6 +272,23 @@ int main(int argc, const char **argv) {
             logf.open(log_filename, ios::app);
             logf << experiment_id << ",Total cost," << result_cost << "\n";
             logf.close();
+            break;
+        case ALG_LSCS: {
+            g.add_all();
+            g.sort_neighbors();
+            LSCS LSCSsolv(g);
+            for (int current_round = 1; current_round <= rounds; current_round++) {
+                cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
+//                SCSsolv._graph.add_all(); // reset E lists --- this is for case if SIA implementation enabled
+                LSCSsolv.runLSCS();
+                cout << "Total cost of LSCS: " << LSCSsolv.totalCost << endl;
+                cout << "Total time of LSCS: " << LSCSsolv.timer.get_last_time("Total time") << endl;
+            }
+            LSCSsolv.timer.output(log_filename, experiment_id);
+            logf.open(log_filename, ios::app);
+            logf << experiment_id << ",Total cost," << LSCSsolv.totalCost << "\n";
+            logf.close();
+        }
             break;
         default:
             cout << "Error: no such algorithm" << endl;

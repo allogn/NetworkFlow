@@ -14,6 +14,7 @@
 #include "CostScaling.h"
 #include "Lemon.h"
 #include "SCS.h"
+#include "LSCS.h"
 
 //#define NDEBUG
 
@@ -26,13 +27,13 @@ int main(int argc, const char** argv) {
     desc.add_options()
             ("help,h", "produce help message")
             ("algorithm,a", po::value<int>(&algorithm)->default_value(0),
-                    "0 : ALL\n"
-                    "1 : SIA\n"
-                    "2 : CostScaling\n"
-                    "3 : LocalDominant\n"
-                    "4 : Lemon Modified\n"
-                    "5 : Simplified Cost Scaling (SCS)\n"
-                    "6 : Original Lemon Cost Scaling\n")
+                    "0 : SIA\n"
+                    "1 : CostScaling\n"
+                    "2 : LocalDominant\n"
+                    "3 : Lemon Modified\n"
+                    "4 : Simplified Cost Scaling (SCS)\n"
+                    "5 : Original Lemon Cost Scaling\n"
+                    "6 : Lemon Simplified Cost Scaling (LSCS)\n")
             ;
 
     po::variables_map vm;
@@ -77,7 +78,7 @@ int main(int argc, const char** argv) {
         path[path.size()-1] = 'r';
         path[path.size()-2] = 'g';
 
-        if (algorithm == 0 || algorithm == ALG_SIA) {
+        if (algorithm == ALG_SIA) {
             g.clear_graph();
             g.load_graph(path);
             g.init_neighbors();
@@ -90,7 +91,7 @@ int main(int argc, const char** argv) {
             };
         }
 
-        if (algorithm == 0 || algorithm == ALG_COST_SCALING) {
+        if (algorithm == ALG_COST_SCALING) {
             g.clear_graph();
             g.load_graph(path);
             g.init_neighbors();
@@ -103,7 +104,7 @@ int main(int argc, const char** argv) {
             };
         }
 
-        if (algorithm == 0 || algorithm == ALG_SCS) {
+        if (algorithm == ALG_SCS) {
             g.clear_graph();
             g.load_graph(path);
             g.init_neighbors();
@@ -117,7 +118,22 @@ int main(int argc, const char** argv) {
             };
         }
 
-        if (algorithm == 0 || algorithm == ALG_LEMON_MODIF) {
+
+        if (algorithm == ALG_LSCS) {
+            g.clear_graph();
+            g.load_graph(path);
+            g.init_neighbors();
+            g.add_all();
+            g.sort_neighbors();
+            LSCS LSCSsolv(g);
+            LSCSsolv.runLSCS();
+            if (LSCSsolv.totalCost != answer) {
+                cout << "Lemon Simplified CostScaling wrong answer: " << LSCSsolv.totalCost << " correct: " << answer << endl;
+                exit(1);
+            };
+        }
+
+        if (algorithm == ALG_LEMON_MODIF) {
             g.clear_graph();
             g.load_graph(path);
             g.init_neighbors();
@@ -160,7 +176,7 @@ int main(int argc, const char** argv) {
      * Generate a lot of random small graphs and compare results
      */
     cout << BASH_YELLOW << "Random graph checks..." << BASH_NC << endl;
-    if (algorithm == 0 || algorithm == ALG_LEMON_MODIF) {
+    if (algorithm == ALG_LEMON_MODIF) {
         int total = 1000;
         cout << "Checking Lemon Modified " << total << " times" << endl;
         for (int i = 0; i < total; i++) {

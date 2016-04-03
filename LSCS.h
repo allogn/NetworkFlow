@@ -2,11 +2,11 @@
 // Created by alvis on 20.03.16.
 //
 
-#ifndef NETWORKFLOW_SCS_H
-#define NETWORKFLOW_SCS_H
+#ifndef NETWORKFLOW_LSCS_H
+#define NETWORKFLOW_LSCS_H
 
 /*
- * Simplified Cost Scaling
+ * Lemon Simplified Cost Scaling
  *
  * Inherits code from Lemon with embedding of SIA graph structure
  */
@@ -20,7 +20,7 @@
 #include "Graph.h"
 #include "TimerTool.h"
 
-class SCS {
+class LSCS {
 
     /*
      * Working with integer cost type
@@ -88,19 +88,19 @@ public:
 
 public:
 
-    SCS(const Graph &graph) :
+    LSCS(const Graph &graph) :
             _graph(graph) {
 
         // Reset data structures
         reset();
     }
 
-    SCS &reset() {
+    LSCS &reset() {
         // Resize vectors
         _node_num = _graph.n;
         _arc_num = _graph.m;
         _res_node_num = _node_num;
-        _res_arc_num = 2 * _arc_num; //todo bug here!
+        _res_arc_num = 2 * _arc_num;
 
         _first_out.resize(_res_node_num, vector<int>());
         _forward.resize(_res_arc_num);
@@ -129,37 +129,37 @@ public:
         for (uintT i = 0; i < _graph.n; i++) {
             _supply[i] = _graph.V[i].supply;
         }
-//        for (uintT i = 0; i < _graph.n; i++) {
-//            for (uintT a = 0; a < _graph.completeE[i].size(); a++) {
-//                _first_out[i].push_back(j);
-//                uintT eid = _graph.completeE[i][a];
-//                if (_graph.is_forward(eid,i)) {
-//                    _arc_idf[eid] = j;
-//                } else {
-//                    _arc_idb[eid] = j;
-//                }
-//                _forward[j] = _graph.is_forward(eid,i);
-//                _source[j] = i;
-//                _target[j] = _graph.get_pair(eid, i);
-//
-//                _lower[j] = _graph.E[eid].lower;
-//                _upper[j] = _graph.E[eid].capacity;
-//                _scost[j] = _graph.E[eid].weight;
-//                if (!_forward[j]) _scost[j] *= -1;
-//
-//                if (_forward[j]) _res_cap[j] = _upper[j];
-//
-//                j++;
-//            }
-//        }
-//        _has_lower = false;
-//
-//        for (int eid = 0; eid < _graph.m; eid++) {
-//            int fi = _arc_idf[eid];
-//            int bi = _arc_idb[eid];
-//            _reverse[fi] = bi;
-//            _reverse[bi] = fi;
-//        }
+        for (uintT i = 0; i < _graph.n; i++) {
+            for (uintT a = 0; a < _graph.completeE[i].size(); a++) {
+                _first_out[i].push_back(j);
+                uintT eid = _graph.completeE[i][a];
+                if (_graph.is_forward(eid,i)) {
+                    _arc_idf[eid] = j;
+                } else {
+                    _arc_idb[eid] = j;
+                }
+                _forward[j] = _graph.is_forward(eid,i);
+                _source[j] = i;
+                _target[j] = _graph.get_pair(eid, i);
+
+                _lower[j] = _graph.E[eid].lower;
+                _upper[j] = _graph.E[eid].capacity;
+                _scost[j] = _graph.E[eid].weight;
+                if (!_forward[j]) _scost[j] *= -1;
+
+                if (_forward[j]) _res_cap[j] = _upper[j];
+
+                j++;
+            }
+        }
+        _has_lower = false;
+
+        for (int eid = 0; eid < _graph.m; eid++) {
+            int fi = _arc_idf[eid];
+            int bi = _arc_idb[eid];
+            _reverse[fi] = bi;
+            _reverse[bi] = fi;
+        }
 
         return *this;
     }
@@ -229,20 +229,20 @@ private:
 //            }
 
         // Initialize the large cost vector and the epsilon parameter
-        _epsilon = 1;
-//        LargeCost lc;
-//        for (int i = 0; i != _res_node_num; ++i) {
-////            for (vector<int>::iterator j = _first_out[i].begin(); j != _first_out[i].end(); ++j) {
-////                lc = static_cast<LargeCost>(_scost[*j]) * _res_node_num * _alpha; //COST MODIFICATION
-////                _cost[*j] = lc;
-////                if (lc > _epsilon) _epsilon = lc;
-////            }
+        _epsilon = 0;
+        LargeCost lc;
+        for (int i = 0; i != _res_node_num; ++i) {
+            for (vector<int>::iterator j = _first_out[i].begin(); j != _first_out[i].end(); ++j) {
+                lc = static_cast<LargeCost>(_scost[*j]) * _res_node_num * _alpha; //COST MODIFICATION
+                _cost[*j] = lc;
+                if (lc > _epsilon) _epsilon = lc;
+            }
 //            for (int j = 0; j < _graph.fullE[i].size(); j++) {
 //                lc = static_cast<LargeCost>(_graph.E[_graph.fullE[i][j]].weight) * _res_node_num * _alpha;
 //                if (lc > _epsilon) _epsilon = lc;
 //            }
-//        }
-//        _epsilon /= _alpha;
+        }
+        _epsilon /= _alpha;
 
         // initialize _res_cap with supply value for each node with positive supply for arbitrary edge
         for (int a = 0; a < _res_arc_num; a++) {
@@ -274,7 +274,7 @@ private:
                 Value delta = _res_cap[*a];
                 if (delta > 0) {
                     int v = _target[*a];
-                    if (_cost[*a] - pi_u + _pi[v] < 0) {
+                    if (_cost[*a] + pi_u - _pi[v] < 0) {
                         _excess[u] -= delta;
                         _excess[v] += delta;
                         _res_cap[*a] = 0;
@@ -290,9 +290,9 @@ private:
         }
 
         // Initialize the next arcs
-//        for (int u = 0; u != _res_node_num; ++u) {
-//            _next_out[u] = _first_out[u];
-//        }
+        for (int u = 0; u != _res_node_num; ++u) {
+            _next_out[u] = 0;
+        }
     }
 
     /// Execute the algorithm performing augment and relabel operations
@@ -302,7 +302,7 @@ public:
     uintT totalCost;
 
     // Execute the algorithm and transform the results
-    void runSCS() {
+    void runLSCS() {
         _alpha = 16;
         reset();
         init();
@@ -318,17 +318,7 @@ public:
         }
     }
 
-    bool test_epsilon() {
-        for (int i = 0; i < _res_node_num; i++) {
-            for (int j = 0; j < _first_out[i].size(); j++){
-                if (_res_cap[_first_out[i][j]] > 0)
-                    assert(_cost[_first_out[i][j]] + _pi[_target[_first_out[i][j]]] - _pi[i] >= -_epsilon);
-            }
-        }
-        return true;
-    }
-
 };
 
 
-#endif //NETWORKFLOW_SCS_H
+#endif //NETWORKFLOW_LSCS_H

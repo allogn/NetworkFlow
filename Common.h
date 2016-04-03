@@ -57,7 +57,8 @@ enum Algorithm {
     ALG_LOCAL_DOMINANT,
     ALG_LEMON_MODIF,
     ALG_SCS,
-    ALG_LEMON_ORIG
+    ALG_LEMON_ORIG,
+    ALG_LSCS
 };
 
 /// \brief Problem type constants for the \c run() function.
