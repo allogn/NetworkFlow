@@ -107,6 +107,7 @@ int main(int argc, const char** argv) {
             g.clear_graph();
             g.load_graph(path);
             g.init_neighbors();
+            g.sort_neighbors();
             g.add_all();
             SCS SCSsolv(g);
             SCSsolv.runSCS();

@@ -16,16 +16,21 @@ void SCS::startAugment(int max_length) {
 //    IntVector path;
 //    BoolVector path_arc(_res_arc_num, false);
 //    int relabel_cnt = 0;
+    _active_nodes.clear();
+    for (int u = 0; u != _res_node_num; ++u) {
+        if (_excess[u] > 0) _active_nodes.push_back(u);
+    }
+
     int eps_phase_cnt = 0;
-    for (; _epsilon >= 1; _epsilon = _epsilon < _alpha && _epsilon > 1 ?
-                                     1 : _epsilon / _alpha) {
+//    for (; _epsilon >= 1 || _active_nodes.size() > 0; _epsilon = _epsilon < _alpha && _epsilon > 1 ?
+//                                     1 : _epsilon / _alpha) {
         ++eps_phase_cnt;
 
         // Price refinement heuristic
 //        if (eps_phase_cnt >= PRICE_REFINEMENT_LIMIT) {
 //          if (priceRefinement()) continue;
 //        }
-
+//        cout << "epsilon " << _epsilon << endl;
         // Initialize current phase
         initPhase();
 
@@ -61,6 +66,7 @@ void SCS::startAugment(int max_length) {
 
             LargeCost curcost;
             int u, tip;
+            int taumax = 0;
 
             dijkH.clear();
             dijkH.enqueue(start,0);
@@ -107,6 +113,7 @@ void SCS::startAugment(int max_length) {
                     // calculate new epsilon based on two potential values and cost (note the minus sign!)
 //                LargeCost new_epsilon = std::max(-(lc + _pi[toid] - _pi[fromid]), _epsilon);
 //                _epsilon = new_epsilon; //todo maybe this can be modified
+//                    cout << "new epsilon " << new_epsilon << endl;
                     _res_cap.push_back(_upper[local_eid]);
                     _res_cap.push_back(0);
                     _reverse.push_back(local_eid + 1);
@@ -114,13 +121,13 @@ void SCS::startAugment(int max_length) {
 
                     _res_arc_num += 2;
 
+//                    cout << "added " << fromid << "->" << toid << endl;
                     //update dijkH heap to continue dijkstra from the point it ended
                     LargeCost rc = _cost[local_eid] - _pi[fromid] + _pi[toid]; //exactly +delta_pi because we increase potential
                     LargeCost l = rc + _epsilon;
                     assert(l >= 0); //epsilon-optimality
                     //todo add visited array
                     assert(mindist[fromid] < std::numeric_limits<LargeCost>::max()); //because if it was placed in global => it was visited
-                    cout << "adding " << fromid << "->" << toid << endl;
                     if (mindist[toid] > mindist[fromid] + l) {
                         //check if exists in a heap
                         if (!dijkH.isExisted(toid)) {
@@ -130,13 +137,23 @@ void SCS::startAugment(int max_length) {
                         }
                         parent[toid] = local_eid;
                         mindist[toid] = mindist[fromid] + l;
-                        cout << "updated distance " << mindist[toid] << endl;
+                        if (globalH.isExisted(toid)) {
+                            assert(QryCnt[toid] < _graph.fullE[toid].size()); //if in heap - then this is true
+                            globalH.updatequeue(toid, mindist[toid] + _graph.E[_graph.fullE[toid][QryCnt[toid]]].weight);
+                        }
+//                        cout << "updated distance to " << toid << ": " << mindist[toid] << endl;
                     }
                 }
 
                 while (true) {
                     //take one node and add every neighbor to another bucket
-                    assert(dijkH.size() > 0);
+
+                    if (dijkH.size() == 0) {
+                        //no path
+                        tip = -1;
+                        goto checkEdges;
+                    }
+
                     tip = dijkH.getTopIdx();
 //                    cout << "tip " << tip << endl;
                     curcost = dijkH.getTopValue();
@@ -169,12 +186,26 @@ void SCS::startAugment(int max_length) {
                             }
                             parent[u] = *a;
                             mindist[u] = curcost + l;
+                            if (globalH.isExisted(u)) {
+                                assert(QryCnt[u] < _graph.fullE[u].size()); //if in heap - then this is true
+                                globalH.updatequeue(u, mindist[u] + _graph.E[_graph.fullE[u][QryCnt[u]]].weight);
+                            }
                         }
                     }
                 }
                 //todo maybe we can clear dijkstra since everything else is definetly farther than corrent result?
                 checkEdges:;
-            } while (globalH.size() > 0);
+
+                if (globalH.size() > 0) {
+                    for (int i = 0; i < _res_node_num; i++) {
+                        if (mindist[i] < globalH.getTopValue() && _pi[i] > taumax) {
+                            taumax = _pi[i];
+                        }
+                    }
+                }
+
+                assert((globalH.size() == 0 && tip != -1) || globalH.size() > 0);
+            } while (tip == -1 || (globalH.size() > 0 && mindist[tip] > globalH.getTopValue() - taumax));
 
             fHeap<LargeCost> dijkH2;
             dijkH2.enqueue(start,0);
@@ -243,8 +274,9 @@ void SCS::startAugment(int max_length) {
             for (int i = 0; i < _res_node_num; i++) {
                 if (curcost > mindist[i])
                 {
-                    assert(QryCnt[i] == _graph.fullE[i].size());
                     _pi[i] += curcost - mindist[i];
+
+//                    cout << "Added " << _first_out[i].size() << " out of " << _graph.fullE[i].size() << " edges for node " << i << endl;
                 } //curbucket holds distance to deficit
             }
             assert(test_epsilon());
@@ -267,5 +299,5 @@ void SCS::startAugment(int max_length) {
         }
         assert(test_epsilon());
 
-    }
+//    }
 }
