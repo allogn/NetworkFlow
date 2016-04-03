@@ -22,15 +22,15 @@ void SCS::startAugment(int max_length) {
     }
 
     int eps_phase_cnt = 0;
-//    for (; _epsilon >= 1 || _active_nodes.size() > 0; _epsilon = _epsilon < _alpha && _epsilon > 1 ?
-//                                     1 : _epsilon / _alpha) {
+    for (; _epsilon >= 1 || _active_nodes.size() > 0; _epsilon = _epsilon < _alpha && _epsilon > 1 ?
+                                     1 : _epsilon / _alpha) {
         ++eps_phase_cnt;
 
         // Price refinement heuristic
 //        if (eps_phase_cnt >= PRICE_REFINEMENT_LIMIT) {
 //          if (priceRefinement()) continue;
 //        }
-//        cout << "epsilon " << _epsilon << endl;
+        cout << "epsilon " << _epsilon << endl;
         // Initialize current phase
         initPhase();
 
@@ -110,10 +110,14 @@ void SCS::startAugment(int max_length) {
                             static_cast<LargeCost>(_scost[local_eid]) * _res_node_num * _alpha; //COST MODIFICATION
                     _cost.push_back(lc);
                     _cost.push_back(-lc);
+
                     // calculate new epsilon based on two potential values and cost (note the minus sign!)
-//                LargeCost new_epsilon = std::max(-(lc + _pi[toid] - _pi[fromid]), _epsilon);
-//                _epsilon = new_epsilon; //todo maybe this can be modified
-//                    cout << "new epsilon " << new_epsilon << endl;
+//                    LargeCost new_epsilon = std::max(-(lc + _pi[toid] - _pi[fromid]), _epsilon);
+                    LargeCost new_epsilon = std::max(lc, _epsilon);
+                    new_epsilon = std::max(-(lc + _pi[toid] - _pi[fromid]), new_epsilon); //remove?
+                    if (new_epsilon != _epsilon) cout << "new epsilon " << new_epsilon << endl;
+                    _epsilon = new_epsilon; //todo maybe this can be modified
+
                     _res_cap.push_back(_upper[local_eid]);
                     _res_cap.push_back(0);
                     _reverse.push_back(local_eid + 1);
@@ -261,6 +265,11 @@ void SCS::startAugment(int max_length) {
                 if (curcost > mindist[k])
                     assert(mindist[k] == mindist2[k]);
             }
+            /*
+             * bug: can not just modify epsilon and then continue running dijkstra
+             * because epsilon is a part of distance function
+             *
+             */
 
 
             // increase potentials for all visited nodes
@@ -271,14 +280,26 @@ void SCS::startAugment(int max_length) {
 //                    _pi[visited[i]] += curcost - mindist[visited[i]];
 //                } //curbucket holds distance to deficit
 //            }
+
+            int totalFull = 0;
+            double others;
             for (int i = 0; i < _res_node_num; i++) {
                 if (curcost > mindist[i])
                 {
                     _pi[i] += curcost - mindist[i];
-
-//                    cout << "Added " << _first_out[i].size() << " out of " << _graph.fullE[i].size() << " edges for node " << i << endl;
                 } //curbucket holds distance to deficit
+
+                if (_graph.fullE[i].size() > 0) {
+                    if (_first_out[i].size() == _graph.fullE[i].size()) {
+                        totalFull++;
+                    } else {
+                        others += (double)_first_out[i].size()*100./(double)_graph.fullE[i].size();
+                    }
+                }
             }
+            others /= _res_node_num - totalFull;
+            cout << "Full nodes: " << totalFull << " out of " << _res_node_num << endl;
+            cout << "Others filled for " << others*100. << "%" << endl;
             assert(test_epsilon());
 
             //increase flow along path to deficit
@@ -299,5 +320,9 @@ void SCS::startAugment(int max_length) {
         }
         assert(test_epsilon());
 
-//    }
+        _active_nodes.clear();
+        for (int u = 0; u != _res_node_num; ++u) {
+            if (_excess[u] > 0) _active_nodes.push_back(u);
+        }
+    }
 }

@@ -986,6 +986,8 @@ namespace lemon {
 //                            min_red_cost =
 //                                    std::min(min_red_cost, _cost[ra] + pi_tip - _pi[_target[ra]]);
 //                        }
+
+                        //recalculate because some nodes before _next_out could have changed their values
                         last_out = _next_out[tip];
                         for (int a = _first_out[tip]; a != last_out; ++a) {
                             if (_res_cap[a] > 0) {
