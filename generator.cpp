@@ -14,7 +14,7 @@ using namespace std;
 namespace po = boost::program_options;
 
 int main(int argc, const char** argv) {
-    std::cout << "Graph Generator (c) Alvis Logins 2016" << std::endl;
+    std::cout << ":: Graph Generator ::" << std::endl;
 
     // parsing parameters
     int algorithm;

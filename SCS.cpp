@@ -265,11 +265,6 @@ void SCS::startAugment(int max_length) {
                 if (curcost > mindist[k])
                     assert(mindist[k] == mindist2[k]);
             }
-            /*
-             * bug: can not just modify epsilon and then continue running dijkstra
-             * because epsilon is a part of distance function
-             *
-             */
 
 
             // increase potentials for all visited nodes

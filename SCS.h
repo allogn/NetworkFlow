@@ -100,7 +100,7 @@ public:
         _node_num = _graph.n;
         _arc_num = _graph.m;
         _res_node_num = _node_num;
-        _res_arc_num = 2 * _arc_num; //todo bug here!
+        _res_arc_num = 0; //2 * _arc_num;
 
         _first_out.resize(_res_node_num, vector<int>());
         _forward.resize(_res_arc_num);
