@@ -20,13 +20,26 @@
 
 namespace po = boost::program_options;
 
+void test_unility() {
+    Graph g;
+
+    g.generate_full_bipartite_graph(100, 0, 1000);
+    g.test_graph_structure();
+    g.init_neighbors();
+    g.sort_neighbors();
+    g.test_sorting();
+
+    g.test_save_load();
+}
+
 int main(int argc, const char** argv) {
 
     int algorithm;
     po::options_description desc("Allowed options");
     desc.add_options()
             ("help,h", "produce help message")
-            ("algorithm,a", po::value<int>(&algorithm)->default_value(0),
+            ("algorithm,a", po::value<int>(&algorithm)->default_value(-1),
+                    "Default: Test utility functions\n"
                     "0 : SIA\n"
                     "1 : CostScaling\n"
                     "2 : LocalDominant\n"
@@ -44,18 +57,13 @@ int main(int argc, const char** argv) {
     }
     po::notify(vm);
 
+    if (algorithm == -1) {
+        test_unility();
+        //todo not working load-save
+    }
+
     // our star
     Graph g;
-
-    if (algorithm == 0) {
-        g.generate_full_bipartite_graph(100, 0, 1000);
-        g.test_graph_structure();
-        g.init_neighbors();
-        g.sort_neighbors();
-        g.test_sorting();
-
-        g.test_save_load();
-    }
 
     // load answer sheet and compare results
     cout << BASH_YELLOW << "Compare results with answer sheet..." << BASH_NC << endl;

@@ -254,7 +254,7 @@ bool Graph::test_save_load() {
 
     string fname = "test_save_load.gr";
     save_graph(fname);
-    load_graph(fname, "test.log", 0);
+    load_graph(fname);
     assert(g == *this);
     return true;
 }

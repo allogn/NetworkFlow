@@ -38,9 +38,6 @@ void SIA::reset() {
 
     mineid = new int[noA+noB];
     fill(mineid,mineid+noA+noB,-1);
-
-    watched = new int[noA+noB];
-    fill(watched,watched+noA+noB,0);
 }
 
 void SIA::augmentFlow(int lastid) {
@@ -98,15 +95,6 @@ int SIA::runDijkstra(int source_id) {
             //check if target node is busy
             int edge_id = g->V[current_node].E[i];
             int node_id = g->get_pair(edge_id,current_node);
-
-            isBroken = reserveNode(node_id);
-
-            if (isBroken) {
-                iteration_reset(current_node, source_id); //current node has already correct min dist
-                current_node = source_id;
-                break;
-            }
-
             //add current neighbour to heap or update the heap
             int isUpdated = updateMinDist(edge_id,current_node,node_id); //if new => dist=inf and updated. if new but dist!=inf => in DijkH exist and also will be updated if updAlpha
             //not updated -> not enqueue
@@ -116,25 +104,21 @@ int SIA::runDijkstra(int source_id) {
             if (isUpdated) dijkH.enqueue(node_id,mindist[node_id]); //todo if object exists already?
         }
 
-        if (!isBroken) {
-            if (nodeFlow[current_node] < 0)
-            {
-                return current_node;
-            }//todo why here not before looping through edges?
+        if (nodeFlow[current_node] < 0)
+        {
+            return current_node;
+        }//todo why here not before looping through edges?
 
 //            if (current_node < noA)
 //                enqueueNextEdge(sc,pc,current_node);
-            heap_checkAndUpdateEdgeMin(globalH,current_node);
-            watched[current_node] = 1;
-
-            dijkH.dequeue();
-            if (dijkH.size() == 0)
-            {
-                current_node = -1;
-                break;
-            }
-            current_node = dijkH.getTopIdx();
+        heap_checkAndUpdateEdgeMin(globalH,current_node);
+        dijkH.dequeue();
+        if (dijkH.size() == 0)
+        {
+            current_node = -1;
+            break;
         }
+        current_node = dijkH.getTopIdx();
 
     }
     return current_node;
@@ -167,43 +151,22 @@ int SIA::insertEdgeFromHeap()
 }
 
 void SIA::iteration_reset(int nodeid_best_psi, int source_id) {
-
     long best_psi = mindist[nodeid_best_psi];
-    int nodeid;
-
     dijkH.clear();
     updateH.clear();
-
-    while (worklist.size() > 0)
-    {
-        //release all nodes. note - source node is not in this list
-        nodeid = worklist.back();
-        worklist.pop_back();
-
-        //UPDATE POTENTIALS
-        if (watched[nodeid] == 1 && mindist[nodeid] < best_psi)
-        {
-            psi[nodeid] = psi[nodeid] - mindist[nodeid] + best_psi; //@todo check if parallel reset if potentials are correct
-            watched[nodeid] = 0; //here because multiple values in worklist
+    for (int nodeid = 0; nodeid < g->n; nodeid++) {
+        if (mindist[nodeid] < best_psi) {
+            psi[nodeid] = psi[nodeid] - mindist[nodeid] + best_psi;
         }
-        //END OF UPDATE POTENTIALS
     }
-
-    int edgeid;
-
-    //do not release source (if it is source => it is not attached), but update it's potential
-    psi[source_id] = psi[source_id] - mindist[source_id] + best_psi;
-
     fill(mindist,mindist+noA+noB,LONG_MAX);
     fill(mineid,mineid+noA+noB,-1);
-    fill(watched,watched+noA+noB,0);
 }
 
 void SIA::processId(int source_id)
 {
     int target_node = -1;
     mindist[source_id] = 0;
-    watched[source_id] = 1;
     heap_checkAndUpdateEdgeMin(globalH,source_id);
     dijkH.enqueue(source_id,0);
 
@@ -217,9 +180,6 @@ void SIA::processId(int source_id)
             eid = insertEdgeFromHeap();
 
             int toid = g->E[eid].toid;
-
-            reserveNode(toid); // add to worklist
-
             /*
              * Dijkstra Updates
              */

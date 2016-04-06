@@ -28,13 +28,11 @@ class SIA {
     //public
     long* mindist;
     int* mineid;
-    int* watched;
 
     mmHeap dijkH;
     mmHeap globalH;
     mmHeap updateH;
 //todo clear globalH between iterations?
-    vector<int> worklist; //list of nodes needed for current execution
 
     void iteration_reset(int nodeid_best_psi, int source_id); // worklist reset after one iteration
     void augmentFlow(int lastid);
@@ -91,31 +89,18 @@ class SIA {
     }
     void updateHeaps(int eid, int fromid, int toid)
     {
-        if (watched[fromid] == 0) return; //case when prefinal node : not all neighbours are considered => not watched,
         // but in globalH and in DijkH (!). so, if in dijkH => everything is fine (will be updated later)
         if (updateMinDist(eid,fromid,toid)) {
             //no isUpdated because enheap only if updated dist
             if (!dijkH.isExisted(toid)) {
                 //isUpdated omitted here
-                if (watched[toid] == 1) heap_checkAndUpdateMin(updateH, toid, mindist[toid]);
-                else dijkH.enqueue(toid, mindist[toid]);
+                if (heap_checkAndUpdateMin(updateH, toid, mindist[toid])) {
+                    dijkH.enqueue(toid, mindist[toid]);
+                }
             } else {
                 dijkH.updatequeue(toid, mindist[toid]);
             }
         }
-    }
-    int reserveNode(int node_id) {
-        bool exist = false;
-        for (int i = 0; i < worklist.size(); i++)
-        {
-            if (worklist[i] == node_id)
-            {
-                exist = true;
-                break;
-            }
-        }
-        if (!exist) worklist.push_back(node_id);
-        return 0;
     }
 
 public:
@@ -133,7 +118,6 @@ public:
         delete[] QryCnt;
         delete[] mindist;
         delete[] mineid;
-        delete[] watched;
     }
 
     void reset();
