@@ -4,13 +4,13 @@
 
 #include "LSCS.h"
 
-void LSCS::startAugment(int max_length) {
+void LSCS::startAugment(long max_length) {
 
 
     IntVector path;
     BoolVector path_arc(_graph.m * 2, false); //reserve space for all possible edges
-    int relabel_cnt = 0;
-    int eps_phase_cnt = 0;
+    long relabel_cnt = 0;
+    long eps_phase_cnt = 0;
     for ( ; _epsilon >= 1; _epsilon = _epsilon < _alpha && _epsilon > 1 ?
                                       1 : _epsilon / _alpha )
     {
@@ -27,17 +27,17 @@ void LSCS::startAugment(int max_length) {
                 _active_nodes.pop_front();
             }
             if (_active_nodes.size() == 0) break;
-            int start = _active_nodes.front();
+            long start = _active_nodes.front();
 
             // Find an augmenting path from the start node
-            int tip = start;
+            long tip = start;
             while (int(path.size()) < max_length && _excess[tip] >= 0) {
-                int u;
+                long u;
                 LargeCost rc, min_red_cost = std::numeric_limits<LargeCost>::max();
                 LargeCost pi_tip = _pi[tip];
 
-                for (int i = _next_out[tip]; i != _first_out[tip].size(); ++i) {
-                    int a = _first_out[tip][i];
+                for (long i = _next_out[tip]; i != _first_out[tip].size(); ++i) {
+                    long a = _first_out[tip][i];
                     if (_res_cap[a] > 0) {
                         u = _target[a];
                         rc = _cost[a] + pi_tip - _pi[u];
@@ -59,8 +59,8 @@ void LSCS::startAugment(int max_length) {
 
 
                 //recalculate because some nodes before _next_out could have changed their values
-                for (int i = 0; i < _next_out[tip]; ++i) {
-                    int a = _first_out[tip][i];
+                for (long i = 0; i < _next_out[tip]; ++i) {
+                    long a = _first_out[tip][i];
                     if (_res_cap[a] > 0) {
                         rc = _cost[a] + pi_tip - _pi[_target[a]];
                         if (rc < min_red_cost) {
@@ -74,9 +74,9 @@ void LSCS::startAugment(int max_length) {
                 // cost + min_p(t) > cost; min_p(t) = 0 => cost - p(s) > min_red_cost
                 while (QryCnt[tip] < _graph.fullE[tip].size() &&
                         _graph.E[_graph.fullE[tip][QryCnt[tip]]].weight + pi_tip <= min_red_cost) {
-                    int i = _first_out[tip].size();
+                    long i = _first_out[tip].size();
                     addArc(tip);
-                    int a = _first_out[tip][i];
+                    long a = _first_out[tip][i];
                     u = _target[a];
                     rc = _cost[a] + pi_tip - _pi[u];
                     if (rc < 0) {
@@ -100,7 +100,7 @@ void LSCS::startAugment(int max_length) {
 
                 // Step back
                 if (tip != start) {
-                    int pa = path.back();
+                    long pa = path.back();
                     path_arc[pa] = false;
                     tip = _source[pa];
                     path.pop_back();
@@ -112,7 +112,7 @@ void LSCS::startAugment(int max_length) {
             // Augment along the found path (as much flow as possible)
             augment:
             Value delta;
-            int pa, u, v = start;
+            long pa, u, v = start;
             for (int i = 0; i != int(path.size()); ++i) {
                 pa = path[i];
                 u = v;
@@ -132,14 +132,14 @@ void LSCS::startAugment(int max_length) {
     }
 }
 
-void LSCS::addArc(int fromid) {
-    int eid = _graph.fullE[fromid][QryCnt[fromid]];
+void LSCS::addArc(long fromid) {
+    long eid = _graph.fullE[fromid][QryCnt[fromid]];
     QryCnt[fromid]++;
 
-    uintT local_eid = _res_arc_num;
+    long local_eid = _res_arc_num;
     //for spatial data this does not work
     _first_out[fromid].push_back(local_eid);
-    int toid = _graph.get_pair(eid, fromid);
+    long toid = _graph.get_pair(eid, fromid);
     _first_out[toid].push_back(local_eid + 1);//reverse edge
     _arc_idf.push_back(local_eid);
     _arc_idb.push_back(local_eid + 1);

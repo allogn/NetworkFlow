@@ -9,39 +9,6 @@
 #include <assert.h>
 #include "nheap.h"
 
-#if defined(LONG)
-typedef long intT;
-typedef unsigned long uintT;
-typedef long long lintT;
-typedef unsigned long long ulintT;
-#define INT_T_MAX LONG_MAX
-#define UINT_T_MAX ULONG_MAX
-#define LINT_T_MAX LONG_LONG_MAX
-#define ULINT_T_MAX ULONG_LONG_MAX
-#else
-typedef int intT;
-typedef unsigned int uintT;
-typedef long lintT;
-typedef unsigned long ulintT;
-#define INT_T_MAX INT_MAX
-#define UINT_T_MAX UINT_MAX
-#define LINT_T_MAX LONG_MAX
-#define ULINT_T_MAX ULONG_MAX
-#endif
-
-//edges store 32-bit quantities unless EDGELONG is defined
-#if defined(EDGELONG)
-typedef long intE;
-typedef unsigned long uintE;
-#define INT_E_MAX LONG_MAX
-#define UINT_E_MAX ULONG_MAX
-#else
-typedef int intE;
-typedef unsigned int uintE;
-#define INT_E_MAX INT_MAX
-#define UINT_E_MAX UINT_MAX
-#endif
-
 #define BASH_RED "\033[0;31m"
 #define BASH_GREEN "\033[0;32m"
 #define BASH_YELLOW "\033[1;33m"
@@ -49,7 +16,7 @@ typedef unsigned int uintE;
 
 #define newA(__E,__n) (__E*) malloc((__n)*sizeof(__E))
 
-typedef fHeap<intT> mmHeap;
+typedef fHeap<long long> mmHeap;
 
 enum Algorithm {
     ALG_SIA,

@@ -65,99 +65,99 @@ struct _seq {
 };
 
 namespace sequence {
-    template <class intT>
+    template <class IntT>
     struct boolGetA {
         bool* A;
         boolGetA(bool* AA) : A(AA) {}
-        intT operator() (intT i) {return (intT) A[i];}
+        IntT operator() (IntT i) {return (IntT) A[i];}
     };
 
-    template <class ET, class intT>
+    template <class ET, class IntT>
     struct getA {
         ET* A;
         getA(ET* AA) : A(AA) {}
-        ET operator() (intT i) {return A[i];}
+        ET operator() (IntT i) {return A[i];}
     };
 
-    template <class IT, class OT, class intT, class F>
+    template <class IT, class OT, class IntT, class F>
     struct getAF {
         IT* A;
         F f;
         getAF(IT* AA, F ff) : A(AA), f(ff) {}
-        OT operator () (intT i) {return f(A[i]);}
+        OT operator () (IntT i) {return f(A[i]);}
     };
 
 #define nblocks(_n,_bsize) (1 + ((_n)-1)/(_bsize))
 
 #define blocked_for(_i, _s, _e, _bsize, _body)  {	\
-    intT _ss = _s;					\
-    intT _ee = _e;					\
-    intT _n = _ee-_ss;					\
-    intT _l = nblocks(_n,_bsize);			\
-    parallel_for (intT _i = 0; _i < _l; _i++) {		\
-      intT _s = _ss + _i * (_bsize);			\
-      intT _e = min(_s + (_bsize), _ee);		\
+    long _ss = _s;					\
+    long _ee = _e;					\
+    long _n = _ee-_ss;					\
+    long _l = nblocks(_n,_bsize);			\
+    parallel_for (long _i = 0; _i < _l; _i++) {		\
+      long _s = _ss + _i * (_bsize);			\
+      long _e = min(_s + (_bsize), _ee);		\
       _body						\
 	}						\
   }
 
-    template <class OT, class intT, class F, class G>
-    OT reduceSerial(intT s, intT e, F f, G g) {
+    template <class OT, class IntT, class F, class G>
+    OT reduceSerial(IntT s, IntT e, F f, G g) {
         OT r = g(s);
-        for (intT j=s+1; j < e; j++) r = f(r,g(j));
+        for (IntT j=s+1; j < e; j++) r = f(r,g(j));
         return r;
     }
 
-    template <class OT, class intT, class F, class G>
-    OT reduce(intT s, intT e, F f, G g) {
-        intT l = nblocks(e-s, _SCAN_BSIZE);
+    template <class OT, class IntT, class F, class G>
+    OT reduce(IntT s, IntT e, F f, G g) {
+        IntT l = nblocks(e-s, _SCAN_BSIZE);
         if (l <= 1) return reduceSerial<OT>(s, e, f , g);
         OT *Sums = newA(OT,l);
         blocked_for (i, s, e, _SCAN_BSIZE,
                      Sums[i] = reduceSerial<OT>(s, e, f, g););
-        OT r = reduce<OT>((intT) 0, l, f, getA<OT,intT>(Sums));
+        OT r = reduce<OT>((IntT) 0, l, f, getA<OT,IntT>(Sums));
         free(Sums);
         return r;
     }
 
-    template <class OT, class intT, class F>
-    OT reduce(OT* A, intT n, F f) {
-        return reduce<OT>((intT)0,n,f,getA<OT,intT>(A));
+    template <class OT, class IntT, class F>
+    OT reduce(OT* A, IntT n, F f) {
+        return reduce<OT>((IntT)0,n,f,getA<OT,IntT>(A));
     }
 
-    template <class OT, class intT>
-    OT plusReduce(OT* A, intT n) {
-        return reduce<OT>((intT)0,n,addF<OT>(),getA<OT,intT>(A));
+    template <class OT, class IntT>
+    OT plusReduce(OT* A, IntT n) {
+        return reduce<OT>((IntT)0,n,addF<OT>(),getA<OT,IntT>(A));
     }
 
     // g is the map function (applied to each element)
     // f is the reduce function
     // need to specify OT since it is not an argument
-    template <class OT, class IT, class intT, class F, class G>
-    OT mapReduce(IT* A, intT n, F f, G g) {
-        return reduce<OT>((intT) 0,n,f,getAF<IT,OT,intT,G>(A,g));
+    template <class OT, class IT, class IntT, class F, class G>
+    OT mapReduce(IT* A, IntT n, F f, G g) {
+        return reduce<OT>((IntT) 0,n,f,getAF<IT,OT,IntT,G>(A,g));
     }
 
-    template <class intT>
-    intT sum(bool *In, intT n) {
-        return reduce<intT>((intT) 0, n, addF<intT>(), boolGetA<intT>(In));
+    template <class IntT>
+    long sum(bool *In, IntT n) {
+        return reduce<IntT>((IntT) 0, n, addF<IntT>(), boolGetA<IntT>(In));
     }
 
-    template <class ET, class intT, class F, class G>
-    ET scanSerial(ET* Out, intT s, intT e, F f, G g, ET zero, bool inclusive, bool back) {
+    template <class ET, class IntT, class F, class G>
+    ET scanSerial(ET* Out, IntT s, IntT e, F f, G g, ET zero, bool inclusive, bool back) {
         ET r = zero;
         if (inclusive) {
-            if (back) for (intT i = e-1; i >= s; i--) Out[i] = r = f(r,g(i));
-            else for (intT i = s; i < e; i++) Out[i] = r = f(r,g(i));
+            if (back) for (IntT i = e-1; i >= s; i--) Out[i] = r = f(r,g(i));
+            else for (IntT i = s; i < e; i++) Out[i] = r = f(r,g(i));
         } else {
             if (back)
-                for (intT i = e-1; i >= s; i--) {
+                for (IntT i = e-1; i >= s; i--) {
                     ET t = g(i);
                     Out[i] = r;
                     r = f(r,t);
                 }
             else
-                for (intT i = s; i < e; i++) {
+                for (IntT i = s; i < e; i++) {
                     ET t = g(i);
                     Out[i] = r;
                     r = f(r,t);
@@ -166,46 +166,46 @@ namespace sequence {
         return r;
     }
 
-    template <class ET, class intT, class F>
-    ET scanSerial(ET *In, ET* Out, intT n, F f, ET zero) {
-        return scanSerial(Out, (intT) 0, n, f, getA<ET,intT>(In), zero, false, false);
+    template <class ET, class IntT, class F>
+    ET scanSerial(ET *In, ET* Out, IntT n, F f, ET zero) {
+        return scanSerial(Out, (IntT) 0, n, f, getA<ET,IntT>(In), zero, false, false);
     }
 
     // back indicates it runs in reverse direction
-    template <class ET, class intT, class F, class G>
-    ET scan(ET* Out, intT s, intT e, F f, G g,  ET zero, bool inclusive, bool back) {
-        intT n = e-s;
-        intT l = nblocks(n,_SCAN_BSIZE);
+    template <class ET, class IntT, class F, class G>
+    ET scan(ET* Out, IntT s, IntT e, F f, G g,  ET zero, bool inclusive, bool back) {
+        IntT n = e-s;
+        IntT l = nblocks(n,_SCAN_BSIZE);
         if (l <= 2) return scanSerial(Out, s, e, f, g, zero, inclusive, back);
         ET *Sums = newA(ET,nblocks(n,_SCAN_BSIZE));
         blocked_for (i, s, e, _SCAN_BSIZE,
                      Sums[i] = reduceSerial<ET>(s, e, f, g););
-        ET total = scan(Sums, (intT) 0, l, f, getA<ET,intT>(Sums), zero, false, back);
+        ET total = scan(Sums, (IntT) 0, l, f, getA<ET,IntT>(Sums), zero, false, back);
         blocked_for (i, s, e, _SCAN_BSIZE,
                      scanSerial(Out, s, e, f, g, Sums[i], inclusive, back););
         free(Sums);
         return total;
     }
 
-    template <class ET, class intT, class F>
-    ET scan(ET *In, ET* Out, intT n, F f, ET zero) {
-        return scan(Out, (intT) 0, n, f, getA<ET,intT>(In), zero, false, false);}
+    template <class ET, class IntT, class F>
+    ET scan(ET *In, ET* Out, IntT n, F f, ET zero) {
+        return scan(Out, (IntT) 0, n, f, getA<ET,IntT>(In), zero, false, false);}
 
-    template <class ET, class intT, class F>
-    ET scanI(ET *In, ET* Out, intT n, F f, ET zero) {
-        return scan(Out, (intT) 0, n, f, getA<ET,intT>(In), zero, true, false);}
+    template <class ET, class IntT, class F>
+    ET scanI(ET *In, ET* Out, IntT n, F f, ET zero) {
+        return scan(Out, (IntT) 0, n, f, getA<ET,IntT>(In), zero, true, false);}
 
-    template <class ET, class intT, class F>
-    ET scanBack(ET *In, ET* Out, intT n, F f, ET zero) {
-        return scan(Out, (intT) 0, n, f, getA<ET,intT>(In), zero, false, true);}
+    template <class ET, class IntT, class F>
+    ET scanBack(ET *In, ET* Out, IntT n, F f, ET zero) {
+        return scan(Out, (IntT) 0, n, f, getA<ET,IntT>(In), zero, false, true);}
 
-    template <class ET, class intT, class F>
-    ET scanIBack(ET *In, ET* Out, intT n, F f, ET zero) {
-        return scan(Out, (intT) 0, n, f, getA<ET,intT>(In), zero, true, true);}
+    template <class ET, class IntT, class F>
+    ET scanIBack(ET *In, ET* Out, IntT n, F f, ET zero) {
+        return scan(Out, (IntT) 0, n, f, getA<ET,IntT>(In), zero, true, true);}
 
-    template <class ET, class intT>
-    ET plusScan(ET *In, ET* Out, intT n) {
-        return scan(Out, (intT) 0, n, addF<ET>(), getA<ET,intT>(In),
+    template <class ET, class IntT>
+    ET plusScan(ET *In, ET* Out, IntT n) {
+        return scan(Out, (IntT) 0, n, addF<ET>(), getA<ET,IntT>(In),
                     (ET) 0, false, false);}
 
 #define _F_BSIZE (2*_SCAN_BSIZE)
@@ -214,10 +214,10 @@ namespace sequence {
     // an optimized version that sums blocks of 4 booleans by treating
     // them as an integer
     // Only optimized when n is a multiple of 512 and Fl is 4byte aligned
-    template <class intT>
-    intT sumFlagsSerial(bool *Fl, intT n) {
-        intT r = 0;
-        if (n >= 128 && (n & 511) == 0 && ((long) Fl & 3) == 0) {
+    template <class IntT>
+    IntT sumFlagsSerial(bool *Fl, IntT n) {
+        IntT r = 0;
+        if (n >= 128 && (n & 511) == 0 && ((IntT) Fl & 3) == 0) {
             int* IFl = (int*) Fl;
             for (int k = 0; k < (n >> 9); k++) {
                 int rr = 0;
@@ -225,48 +225,48 @@ namespace sequence {
                 r += (rr&255) + ((rr>>8)&255) + ((rr>>16)&255) + ((rr>>24)&255);
                 IFl += 128;
             }
-        } else for (intT j=0; j < n; j++) r += Fl[j];
+        } else for (IntT j=0; j < n; j++) r += Fl[j];
         return r;
     }
 
-    template <class ET, class intT, class F>
-    _seq<ET> packSerial(ET* Out, bool* Fl, intT s, intT e, F f) {
+    template <class ET, class IntT, class F>
+    _seq<ET> packSerial(ET* Out, bool* Fl, IntT s, IntT e, F f) {
         if (Out == NULL) {
-            intT m = sumFlagsSerial(Fl+s, e-s);
+            IntT m = sumFlagsSerial(Fl+s, e-s);
             Out = newA(ET,m);
         }
-        intT k = 0;
-        for (intT i=s; i < e; i++) if (Fl[i]) Out[k++] = f(i);
+        IntT k = 0;
+        for (IntT i=s; i < e; i++) if (Fl[i]) Out[k++] = f(i);
         return _seq<ET>(Out,k);
     }
 
-    template <class ET, class intT, class F>
-    _seq<ET> pack(ET* Out, bool* Fl, intT s, intT e, F f) {
-        intT l = nblocks(e-s, _F_BSIZE);
+    template <class ET, class IntT, class F>
+    _seq<ET> pack(ET* Out, bool* Fl, IntT s, IntT e, F f) {
+        IntT l = nblocks(e-s, _F_BSIZE);
         if (l <= 1) return packSerial(Out, Fl, s, e, f);
-        intT *Sums = newA(intT,l);
+        IntT *Sums = newA(IntT,l);
         blocked_for (i, s, e, _F_BSIZE, Sums[i] = sumFlagsSerial(Fl+s, e-s););
-        intT m = plusScan(Sums, Sums, l);
+        IntT m = plusScan(Sums, Sums, l);
         if (Out == NULL) Out = newA(ET,m);
         blocked_for(i, s, e, _F_BSIZE, packSerial(Out+Sums[i], Fl, s, e, f););
         free(Sums);
         return _seq<ET>(Out,m);
     }
 
-    template <class ET, class intT>
-    intT pack(ET* In, ET* Out, bool* Fl, intT n) {
-        return pack(Out, Fl, (intT) 0, n, getA<ET,intT>(In)).n;}
+    template <class ET, class IntT>
+    IntT pack(ET* In, ET* Out, bool* Fl, IntT n) {
+        return pack(Out, Fl, (IntT) 0, n, getA<ET,IntT>(In)).n;}
 
-    template <class intT>
-    _seq<intT> packIndex(bool* Fl, intT n) {
-        return pack((intT *) NULL, Fl, (intT) 0, n, identityF<intT>());
+    template <class IntT>
+    _seq<IntT> packIndex(bool* Fl, IntT n) {
+        return pack((IntT *) NULL, Fl, (IntT) 0, n, identityF<IntT>());
     }
 
-    template <class ET, class intT, class PRED>
-    intT filter(ET* In, ET* Out, intT n, PRED p) {
+    template <class ET, class IntT, class PRED>
+    IntT filter(ET* In, ET* Out, IntT n, PRED p) {
         bool *Fl = newA(bool,n);
-        parallel_for (intT i=0; i < n; i++) Fl[i] = (bool) p(In[i]);
-        intT  m = pack(In, Out, Fl, n);
+        parallel_for (IntT i=0; i < n; i++) Fl[i] = (bool) p(In[i]);
+        IntT  m = pack(In, Out, Fl, n);
         free(Fl);
         return m;
     }

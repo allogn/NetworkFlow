@@ -29,9 +29,9 @@ class LocalDominant {
     long total_weight_ld;
     vector<AssignE> assignEdgesLD;
 
-    void process_vertex(uintT nid, intT* mate, intT* candidate);
+    void process_vertex(long nid, long* mate, long* candidate);
 public:
-    uintT totalCost;
+    long totalCost;
     Timer timer;
 
     LocalDominant(Graph* graph) {

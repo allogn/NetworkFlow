@@ -196,7 +196,7 @@ namespace lemon {
 
         TEMPLATE_DIGRAPH_TYPEDEFS(GR);
 
-        typedef std::vector<int> IntVector;
+        typedef std::vector<long> IntVector;
         typedef std::vector<Value> ValueVector;
         typedef std::vector<Cost> CostVector;
         typedef std::vector<LargeCost> LargeCostVector;
@@ -268,7 +268,7 @@ namespace lemon {
         LargeCostVector _pi;
         ValueVector _excess;
         IntVector _next_out;
-        std::deque<int> _active_nodes;
+        std::deque<long> _active_nodes;
 
         // Data for scaling
         LargeCost _epsilon;
@@ -443,7 +443,7 @@ namespace lemon {
         ///
         /// \return <tt>(*this)</tt>
         ModifiedCostScaling& stSupply(const Node& s, const Node& t, Value k) {
-            for (int i = 0; i != _res_node_num; ++i) {
+            for (long i = 0; i != _res_node_num; ++i) {
                 _supply[i] = 0;
             }
             _supply[_node_id[s]] =  k;
@@ -539,10 +539,10 @@ namespace lemon {
         ///
         /// \see reset(), run()
         ModifiedCostScaling& resetParams() {
-            for (int i = 0; i != _res_node_num; ++i) {
+            for (long i = 0; i != _res_node_num; ++i) {
                 _supply[i] = 0;
             }
-            for (int j = 0; j != _res_arc_num; ++j) {
+            for (long j = 0; j != _res_arc_num; ++j) {
                 _lower[j] = 0;
                 _upper[j] = INF;
                 _scost[j] = _forward[j] ? 1 : -1;
@@ -595,7 +595,7 @@ namespace lemon {
             _next_out.resize(_res_node_num);
 
             // Copy the graph
-            int i = 0, j = 0, k = 2 * _arc_num + _node_num;
+            long i = 0, j = 0, k = 2 * _arc_num + _node_num;
             for (NodeIt n(_graph); n != INVALID; ++n, ++i) {
                 _node_id[n] = i;
             }
@@ -617,8 +617,8 @@ namespace lemon {
             }
 
             for (ArcIt a(_graph); a != INVALID; ++a) {
-                int fi = _arc_idf[a];
-                int bi = _arc_idb[a];
+                long fi = _arc_idf[a];
+                long bi = _arc_idb[a];
                 _reverse[fi] = bi;
                 _reverse[bi] = fi;
             }
@@ -656,7 +656,7 @@ namespace lemon {
         Number totalCost() const {
             Number c = 0;
             for (ArcIt a(_graph); a != INVALID; ++a) {
-                int i = _arc_idb[a];
+                long i = _arc_idb[a];
                 c += static_cast<Number>(_res_cap[i]) *
                      (-static_cast<Number>(_scost[i]));
             }
@@ -729,7 +729,7 @@ namespace lemon {
 
             // Check the sum of supply values
             _sum_supply = 0;
-            for (int i = 0; i != _res_node_num; ++i) {
+            for (long i = 0; i != _res_node_num; ++i) {
                 _sum_supply += _supply[i];
             }
             if (_sum_supply > 0) return INFEASIBLE;
@@ -740,18 +740,18 @@ namespace lemon {
 
 
             // Initialize vectors
-            for (int i = 0; i != _res_node_num; ++i) {
+            for (long i = 0; i != _res_node_num; ++i) {
                 _pi[i] = 0;
                 _excess[i] = _supply[i];
             }
 
             // Remove infinite upper bounds and check negative arcs
             const Value MAX = std::numeric_limits<Value>::max();
-            int last_out;
+            long last_out;
             if (_has_lower) {
-                for (int i = 0; i != _res_node_num; ++i) {
+                for (long i = 0; i != _res_node_num; ++i) {
                     last_out = (i < _res_node_num-1)?_first_out[i+1]:_res_arc_num;
-                    for (int j = _first_out[i]; j != last_out; ++j) {
+                    for (long j = _first_out[i]; j != last_out; ++j) {
                         if (_forward[j]) {
                             Value c = _scost[j] < 0 ? _upper[j] : _lower[j];
                             if (c >= MAX) return UNBOUNDED;
@@ -761,9 +761,9 @@ namespace lemon {
                     }
                 }
             } else {
-                for (int i = 0; i != _res_node_num; ++i) {
+                for (long i = 0; i != _res_node_num; ++i) {
                     last_out = (i < _res_node_num-1)?_first_out[i+1]:_res_arc_num;
-                    for (int j = _first_out[i]; j != last_out; ++j) {
+                    for (long j = _first_out[i]; j != last_out; ++j) {
                         if (_forward[j] && _scost[j] < 0) {
                             Value c = _upper[j];
                             if (c >= MAX) return UNBOUNDED;
@@ -786,9 +786,9 @@ namespace lemon {
             // Initialize the large cost vector and the epsilon parameter
             _epsilon = 0;
             LargeCost lc;
-            for (int i = 0; i != _res_node_num; ++i) {
+            for (long i = 0; i != _res_node_num; ++i) {
                 last_out = (i < _res_node_num-1)?_first_out[i+1]:_res_arc_num;
-                for (int j = _first_out[i]; j != last_out; ++j) {
+                for (long j = _first_out[i]; j != last_out; ++j) {
                     lc = static_cast<LargeCost>(_scost[j]) * _res_node_num * _alpha; //COST MODIFICATION
                     _cost[j] = lc;
                     if (lc > _epsilon) _epsilon = lc;
@@ -850,7 +850,7 @@ namespace lemon {
         // Check if the upper bound is greater than or equal to the lower bound
         // on each forward arc.
         bool checkBoundMaps() {
-            for (int j = 0; j != _res_arc_num; ++j) {
+            for (long j = 0; j != _res_arc_num; ++j) {
                 if (_forward[j] && _upper[j] < _lower[j]) return false;
             }
             return true;
@@ -870,7 +870,7 @@ namespace lemon {
             }
 
             // Compute node potentials (dual solution)
-            for (int i = 0; i != _res_node_num; ++i) {
+            for (long i = 0; i != _res_node_num; ++i) {
                 _pi[i] = static_cast<Cost>(_pi[i] / (_res_node_num * _alpha));
             }
 
@@ -887,13 +887,13 @@ namespace lemon {
         // Initialize a cost scaling phase
         void initPhase() {
             // Saturate arcs not satisfying the optimality condition
-            for (int u = 0; u != _res_node_num; ++u) {
-                int last_out = (u < _res_node_num-1)?_first_out[u+1]:_res_arc_num;
+            for (long u = 0; u != _res_node_num; ++u) {
+                long last_out = (u < _res_node_num-1)?_first_out[u+1]:_res_arc_num;
                 LargeCost pi_u = _pi[u];
-                for (int a = _first_out[u]; a != last_out; ++a) {
+                for (long a = _first_out[u]; a != last_out; ++a) {
                     Value delta = _res_cap[a];
                     if (delta > 0) {
-                        int v = _target[a];
+                        long v = _target[a];
                         if (_cost[a] + pi_u - _pi[v] < 0) {
                             _excess[u] -= delta;
                             _excess[v] += delta;
@@ -905,12 +905,12 @@ namespace lemon {
             }
 
             // Find active nodes (i.e. nodes with positive excess)
-            for (int u = 0; u != _res_node_num; ++u) {
+            for (long u = 0; u != _res_node_num; ++u) {
                 if (_excess[u] > 0) _active_nodes.push_back(u);
             }
 
             // Initialize the next arcs
-            for (int u = 0; u != _res_node_num; ++u) {
+            for (long u = 0; u != _res_node_num; ++u) {
                 _next_out[u] = _first_out[u];
             }
         }
@@ -927,8 +927,8 @@ namespace lemon {
             // Perform cost scaling phases
             IntVector path;
             BoolVector path_arc(_res_arc_num, false);
-            int relabel_cnt = 0;
-            int eps_phase_cnt = 0;
+            long relabel_cnt = 0;
+            long eps_phase_cnt = 0;
             for ( ; _epsilon >= 1; _epsilon = _epsilon < _alpha && _epsilon > 1 ?
                                               1 : _epsilon / _alpha )
             {
@@ -950,17 +950,17 @@ namespace lemon {
                         _active_nodes.pop_front();
                     }
                     if (_active_nodes.size() == 0) break;
-                    int start = _active_nodes.front();
+                    long start = _active_nodes.front();
 
                     // Find an augmenting path from the start node
-                    int tip = start;
+                    long tip = start;
                     while (int(path.size()) < max_length && _excess[tip] >= 0) {
-                        int u;
+                        long u;
                         LargeCost rc, min_red_cost = std::numeric_limits<LargeCost>::max();
                         LargeCost pi_tip = _pi[tip];
 
-                        int last_out = (tip < _res_node_num-1)?_first_out[tip+1]:_res_arc_num;
-                        for (int a = _next_out[tip]; a != last_out; ++a) {
+                        long last_out = (tip < _res_node_num-1)?_first_out[tip+1]:_res_arc_num;
+                        for (long a = _next_out[tip]; a != last_out; ++a) {
                             if (_res_cap[a] > 0) {
                                 u = _target[a];
                                 rc = _cost[a] + pi_tip - _pi[u];
@@ -989,7 +989,7 @@ namespace lemon {
 
                         //recalculate because some nodes before _next_out could have changed their values
                         last_out = _next_out[tip];
-                        for (int a = _first_out[tip]; a != last_out; ++a) {
+                        for (long a = _first_out[tip]; a != last_out; ++a) {
                             if (_res_cap[a] > 0) {
                                 rc = _cost[a] + pi_tip - _pi[_target[a]];
                                 if (rc < min_red_cost) {
@@ -1003,7 +1003,7 @@ namespace lemon {
 
                         // Step back
                         if (tip != start) {
-                            int pa = path.back();
+                            long pa = path.back();
                             path_arc[pa] = false;
                             tip = _source[pa];
                             path.pop_back();
@@ -1015,7 +1015,7 @@ namespace lemon {
                     // Augment along the found path (as much flow as possible)
                     augment:
                     Value delta;
-                    int pa, u, v = start;
+                    long pa, u, v = start;
                     for (int i = 0; i != int(path.size()); ++i) {
                         pa = path[i];
                         u = v;

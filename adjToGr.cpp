@@ -24,7 +24,7 @@ int main(int argc, const char** argv) {
     // make weights random
     long seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::default_random_engine generator (seed);
-    uniform_int_distribution<uintT> uniGen(1, 1000);
+    uniform_int_distribution<long> uniGen(1, 1000);
 //    normal_distribution<double> gausGen(param1, param2);
 //    exponential_distribution<double> expGen((double)param1/100.);
     parallel_for(long i = 0; i < g.m; i++) {

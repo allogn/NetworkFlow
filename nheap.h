@@ -16,7 +16,7 @@ public:
     typedef struct el
     {
         V value;
-        int idx;
+        long idx;
     } elem;
 
     struct elemcomp {
@@ -32,7 +32,7 @@ public:
 //        else return (posel-1)/2;
 //    };
 
-    inline int parent(int posel) {
+    inline long parent(long posel) {
         return (posel-1) >> 1;
     }
 
@@ -43,7 +43,7 @@ public:
 
     ~fHeap() {
         vector<elem>().swap(heap);
-        vector<int>().swap(order);
+        vector<long>().swap(order);
     };
 
     void clear() {
@@ -52,7 +52,7 @@ public:
         num_elems = 0;
     }
 
-    bool isExisted(int idx, V &v) {
+    bool isExisted(long idx, V &v) {
         if (num_elems>0 && idx<order.size() && order[idx]!=-1) {
             v=heap[order[idx]].value;
             return true;
@@ -60,7 +60,7 @@ public:
             return false;
     };
 
-    bool isExisted(int idx) {
+    bool isExisted(long idx) {
         if (num_elems>0 && idx<order.size() && order[idx]!=-1) {
             return true;
         } else
@@ -84,11 +84,11 @@ public:
     //};
 
 
-    bool remove(int idx)
+    bool remove(long idx)
     {
         if (num_elems > 0 && idx < order.size() && order[idx] != -1)
         {
-            int pos = order[idx];
+            long pos = order[idx];
             order[idx] = -1;
             if (num_elems - 1 > 0)
             {
@@ -104,14 +104,14 @@ public:
         return false;
     }
 
-    void enqueue(int idx, V value) {
+    void enqueue(long idx, V value) {
         //if (num_elems>0 && idx<order.size() && order[idx]!=-1) {
         //    updatequeue(idx, value);
         //    return;
         //}
 
         V tmp;
-        int tmpidx,p,posel;
+        long tmpidx,p,posel;
 
         posel = num_elems; //last position
         if (heap.size()<num_elems+1)
@@ -145,7 +145,7 @@ public:
         }
     };
 
-    int dequeue(int &idx) {
+    long dequeue(long &idx) {
         if (num_elems==0) /* empty queue */
             return 0;
 
@@ -165,12 +165,12 @@ public:
         return 1;
     };
 
-    int dequeue() {
+    long dequeue() {
         if (num_elems==0) /* empty queue */
             return 0;
 
         //value = heap[0].value;
-        int idx = heap[0].idx;
+        long idx = heap[0].idx;
         //printf("dequeue %d ", idx);
         order[idx] = -1; /* not in queue */
         if (num_elems-1>0) {
@@ -185,7 +185,7 @@ public:
         return 1;
     };
 
-    int dequeue(int &idx, V &value) {
+    int dequeue(long &idx, V &value) {
         if (num_elems==0) /* empty queue */
             return 0;
 
@@ -204,8 +204,8 @@ public:
         return 1;
     };
 
-    void updatequeue(int idx, V new_val) {
-        int posel;
+    void updatequeue(long idx, V new_val) {
+        long posel;
 
         posel = order[idx];
 
@@ -224,11 +224,11 @@ public:
         }
     };
 
-    void movedown(int md_start) {
+    void movedown(long md_start) {
         V tmp;
-        int tmpidx;
-        int posel = md_start; //root
-        int swap;
+        long tmpidx;
+        long posel = md_start; //root
+        long swap;
         /*while posel is not a leaf and heap[posel].value > any of childen*/
         while ((posel<<1)+1 < num_elems) { // exists a left son
             if ((posel<<1)+2 < num_elems) { // exists a right son
@@ -262,12 +262,12 @@ public:
         }
     };
 
-    void moveup(int md_start=0) {
+    void moveup(long md_start=0) {
         V tmp;
-        int tmpidx;
-        int posel = md_start; //root
-        int p;
-        int idx=heap[posel].idx;
+        long tmpidx;
+        long posel = md_start; //root
+        long p;
+        long idx=heap[posel].idx;
 
         /*while posel is not a root and heap[posel].value < parent */
         while (posel >0) {
@@ -293,7 +293,7 @@ public:
         }
     };
 
-    void getTop(int &idx, V &value) {
+    void getTop(long &idx, V &value) {
         idx=heap[0].idx;
         value=heap[0].value;
     };
@@ -310,15 +310,15 @@ public:
     };
 
     V getTopValue() { return heap[0].value; };
-    int getTopIdx() { return heap[0].idx; };
+    long getTopIdx() { return heap[0].idx; };
     V getSecondTopValue() {
         return heap[1].value < heap[2].value ? heap[1].value : heap[2].value;
     }
 
-    int size() { return num_elems; }
+    long size() { return num_elems; }
 
-    void print_heap() {
-        for (int i=0; i<num_elems; i++)
+    void prlong_heap() {
+        for (long i=0; i<num_elems; i++)
             printf("(%d) ", order[heap[i].idx]);
         printf("\n");
         //system("pause");
@@ -328,9 +328,9 @@ private:
     bool compare(V a, V b) { return (sign==INC)? (a<b) : (a>b); };
 
     vector<elem> heap;
-    vector<int> order;
-    int num_elems;
-    int sign;
+    vector<long> order;
+    long num_elems;
+    long sign;
 };
 
 ///

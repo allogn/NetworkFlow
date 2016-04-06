@@ -35,7 +35,7 @@ class SCS {
 private:
 
 
-    typedef std::vector<int> IntVector;
+    typedef std::vector<long> IntVector;
     typedef std::vector <Value> ValueVector;
     typedef std::vector <Cost> CostVector;
     typedef std::vector <LargeCost> LargeCostVector;
@@ -49,19 +49,17 @@ public:
 
     // Data related to the underlying digraph
     const Graph &_graph;
-    int _node_num;
-    int _arc_num;
-    int _res_node_num;
-    int _res_arc_num;
+    long _node_num;
+    long _res_node_num;
+    long _res_arc_num;
 
     // Parameters of the problem
-    bool _has_lower;
     Value _sum_supply;
 
     // Data structures for storing the digraph
     IntVector _arc_idf;
     IntVector _arc_idb;
-    vector<vector<int>> _first_out;
+    vector<vector<long>> _first_out;
     BoolVector _forward;
     IntVector _source;
     IntVector _target;
@@ -78,13 +76,13 @@ public:
     LargeCostVector _pi;
     ValueVector _excess;
     IntVector _next_out;
-    std::deque<int> _active_nodes;
+    std::deque<long> _active_nodes;
 
     // Data for scaling
     LargeCost _epsilon;
     int _alpha;
 
-    vector<int> QryCnt;
+    vector<long> QryCnt;
 
 public:
 
@@ -98,11 +96,10 @@ public:
     SCS &reset() {
         // Resize vectors
         _node_num = _graph.n;
-        _arc_num = _graph.m;
         _res_node_num = _node_num;
         _res_arc_num = 0; //2 * _arc_num;
 
-        _first_out.resize(_res_node_num, vector<int>());
+        _first_out.resize(_res_node_num, vector<long>());
         _forward.resize(_res_arc_num);
         _source.resize(_res_arc_num);
         _target.resize(_res_arc_num);
@@ -125,14 +122,14 @@ public:
         QryCnt.resize(_res_node_num,0);
 
         // Copy the graph
-        int j = 0;
-        for (uintT i = 0; i < _graph.n; i++) {
+//        int j = 0;
+        for (long i = 0; i < _graph.n; i++) {
             _supply[i] = _graph.V[i].supply;
         }
-//        for (uintT i = 0; i < _graph.n; i++) {
-//            for (uintT a = 0; a < _graph.completeE[i].size(); a++) {
+//        for (long i = 0; i < _graph.n; i++) {
+//            for (long a = 0; a < _graph.completeE[i].size(); a++) {
 //                _first_out[i].push_back(j);
-//                uintT eid = _graph.completeE[i][a];
+//                long eid = _graph.completeE[i][a];
 //                if (_graph.is_forward(eid,i)) {
 //                    _arc_idf[eid] = j;
 //                } else {
@@ -174,7 +171,7 @@ private:
 
         // Check the sum of supply values
         _sum_supply = 0;
-        for (int i = 0; i != _res_node_num; ++i) {
+        for (long i = 0; i != _res_node_num; ++i) {
             _sum_supply += _supply[i];
         }
         if (_sum_supply > 0) return INFEASIBLE;
@@ -185,14 +182,14 @@ private:
 
 
         // Initialize vectors
-        for (int i = 0; i != _res_node_num; ++i) {
+        for (long i = 0; i != _res_node_num; ++i) {
             _pi[i] = 0;
             _excess[i] = _supply[i];
         }
 
         // Remove infinite upper bounds and check negative arcs
         const Value MAX = std::numeric_limits<Value>::max();
-        int last_out;
+//        int last_out;
 //    if (_has_lower) {
 //        for (int i = 0; i != _res_node_num; ++i) {
 //            last_out = (i < _res_node_num-1)?_first_out[i+1]:_res_arc_num;
@@ -245,7 +242,7 @@ private:
 //        _epsilon /= _alpha;
 
         // initialize _res_cap with supply value for each node with positive supply for arbitrary edge
-        for (int a = 0; a < _res_arc_num; a++) {
+        for (long a = 0; a < _res_arc_num; a++) {
             if (_forward[a]) {
                 _res_cap[a] = _upper[a];
             } else {
@@ -259,7 +256,7 @@ private:
     // Check if the upper bound is greater than or equal to the lower bound
     // on each forward arc.
     bool checkBoundMaps() {
-        for (int j = 0; j != _res_arc_num; ++j) {
+        for (long j = 0; j != _res_arc_num; ++j) {
             if (_forward[j] && _upper[j] < _lower[j]) return false;
         }
         return true;
@@ -268,12 +265,12 @@ private:
     // Initialize a cost scaling phase
     void initPhase() {
         // Saturate arcs not satisfying the optimality condition
-        for (int u = 0; u != _res_node_num; ++u) {
+        for (long u = 0; u != _res_node_num; ++u) {
             LargeCost pi_u = _pi[u];
-            for (vector<int>::iterator a = _first_out[u].begin(); a != _first_out[u].end(); ++a) {
+            for (vector<long>::iterator a = _first_out[u].begin(); a != _first_out[u].end(); ++a) {
                 Value delta = _res_cap[*a];
                 if (delta > 0) {
-                    int v = _target[*a];
+                    long v = _target[*a];
                     if (_cost[*a] - pi_u + _pi[v] < 0) {
                         _excess[u] -= delta;
                         _excess[v] += delta;
@@ -285,7 +282,7 @@ private:
         }
 
         // Find active nodes (i.e. nodes with positive excess)
-        for (int u = 0; u != _res_node_num; ++u) {
+        for (long u = 0; u != _res_node_num; ++u) {
             if (_excess[u] > 0) _active_nodes.push_back(u);
         }
 
@@ -296,10 +293,10 @@ private:
     }
 
     /// Execute the algorithm performing augment and relabel operations
-    void startAugment(int max_length);
+    void startAugment(long max_length);
 
 public:
-    uintT totalCost;
+    long totalCost;
 
     // Execute the algorithm and transform the results
     void runSCS() {
@@ -310,7 +307,7 @@ public:
         startAugment(_res_node_num - 1);
         timer.save_time("Total time", total);
         totalCost = 0;
-        for (uintT a = 0; a < _target.size(); a++) {
+        for (long a = 0; a < _target.size(); a++) {
             if (!_forward[a]) {
                 assert(_scost[a] <= 0);
                 totalCost += _res_cap[a] * (-_scost[a]);
@@ -319,8 +316,8 @@ public:
     }
 
     bool test_epsilon() {
-        for (int i = 0; i < _res_node_num; i++) {
-            for (int j = 0; j < _first_out[i].size(); j++){
+        for (long i = 0; i < _res_node_num; i++) {
+            for (long j = 0; j < _first_out[i].size(); j++){
                 if (_res_cap[_first_out[i][j]] > 0)
                     assert(_cost[_first_out[i][j]] + _pi[_target[_first_out[i][j]]] - _pi[i] >= -_epsilon);
             }

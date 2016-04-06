@@ -6,17 +6,17 @@
 //TODO check where admissible set
 void CostScaling::reset() {
     // init epsilon
-    uintT maxWeight = 0;
-    for(uintT i = 0; i < g->n; i++) {
-        for (uintT j = 0; j < g->V[i].E.size(); j++) {
+    long maxWeight = 0;
+    for(long i = 0; i < g->n; i++) {
+        for (long j = 0; j < g->V[i].E.size(); j++) {
             maxWeight = (maxWeight < g->E[g->V[i].E[j]].weight) ? g->E[g->V[i].E[j]].weight : maxWeight;
         }
     }
     epsilon = maxWeight;
 
     // other init
-    uintT totalPosSup = 0;
-    for(uintT i = 0; i < g->n; i++) {
+    long totalPosSup = 0;
+    for(long i = 0; i < g->n; i++) {
         p[i] = 0;
         excesses[i] = g->V[i].supply;
         if (excesses[i] > 0)
@@ -25,7 +25,7 @@ void CostScaling::reset() {
     totalExcesses = totalPosSup;
 
 
-    for(uintT i = 0; i < g->m; i++) {
+    for(long i = 0; i < g->m; i++) {
             flow[i] = 0;
             admissible[i] = false;
     }
@@ -36,13 +36,13 @@ void CostScaling::reset() {
  *
  * if nodeId is fromId (source node) => value is added to the flow, substracted otherwise
  */
-void CostScaling::changeFlow(uintT nodeId, uintT edgeInNodeId, intT value) {
+void CostScaling::changeFlow(long nodeId, long edgeInNodeId, long value) {
     assert(value > 0);
     if (value == 0) return;
 
-    uintT eid = g->V[nodeId].E[edgeInNodeId];
-    uintT neighbor = g->get_pair(eid, nodeId);
-    intT valueForAddition = (g->is_forward(eid, nodeId))?value:-value;
+    long eid = g->V[nodeId].E[edgeInNodeId];
+    long neighbor = g->get_pair(eid, nodeId);
+    long valueForAddition = (g->is_forward(eid, nodeId))?value:-value;
     assert(flow[eid] + valueForAddition <= g->E[eid].capacity
            && flow[eid] + valueForAddition >= g->E[eid].lower);
 
@@ -67,8 +67,8 @@ void CostScaling::changeFlow(uintT nodeId, uintT edgeInNodeId, intT value) {
            ((flow[eid] == g->E[eid].lower) && g->is_forward(eid, neighbor)));
 //    }
 
-    intT old_val_node = excesses[nodeId];
-    intT old_val_neig = excesses[neighbor];
+    long old_val_node = excesses[nodeId];
+    long old_val_neig = excesses[neighbor];
 
     excesses[nodeId] -= value;
     excesses[neighbor] += value;
@@ -87,20 +87,20 @@ void CostScaling::changeFlow(uintT nodeId, uintT edgeInNodeId, intT value) {
 
 // returns nearest excess to deficit which was found at the end
 // in blocking flow array save ID of an edge for each node throughout the path
-void CostScaling::dfs(uintT* blockingFlow, uintT* blockingEdge, uintT nodeId) {
+void CostScaling::dfs(long* blockingFlow, long* blockingEdge, long nodeId) {
     //blockingFlow here also is a visited array to avoid loops
-    queue<uintT> node_queue;
+    queue<long> node_queue;
     node_queue.push(nodeId);
 
     while(!node_queue.empty()) {
-        uintT node = node_queue.front();
+        long node = node_queue.front();
         node_queue.pop();
 
-        for (uintT i = 0; i < g->V[node].E.size(); i++) {
+        for (long i = 0; i < g->V[node].E.size(); i++) {
             //for each out edge check if it is admissible
             //if so - update distance and run dfs
-            uintT neighbor = g->get_pair(g->V[node].E[i], node);
-            if (isAdmissible(node,i) && blockingFlow[neighbor] == UINT_T_MAX
+            long neighbor = g->get_pair(g->V[node].E[i], node);
+            if (isAdmissible(node,i) && blockingFlow[neighbor] == std::numeric_limits<long>::max()
                 && excesses[neighbor] <= 0) {
                 blockingFlow[neighbor] = node;
                 blockingEdge[neighbor] = i;
@@ -114,14 +114,14 @@ void CostScaling::dfs(uintT* blockingFlow, uintT* blockingEdge, uintT nodeId) {
     }
 }
 
-uintT CostScaling::raise_potentials() {
+void CostScaling::raise_potentials() {
 
     // boolean visited array
     bool visited[g->n];
 
     //calculate shortest distances
     NodeList buckets(g->n);
-    for (uintT i = 0; i < g->n; i++) {
+    for (long i = 0; i < g->n; i++) {
         visited[i] = false;
         if (excesses[i] > 0) {
             buckets.addToBucket(0, i);
@@ -129,9 +129,9 @@ uintT CostScaling::raise_potentials() {
     }
 
     //calculate shortest path in Residual (!) graph
-    uintT length_to_deficit;
+    long long length_to_deficit;
     while (true) {
-        uintT i = buckets.getNearest();
+        long i = buckets.getNearest();
 
         if (visited[i]) {
             buckets.popNearest();
@@ -147,15 +147,15 @@ uintT CostScaling::raise_potentials() {
         }
 
         //iterate through residual edges
-        for (uintT j = 0; j < g->V[i].E.size(); j++) {
-            uintT eid = g->V[i].E[j];
-            uintT neighbour = g->get_pair(eid, i);
+        for (long j = 0; j < g->V[i].E.size(); j++) {
+            long eid = g->V[i].E[j];
+            long neighbour = g->get_pair(eid, i);
             if (! visited[neighbour]) { //@todo change if statements (with edge) and maybe faster
                 if (get_residual(eid, i) > 0) { //TODO remove this check!!!! it implies that residual is not empty because it IS in E list!!!!
                     double c_p = get_cp(eid, i);
                     assert(floor(c_p/epsilon) + 1 >= 0);
-                    uintT length = floor(c_p/epsilon) + 1;
-                    uintT newDist = buckets.smallest_dist + length;
+                    long long length = floor(c_p/epsilon) + 1;
+                    long long newDist = buckets.smallest_dist + length;
                     buckets.addToBucket(newDist, neighbour);
                 }
             }
@@ -169,8 +169,8 @@ uintT CostScaling::raise_potentials() {
 
     //raise potentials for all visited vertices
     while (buckets.visited != NULL) {
-        uintT i = buckets.getIdVisited();
-        uintT dist = buckets.getDistVisited();
+        long i = buckets.getIdVisited();
+        long long dist = buckets.getDistVisited();
         buckets.popVisited();
         p[i] += (length_to_deficit - dist)*epsilon;
     }
@@ -178,13 +178,13 @@ uintT CostScaling::raise_potentials() {
 }
 
 void CostScaling::raise_flows() {
-    uintT* blockingSearch = new uintT[g->n];
-    uintT* blockingSearchEdges = new uintT[g->n];
-    for (uintT i = 0; i < g->n; i++) {
-        blockingSearch[i] = UINT_T_MAX;
-        blockingSearchEdges[i] = UINT_T_MAX;
+    long* blockingSearch = new long[g->n];
+    long* blockingSearchEdges = new long[g->n];
+    for (long i = 0; i < g->n; i++) {
+        blockingSearch[i] = std::numeric_limits<long>::max();
+        blockingSearchEdges[i] = std::numeric_limits<long>::max();
     }
-    for (uintT i = 0; i < g->n; i++) {
+    for (long i = 0; i < g->n; i++) {
         if (excesses[i] > 0) {
             dfs(blockingSearch, blockingSearchEdges, i);
         }
@@ -195,13 +195,13 @@ void CostScaling::raise_flows() {
     //each blockingFlow element contains ID of the edge that should be used next
     //if ID is greater than outDegree - then inverse edge should be used
 
-    for (uintT i = 0; i < g->n; i++) {
-        if (excesses[i] < 0 && blockingSearch[i] < UINT_T_MAX) {
-            uintT curnode = i;
-            uintT nextnode;
+    for (long i = 0; i < g->n; i++) {
+        if (excesses[i] < 0 && blockingSearch[i] < std::numeric_limits<long>::max()) {
+            long curnode = i;
+            long nextnode;
             while (true) {
                 nextnode = blockingSearch[curnode];
-                uintT edge = blockingSearchEdges[curnode];
+                long edge = blockingSearchEdges[curnode];
                 assert(isAdmissible(nextnode, edge));
                 if (excesses[nextnode] > 0) {
                     changeFlow(nextnode, edge, 1);
@@ -229,8 +229,8 @@ void CostScaling::refine() {
      * todo check throughout the algorithm
      */
     //TODO we can avoid this looping by saving which edges have c_p<0 from shortest path of previous iteration
-    for (uintT i = 0; i < g->n; i++) {
-        uintT j = 0;
+    for (long i = 0; i < g->n; i++) {
+        long j = 0;
         while (j < g->V[i].E.size()) {
             if (isAdmissible(i, j)) {
                 changeFlow(i, j, 1); //assuming unit capacity and edge is not saturated (otherwise must have been moved)
@@ -246,7 +246,7 @@ void CostScaling::refine() {
     assert(test_excesses());
 
     while (totalExcesses > 0) {
-//        uintT last_increased = 1;
+//        long last_increased = 1;
 //        while (last_increased > 0) {
         raise_potentials();
         assert(is_feasible(-epsilon));
@@ -270,8 +270,8 @@ void CostScaling::runCostScaling() {
     }
     timer.save_time("Total CostScaling", total);
 
-    uintT self_totalcost = 0;
-    for (uintT eid = 0; eid < g->m; eid++) {
+    long long self_totalcost = 0;
+    for (long eid = 0; eid < g->m; eid++) {
         self_totalcost += g->E[eid].weight*flow[eid];
     }
     totalCost = self_totalcost;
@@ -282,11 +282,11 @@ void CostScaling::runCostScaling() {
  */
 
 bool CostScaling::is_feasible(double threshold) {
-    for (uintT i = 0; i < g->n; i++) {
-        for (uintT j = 0; j < g->V[i].E.size(); j++) {
-            uintT eid = g->V[i].E[j];
+    for (long i = 0; i < g->n; i++) {
+        for (long j = 0; j < g->V[i].E.size(); j++) {
+            long eid = g->V[i].E[j];
             if (get_residual(eid, i) > 0) {
-                intT c_p = get_cp(eid, i);
+                long long c_p = get_cp(eid, i);
                 assert(c_p >= threshold);
             }
         }
@@ -295,15 +295,15 @@ bool CostScaling::is_feasible(double threshold) {
 }
 
 bool CostScaling::is_flow() {
-    intT* testExcesses = new intT[g->n];
-    for (uintT i = 0; i < g->n; i++) {
+    long* testExcesses = new long[g->n];
+    for (long i = 0; i < g->n; i++) {
         testExcesses[i] = g->V[i].supply;
     }
-    for (uintT i = 0; i < g->m; i++) {
+    for (long i = 0; i < g->m; i++) {
         testExcesses[g->E[i].fromid]-=flow[i];
         testExcesses[g->E[i].toid]+=flow[i];
     }
-    for (uintT i = 0; i < g->n; i++) {
+    for (long i = 0; i < g->n; i++) {
         assert(testExcesses[i] == 0);
     }
     delete[] testExcesses;
@@ -315,16 +315,16 @@ bool CostScaling::is_flow() {
  * are deleted from this list. There is no list with in edges in current implementation.
  */
 bool CostScaling::test_excesses() {
-    intT* testExcesses = new intT[g->n];
-    for (uintT i = 0; i < g->n; i++) {
+    long* testExcesses = new long[g->n];
+    for (long i = 0; i < g->n; i++) {
         testExcesses[i] = g->V[i].supply;
     }
-    intT ctotalExcesses = 0;
-    for (uintT i = 0; i < g->m; i++) {
+    long ctotalExcesses = 0;
+    for (long i = 0; i < g->m; i++) {
         testExcesses[g->E[i].fromid]-=flow[i];
         testExcesses[g->E[i].toid]+=flow[i];
     }
-    for (uintT i = 0; i < g->n; i++) {
+    for (long i = 0; i < g->n; i++) {
         assert(testExcesses[i] == excesses[i]);
         if (testExcesses[i] > 0)
             ctotalExcesses++;

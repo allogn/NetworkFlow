@@ -155,12 +155,12 @@ int main(int argc, const char** argv) {
 
             lemon::ListDigraph::Node* nodes;
             nodes = (lemon::ListDigraph::Node*)malloc(sizeof(lemon::ListDigraph::Node)*g.n);
-            for (int i = 0; i < g.n; i++) {
+            for (long i = 0; i < g.n; i++) {
                 nodes[i] = _graph.addNode();
                 supply[nodes[i]] = g.V[i].supply;
             }
 
-            for (uintT i = 0; i < g.m; i++) {
+            for (long i = 0; i < g.m; i++) {
                 lemon::ListDigraph::Arc e = _graph.addArc(nodes[g.E[i].fromid], nodes[g.E[i].toid]);
                 weight[e] = g.E[i].weight;
                 cap[e] = g.E[i].capacity;
@@ -204,12 +204,12 @@ int main(int argc, const char** argv) {
 
             lemon::ListDigraph::Node* nodes;
             nodes = (lemon::ListDigraph::Node*)malloc(sizeof(lemon::ListDigraph::Node)*g.n);
-            for (int i = 0; i < g.n; i++) {
+            for (long i = 0; i < g.n; i++) {
                 nodes[i] = _graph.addNode();
                 supply[nodes[i]] = g.V[i].supply;
             }
 
-            for (uintT i = 0; i < g.m; i++) {
+            for (long i = 0; i < g.m; i++) {
                 lemon::ListDigraph::Arc e = _graph.addArc(nodes[g.E[i].fromid], nodes[g.E[i].toid]);
                 weight[e] = g.E[i].weight;
                 cap[e] = g.E[i].capacity;

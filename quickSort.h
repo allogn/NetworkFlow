@@ -26,9 +26,9 @@
 #include <algorithm>
 #include "parallel.h"
 
-template <class E, class BinPred, class intT>
-void insertionSort(E* A, intT n, BinPred f) {
-    for (intT i=0; i < n; i++) {
+template <class E, class BinPred, class IntT>
+void insertionSort(E* A, IntT n, BinPred f) {
+    for (IntT i=0; i < n; i++) {
         E v = A[i];
         E* B = A + i;
         while (--B >= A && f(v,*B)) *(B+1) = *B;
@@ -46,8 +46,8 @@ E median(E a, E b, E c, BinPred f) {
 
 // Quicksort based on median of three elements as pivot
 //  and uses insertionSort for small inputs
-template <class E, class BinPred, class intT>
-void quickSort(E* A, intT n, BinPred f) {
+template <class E, class BinPred, class IntT>
+void quickSort(E* A, IntT n, BinPred f) {
     if (n < ISORT) insertionSort(A, n, f);
     else {
         //E p = std::__median(A[n/4],A[n/2],A[(3*n)/4],f);

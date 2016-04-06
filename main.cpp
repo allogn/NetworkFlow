@@ -14,6 +14,8 @@
 #include "LSCS.h"
 #include "TimerTool.h"
 
+#define LONG
+
 using namespace std;
 namespace po = boost::program_options;
 
@@ -179,12 +181,12 @@ int main(int argc, const char **argv) {
 
                 lemon::ListDigraph::Node *nodes;
                 nodes = (lemon::ListDigraph::Node *) malloc(sizeof(lemon::ListDigraph::Node) * g.n);
-                for (int i = g.n-1; i >=0; i--) {//inverse because ids in lemon for some reason assigned inversed
+                for (long i = g.n-1; i >=0; i--) {//inverse because ids in lemon for some reason assigned inversed
                     nodes[i] = _graph.addNode();
                     supply[nodes[i]] = g.V[i].supply;
                 }
 
-                for (int i = g.m-1; i >= 0; i--) {
+                for (long i = g.m-1; i >= 0; i--) {
                     lemon::ListDigraph::Arc e = _graph.addArc(nodes[g.E[i].fromid], nodes[g.E[i].toid]);
                     weight[e] = g.E[i].weight;
                     cap[e] = g.E[i].capacity;
@@ -250,7 +252,7 @@ int main(int argc, const char **argv) {
                     supply[nodes[i]] = g.V[i].supply;
                 }
 
-                for (uintT i = 0; i < g.m; i++) {
+                for (long i = 0; i < g.m; i++) {
                     lemon::ListDigraph::Arc e = _graph.addArc(nodes[g.E[i].fromid], nodes[g.E[i].toid]);
                     weight[e] = g.E[i].weight;
                     cap[e] = g.E[i].capacity;

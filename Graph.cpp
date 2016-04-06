@@ -11,7 +11,7 @@
  * 1 : gaussian (param1: mean, param2: std)
  * 2 : exponential (param1: lambda)
  */
-void Graph::generate_full_bipartite_graph(uintT size, uintT param1, uintT param2, int distr) {
+void Graph::generate_full_bipartite_graph(long size, long param1, long param2, long distr) {
     clear_graph();
 
     if (size % 2 != 0) {
@@ -25,12 +25,12 @@ void Graph::generate_full_bipartite_graph(uintT size, uintT param1, uintT param2
 
     long seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::default_random_engine generator (seed);
-    uniform_int_distribution<uintT> uniGen(param1, param2);
+    uniform_int_distribution<long> uniGen(param1, param2);
     normal_distribution<double> gausGen(param1, param2);
     exponential_distribution<double> expGen((double)param1/100.);
 
-    parallel_for(uintT i = 0; i < n/2; i++) {
-        for (uintT j = n/2; j < n; j++) {
+    parallel_for(long i = 0; i < n/2; i++) {
+        for (long j = n/2; j < n; j++) {
             Edge e(E.size());
             e.capacity = 1;
             e.fromid = i;
@@ -41,10 +41,10 @@ void Graph::generate_full_bipartite_graph(uintT size, uintT param1, uintT param2
                     e.weight = uniGen(generator);
                     break;
                 case 1:
-                    e.weight = (uintT)abs(gausGen(generator));
+                    e.weight = (long)abs(gausGen(generator));
                     break;
                 case 2:
-                    e.weight = (uintT)abs(expGen(generator));
+                    e.weight = (long)abs(expGen(generator));
                     break;
                 default:
                     cout << "Error: incorrect distribution" << endl;
@@ -54,7 +54,7 @@ void Graph::generate_full_bipartite_graph(uintT size, uintT param1, uintT param2
         }
     }
 
-    parallel_for(uintT i = 0; i < n; i++) {
+    parallel_for(long i = 0; i < n; i++) {
         if (i < n/2) {
             Vertex v(i,1);
             V.push_back(v);
@@ -68,15 +68,15 @@ void Graph::generate_full_bipartite_graph(uintT size, uintT param1, uintT param2
 void Graph::print_graph() {
     std::cout << "Total " << n << " nodes and " << m << " edges" << std::endl;
     std::cout << "Nodes: " << std::endl;
-    for (uintT i = 0; i < n; i++) {
+    for (long i = 0; i < n; i++) {
         std::cout << "Node " << i << " edges: ";
-        for (uintT j = 0; j < V[i].E.size(); j++) {
+        for (long j = 0; j < V[i].E.size(); j++) {
             std::cout << E[V[i].E[j]].ID << ",";
         }
         std::cout << std::endl;
     }
     std::cout << "Edges: " << std::endl;
-    for (uintT i = 0; i < m; i++) {
+    for (long i = 0; i < m; i++) {
         Edge e = E[i];
         std::cout << i << " (" << e.fromid << "->" << e.toid << ", weight " << e.weight << ")" << std::endl;
     }
@@ -91,11 +91,11 @@ bool Graph::test_graph_structure() {
     assert(m > 0);
 
     // test that edges are unique (no two edges between two vertices)
-    parallel_for(uintT i = 0; i < m; i++) {
-        uintT curId = E[i].ID;
+    parallel_for(long i = 0; i < m; i++) {
+        long curId = E[i].ID;
         assert(E[i].ID == i);
-        uintT curFromId = E[i].fromid;
-        for (uintT j = 0; j < m; j++) {
+        long curFromId = E[i].fromid;
+        for (long j = 0; j < m; j++) {
             if (E[j].fromid == curFromId) {
                 assert(E[j].toid != E[i].fromid || E[j].ID == curId);
             }
@@ -104,10 +104,10 @@ bool Graph::test_graph_structure() {
         }
     }
     // test if nodes are unique
-    parallel_for(uintT i = 0; i < n; i++) {
-        uintT curId = V[i].ID;
+    parallel_for(long i = 0; i < n; i++) {
+        long curId = V[i].ID;
         assert(V[i].ID == i);
-        for (uintT j = 0; j < n; j++) {
+        for (long j = 0; j < n; j++) {
             if (V[j].ID == curId)
                 assert(j == i);
         }
@@ -115,9 +115,9 @@ bool Graph::test_graph_structure() {
 
     // test if every edge in the lists of edges is unique (but may not exist)
     bool exist[m];
-    parallel_for(uintT i = 0; i < m; i++) exist[i] = false;
-    for(uintT i = 0; i < n; i++) {
-        for(uintT j = 0; j < V[i].E.size(); j++) {
+    parallel_for(long i = 0; i < m; i++) exist[i] = false;
+    for(long i = 0; i < n; i++) {
+        for(long j = 0; j < V[i].E.size(); j++) {
             assert(V[i].E[j] < m);
             assert(exist[V[i].E[j]] == false);
             exist[V[i].E[j]] = true;
@@ -133,21 +133,21 @@ bool Graph::test_sorting() {
     assert(fullE.size() == n);
     assert(fullE.size() > 0);
     bool exists[m];
-    for (uintT i = 0; i < m; i++) exists[i] = false;
-    for (uintT i = 0; i < n; i++) {
-        for (uintT j = 0; j < fullE[i].size(); j++) {
+    for (long i = 0; i < m; i++) exists[i] = false;
+    for (long i = 0; i < n; i++) {
+        for (long j = 0; j < fullE[i].size(); j++) {
             assert(fullE[i][j] < m);
             assert(exists[fullE[i][j]] == false);
             exists[fullE[i][j]] = true;
         }
     }
-    for (uintT i = 0; i < m; i++) {
+    for (long i = 0; i < m; i++) {
         assert(exists[i] == true);
     }
 
-    for (uintT i = 0; i < n; i++) {
+    for (long i = 0; i < n; i++) {
         if (fullE[i].size() > 0) {
-            for (uintT j = 0; j < fullE[i].size() - 1; j++) {
+            for (long j = 0; j < fullE[i].size() - 1; j++) {
                 assert(j < fullE[i].size());
                 assert(E[fullE[i][j]].weight <= E[fullE[i][j+1]].weight);
             }
@@ -171,16 +171,16 @@ void Graph::save_graph(string filename) {
     ofstream outf(filename,ios::app); // appending because graph annotation and parameters can be before
 
     outf << n << " " << m << "\n";
-    for (uintT i = 0; i < n; i++) {
+    for (long i = 0; i < n; i++) {
         outf << V[i].supply << "\n";
     }
-    for (uintT i = 0; i < m; i++) {
+    for (long i = 0; i < m; i++) {
         outf << E[i].fromid << " " << E[i].toid << " " << E[i].weight << " " << E[i].capacity << " " << E[i].lower << "\n";
     }
     outf.close();
 }
 
-void Graph::load_graph(string filename, string log_filename, int experiment_id) {
+void Graph::load_graph(string filename, string log_filename, long experiment_id) {
     cout << "Loading graph from " << filename << "..." << endl;
     if (FILE *file = fopen(filename.c_str(), "r")) {
         fclose(file);
@@ -202,7 +202,7 @@ void Graph::load_graph(string filename, string log_filename, int experiment_id) 
 
     //parse comments in the beginning of the file with parameters of data
     string line;
-    int commentLines = 0;
+    long commentLines = 0;
     string parameter,value;
     while (infile >> line >> parameter >> value) {
         if (line[0] != '#') {
@@ -215,19 +215,19 @@ void Graph::load_graph(string filename, string log_filename, int experiment_id) 
     };
 
     clear_graph();
-    for (int i = 0; i<commentLines; i++) infile >> line >> parameter >> value; //skip comments
+    for (long i = 0; i<commentLines; i++) infile >> line >> parameter >> value; //skip comments
     infile >> n >> m;
 
     if (log_filename != "") log << experiment_id << ",Edges," << m << "\n";
     if (log_filename != "") log << experiment_id << ",Nodes," << n << "\n";
     log.close();
 
-    intT supply;
-    for (uintT i = 0; i < n; i++) {
+    long supply;
+    for (long i = 0; i < n; i++) {
         infile >> supply;
         V.push_back(Vertex(i, supply));
     }
-    for (uintT i = 0; i < m; i++) {
+    for (long i = 0; i < m; i++) {
         Edge e(i);
         infile >> e.fromid >> e.toid >> e.weight >> e.capacity >> e.lower;
         E.push_back(e);
@@ -249,7 +249,7 @@ bool Graph::test_save_load() {
     return true;
 }
 
-void Graph::save_graph_info(string filename, int experiment_id) {
+void Graph::save_graph_info(string filename, long experiment_id) {
     cout << "Saving data to log file (ID " << experiment_id << endl;
 
     ofstream outf(filename);
@@ -262,7 +262,7 @@ void Graph::save_graph_blossom(string filename) {
     cout << "Saving blossom graph to " << filename << "..." << endl;
     ofstream outf(filename);
     outf << n << " " << m << "\n";
-    for (int i = 0; i < m; i++)
+    for (long i = 0; i < m; i++)
     {
         outf << E[i].fromid << " " << E[i].toid << " " << E[i].weight << "\n";
     }
@@ -272,15 +272,15 @@ void Graph::save_graph_blossom(string filename) {
 void Graph::load_lgf_graph(string filename) {
     //TODO
 //    ListDigraph g;
-//    ListDigraph::ArcMap<int> weight(g);
-//    ListDigraph::ArcMap<int> flow(g);
-//    ListDigraph::NodeMap<int> potential(g);
+//    ListDigraph::ArcMap<long> weight(g);
+//    ListDigraph::ArcMap<long> flow(g);
+//    ListDigraph::NodeMap<long> potential(g);
 //
 //    digraphReader(g, argv[1])
 //            .arcMap("weight", weight)
 //            .run();
 //
-//    ListDigraph::ArcMap<int> cap(g);
+//    ListDigraph::ArcMap<long> cap(g);
 //    for (ListDigraph::ArcIt it(g); it != INVALID; ++it) {
 //        cap[it] = 1;
 //    }
@@ -291,7 +291,7 @@ void Graph::load_lgf_graph(string filename) {
 //    ListDigraph::Node source = g.nodeFromId(0);
 //    ListDigraph::Node target = g.nodeFromId(countNodes(g)-1);
 //
-//    ListDigraph::ArcMap<int> lower(g);
+//    ListDigraph::ArcMap<long> lower(g);
 //    for (ListDigraph::ArcIt it(g); it != INVALID; ++it) {
 //        lower[it] = 0;
 //    }
@@ -316,8 +316,8 @@ void Graph::load_adj_graph(string filename) {
         abort();
     }
 
-    uintT* offsets = newA(uintT,n);
-    uintE* edges = newA(uintE,m);
+    long* offsets = newA(long,n);
+    long* edges = newA(long,m);
 
     /*
      * an array of edges contain two elements per edge: neighbor and id of extra info
@@ -332,26 +332,26 @@ void Graph::load_adj_graph(string filename) {
 
     vertex* v = newA(vertex,n);
 
-    {parallel_for (uintT i=0; i < n; i++) {
-            uintT o = offsets[i];
-            uintT l = ((i == n-1) ? m : offsets[i+1])-offsets[i];
+    {parallel_for (long i=0; i < n; i++) {
+            long o = offsets[i];
+            long l = ((i == n-1) ? m : offsets[i+1])-offsets[i];
             v[i].setOutDegree(l);
             v[i].setOutNeighbors(edges+o);
         }}
 
-    uintT* tOffsets = newA(uintT,n);
-    {parallel_for(long i=0;i<n;i++) tOffsets[i] = INT_T_MAX;}
-    uintE* inEdges = newA(uintE,m);
-    intPair* temp = newA(intPair,m);
+    long* tOffsets = newA(long,n);
+    {parallel_for(long i=0;i<n;i++) tOffsets[i] = std::numeric_limits<long>::max();}
+    long* inEdges = newA(long,m);
+    longPair* temp = newA(longPair,m);
     {parallel_for(long i=0;i<n;i++){
-            uintT o = offsets[i];
-            for(uintT j=0;j<v[i].getOutDegree();j++){
+            long o = offsets[i];
+            for(long j=0;j<v[i].getOutDegree();j++){
                 temp[o+j] = make_pair(v[i].getOutNeighbor(j),i);
             }
         }}
     free(offsets);
 
-    quickSort(temp,m,pairFirstCmp<uintE>());
+    quickSort(temp,m,pairFirstCmp<long>());
 
     tOffsets[temp[0].first] = 0;
     inEdges[0] = temp[0].second;
@@ -366,11 +366,11 @@ void Graph::load_adj_graph(string filename) {
 
     //fill in offsets of degree 0 vertices by taking closest non-zero
     //offset to the right
-    sequence::scanIBack(tOffsets,tOffsets,n,minF<uintT>(),(uintT)m);
+    sequence::scanIBack(tOffsets,tOffsets,n,minF<long>(),(long)m);
 
     {parallel_for(long i=0;i<n;i++){
-            uintT o = tOffsets[i];
-            uintT l = ((i == n-1) ? m : tOffsets[i+1])-tOffsets[i];
+            long o = tOffsets[i];
+            long l = ((i == n-1) ? m : tOffsets[i+1])-tOffsets[i];
             v[i].setInDegree(l);
             v[i].setInNeighbors(inEdges+o);
         }}
@@ -378,7 +378,7 @@ void Graph::load_adj_graph(string filename) {
     free(tOffsets);
 
     //now graph is loaded, structured according to Ligra
-    //copying to internal structure
+    //copying to longernal structure
     this->n = n;
     this->m = m;
     long eid = 0;

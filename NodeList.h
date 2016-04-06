@@ -12,8 +12,8 @@
 using namespace std;
 
 typedef struct NodeExtended {
-    uintT nodeId;
-    uintT dist;
+    long nodeId;
+    long dist;
     struct NodeExtended* next;
 } Node;
 
@@ -21,21 +21,21 @@ class NodeList {
 public:
     Node** nodes;
     Node* visited;
-    uintT size; // number of buckets
-    uintT smallest_dist;
+    long size; // number of buckets
+    long smallest_dist;
 
-    NodeList(uintT _n) {
+    NodeList(long _n) {
         size = _n*3+1;
         nodes = new Node*[size];
         visited = NULL;
-        for (uintT i = 0; i < size; i++) {
+        for (long i = 0; i < size; i++) {
             nodes[i] = NULL;
         }
 
         smallest_dist = 0;
     }
 
-    void addToBucket(uintT dist, uintT nodeid) {
+    void addToBucket(long dist, long nodeid) {
         // adding only if it is closer than 3*n
         // ignore otherwise
         //@todo add checking if no vertices too far
@@ -47,20 +47,20 @@ public:
         }
     }
 
-    void deleteNearest(uintT dist) {
+    void deleteNearest(long dist) {
         Node* node = nodes[dist];
         nodes[dist] = nodes[dist]->next;
         delete node;
     }
 
-    uintT getNearest() {
+    long getNearest() {
         // smallest_dist is a pointer (id) of a bucket that is non-empty in current state
         // because of monotonicity every smaller bucket must be empty
         while (smallest_dist < size && nodes[smallest_dist] == NULL) {
             smallest_dist++;
         }
         assert(smallest_dist < size); // Error: nothing to pop in shortestPath
-        uintT res = nodes[smallest_dist]->nodeId;
+        long res = nodes[smallest_dist]->nodeId;
         return res;
     }
 
@@ -77,11 +77,11 @@ public:
         //do not delete anything, it exists in visited
     }
 
-    inline uintT getIdVisited() {
+    inline long getIdVisited() {
         return visited->nodeId;
     }
 
-    inline uintT getDistVisited() {
+    inline long getDistVisited() {
         return visited->dist;
     }
 
@@ -92,9 +92,9 @@ public:
     }
 
     inline void clearBuckets(bool* _visited) {
-        for (uintT i = 0; i < size; i++ ) {
+        for (long i = 0; i < size; i++ ) {
             while (nodes[i] != NULL) {
-                uintT tmp = nodes[i]->nodeId;
+                long tmp = nodes[i]->nodeId;
                 if (!_visited[tmp]) {
                     deleteNearest(i);
                     _visited[tmp] = true;

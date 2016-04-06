@@ -4,24 +4,24 @@
 
 #include "SCS.h"
 
-void SCS::startAugment(int max_length) {
+void SCS::startAugment(long max_length) {
     // Paramters for heuristics
-//            const int PRICE_REFINEMENT_LIMIT = 2;
+//            const long PRICE_REFINEMENT_LIMIT = 2;
 //            const double GLOBAL_UPDATE_FACTOR = 1.0;
-//            const int global_update_skip = static_cast<int>(GLOBAL_UPDATE_FACTOR *
+//            const long global_update_skip = static_cast<long>(GLOBAL_UPDATE_FACTOR *
 //                                                            (_res_node_num + _sup_node_num * _sup_node_num));
-//            int next_global_update_limit = global_update_skip;
+//            long next_global_update_limit = global_update_skip;
 
     // Perform cost scaling phases
-//    IntVector path;
+//    longVector path;
 //    BoolVector path_arc(_res_arc_num, false);
-//    int relabel_cnt = 0;
+//    long relabel_cnt = 0;
     _active_nodes.clear();
-    for (int u = 0; u != _res_node_num; ++u) {
+    for (long u = 0; u != _res_node_num; ++u) {
         if (_excess[u] > 0) _active_nodes.push_back(u);
     }
 
-    int eps_phase_cnt = 0;
+    long eps_phase_cnt = 0;
     for (; _epsilon >= 1 || _active_nodes.size() > 0; _epsilon = _epsilon < _alpha && _epsilon > 1 ?
                                      1 : _epsilon / _alpha) {
         ++eps_phase_cnt;
@@ -38,11 +38,11 @@ void SCS::startAugment(int max_length) {
         while (true) {
             // Select an active node (FIFO selection)
             _active_nodes.clear();
-            for (int u = 0; u != _res_node_num; ++u) {
+            for (long u = 0; u != _res_node_num; ++u) {
                 if (_excess[u] > 0) _active_nodes.push_back(u);
             }
             if (_active_nodes.size() == 0) break;
-            int start = _active_nodes.front();
+            long start = _active_nodes.front();
 //            cout << "starting " << start << endl;
 
             // Dijkstra
@@ -56,8 +56,8 @@ void SCS::startAugment(int max_length) {
 
             fHeap<LargeCost> dijkH;
             fHeap<LargeCost> globalH;
-            vector<int> visited;
-            vector<int> parent(_res_node_num, -1); //parent node and an edge to a child
+            vector<long> visited;
+            vector<long> parent(_res_node_num, -1); //parent node and an edge to a child
             LargeCost mindist[_res_node_num];
             if (QryCnt[start] < _graph.fullE[start].size())
                 globalH.enqueue(start, 0);
@@ -65,8 +65,8 @@ void SCS::startAugment(int max_length) {
             //do not update every time
 
             LargeCost curcost;
-            int u, tip;
-            int taumax = 0;
+            long u, tip;
+            long taumax = 0;
 
             dijkH.clear();
             dijkH.enqueue(start,0);
@@ -79,19 +79,19 @@ void SCS::startAugment(int max_length) {
             do {
 
                 if (globalH.size() > 0) {
-                    int fromid;
+                    long fromid;
                     LargeCost tmp;
                     globalH.dequeue(fromid,tmp);
-                    int eid = _graph.fullE[fromid][QryCnt[fromid]];
+                    long eid = _graph.fullE[fromid][QryCnt[fromid]];
                     QryCnt[fromid]++;
                     if (QryCnt[fromid] < _graph.fullE[fromid].size()) {
                         globalH.enqueue(fromid, mindist[fromid] + _graph.E[_graph.fullE[fromid][QryCnt[fromid]]].weight);
                     }
 
-                    uintT local_eid = _res_arc_num;
+                    long local_eid = _res_arc_num;
                     //for spatial data this does not work
                     _first_out[fromid].push_back(local_eid);
-                    int toid = _graph.get_pair(eid, fromid);
+                    long toid = _graph.get_pair(eid, fromid);
                     _first_out[toid].push_back(local_eid + 1);//reverse edge
                     _arc_idf.push_back(local_eid);
                     _arc_idb.push_back(local_eid + 1);
@@ -126,7 +126,7 @@ void SCS::startAugment(int max_length) {
                     _res_arc_num += 2;
 
 //                    cout << "added " << fromid << "->" << toid << endl;
-                    //update dijkH heap to continue dijkstra from the point it ended
+                    //update dijkH heap to continue dijkstra from the polong it ended
                     LargeCost rc = _cost[local_eid] - _pi[fromid] + _pi[toid]; //exactly +delta_pi because we increase potential
                     LargeCost l = rc + _epsilon;
                     assert(l >= 0); //epsilon-optimality
@@ -173,7 +173,7 @@ void SCS::startAugment(int max_length) {
                     LargeCost rc, l;
                     LargeCost pi_tip = _pi[tip];
                     assert(curcost == mindist[tip]);
-                    for (vector<int>::iterator a = _first_out[tip].begin(); a != _first_out[tip].end(); a++) {
+                    for (vector<long>::iterator a = _first_out[tip].begin(); a != _first_out[tip].end(); a++) {
                         if (_res_cap[*a] == 0) continue; // only feasible arcs
                         assert(_res_cap[*a] > 0);
                         u = _target[*a];
@@ -201,7 +201,7 @@ void SCS::startAugment(int max_length) {
                 checkEdges:;
 
                 if (globalH.size() > 0) {
-                    for (int i = 0; i < _res_node_num; i++) {
+                    for (long i = 0; i < _res_node_num; i++) {
                         if (mindist[i] < globalH.getTopValue() && _pi[i] > taumax) {
                             taumax = _pi[i];
                         }
@@ -211,16 +211,18 @@ void SCS::startAugment(int max_length) {
                 assert((globalH.size() == 0 && tip != -1) || globalH.size() > 0);
             } while (tip == -1 || (globalH.size() > 0 && mindist[tip] > globalH.getTopValue() - taumax));
 
+
+#ifndef NDEBUG
             fHeap<LargeCost> dijkH2;
             dijkH2.enqueue(start,0);
-            vector<int> visited2;
-            vector<int> parent2(_res_node_num,-1);
+            vector<long> visited2;
+            vector<long> parent2(_res_node_num,-1);
             LargeCost mindist2[_res_node_num];
             fill(mindist2, mindist2 + _res_node_num,
                  std::numeric_limits<LargeCost>::max()); //those who were not popped yet, but are in the bucket already
             mindist2[start] = 0;
             LargeCost curcost2;
-            int tip2;
+            long tip2;
 
             while (true) {
                 //take one node and add every neighbor to another bucket
@@ -237,7 +239,7 @@ void SCS::startAugment(int max_length) {
                 LargeCost rc, l;
                 LargeCost pi_tip = _pi[tip2];
                 assert(curcost2 == mindist2[tip2]);
-                for (vector<int>::iterator a = _first_out[tip2].begin(); a != _first_out[tip2].end(); a++) {
+                for (vector<long>::iterator a = _first_out[tip2].begin(); a != _first_out[tip2].end(); a++) {
                     if (_res_cap[*a] == 0) continue; // only feasible arcs
                     assert(_res_cap[*a] > 0);
                     u = _target[*a];
@@ -258,17 +260,16 @@ void SCS::startAugment(int max_length) {
                 }
             }
             checkEdges2:;
-
-//            assert(tip == tip2);
             assert(curcost == curcost2);
-            for (int k = 0; k < _res_node_num; k++) {
+            for (long k = 0; k < _res_node_num; k++) {
                 if (curcost > mindist[k])
                     assert(mindist[k] == mindist2[k]);
             }
+#endif
 
 
             // increase potentials for all visited nodes
-//            for (int i = 0; i < visited.size(); i++) {
+//            for (long i = 0; i < visited.size(); i++) {
 //                assert(QryCnt[visited[i]] == _graph.fullE[visited[i]].size());
 //                if (curcost > mindist[visited[i]])
 //                {
@@ -276,9 +277,9 @@ void SCS::startAugment(int max_length) {
 //                } //curbucket holds distance to deficit
 //            }
 
-            int totalFull = 0;
+            long totalFull = 0;
             double others;
-            for (int i = 0; i < _res_node_num; i++) {
+            for (long i = 0; i < _res_node_num; i++) {
                 if (curcost > mindist[i])
                 {
                     _pi[i] += curcost - mindist[i];
@@ -300,8 +301,8 @@ void SCS::startAugment(int max_length) {
             //increase flow along path to deficit
             assert(_excess[tip] < 0); //we reached deficit
             while (parent[tip] != -1) {
-                int edge = parent[tip];
-                int parent_node = _source[edge];
+                long edge = parent[tip];
+                long parent_node = _source[edge];
                 assert(_cost[edge] - _pi[parent_node] + _pi[tip] < 0); // admissible
                 assert(_res_cap[edge] > 0);
                 assert(_res_cap[_reverse[edge]] == 0);
@@ -316,7 +317,7 @@ void SCS::startAugment(int max_length) {
         assert(test_epsilon());
 
         _active_nodes.clear();
-        for (int u = 0; u != _res_node_num; ++u) {
+        for (long u = 0; u != _res_node_num; ++u) {
             if (_excess[u] > 0) _active_nodes.push_back(u);
         }
     }

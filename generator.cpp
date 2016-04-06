@@ -22,18 +22,18 @@ int main(int argc, const char** argv) {
     int distr;
     string outf;
     string outfBlossom;
-    uintT n,m,min_weight,max_weight;
+    long n,m,min_weight,max_weight;
     po::options_description desc("Allowed options");
     desc.add_options()
             ("help,h", "produce help message")
             ("graph,g", po::value<int>(&graph_type)->required(), "graph type 0:bipartite")
             ("output,o", po::value<string>(&outf)->required(), "save generated graph")
             ("blossom", po::value<string>(&outfBlossom)->required(), "save generated graph for blossom")
-            ("nodes,n", po::value<uintT>(&n)->required(), "number of nodes")
-            ("edges,m", po::value<uintT>(&m), "number of edges (default: clique)")
+            ("nodes,n", po::value<long>(&n)->required(), "number of nodes")
+            ("edges,m", po::value<long>(&m), "number of edges (default: clique)")
             ("distr,d", po::value<int>(&distr)->default_value(0), "type of distribution for weights (0:u,1:g,2:e)")
-            ("par1,l", po::value<uintT>(&min_weight)->default_value(0), "parameter1 for distribution")
-            ("par2,u", po::value<uintT>(&max_weight)->default_value(1000), "parameter2 for distribution");
+            ("par1,l", po::value<long>(&min_weight)->default_value(0), "parameter1 for distribution")
+            ("par2,u", po::value<long>(&max_weight)->default_value(1000), "parameter2 for distribution");
 
     po::variables_map vm;
     po::store(po::parse_command_line(argc, argv, desc), vm);

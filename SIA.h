@@ -16,45 +16,40 @@
 class SIA {
     Graph* g;
 
-    int noA, noB;
-    int totalflow;
-    unsigned long currentcost;
+    long noA, noB;
+    long long totalflow;
     long taumax;
 
-    int* free;
-    int* flow;
-    int* nodeFlow;
-    int* QryCnt;
-    long* psi;
+    int* flow; //residual flow in an edge
+    long* excess;
+    long* QryCnt;
+    long long* psi;
 
-    long* mindist;
-    int* mineid;
-    int* watched;
+    long long* mindist;
+    long* mineid;
+    bool* watched;
 
     mmHeap dijkH;
     mmHeap globalH;
     mmHeap updateH;
 
-//todo clear globalH between iterations?
-
-    inline void iteration_reset(int nodeid_best_psi);
-    inline void augmentFlow(int lastid);
-    inline int insertEdgeFromHeap();
-    void processId(int source_id);
-    inline int runDijkstra();
-    inline long getCost(int eid, int fromid, int toid)
-    { return (fromid<noA) ? g->E[eid].weight-psi[fromid]+psi[toid] : -g->E[eid].weight-psi[fromid]+psi[toid]; };
-    inline long getEdgeCost(int edge_w, int fromid)
-    {
-        long new_cost = edge_w + mindist[fromid];
-        return new_cost;
+    inline void iteration_reset(long nodeid_best_psi);
+    inline void augmentFlow(long lastid);
+    inline long insertEdgeFromHeap();
+    void processId(long source_id);
+    inline long runDijkstra();
+    inline long getCost(long eid, long fromid, long toid) {
+        return (fromid<noA) ? g->E[eid].weight-psi[fromid]+psi[toid] : -g->E[eid].weight-psi[fromid]+psi[toid];
+    };
+    inline long getEdgeCost(long edge_w, long fromid) {
+        return edge_w + mindist[fromid];
     }
-    inline int heap_checkAndUpdateEdgeMin(mmHeap& heap, int fromid) // update if new value is less
+    inline long heap_checkAndUpdateEdgeMin(mmHeap& heap, long fromid) // update if new value is less
     {
         if (fromid >= noA) return 0;
         if (heap.isExisted(fromid))
         {
-            int weight = g->E[g->fullE[fromid][QryCnt[fromid]]].weight;
+            long weight = g->E[g->fullE[fromid][QryCnt[fromid]]].weight;
             heap.updatequeue(fromid, getEdgeCost(weight,fromid));
             return 1;
         }
@@ -64,7 +59,7 @@ class SIA {
         }
         return 0;
     }
-    int heap_checkAndUpdateMin(mmHeap& heap, int id, int new_value) // update if new value is less
+    long heap_checkAndUpdateMin(mmHeap& heap, long id, long new_value) // update if new value is less
     {
         if (heap.isExisted(id))
         {
@@ -75,7 +70,7 @@ class SIA {
             heap.enqueue(id,new_value);
         return 0;
     }
-    int updateMinDist(int eid, int fromid, int toid)
+    inline bool updateMinDist(long eid, long fromid, long toid)
     {
         long cost = getCost(eid,fromid,toid);
         if (mindist[toid]>mindist[fromid]+cost) {
@@ -85,11 +80,11 @@ class SIA {
             {
                 heap_checkAndUpdateEdgeMin(globalH, toid);
             }
-            return 1;
+            return true;
         }
-        return 0;
+        return false;
     }
-    void updateHeaps(int eid, int fromid, int toid)
+    void updateHeaps(long eid, long fromid, long toid)
     {
         if (watched[fromid] == 0) return; //case when prefinal node : not all neighbours are considered => not watched,
         // but in globalH and in DijkH (!). so, if in dijkH => everything is fine (will be updated later)
@@ -106,7 +101,7 @@ class SIA {
     }
 
 public:
-    intT totalCost;
+    long totalCost;
     Timer timer;
 
     SIA(Graph* graph) {
@@ -115,9 +110,8 @@ public:
         reset();
     }
     ~SIA() {
-        delete[] free;
         delete[] flow;
-        delete[] nodeFlow;
+        delete[] excess;
         delete[] psi;
         delete[] QryCnt;
         delete[] mindist;
@@ -127,10 +121,10 @@ public:
 
     void reset();
 
-    int runOSIA() {
+    void runOSIA() {
         reset();
         double total = timer.getTime();
-        int q = 0;
+        long q = 0;
         while (totalflow < noA) {
             processId(q);
             q++;
@@ -139,15 +133,16 @@ public:
         timer.save_time("Total time", total);
 
         //calculate total cost
-        for (int i = 0; i < noB; i++) {
+        long long currentcost = 0;
+        for (long i = 0; i < noB; i++) {
             currentcost += g->E[g->V[i+noA].E[0]].weight;
         }
         totalCost = currentcost;
     }
 
     // Unit tests
-    bool test_has_path(int nodeId); // tests if nodeId is full (has path from Q to P)
-    bool test_mineid_path_exist(uintT target_node, uintT source_node);
+    bool test_has_path(long nodeId); // tests if nodeId is full (has path from Q to P)
+    bool test_mineid_path_exist(long target_node, long source_node);
 };
 
 #endif //NETWORKFLOW_SIA_H
