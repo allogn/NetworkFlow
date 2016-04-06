@@ -38,6 +38,9 @@ void SIA::reset() {
 
     mineid = new int[noA+noB];
     fill(mineid,mineid+noA+noB,-1);
+
+    watched = new int[noA+noB];
+    fill(watched,watched+noA+noB,0);
 }
 
 void SIA::augmentFlow(int lastid) {
@@ -75,20 +78,13 @@ void SIA::augmentFlow(int lastid) {
     }
 }
 
-int SIA::runDijkstra(int source_id) {
-
-    //reset mindist and watched and mineid
-    assert(dijkH.size() != 0); // dijkstra Heap must contain something
-
-    int current_node = dijkH.getTopIdx();// heap_dequeue(dijkH);
+int SIA::runDijkstra() {
+    assert(dijkH.size() != 0);
+    int current_node = dijkH.getTopIdx();
 
     //access node without troubles - no one will access it simultaneously
     while(1)
     {
-        //first node - from source always for each dijkstra
-        bool isBroken = false;
-
-        //traverse all neighbours and update alpha
         //traverse all neighbours and update alpha
         for (int i = 0; i < g->V[current_node].E.size(); i++)
         {
@@ -112,6 +108,8 @@ int SIA::runDijkstra(int source_id) {
 //            if (current_node < noA)
 //                enqueueNextEdge(sc,pc,current_node);
         heap_checkAndUpdateEdgeMin(globalH,current_node);
+        watched[current_node] = 1;
+
         dijkH.dequeue();
         if (dijkH.size() == 0)
         {
@@ -150,23 +148,26 @@ int SIA::insertEdgeFromHeap()
     return eid;
 }
 
-void SIA::iteration_reset(int nodeid_best_psi, int source_id) {
+void SIA::iteration_reset(int nodeid_best_psi) {
     long best_psi = mindist[nodeid_best_psi];
     dijkH.clear();
-    updateH.clear();
+    updateH.clear(); //add globalH clear
     for (int nodeid = 0; nodeid < g->n; nodeid++) {
-        if (mindist[nodeid] < best_psi) {
-            psi[nodeid] = psi[nodeid] - mindist[nodeid] + best_psi;
+        if (mindist[nodeid] < best_psi)
+        {
+            psi[nodeid] = psi[nodeid] - mindist[nodeid] + best_psi; //@todo check if parallel reset if potentials are correct
         }
     }
     fill(mindist,mindist+noA+noB,LONG_MAX);
     fill(mineid,mineid+noA+noB,-1);
+    fill(watched,watched+noA+noB,0);
 }
 
 void SIA::processId(int source_id)
 {
     int target_node = -1;
     mindist[source_id] = 0;
+    watched[source_id] = 1;
     heap_checkAndUpdateEdgeMin(globalH,source_id);
     dijkH.enqueue(source_id,0);
 
@@ -200,7 +201,7 @@ void SIA::processId(int source_id)
              */
         } while (dijkH.size() == 0 && target_node == -1);
 
-        target_node = runDijkstra(source_id);
+        target_node = runDijkstra();
 
         int gettaumax = 0;
         for (int i = 0; i<noA; i++)
@@ -221,7 +222,7 @@ void SIA::processId(int source_id)
     totalflow++;
 
     //release worklist
-    iteration_reset(target_node, source_id);
+    iteration_reset(target_node);
 }
 
 

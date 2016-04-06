@@ -64,6 +64,12 @@ public:
     vector<uintT> cursor;
 
     void clear_graph();
+    void clear_edge_list() {
+        for (int i = 0; i < n; i++) {
+            V[i].E.clear();
+        }
+        E.clear();
+    }
 
     inline uintT get_pair(uintT edgeId, uintT nodeId) const {
         return (E[edgeId].fromid == nodeId)?E[edgeId].toid:E[edgeId].fromid;

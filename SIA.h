@@ -10,6 +10,8 @@
 
 #include "Graph.h"
 #include "nheap.h"
+#include "TimerTool.h"
+
 //TODO optimization parameter for compiler
 class SIA {
     Graph* g;
@@ -25,20 +27,21 @@ class SIA {
     int* QryCnt;
     long* psi;
 
-    //public
     long* mindist;
     int* mineid;
+    int* watched;
 
     mmHeap dijkH;
     mmHeap globalH;
     mmHeap updateH;
+
 //todo clear globalH between iterations?
 
-    void iteration_reset(int nodeid_best_psi, int source_id); // worklist reset after one iteration
-    void augmentFlow(int lastid);
-    int insertEdgeFromHeap();
+    inline void iteration_reset(int nodeid_best_psi);
+    inline void augmentFlow(int lastid);
+    inline int insertEdgeFromHeap();
     void processId(int source_id);
-    int runDijkstra(int source_id);
+    inline int runDijkstra();
     inline long getCost(int eid, int fromid, int toid)
     { return (fromid<noA) ? g->E[eid].weight-psi[fromid]+psi[toid] : -g->E[eid].weight-psi[fromid]+psi[toid]; };
     inline long getEdgeCost(int edge_w, int fromid)
@@ -89,14 +92,14 @@ class SIA {
     }
     void updateHeaps(int eid, int fromid, int toid)
     {
+        if (watched[fromid] == 0) return; //case when prefinal node : not all neighbours are considered => not watched,
         // but in globalH and in DijkH (!). so, if in dijkH => everything is fine (will be updated later)
         if (updateMinDist(eid,fromid,toid)) {
             //no isUpdated because enheap only if updated dist
             if (!dijkH.isExisted(toid)) {
                 //isUpdated omitted here
-                if (heap_checkAndUpdateMin(updateH, toid, mindist[toid])) {
-                    dijkH.enqueue(toid, mindist[toid]);
-                }
+                if (watched[toid] == 1) heap_checkAndUpdateMin(updateH, toid, mindist[toid]);
+                else dijkH.enqueue(toid, mindist[toid]);
             } else {
                 dijkH.updatequeue(toid, mindist[toid]);
             }
@@ -105,6 +108,7 @@ class SIA {
 
 public:
     intT totalCost;
+    Timer timer;
 
     SIA(Graph* graph) {
         g = graph;
@@ -118,38 +122,27 @@ public:
         delete[] QryCnt;
         delete[] mindist;
         delete[] mineid;
+        delete[] watched;
     }
 
     void reset();
 
     int runOSIA() {
-        cout << "Running SIA..." << endl;
-
         assert(g->test_sorting());
         reset();
-
-        while (totalflow < noA)
-        {
-            int check;
-            for(int i = 0; i < noA; i++)
-            {
-                check=free[i];
-                free[i]|=1;
-
-                if (check == 0) {
-                    processId(i);
-                    break;
-                }
-            }
+        double total = timer.getTime();
+        int q = 0;
+        while (totalflow < noA) {
+            processId(q);
+            q++;
+            if (q >= noA) q = 0;
         }
-
+        timer.save_time("Total time", total);
 
         //calculate total cost
-        for (int i = 0; i < noB; i++)
-        {
+        for (int i = 0; i < noB; i++) {
             currentcost += g->E[g->V[i+noA].E[0]].weight;
         }
-
         totalCost = currentcost;
     }
 

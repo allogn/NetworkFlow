@@ -127,17 +127,25 @@ int main(int argc, const char **argv) {
     double result_cost;
     Timer algtimer;
     switch (algorithm) {
-        case 0:
+        case ALG_SIA: {
             //prepare graph
+            Timer sortTimer;
+            double sortingTime = sortTimer.getTime();
             g.sort_neighbors();
-            g.test_graph_structure();
-            g.test_sorting();
+            sortTimer.save_time("Sorting", sortingTime);
+            sortTimer.output(log_filename,experiment_id);
+            assert(g.test_graph_structure());
+            assert(g.test_sorting());
 
+            //run SIA <rounds> times
+            SIA SIAsolv(&g);
             for (int current_round = 1; current_round <= rounds; current_round++) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
-                SIA SIAsolv(&g);
+                g.clear_edge_list();
                 SIAsolv.runOSIA();
                 cout << "Total cost of SIA: " << SIAsolv.totalCost << endl;
+            }
+            SIAsolv.timer.output(log_filename, experiment_id);
             }
             break;
         case 1:
