@@ -3517,3 +3517,15 @@
 1875550796,Total time error,0
 1875550796,Total execution time,0.086715
 1875550796,Total execution time error,0
+780429607,DateTime,04-06-2016  11:43:33.
+780429607,Input file,../data/bipartite/bi_full_16_1_exp_1.gr
+780429607,Algorithm,SIA
+780429607,Type,FullBipartite
+780429607,Distribution,Exponential
+780429607,Lambda,1
+780429607,Edges,64
+780429607,Nodes,16
+780429607,Total time,5.635e-05
+780429607,Total time error,0
+780429607,Total execution time,0.0304306
+780429607,Total execution time error,0

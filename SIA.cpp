@@ -88,6 +88,11 @@ int SIA::runDijkstra() {
     //access node without troubles - no one will access it simultaneously
     while(1)
     {
+
+        if (nodeFlow[current_node] < 0)
+        {
+            return current_node;
+        }//todo why here not before looping through edges?
         //traverse all neighbours and update alpha
         for (int i = 0; i < g->V[current_node].E.size(); i++)
         {
@@ -100,13 +105,14 @@ int SIA::runDijkstra() {
 
 //            if (watched[node_id] == 1) continue;
 
-            if (isUpdated) dijkH.enqueue(node_id,mindist[node_id]); //todo if object exists already?
+            if (isUpdated) {
+                if (!dijkH.isExisted(node_id)) {
+                    dijkH.enqueue(node_id,mindist[node_id]);
+                } else {
+                    dijkH.updatequeue(node_id,mindist[node_id]);
+                }
+            } //todo if object exists already?
         }
-
-        if (nodeFlow[current_node] < 0)
-        {
-            return current_node;
-        }//todo why here not before looping through edges?
 
 //            if (current_node < noA)
 //                enqueueNextEdge(sc,pc,current_node);
@@ -130,21 +136,10 @@ int SIA::insertEdgeFromHeap()
     int fromid, tmp;
     globalH.dequeue(fromid, tmp);
 
-
-    //create new edge
-//    Edge e;
-////    e.flow = 1; // TODO why flow = 1????
-//    e.fromid = fromid;
-//    e.toid = g->V[fromid].fullE[sc.QryCnt[fromid]-1].node_pair_id;
-//    e.maxflow = 1;
-//    e.weight = g->V[fromid].fullE[sc.QryCnt[fromid]-1].weight;
-    uintT eid = g->fullE[fromid][QryCnt[fromid]-1];
-//    uintT eid = g->get_next_neighbour(fromid);
-    flow[eid] = 1;
-//
-//    int eid;
-//    eid = g->E.size();
-//    sc.edges.push_back(e);
+    assert(QryCnt[fromid] < g->fullE[fromid].size());
+    uintT eid = g->fullE[fromid][QryCnt[fromid]];
+    QryCnt[fromid]++;
+    flow[eid] = 1; //one because an edge from noA and noB has different meanings on flow, it is residual flow
 
     g->V[g->E[eid].fromid].E.push_back(eid);
     heap_checkAndUpdateEdgeMin(globalH,g->E[eid].fromid); //MUST BE HERE
@@ -154,7 +149,8 @@ int SIA::insertEdgeFromHeap()
 void SIA::iteration_reset(int nodeid_best_psi) {
     long best_psi = mindist[nodeid_best_psi];
     dijkH.clear();
-    updateH.clear(); //add globalH clear
+    updateH.clear();
+    globalH.clear();
     for (int nodeid = 0; nodeid < g->n; nodeid++) {
         if (mindist[nodeid] < best_psi)
         {
@@ -206,7 +202,7 @@ void SIA::processId(int source_id)
 
         target_node = runDijkstra();
 
-        int gettaumax = 0;
+        int gettaumax = 0; //todo maintain tau
         for (int i = 0; i<noA; i++)
         {
             if (mindist[i]<globalH.getTopValue() && gettaumax < psi[i])

@@ -54,14 +54,13 @@ class SIA {
         if (fromid >= noA) return 0;
         if (heap.isExisted(fromid))
         {
-            int weight = g->E[g->fullE[fromid][QryCnt[fromid]-1]].weight;
+            int weight = g->E[g->fullE[fromid][QryCnt[fromid]]].weight;
             heap.updatequeue(fromid, getEdgeCost(weight,fromid));
             return 1;
         }
 
         if (QryCnt[fromid] < noB) {
             heap.enqueue(fromid,getEdgeCost(g->E[g->fullE[fromid][QryCnt[fromid]]].weight,fromid));
-            QryCnt[fromid]++;
         }
         return 0;
     }
