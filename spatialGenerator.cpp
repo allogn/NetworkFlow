@@ -14,7 +14,7 @@ using namespace std;
 namespace po = boost::program_options;
 
 int main(int argc, const char** argv) {
-    std::cout << ":: Spatial Graph Generator ::" << std::endl;
+    std::cout << ":: Spatial Graph Generator running ::" << std::endl;
 
     // parsing parameters
     int distr;
@@ -94,4 +94,5 @@ int main(int argc, const char** argv) {
             }
             break;
     }
+    cout << "Done." << endl;
 }
