@@ -18,7 +18,7 @@ using namespace std;
 namespace po = boost::program_options;
 
 int main(int argc, const char **argv) {
-    std::cout << "Network Flows (c) Alvis Logins 2016" << std::endl;
+    std::cout << ":: Network Flows running ::" << std::endl;
     Timer timer;
     double totalRunningTime = timer.getTime();
 
@@ -72,7 +72,7 @@ int main(int argc, const char **argv) {
     gettimeofday(&time, NULL);
     srand((time.tv_sec * 1000) + (time.tv_usec / 1000));
     experiment_id = rand();
-    cout << "Experiment ID " << experiment_id << endl;
+    cout << BASH_YELLOW << "Experiment ID " << experiment_id << BASH_NC << endl;
 
     //init log file
     ofstream logf(log_filename, ios::app);
@@ -129,11 +129,9 @@ int main(int argc, const char **argv) {
     switch (algorithm) {
         case ALG_SIA: {
             //prepare graph
-            Timer sortTimer;
-            double sortingTime = sortTimer.getTime();
+            double sortingTime = algtimer.getTime();
             g.sort_neighbors();
-            sortTimer.save_time("Sorting", sortingTime);
-            sortTimer.output(log_filename,experiment_id);
+            algtimer.save_time("Sorting", sortingTime);
             assert(g.test_graph_structure());
             assert(g.test_sorting());
 
@@ -144,9 +142,10 @@ int main(int argc, const char **argv) {
                 g.clear_edge_list();
                 SIAsolv.runOSIA();
                 cout << "Total cost of SIA: " << SIAsolv.totalCost << endl;
+                cout << "Total time of SIA: " << SIAsolv.timer.timings["Total time"].back() << endl;
             }
             SIAsolv.timer.output(log_filename, experiment_id);
-            }
+        }
             break;
         case 1:
             g.add_all();

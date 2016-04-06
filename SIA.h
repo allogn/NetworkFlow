@@ -112,6 +112,7 @@ public:
 
     SIA(Graph* graph) {
         g = graph;
+        assert(g->test_sorting());
         reset();
     }
     ~SIA() {
@@ -128,7 +129,6 @@ public:
     void reset();
 
     int runOSIA() {
-        assert(g->test_sorting());
         reset();
         double total = timer.getTime();
         int q = 0;

@@ -4,16 +4,6 @@
 
 #include "Graph.h"
 
-void Graph::clear_graph() {
-    V.clear();
-    E.clear();
-    m = 0;
-    n = 0;
-    fullE.clear();
-    completeE.clear();
-    cursor.clear();
-}
-
 /*
  * @input
  * distr - type of weight distribution

@@ -63,12 +63,19 @@ public:
     vector<vector<uintT>> completeE; //contains IDs of all edges where a node participates
     vector<uintT> cursor;
 
-    void clear_graph();
+    void clear_graph() {
+        V.clear();
+        E.clear();
+        m = 0;
+        n = 0;
+        fullE.clear();
+        completeE.clear();
+        cursor.clear();
+    }
     void clear_edge_list() {
         for (int i = 0; i < n; i++) {
             V[i].E.clear();
         }
-        E.clear();
     }
 
     inline uintT get_pair(uintT edgeId, uintT nodeId) const {

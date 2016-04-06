@@ -5,6 +5,9 @@
 #include "SIA.h"
 
 void SIA::reset() {
+    globalH.clear();
+    dijkH.clear();
+    updateH.clear();
 
     if (g->n % 2 != 0) {
         cout << "Error: SIA algorithm applied on odd number of nodes" << endl;
