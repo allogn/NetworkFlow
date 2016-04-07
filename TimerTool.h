@@ -32,7 +32,7 @@ public:
     unordered_map<string, vector<double>> timings;
 
     static Timer *instance;
-    static double getTime()
+    static inline double getTime()
     {
 
 #ifdef WIN32

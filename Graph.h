@@ -96,9 +96,9 @@ public:
         completeE.clear();
     }
     void clear_edge_list() {
-        assert(rtree.size() > 0);
         for (long i = 0; i < n; i++) {
             if (isSpatial) {
+                assert(rtree.size() > 0);
                 QryIt[i] = rtree.qbegin(bgi::nearest(coords[i], (unsigned int)n)); //todo here is a problem! no more nodes than 65000
                 ++QryIt[i];//skip the node itself
             } else {
@@ -166,7 +166,6 @@ public:
         return;
     }
     void sort_neighbors() {
-        cout << "Sorting edges..." << endl;
         for (long i = 0; i < n; i++)
         {
             myqsort(fullE[i], 0, fullE[i].size()-1);

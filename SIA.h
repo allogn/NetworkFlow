@@ -32,6 +32,10 @@ class SIA {
     mmHeap globalH;
     mmHeap updateH;
 
+    //profiling counters
+    long total_iterations;
+    long total_dijkstra;
+
     inline void iteration_reset(long nodeid_best_psi);
     inline void augmentFlow(long lastid);
     inline long insertEdgeFromHeap();
@@ -138,6 +142,39 @@ public:
             currentcost += g->E[g->V[i+noA].E[0]].weight;
         }
         totalCost = currentcost;
+    }
+
+    void save_profile_data(string filename, long experiment_id) {
+        //calculate data about a graph
+        ofstream outf(filename,ios::app);
+
+        //mean and std of how much edges were added
+        double perc = 0;
+        double percSqr = 0;
+        double totalNodes = 0;
+        for (long i = 0; i < noA; i++) {
+            long added = 0;
+            //calculate how much inversed edges points to i-th node
+            for (long j = noA; j < g->n; j++) {
+                for (long k = 0; k < g->V[j].E.size(); k++) {
+                    long eid = g->V[j].E[k];
+                    if (g->E[eid].fromid == i || g->E[eid].toid == i) {
+                        added++;
+                    }
+                }
+            }
+            added += g->V[i].E.size();
+            double val = (double)added/(double)g->fullE[i].size();
+            perc += val;
+            assert(val >= 0 && val <= 1);
+            percSqr += val*val;
+        }
+        outf << experiment_id << ",Saturation mean," << perc/(double)noA << "\n";
+        outf << experiment_id << ",Saturation std," << sqrt(percSqr/(double)noA - (perc/(double)noA)*(perc/(double)noA)) << "\n";
+
+        outf << experiment_id << ",Dijkstra executions," << total_dijkstra << "\n";
+        outf << experiment_id << ",Iterations," << total_iterations << "\n";
+        outf.close();
     }
 
     // Unit tests

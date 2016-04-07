@@ -37,6 +37,9 @@ void SIA::reset() {
 
     watched = new bool[noA+noB];
     fill(watched,watched+noA+noB,0);
+
+    total_iterations = 0;
+    total_dijkstra = 0;
 }
 
 void SIA::augmentFlow(long lastid) {
@@ -72,6 +75,7 @@ void SIA::augmentFlow(long lastid) {
 }
 
 long SIA::runDijkstra() {
+    total_dijkstra++;
     assert(dijkH.size() != 0);
     long current_node = dijkH.getTopIdx();
 
@@ -144,6 +148,8 @@ void SIA::iteration_reset(long nodeid_best_psi) {
 
 void SIA::processId(long source_id)
 {
+    total_iterations = 0;
+    double time_start = timer.getTime();
     long target_node = -1;
     mindist[source_id] = 0;
     watched[source_id] = 1;
@@ -170,7 +176,9 @@ void SIA::processId(long source_id)
             }
         } while (dijkH.size() == 0);
 
+        double time_dijkstra = timer.getTime();
         target_node = runDijkstra();
+        timer.save_time("Dijkstra", time_dijkstra);
 
         long long gettaumax = 0;
         for (long i = 0; i<noA; i++)
@@ -182,6 +190,7 @@ void SIA::processId(long source_id)
         }
         taumax = gettaumax;
     };
+    double time_augment = timer.getTime();
     augmentFlow(target_node);
 
     //assuming one iterations makes exactly one node not free
@@ -191,6 +200,10 @@ void SIA::processId(long source_id)
 
     //raise potentials and clear everything after iteration
     iteration_reset(target_node);
+
+    //log time
+    timer.save_time("Process node", time_start);
+    timer.save_time("Augment and reset", time_augment);
 }
 
 
