@@ -4,13 +4,10 @@ project(NetworkFlow)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lrt")
 
-set(Boost_USE_STATIC_LIBS OFF)
+set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
-find_package(Boost 1.54.0 COMPONENTS program_options)
-
-set(gtest_SOURCE_DIR /media/alvis/Data/MasterThesis/NetworkFlow/lib/googletest/googletest)
-
+find_package(Boost 1.60.0 COMPONENTS program_options)
 include_directories(${Boost_INCLUDE_DIRS})
 
 set(SOURCE_FILES Graph.cpp Graph.h Common.h parallel.h SIA.cpp SIA.h TimerTool.cpp TimerTool.h

@@ -16,12 +16,25 @@
 #include <lemon/lgf_writer.h>
 #include <cstring>
 
+//for spatial objects
+#include <boost/geometry.hpp>
+#include <boost/geometry/geometries/point.hpp>
+#include <boost/geometry/geometries/box.hpp>
+#include <boost/geometry/index/rtree.hpp>
+
 #include "Common.h"
 #include "parallel.h"
 #include "quickSort.h"
 #include "utils.h"
 
 using namespace std;
+namespace bg = boost::geometry;
+namespace bgi = boost::geometry::index;
+
+//http://www.boost.org/doc/libs/1_60_0/libs/geometry/doc/html/geometry/spatial_indexes/rtree_examples/iterative_query.html
+typedef bg::model::point<double, 2, bg::cs::cartesian> point;
+typedef std::pair<point,long> value;
+typedef bgi::rtree< value, bgi::linear<16> > rtree_t;
 
 class Edge {
 public:
@@ -54,26 +67,34 @@ class Graph {
 public:
     long n;
     long m;
+    bool isSpatial;
+
+    //stiring cursor to next edge for each node
+    vector<long> QryCnt;
+    vector<rtree_t::const_query_iterator> QryIt;
 
     std::vector<Vertex> V;
     std::vector<Edge> E;
+    std::vector<point> coords;
 
     // additional data for incremental neighbour addition
     vector<vector<long>> fullE; //contains IDs of all outgoing edges
-    vector<vector<long>> completeE; //contains IDs of all edges where a node participates
-    vector<long> cursor;
+    vector<vector<long>> completeE; //contains IDs of all edges where a node participates (input and output)
+
+    rtree_t rtree;
 
     void clear_graph() {
         V.clear();
         E.clear();
         m = 0;
         n = 0;
+        QryCnt.clear();
         fullE.clear();
         completeE.clear();
-        cursor.clear();
     }
     void clear_edge_list() {
         for (long i = 0; i < n; i++) {
+            QryCnt[i] = 0;
             V[i].E.clear();
         }
     }
@@ -85,19 +106,29 @@ public:
         return E[edgeId].fromid == nodeId;
     }
 
-    // initialization for simple graph includes sorting and storing sorted edges
+    // initialization for simple graph includes storing edges
     // for spatial data - building NN data structure
     void init_neighbors() {
-        fullE.resize(n);
-        completeE.resize(n); // needed for SCS and Lemon
+        if (isSpatial) {
+            //init r-tree
+            for (long i = 0; i < n; i++) {
+                rtree.insert(std::make_pair(coords[i],i)); //todo make this r*-tree and bucket-based
+                QryIt[i] = rtree.qbegin(bgi::nearest(coords[i], (unsigned int)n)); //todo here is a problem! no more nodes than 65000
+                ++QryIt[i];//skip the node itself
+            }
+        } else {
+            //E is already filled
+            fullE.resize(n);
+            completeE.resize(n); // needed for SCS and Lemon
 
-        parallel_for(long i = 0; i < m; i++) {
-            fullE[E[i].fromid].push_back(i); // only forward edges in fullE
-            completeE[E[i].fromid].push_back(i);
-            completeE[E[i].toid].push_back(i);
+            parallel_for(long i = 0; i < m; i++) {
+                fullE[E[i].fromid].push_back(i); // only forward edges in fullE
+                completeE[E[i].fromid].push_back(i);
+                completeE[E[i].toid].push_back(i);
+            }
+            // pointer to the next element for insertion to E_sub
+            QryCnt.resize(n,0);
         }
-        // polonger to the next element for insertion to E_sub
-        cursor.resize(n,0);
     };
     void myqsort(std::vector<long>& edgelist, long start, long end) //TODO change to quicksort.h
     {
@@ -129,23 +160,48 @@ public:
             myqsort(fullE[i], 0, fullE[i].size()-1);
         }
     }
-    void add_all() {
-        cout << "Adding all edges to the edge lists of nodes..." << endl;
-        //clear first
-        for (long i = 0; i < n; i++) {
-            V[i].E.clear();
+
+    //checks if everything was added for particular node
+    inline bool isFull(long nodeId) {
+        if (isSpatial) {
+            return !(QryIt[nodeId] != rtree.qend());
         }
-        for (long i = 0; i < m; i++) {
-            V[E[i].fromid].E.push_back(i);
+        return QryCnt[nodeId] >= fullE[nodeId].size();
+    }
+
+    //returns weight of next candidate for addition
+    inline long get_next_neighbour_weight(long nodeId) {
+        if (isFull(nodeId)) {
+            return -1;
+        }
+        if (isSpatial) {
+            double d = bg::distance(coords[nodeId], QryIt[nodeId]->first);
+            return static_cast<long>(d);
+        } else {
+            return E[fullE[nodeId][QryCnt[nodeId]]].weight;
+        }
+    };
+    //return edge id
+    inline long insert_nn_to_edge_list(long nodeId) {
+        if (isFull(nodeId)) {
+            return -1;
+        }
+        if (isSpatial) {
+            Edge e(E.size());
+            e.capacity = 1;
+            e.fromid = nodeId;
+            e.toid = QryIt[nodeId]->second;
+            double d = bg::distance(coords[nodeId], QryIt[nodeId]->first);
+            e.weight = static_cast<int>(d);
+            e.lower = 0;
+            E.push_back(e);
+            QryIt[nodeId]++;
+            return E.size()-1;
+        } else {
+            //assuming everything is in E already
+            return fullE[nodeId][QryCnt[nodeId]++];
         }
     }
-    long get_next_neighbour(long nodeId) {
-        if (cursor[nodeId] >= V[nodeId].E.size()) {
-            cout << "Error: cursor is out of range" << endl;
-            exit(1);
-        }
-        return fullE[nodeId][cursor[nodeId]++];
-    };
 
     // graph generators
     void generate_full_bipartite_graph(long size, long param1, long param2 = 1000, long distr = 0);
@@ -157,6 +213,12 @@ public:
     void load_adj_graph(string filename);
     void save_graph_info(string filename, long experiment_id);
     void save_graph_blossom(string filname);
+
+//    /*
+//     * Spatial data
+//     */
+    void load_points(string filename, string log_filename = "", long experiment_id = 0);
+
 
     // operators
     bool operator==(const Graph &other) const {

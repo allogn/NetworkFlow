@@ -103,7 +103,6 @@ int main(int argc, const char** argv) {
             g.clear_graph();
             g.load_graph(path);
             g.init_neighbors();
-            g.add_all();
             CostScaling CostScalingSolv(&g);
             CostScalingSolv.runCostScaling();
             if (CostScalingSolv.totalCost != answer) {
@@ -117,7 +116,6 @@ int main(int argc, const char** argv) {
             g.load_graph(path);
             g.init_neighbors();
             g.sort_neighbors();
-            g.add_all();
             SCS SCSsolv(g);
             SCSsolv.runSCS();
             if (SCSsolv.totalCost != answer) {
@@ -131,7 +129,6 @@ int main(int argc, const char** argv) {
             g.clear_graph();
             g.load_graph(path);
             g.init_neighbors();
-            g.add_all();
             g.sort_neighbors();
             LSCS LSCSsolv(g);
             LSCSsolv.runLSCS();
@@ -145,7 +142,6 @@ int main(int argc, const char** argv) {
             g.clear_graph();
             g.load_graph(path);
             g.init_neighbors();
-            g.add_all();
             lemon::ListDigraph _graph;
             lemon::ListDigraph::ArcMap<int> weight(_graph);
             lemon::ListDigraph::ArcMap<int> flow(_graph);

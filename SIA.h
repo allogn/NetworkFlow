@@ -22,7 +22,6 @@ class SIA {
 
     int* flow; //residual flow in an edge
     long* excess;
-    long* QryCnt;
     long long* psi;
 
     long long* mindist;
@@ -47,15 +46,17 @@ class SIA {
     inline long heap_checkAndUpdateEdgeMin(mmHeap& heap, long fromid) // update if new value is less
     {
         if (fromid >= noA) return 0;
-        if (heap.isExisted(fromid))
-        {
-            long weight = g->E[g->fullE[fromid][QryCnt[fromid]]].weight;
-            heap.updatequeue(fromid, getEdgeCost(weight,fromid));
-            return 1;
-        }
+        long weight = g->get_next_neighbour_weight(fromid);
 
-        if (QryCnt[fromid] < noB) {
-            heap.enqueue(fromid,getEdgeCost(g->E[g->fullE[fromid][QryCnt[fromid]]].weight,fromid));
+        if (weight != -1) { //not full
+            if (heap.isExisted(fromid))
+            {
+                heap.updatequeue(fromid, getEdgeCost(weight,fromid));
+                return 1;
+            }
+            heap.enqueue(fromid,getEdgeCost(weight,fromid));
+        } else {
+            assert(!heap.isExisted(fromid)); //not full if exists in the heap
         }
         return 0;
     }
@@ -113,7 +114,6 @@ public:
         delete[] flow;
         delete[] excess;
         delete[] psi;
-        delete[] QryCnt;
         delete[] mindist;
         delete[] mineid;
         delete[] watched;

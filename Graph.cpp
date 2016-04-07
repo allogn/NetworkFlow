@@ -233,6 +233,8 @@ void Graph::load_graph(string filename, string log_filename, long experiment_id)
         E.push_back(e);
     }
     infile.close();
+
+    isSpatial = false;
 }
 
 bool Graph::test_save_load() {
@@ -395,4 +397,65 @@ void Graph::load_adj_graph(string filename) {
 
         }
     }
+}
+
+/*
+ * Input file format:
+ * # params values
+ * <number of nodes>
+ * (double)<x> (double)<y> (int)supply
+ */
+void Graph::load_points(string filename, string log_filename, long experiment_id) {
+    cout << "Loading spatial graph from " << filename << "..." << endl;
+    if (FILE *file = fopen(filename.c_str(), "r")) {
+        fclose(file);
+    } else {
+        cout << "File " << filename << " does not exist" << endl;
+        exit(1);
+    }
+    ifstream infile(filename);
+
+    if (log_filename != "") {
+        if (FILE *file = fopen(log_filename.c_str(), "r")) {
+            fclose(file);
+        } else {
+            cout << "File " << log_filename << " does not exist" << endl;
+            exit(1);
+        }
+    }
+    ofstream log(log_filename, ios::app);
+
+    //parse comments in the beginning of the file with parameters of data
+    string line;
+    long commentLines = 0;
+    string parameter,value;
+    while (infile >> line >> parameter >> value) {
+        if (line[0] != '#') {
+            infile.close();
+            infile.open(filename);
+            break;
+        }
+        commentLines++;
+        if (log_filename != "") log << experiment_id << "," << parameter << "," << value << "\n";
+    };
+
+    clear_graph();
+    for (long i = 0; i<commentLines; i++) infile >> line >> parameter >> value; //skip comments
+    infile >> n;
+    m = n*(n-1)/2;
+
+    if (log_filename != "") log << experiment_id << ",Edges," << m << "\n";
+    if (log_filename != "") log << experiment_id << ",Nodes," << n << "\n";
+    log.close();
+
+    long supply;
+    double x, y;
+    for (long i = 0; i < n; i++) {
+        infile >> x >> y >> supply;
+        V.push_back(Vertex(i, supply));
+        coords.push_back(point(x, y));
+    }
+    infile.close();
+
+    isSpatial = true;
 }

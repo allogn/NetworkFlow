@@ -26,9 +26,6 @@ void SIA::reset() {
     flow = new int[g->m];
     fill(flow,flow+g->m,0);
 
-    QryCnt = new long[noA];
-    fill(QryCnt,QryCnt+noA,0);
-
     psi = new long long[noA+noB];
     fill(psi,psi+noA+noB,0);
 
@@ -121,9 +118,8 @@ long SIA::insertEdgeFromHeap()
     long long tmp;
     globalH.dequeue(fromid, tmp);
 
-    assert(QryCnt[fromid] < g->fullE[fromid].size());
-    long eid = g->fullE[fromid][QryCnt[fromid]];
-    QryCnt[fromid]++;
+    long eid = g->insert_nn_to_edge_list(fromid);
+    assert(eid >= 0); // not full
     flow[eid] = 1; //one because an edge from noA and noB has different meanings on flow, it is residual flow
 
     g->V[g->E[eid].fromid].E.push_back(eid);
