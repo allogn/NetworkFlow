@@ -99,7 +99,7 @@ int main(int argc, const char** argv) {
             };
         }
 
-        if (algorithm == ALG_COST_SCALING) {
+        if (algorithm == ALG_COST_SCALING) {-
             g.clear_graph();
             g.load_graph(path);
             g.init_neighbors();

@@ -174,6 +174,8 @@ public:
 
         outf << experiment_id << ",Dijkstra executions," << total_dijkstra << "\n";
         outf << experiment_id << ",Iterations," << total_iterations << "\n";
+
+        outf << experiment_id << ",Total cost," << totalCost << "\n";
         outf.close();
     }
 

@@ -1,13 +1,13 @@
 #!/bin/bash
 DATADIR="../../data/bipartite/"
 
-SIZE=1024
+SIZE=16
 #7 : 1024 (2^10)
 #10: 8192
 #11: 16384
 #14: 131 072
 #17: 1M (2^20)
-for mult in {1..1..1};
+for mult in {1..7..1};
 do
 	for i in {1..3..1};
 	do

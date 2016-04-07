@@ -13,32 +13,53 @@
 #include "TimerTool.h"
 
 struct AssignE {
-    int from;
-    int to;
+    long from;
+    long to;
     int cost;
     int cap;
-    AssignE (int _from, int _to, int _cost, int _cap): from(_from), to(_to), cost(_cost), cap(_cap) {}
+    AssignE (long _from, long _to, int _cost, int _cap): from(_from), to(_to), cost(_cost), cap(_cap) {}
 };
 
 class LocalDominant {
     Graph* g;
 
-    std::queue<int> Q;
+    std::queue<long> Q;
     long* mate;
     long* candidate;
-    long total_weight_ld;
     vector<AssignE> assignEdgesLD;
 
-    void process_vertex(long nid, long* mate, long* candidate);
+    void process_vertex(long nid);
 public:
-    long totalCost;
-    Timer timer;
-
     LocalDominant(Graph* graph) {
         g = graph;
-        totalCost = 0;
+        mate = new long[g->n];
+        candidate = new long[g->n];
+    }
+    ~LocalDominant() {
+        delete[] mate;
+        delete[] candidate;
     }
     void runLocalDominant();
+    long totalCost() {
+        //calculate total cost and move result to AssignEdges
+        long totalCost = 0;
+        assert(g->n%2 == 0);
+        //TODO works only for bipartite graphs now and unit capacity
+        for (int i = 0; i < g->n/2; i++) {
+            //from i to mate[i]
+            for (int j = 0; j < g->completeE[i].size(); j++)
+            {
+                if (mate[i] == g->get_pair(g->completeE[i][j], i))
+                {
+                    int weight = g->E[g->completeE[i][j]].weight;
+                    assignEdgesLD.push_back(AssignE(i,mate[i],weight,1)); //capacity = 1 @todo capacity
+                    totalCost += weight;
+                    break;
+                }
+            }
+        }
+        return totalCost;
+    }
 };
 
 
