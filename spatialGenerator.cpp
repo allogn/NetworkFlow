@@ -61,16 +61,18 @@ int main(int argc, const char** argv) {
     std::random_shuffle(excessMap.begin(), excessMap.end());
 
     ofstream grfile(outf);
-    grfile << "# Type Random Points\n";
+    grfile << "# Type RandomPoints\n";
     switch (distr) {
         case 0:
             grfile << "# Distribution Uniform\n";
+            grfile << n << endl;
             for(long i = 0; i < n; i++) {
                 grfile << uniGen(generator) << " " << uniGen(generator) << " " << excessMap[i] << endl;
             }
             break;
         case 1:
             grfile << "# Distribution Gaussian\n";
+            grfile << n << endl;
             for(long i = 0; i < n; i++) {
                 double x, y;
                 grfile << gausGen(generator) << " " << gausGen(generator) << " " << excessMap[i] << endl;
@@ -78,6 +80,7 @@ int main(int argc, const char** argv) {
             break;
         case 2:
             grfile << "# Distribution Clusters\n";
+            grfile << n << endl;
             uniform_real_distribution<double> centerGen(0.2, 0.8);
             uniform_real_distribution<double> stdGen(0.05, 0.3);
             for (int cl = 0; cl < cl_num; cl++) {

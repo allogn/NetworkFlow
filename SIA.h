@@ -107,7 +107,7 @@ public:
 
     SIA(Graph* graph) {
         g = graph;
-        assert(g->test_sorting());
+        assert(g->isSpatial || g->test_sorting());
         reset();
     }
     ~SIA() {

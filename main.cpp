@@ -124,19 +124,25 @@ int main(int argc, const char **argv) {
 
     //init Graph (Common for all algorithms)
     Graph g;
-    g.load_graph(input_graph, log_filename, experiment_id);
+    if (input_graph.substr(input_graph.size()-3) == "sgr") {
+        g.load_points(input_graph, log_filename, experiment_id);
+    } else {
+        g.load_graph(input_graph, log_filename, experiment_id);
+    }
     g.init_neighbors();
     double result_cost;
     Timer algtimer;
     switch (algorithm) {
         case ALG_SIA: {
-            //prepare graph
-            double sortingTime = algtimer.getTime();
-            g.sort_neighbors();
-            algtimer.save_time("Sorting", sortingTime);
-            assert(g.test_graph_structure());
-            assert(g.test_sorting());
-
+            if (!g.isSpatial) {
+                //prepare graph
+                double sortingTime = algtimer.getTime();
+                g.sort_neighbors();
+                algtimer.save_time("Sorting", sortingTime);
+                assert(g.test_graph_structure());
+                assert(g.test_sorting());
+            }
+            
             //run SIA <rounds> times
             SIA SIAsolv(&g);
             for (int current_round = 1; current_round <= rounds; current_round++) {
@@ -150,7 +156,6 @@ int main(int argc, const char **argv) {
         }
             break;
         case 1:
-            g.add_all();
             for (int current_round = 1; current_round <= rounds; current_round++) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
                 CostScaling CostScalingSolv(&g);
@@ -159,7 +164,6 @@ int main(int argc, const char **argv) {
             }
             break;
         case 2:
-            g.add_all();
             for (int current_round = 1; current_round <= rounds; current_round++) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
                 LocalDominant LocalDominantSolv(&g);
@@ -168,7 +172,6 @@ int main(int argc, const char **argv) {
             }
             break;
         case 3:
-            g.add_all();
             for (int current_round = 1; current_round <= rounds; current_round++) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
                 lemon::ListDigraph _graph;
@@ -217,7 +220,6 @@ int main(int argc, const char **argv) {
             logf.close();
             break;
         case 4: {
-            g.add_all();
             g.sort_neighbors();
             SCS SCSsolv(g);
             for (int current_round = 1; current_round <= rounds; current_round++) {
@@ -234,7 +236,6 @@ int main(int argc, const char **argv) {
         }
             break;
         case 5:
-            g.add_all();
             for (int current_round = 1; current_round <= rounds; current_round++) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
                 lemon::ListDigraph _graph;
@@ -283,7 +284,6 @@ int main(int argc, const char **argv) {
             logf.close();
             break;
         case ALG_LSCS: {
-            g.add_all();
             g.sort_neighbors();
             LSCS LSCSsolv(g);
             for (int current_round = 1; current_round <= rounds; current_round++) {

@@ -401,7 +401,7 @@ void Graph::load_adj_graph(string filename) {
 
 /*
  * Input file format:
- * # params values
+ * # params values(with no spaces! beacuse ifstream used for parsing)
  * <number of nodes>
  * (double)<x> (double)<y> (int)supply
  */

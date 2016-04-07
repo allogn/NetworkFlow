@@ -27,13 +27,15 @@
 #include "quickSort.h"
 #include "utils.h"
 
+#define SCALE 1000 //scale for transform distance to long value
+
 using namespace std;
 namespace bg = boost::geometry;
 namespace bgi = boost::geometry::index;
 
 //http://www.boost.org/doc/libs/1_60_0/libs/geometry/doc/html/geometry/spatial_indexes/rtree_examples/iterative_query.html
 typedef bg::model::point<double, 2, bg::cs::cartesian> point;
-typedef std::pair<point,long> value;
+typedef std::pair<point, unsigned> value;//std::pair<point, unsigned> value;
 typedef bgi::rtree< value, bgi::linear<16> > rtree_t;
 
 class Edge {
@@ -89,12 +91,19 @@ public:
         m = 0;
         n = 0;
         QryCnt.clear();
+        QryIt.clear();
         fullE.clear();
         completeE.clear();
     }
     void clear_edge_list() {
+        assert(rtree.size() > 0);
         for (long i = 0; i < n; i++) {
-            QryCnt[i] = 0;
+            if (isSpatial) {
+                QryIt[i] = rtree.qbegin(bgi::nearest(coords[i], (unsigned int)n)); //todo here is a problem! no more nodes than 65000
+                ++QryIt[i];//skip the node itself
+            } else {
+                QryCnt[i] = 0;
+            }
             V[i].E.clear();
         }
     }
@@ -113,6 +122,9 @@ public:
             //init r-tree
             for (long i = 0; i < n; i++) {
                 rtree.insert(std::make_pair(coords[i],i)); //todo make this r*-tree and bucket-based
+            }
+            QryIt.resize(n);
+            for (long i = 0; i < n; i++) {
                 QryIt[i] = rtree.qbegin(bgi::nearest(coords[i], (unsigned int)n)); //todo here is a problem! no more nodes than 65000
                 ++QryIt[i];//skip the node itself
             }
@@ -176,7 +188,7 @@ public:
         }
         if (isSpatial) {
             double d = bg::distance(coords[nodeId], QryIt[nodeId]->first);
-            return static_cast<long>(d);
+            return static_cast<long>(d*SCALE);
         } else {
             return E[fullE[nodeId][QryCnt[nodeId]]].weight;
         }
@@ -192,7 +204,7 @@ public:
             e.fromid = nodeId;
             e.toid = QryIt[nodeId]->second;
             double d = bg::distance(coords[nodeId], QryIt[nodeId]->first);
-            e.weight = static_cast<int>(d);
+            e.weight = static_cast<int>(d*SCALE);
             e.lower = 0;
             E.push_back(e);
             QryIt[nodeId]++;
