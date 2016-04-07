@@ -1,0 +1,900 @@
+64721784,Input file,bi_full_32_1_exp_1.bl
+64721784,Nodes,32
+64721784,Edges,256
+64721784,Total time,0.000
+64721784,Total cost,195
+33588085,Input file,bi_full_32_1_exp_3.bl
+33588085,Nodes,32
+33588085,Edges,256
+33588085,Total time,0.000
+33588085,Total cost,143
+39232843,Input file,bi_full_4096_1_100_uni_4.bl
+39232843,Nodes,4096
+39232843,Edges,4194304
+39232843,Total time,0.558
+39232843,Total cost,2048
+32235750,Input file,bi_full_512_1_exp_4.bl
+32235750,Nodes,512
+32235750,Edges,65536
+32235750,Total time,0.009
+32235750,Total cost,55
+95280540,Input file,bi_full_128_1_exp_2.bl
+95280540,Nodes,128
+95280540,Edges,4096
+95280540,Total time,0.000
+95280540,Total cost,150
+61616419,Input file,bi_full_1024_30_10_gauss_3.bl
+61616419,Nodes,1024
+61616419,Edges,262144
+61616419,Total time,0.051
+61616419,Total cost,1219
+60486759,Input file,bi_full_256_1_exp_4.bl
+60486759,Nodes,256
+60486759,Edges,16384
+60486759,Total time,0.002
+60486759,Total cost,107
+38602840,Input file,bi_full_1024_1_100_uni_1.bl
+38602840,Nodes,1024
+38602840,Edges,262144
+38602840,Total time,0.057
+38602840,Total cost,521
+76754997,Input file,bi_full_8192_30_10_gauss_5.bl
+76754997,Nodes,8192
+76754997,Edges,16777216
+76754997,Total time,40.418
+76754997,Total cost,212
+32973622,Input file,bi_full_1024_1_exp_3.bl
+32973622,Nodes,1024
+32973622,Edges,262144
+32973622,Total time,0.055
+32973622,Total cost,6
+94554738,Input file,bi_full_16_30_10_gauss_5.bl
+94554738,Nodes,16
+94554738,Edges,64
+94554738,Total time,0.000
+94554738,Total cost,142
+17007065,Input file,bi_full_32_1_100_uni_3.bl
+17007065,Nodes,32
+17007065,Edges,256
+17007065,Total time,0.000
+17007065,Total cost,168
+71920689,Input file,bi_full_4096_30_10_gauss_1.bl
+71920689,Nodes,4096
+71920689,Edges,4194304
+71920689,Total time,7.060
+71920689,Total cost,887
+95324654,Input file,bi_full_32768_1_exp_1.bl
+95324654,Nodes,32768
+95324654,Edges,268435456
+95324654,Total time,14.848
+95324654,Total cost,0
+41215950,Input file,bi_full_128_1_exp_1.bl
+41215950,Nodes,128
+41215950,Edges,4096
+41215950,Total time,0.002
+41215950,Total cost,156
+84970847,Input file,bi_full_4096_1_100_uni_5.bl
+84970847,Nodes,4096
+84970847,Edges,4194304
+84970847,Total time,0.586
+84970847,Total cost,2048
+83017608,Input file,bi_full_16384_1_100_uni_5.bl
+83017608,Nodes,16384
+83017608,Edges,67108864
+83017608,Total time,4.210
+83017608,Total cost,8192
+70290035,Input file,bi_full_16384_30_10_gauss_3.bl
+70290035,Nodes,16384
+70290035,Edges,67108864
+70290035,Total time,117.160
+70290035,Total cost,11
+51401025,Input file,bi_full_16384_1_100_uni_4.bl
+51401025,Nodes,16384
+51401025,Edges,67108864
+51401025,Total time,3.755
+51401025,Total cost,8192
+14618283,Input file,bi_full_16_1_exp_5.bl
+14618283,Nodes,16
+14618283,Edges,64
+14618283,Total time,0.000
+14618283,Total cost,122
+44408400,Input file,bi_full_32768_1_100_uni_1.bl
+44408400,Nodes,32768
+44408400,Edges,268435456
+44408400,Total time,13.488
+44408400,Total cost,16384
+89266636,Input file,bi_full_256_1_100_uni_5.bl
+89266636,Nodes,256
+89266636,Edges,16384
+89266636,Total time,0.003
+89266636,Total cost,216
+35936196,Input file,bi_full_16384_1_100_uni_3.bl
+35936196,Nodes,16384
+35936196,Edges,67108864
+35936196,Total time,4.196
+35936196,Total cost,8192
+68188652,Input file,bi_full_512_1_exp_5.bl
+68188652,Nodes,512
+68188652,Edges,65536
+68188652,Total time,0.010
+68188652,Total cost,53
+93801786,Input file,bi_full_16_1_100_uni_2.bl
+93801786,Nodes,16
+93801786,Edges,64
+93801786,Total time,0.000
+93801786,Total cost,132
+46040355,Input file,bi_full_8192_30_10_gauss_4.bl
+46040355,Nodes,8192
+46040355,Edges,16777216
+46040355,Total time,43.388
+46040355,Total cost,240
+88603330,Input file,bi_full_1024_30_10_gauss_5.bl
+88603330,Nodes,1024
+88603330,Edges,262144
+88603330,Total time,0.054
+88603330,Total cost,1159
+67067466,Input file,bi_full_16_1_100_uni_4.bl
+67067466,Nodes,16
+67067466,Edges,64
+67067466,Total time,0.000
+67067466,Total cost,183
+75797688,Input file,bi_full_32_1_100_uni_1.bl
+75797688,Nodes,32
+75797688,Edges,256
+75797688,Total time,0.000
+75797688,Total cost,194
+56966259,Input file,bi_full_1024_1_100_uni_4.bl
+56966259,Nodes,1024
+56966259,Edges,262144
+56966259,Total time,0.036
+56966259,Total cost,516
+71907672,Input file,bi_full_32_1_100_uni_2.bl
+71907672,Nodes,32
+71907672,Edges,256
+71907672,Total time,0.000
+71907672,Total cost,159
+86454741,Input file,bi_full_32768_30_10_gauss_3.bl
+86454741,Nodes,32768
+86454741,Edges,268435456
+86454741,Total time,229.220
+86454741,Total cost,0
+82721749,Input file,bi_full_128_30_10_gauss_4.bl
+82721749,Nodes,128
+82721749,Edges,4096
+82721749,Total time,0.001
+82721749,Total cost,503
+64456039,Input file,bi_full_128_1_exp_5.bl
+64456039,Nodes,128
+64456039,Edges,4096
+64456039,Total time,0.001
+64456039,Total cost,154
+34290173,Input file,bi_full_8192_1_100_uni_2.bl
+34290173,Nodes,8192
+34290173,Edges,16777216
+34290173,Total time,1.607
+34290173,Total cost,4096
+68646094,Input file,bi_full_256_30_10_gauss_1.bl
+68646094,Nodes,256
+68646094,Edges,16384
+68646094,Total time,0.002
+68646094,Total cost,747
+33807429,Input file,bi_full_32768_1_100_uni_3.bl
+33807429,Nodes,32768
+33807429,Edges,268435456
+33807429,Total time,12.786
+33807429,Total cost,16384
+30680184,Input file,bi_full_2048_1_100_uni_2.bl
+30680184,Nodes,2048
+30680184,Edges,1048576
+30680184,Total time,0.333
+30680184,Total cost,1024
+23880310,Input file,bi_full_256_1_100_uni_2.bl
+23880310,Nodes,256
+23880310,Edges,16384
+23880310,Total time,0.003
+23880310,Total cost,230
+10621972,Input file,bi_full_128_30_10_gauss_3.bl
+10621972,Nodes,128
+10621972,Edges,4096
+10621972,Total time,0.000
+10621972,Total cost,503
+64735421,Input file,bi_full_512_30_10_gauss_2.bl
+64735421,Nodes,512
+64735421,Edges,65536
+64735421,Total time,0.009
+64735421,Total cost,979
+59318386,Input file,bi_full_512_1_exp_3.bl
+59318386,Nodes,512
+59318386,Edges,65536
+59318386,Total time,0.009
+59318386,Total cost,56
+50007071,Input file,bi_full_128_1_exp_3.bl
+50007071,Nodes,128
+50007071,Edges,4096
+50007071,Total time,0.000
+50007071,Total cost,137
+90997936,Input file,bi_full_128_30_10_gauss_2.bl
+90997936,Nodes,128
+90997936,Edges,4096
+90997936,Total time,0.000
+90997936,Total cost,546
+56862474,Input file,bi_full_2048_1_100_uni_5.bl
+56862474,Nodes,2048
+56862474,Edges,1048576
+56862474,Total time,0.242
+56862474,Total cost,1024
+76069905,Input file,bi_full_8192_1_exp_4.bl
+76069905,Nodes,8192
+76069905,Edges,16777216
+76069905,Total time,1.714
+76069905,Total cost,0
+60709646,Input file,bi_full_4096_1_exp_5.bl
+60709646,Nodes,4096
+60709646,Edges,4194304
+60709646,Total time,0.482
+60709646,Total cost,0
+43665236,Input file,bi_full_512_30_10_gauss_5.bl
+43665236,Nodes,512
+43665236,Edges,65536
+43665236,Total time,0.008
+43665236,Total cost,1000
+75252133,Input file,bi_full_1024_1_100_uni_2.bl
+75252133,Nodes,1024
+75252133,Edges,262144
+75252133,Total time,0.043
+75252133,Total cost,519
+56915714,Input file,bi_full_32768_30_10_gauss_1.bl
+56915714,Nodes,32768
+56915714,Edges,268435456
+56915714,Total time,234.261
+56915714,Total cost,0
+40081201,Input file,bi_full_32_1_exp_4.bl
+40081201,Nodes,32
+40081201,Edges,256
+40081201,Total time,0.000
+40081201,Total cost,125
+90295076,Input file,bi_full_2048_1_exp_1.bl
+90295076,Nodes,2048
+90295076,Edges,1048576
+90295076,Total time,0.318
+90295076,Total cost,1
+61931012,Input file,bi_full_128_1_100_uni_1.bl
+61931012,Nodes,128
+61931012,Edges,4096
+61931012,Total time,0.000
+61931012,Total cost,201
+20156943,Input file,bi_full_1024_1_exp_2.bl
+20156943,Nodes,1024
+20156943,Edges,262144
+20156943,Total time,0.035
+20156943,Total cost,2
+27331280,Input file,bi_full_2048_30_10_gauss_4.bl
+27331280,Nodes,2048
+27331280,Edges,1048576
+27331280,Total time,0.654
+27331280,Total cost,1204
+70457509,Input file,bi_full_32768_1_100_uni_5.bl
+70457509,Nodes,32768
+70457509,Edges,268435456
+70457509,Total time,12.939
+70457509,Total cost,16384
+37842920,Input file,bi_full_16_1_exp_1.bl
+37842920,Nodes,16
+37842920,Edges,64
+37842920,Total time,0.000
+37842920,Total cost,126
+73790964,Input file,bi_full_4096_1_100_uni_1.bl
+73790964,Nodes,4096
+73790964,Edges,4194304
+73790964,Total time,0.744
+73790964,Total cost,2048
+22987498,Input file,bi_full_32_1_100_uni_5.bl
+22987498,Nodes,32
+22987498,Edges,256
+22987498,Total time,0.000
+22987498,Total cost,154
+98931782,Input file,bi_full_2048_1_exp_2.bl
+98931782,Nodes,2048
+98931782,Edges,1048576
+98931782,Total time,0.253
+98931782,Total cost,0
+68076789,Input file,bi_full_8192_1_100_uni_1.bl
+68076789,Nodes,8192
+68076789,Edges,16777216
+68076789,Total time,1.651
+68076789,Total cost,4096
+19469024,Input file,bi_full_8192_30_10_gauss_1.bl
+19469024,Nodes,8192
+19469024,Edges,16777216
+19469024,Total time,47.513
+19469024,Total cost,241
+53455091,Input file,bi_full_512_1_100_uni_2.bl
+53455091,Nodes,512
+53455091,Edges,65536
+53455091,Total time,0.011
+53455091,Total cost,304
+29893473,Input file,bi_full_64_1_exp_5.bl
+29893473,Nodes,64
+29893473,Edges,1024
+29893473,Total time,0.000
+29893473,Total cost,137
+76297251,Input file,bi_full_512_1_exp_1.bl
+76297251,Nodes,512
+76297251,Edges,65536
+76297251,Total time,0.010
+76297251,Total cost,51
+55666284,Input file,bi_full_128_1_100_uni_4.bl
+55666284,Nodes,128
+55666284,Edges,4096
+55666284,Total time,0.000
+55666284,Total cost,206
+65325193,Input file,bi_full_64_30_10_gauss_1.bl
+65325193,Nodes,64
+65325193,Edges,1024
+65325193,Total time,0.000
+65325193,Total cost,285
+24903412,Input file,bi_full_64_1_exp_2.bl
+24903412,Nodes,64
+24903412,Edges,1024
+24903412,Total time,0.000
+24903412,Total cost,123
+88223044,Input file,bi_full_16_30_10_gauss_1.bl
+88223044,Nodes,16
+88223044,Edges,64
+88223044,Total time,0.000
+88223044,Total cost,159
+51889621,Input file,bi_full_512_1_100_uni_5.bl
+51889621,Nodes,512
+51889621,Edges,65536
+51889621,Total time,0.010
+51889621,Total cost,306
+11074180,Input file,bi_full_256_1_exp_3.bl
+11074180,Nodes,256
+11074180,Edges,16384
+11074180,Total time,0.002
+11074180,Total cost,119
+59199994,Input file,bi_full_512_30_10_gauss_4.bl
+59199994,Nodes,512
+59199994,Edges,65536
+59199994,Total time,0.010
+59199994,Total cost,1016
+94867546,Input file,bi_full_16384_1_exp_3.bl
+94867546,Nodes,16384
+94867546,Edges,67108864
+94867546,Total time,3.923
+94867546,Total cost,0
+68113715,Input file,bi_full_32_30_10_gauss_3.bl
+68113715,Nodes,32
+68113715,Edges,256
+68113715,Total time,0.000
+68113715,Total cost,236
+62868639,Input file,bi_full_2048_1_exp_5.bl
+62868639,Nodes,2048
+62868639,Edges,1048576
+62868639,Total time,0.223
+62868639,Total cost,0
+20642445,Input file,bi_full_512_30_10_gauss_3.bl
+20642445,Nodes,512
+20642445,Edges,65536
+20642445,Total time,0.008
+20642445,Total cost,982
+21871107,Input file,bi_full_16384_30_10_gauss_4.bl
+21871107,Nodes,16384
+21871107,Edges,67108864
+21871107,Total time,116.623
+21871107,Total cost,12
+23021086,Input file,bi_full_8192_1_exp_1.bl
+23021086,Nodes,8192
+23021086,Edges,16777216
+23021086,Total time,1.663
+23021086,Total cost,0
+12187255,Input file,bi_full_32_30_10_gauss_2.bl
+12187255,Nodes,32
+12187255,Edges,256
+12187255,Total time,0.000
+12187255,Total cost,225
+60160748,Input file,bi_full_256_1_100_uni_4.bl
+60160748,Nodes,256
+60160748,Edges,16384
+60160748,Total time,0.002
+60160748,Total cost,230
+65306061,Input file,bi_full_256_1_exp_1.bl
+65306061,Nodes,256
+65306061,Edges,16384
+65306061,Total time,0.002
+65306061,Total cost,101
+48133069,Input file,bi_full_16384_1_100_uni_2.bl
+48133069,Nodes,16384
+48133069,Edges,67108864
+48133069,Total time,4.214
+48133069,Total cost,8192
+83608922,Input file,bi_full_512_1_100_uni_3.bl
+83608922,Nodes,512
+83608922,Edges,65536
+83608922,Total time,0.010
+83608922,Total cost,312
+93199038,Input file,bi_full_32_30_10_gauss_4.bl
+93199038,Nodes,32
+93199038,Edges,256
+93199038,Total time,0.000
+93199038,Total cost,209
+46222827,Input file,bi_full_32_1_100_uni_4.bl
+46222827,Nodes,32
+46222827,Edges,256
+46222827,Total time,0.000
+46222827,Total cost,159
+24753810,Input file,bi_full_256_1_exp_5.bl
+24753810,Nodes,256
+24753810,Edges,16384
+24753810,Total time,0.002
+24753810,Total cost,111
+37501329,Input file,bi_full_8192_30_10_gauss_3.bl
+37501329,Nodes,8192
+37501329,Edges,16777216
+37501329,Total time,43.214
+37501329,Total cost,253
+87223631,Input file,bi_full_16_30_10_gauss_2.bl
+87223631,Nodes,16
+87223631,Edges,64
+87223631,Total time,0.000
+87223631,Total cost,145
+13705680,Input file,bi_full_64_30_10_gauss_5.bl
+13705680,Nodes,64
+13705680,Edges,1024
+13705680,Total time,0.000
+13705680,Total cost,372
+14146820,Input file,bi_full_32_1_exp_5.bl
+14146820,Nodes,32
+14146820,Edges,256
+14146820,Total time,0.000
+14146820,Total cost,185
+60881784,Input file,bi_full_16384_1_exp_2.bl
+60881784,Nodes,16384
+60881784,Edges,67108864
+60881784,Total time,4.567
+60881784,Total cost,0
+59121540,Input file,bi_full_1024_1_exp_1.bl
+59121540,Nodes,1024
+59121540,Edges,262144
+59121540,Total time,0.027
+59121540,Total cost,6
+21007688,Input file,bi_full_16384_30_10_gauss_1.bl
+21007688,Nodes,16384
+21007688,Edges,67108864
+21007688,Total time,106.818
+21007688,Total cost,13
+83041907,Input file,bi_full_256_30_10_gauss_2.bl
+83041907,Nodes,256
+83041907,Edges,16384
+83041907,Total time,0.002
+83041907,Total cost,752
+16528462,Input file,bi_full_256_1_exp_2.bl
+16528462,Nodes,256
+16528462,Edges,16384
+16528462,Total time,0.002
+16528462,Total cost,95
+87267805,Input file,bi_full_128_1_exp_4.bl
+87267805,Nodes,128
+87267805,Edges,4096
+87267805,Total time,0.000
+87267805,Total cost,129
+47307425,Input file,bi_full_1024_1_100_uni_5.bl
+47307425,Nodes,1024
+47307425,Edges,262144
+47307425,Total time,0.040
+47307425,Total cost,519
+26304493,Input file,bi_full_1024_30_10_gauss_2.bl
+26304493,Nodes,1024
+26304493,Edges,262144
+26304493,Total time,0.047
+26304493,Total cost,1226
+75843631,Input file,bi_full_2048_30_10_gauss_1.bl
+75843631,Nodes,2048
+75843631,Edges,1048576
+75843631,Total time,0.818
+75843631,Total cost,1178
+92550833,Input file,bi_full_512_1_100_uni_1.bl
+92550833,Nodes,512
+92550833,Edges,65536
+92550833,Total time,0.009
+92550833,Total cost,300
+86416011,Input file,bi_full_128_1_100_uni_3.bl
+86416011,Nodes,128
+86416011,Edges,4096
+86416011,Total time,0.000
+86416011,Total cost,183
+80896694,Input file,bi_full_64_1_100_uni_3.bl
+80896694,Nodes,64
+80896694,Edges,1024
+80896694,Total time,0.000
+80896694,Total cost,191
+57229022,Input file,bi_full_4096_30_10_gauss_3.bl
+57229022,Nodes,4096
+57229022,Edges,4194304
+57229022,Total time,5.981
+57229022,Total cost,851
+14219712,Input file,bi_full_4096_30_10_gauss_5.bl
+14219712,Nodes,4096
+14219712,Edges,4194304
+14219712,Total time,5.233
+14219712,Total cost,806
+31022664,Input file,bi_full_64_1_100_uni_1.bl
+31022664,Nodes,64
+31022664,Edges,1024
+31022664,Total time,0.000
+31022664,Total cost,170
+76055751,Input file,bi_full_32768_30_10_gauss_5.bl
+76055751,Nodes,32768
+76055751,Edges,268435456
+76055751,Total time,206.343
+76055751,Total cost,0
+45569192,Input file,bi_full_256_1_100_uni_1.bl
+45569192,Nodes,256
+45569192,Edges,16384
+45569192,Total time,0.003
+45569192,Total cost,232
+86998923,Input file,bi_full_2048_1_100_uni_1.bl
+86998923,Nodes,2048
+86998923,Edges,1048576
+86998923,Total time,0.285
+86998923,Total cost,1024
+58327094,Input file,bi_full_4096_1_exp_1.bl
+58327094,Nodes,4096
+58327094,Edges,4194304
+58327094,Total time,0.613
+58327094,Total cost,0
+85773831,Input file,bi_full_64_1_100_uni_5.bl
+85773831,Nodes,64
+85773831,Edges,1024
+85773831,Total time,0.000
+85773831,Total cost,146
+22813238,Input file,bi_full_8192_30_10_gauss_2.bl
+22813238,Nodes,8192
+22813238,Edges,16777216
+22813238,Total time,43.050
+22813238,Total cost,250
+48928433,Input file,bi_full_1024_1_100_uni_3.bl
+48928433,Nodes,1024
+48928433,Edges,262144
+48928433,Total time,0.039
+48928433,Total cost,515
+57931180,Input file,bi_full_32768_30_10_gauss_2.bl
+57931180,Nodes,32768
+57931180,Edges,268435456
+57931180,Total time,208.191
+57931180,Total cost,0
+49712876,Input file,bi_full_64_30_10_gauss_2.bl
+49712876,Nodes,64
+49712876,Edges,1024
+49712876,Total time,0.000
+49712876,Total cost,365
+46880152,Input file,bi_full_4096_1_100_uni_2.bl
+46880152,Nodes,4096
+46880152,Edges,4194304
+46880152,Total time,0.685
+46880152,Total cost,2048
+36243571,Input file,bi_full_16384_1_exp_1.bl
+36243571,Nodes,16384
+36243571,Edges,67108864
+36243571,Total time,4.309
+36243571,Total cost,0
+30220798,Input file,bi_full_8192_1_100_uni_3.bl
+30220798,Nodes,8192
+30220798,Edges,16777216
+30220798,Total time,1.492
+30220798,Total cost,4096
+71663433,Input file,bi_full_32768_1_100_uni_4.bl
+71663433,Nodes,32768
+71663433,Edges,268435456
+71663433,Total time,14.137
+71663433,Total cost,16384
+72285065,Input file,bi_full_8192_1_exp_3.bl
+72285065,Nodes,8192
+72285065,Edges,16777216
+72285065,Total time,1.669
+72285065,Total cost,0
+64269476,Input file,bi_full_4096_1_100_uni_3.bl
+64269476,Nodes,4096
+64269476,Edges,4194304
+64269476,Total time,0.696
+64269476,Total cost,2048
+49745284,Input file,bi_full_4096_30_10_gauss_2.bl
+49745284,Nodes,4096
+49745284,Edges,4194304
+49745284,Total time,5.960
+49745284,Total cost,830
+20386055,Input file,bi_full_256_1_100_uni_3.bl
+20386055,Nodes,256
+20386055,Edges,16384
+20386055,Total time,0.006
+20386055,Total cost,247
+72359899,Input file,bi_full_64_1_exp_4.bl
+72359899,Nodes,64
+72359899,Edges,1024
+72359899,Total time,0.000
+72359899,Total cost,129
+86208946,Input file,bi_full_2048_30_10_gauss_3.bl
+86208946,Nodes,2048
+86208946,Edges,1048576
+86208946,Total time,0.944
+86208946,Total cost,1134
+23908562,Input file,bi_full_16384_30_10_gauss_2.bl
+23908562,Nodes,16384
+23908562,Edges,67108864
+23908562,Total time,108.677
+23908562,Total cost,12
+62366569,Input file,bi_full_64_30_10_gauss_4.bl
+62366569,Nodes,64
+62366569,Edges,1024
+62366569,Total time,0.000
+62366569,Total cost,360
+64470173,Input file,bi_full_32_30_10_gauss_1.bl
+64470173,Nodes,32
+64470173,Edges,256
+64470173,Total time,0.000
+64470173,Total cost,221
+97096817,Input file,bi_full_16384_1_exp_4.bl
+97096817,Nodes,16384
+97096817,Edges,67108864
+97096817,Total time,4.333
+97096817,Total cost,0
+53464533,Input file,bi_full_32_30_10_gauss_5.bl
+53464533,Nodes,32
+53464533,Edges,256
+53464533,Total time,0.000
+53464533,Total cost,248
+65775057,Input file,bi_full_32768_30_10_gauss_4.bl
+65775057,Nodes,32768
+65775057,Edges,268435456
+65775057,Total time,240.209
+65775057,Total cost,0
+83481827,Input file,bi_full_8192_1_100_uni_5.bl
+83481827,Nodes,8192
+83481827,Edges,16777216
+83481827,Total time,1.577
+83481827,Total cost,4096
+78549586,Input file,bi_full_4096_1_exp_3.bl
+78549586,Nodes,4096
+78549586,Edges,4194304
+78549586,Total time,0.603
+78549586,Total cost,0
+31526519,Input file,bi_full_16384_30_10_gauss_5.bl
+31526519,Nodes,16384
+31526519,Edges,67108864
+31526519,Total time,116.405
+31526519,Total cost,8
+95770577,Input file,bi_full_256_30_10_gauss_3.bl
+95770577,Nodes,256
+95770577,Edges,16384
+95770577,Total time,0.004
+95770577,Total cost,794
+38232464,Input file,bi_full_32768_1_exp_3.bl
+38232464,Nodes,32768
+38232464,Edges,268435456
+38232464,Total time,14.182
+38232464,Total cost,0
+75002845,Input file,bi_full_16384_1_exp_5.bl
+75002845,Nodes,16384
+75002845,Edges,67108864
+75002845,Total time,4.685
+75002845,Total cost,0
+76645556,Input file,bi_full_256_30_10_gauss_5.bl
+76645556,Nodes,256
+76645556,Edges,16384
+76645556,Total time,0.002
+76645556,Total cost,721
+87184687,Input file,bi_full_2048_1_100_uni_4.bl
+87184687,Nodes,2048
+87184687,Edges,1048576
+87184687,Total time,0.297
+87184687,Total cost,1024
+62728424,Input file,bi_full_4096_1_exp_2.bl
+62728424,Nodes,4096
+62728424,Edges,4194304
+62728424,Total time,0.621
+62728424,Total cost,0
+32938454,Input file,bi_full_2048_1_exp_3.bl
+32938454,Nodes,2048
+32938454,Edges,1048576
+32938454,Total time,0.292
+32938454,Total cost,1
+55656358,Input file,bi_full_1024_30_10_gauss_4.bl
+55656358,Nodes,1024
+55656358,Edges,262144
+55656358,Total time,0.058
+55656358,Total cost,1099
+34482116,Input file,bi_full_8192_1_exp_2.bl
+34482116,Nodes,8192
+34482116,Edges,16777216
+34482116,Total time,1.806
+34482116,Total cost,0
+41750218,Input file,bi_full_128_1_100_uni_2.bl
+41750218,Nodes,128
+41750218,Edges,4096
+41750218,Total time,0.001
+41750218,Total cost,218
+37483959,Input file,bi_full_16_1_100_uni_3.bl
+37483959,Nodes,16
+37483959,Edges,64
+37483959,Total time,0.000
+37483959,Total cost,181
+87394417,Input file,bi_full_16_1_100_uni_5.bl
+87394417,Nodes,16
+87394417,Edges,64
+87394417,Total time,0.000
+87394417,Total cost,177
+39933744,Input file,bi_full_32768_1_100_uni_2.bl
+39933744,Nodes,32768
+39933744,Edges,268435456
+39933744,Total time,13.041
+39933744,Total cost,16384
+44368306,Input file,bi_full_16_1_exp_3.bl
+44368306,Nodes,16
+44368306,Edges,64
+44368306,Total time,0.000
+44368306,Total cost,136
+84614411,Input file,bi_full_128_1_100_uni_5.bl
+84614411,Nodes,128
+84614411,Edges,4096
+84614411,Total time,0.001
+84614411,Total cost,193
+54925290,Input file,bi_full_8192_1_exp_5.bl
+54925290,Nodes,8192
+54925290,Edges,16777216
+54925290,Total time,1.411
+54925290,Total cost,0
+57835757,Input file,bi_full_16_1_exp_4.bl
+57835757,Nodes,16
+57835757,Edges,64
+57835757,Total time,0.000
+57835757,Total cost,137
+65275137,Input file,bi_full_8192_1_100_uni_4.bl
+65275137,Nodes,8192
+65275137,Edges,16777216
+65275137,Total time,1.607
+65275137,Total cost,4096
+61440083,Input file,bi_full_64_1_100_uni_4.bl
+61440083,Nodes,64
+61440083,Edges,1024
+61440083,Total time,0.000
+61440083,Total cost,161
+31900521,Input file,bi_full_4096_30_10_gauss_4.bl
+31900521,Nodes,4096
+31900521,Edges,4194304
+31900521,Total time,7.609
+31900521,Total cost,812
+56317036,Input file,bi_full_64_1_100_uni_2.bl
+56317036,Nodes,64
+56317036,Edges,1024
+56317036,Total time,0.000
+56317036,Total cost,192
+49400334,Input file,bi_full_2048_1_exp_4.bl
+49400334,Nodes,2048
+49400334,Edges,1048576
+49400334,Total time,0.235
+49400334,Total cost,0
+51607331,Input file,bi_full_1024_1_exp_4.bl
+51607331,Nodes,1024
+51607331,Edges,262144
+51607331,Total time,0.050
+51607331,Total cost,6
+71694401,Input file,bi_full_64_1_exp_1.bl
+71694401,Nodes,64
+71694401,Edges,1024
+71694401,Total time,0.000
+71694401,Total cost,151
+19995956,Input file,bi_full_2048_30_10_gauss_2.bl
+19995956,Nodes,2048
+19995956,Edges,1048576
+19995956,Total time,0.720
+19995956,Total cost,1138
+59655274,Input file,bi_full_64_1_exp_3.bl
+59655274,Nodes,64
+59655274,Edges,1024
+59655274,Total time,0.000
+59655274,Total cost,191
+49058840,Input file,bi_full_16_30_10_gauss_4.bl
+49058840,Nodes,16
+49058840,Edges,64
+49058840,Total time,0.000
+49058840,Total cost,138
+15243401,Input file,bi_full_2048_1_100_uni_3.bl
+15243401,Nodes,2048
+15243401,Edges,1048576
+15243401,Total time,0.245
+15243401,Total cost,1025
+59115025,Input file,bi_full_16_1_100_uni_1.bl
+59115025,Nodes,16
+59115025,Edges,64
+59115025,Total time,0.000
+59115025,Total cost,98
+81658153,Input file,bi_full_32768_1_exp_5.bl
+81658153,Nodes,32768
+81658153,Edges,268435456
+81658153,Total time,13.268
+81658153,Total cost,0
+73982095,Input file,bi_full_4096_1_exp_4.bl
+73982095,Nodes,4096
+73982095,Edges,4194304
+73982095,Total time,0.518
+73982095,Total cost,0
+73843534,Input file,bi_full_16_1_exp_2.bl
+73843534,Nodes,16
+73843534,Edges,64
+73843534,Total time,0.000
+73843534,Total cost,243
+55520356,Input file,bi_full_32_1_exp_2.bl
+55520356,Nodes,32
+55520356,Edges,256
+55520356,Total time,0.000
+55520356,Total cost,175
+59439897,Input file,bi_full_512_30_10_gauss_1.bl
+59439897,Nodes,512
+59439897,Edges,65536
+59439897,Total time,0.007
+59439897,Total cost,921
+35844458,Input file,bi_full_1024_30_10_gauss_1.bl
+35844458,Nodes,1024
+35844458,Edges,262144
+35844458,Total time,0.050
+35844458,Total cost,1171
+47234310,Input file,bi_full_16384_1_100_uni_1.bl
+47234310,Nodes,16384
+47234310,Edges,67108864
+47234310,Total time,4.221
+47234310,Total cost,8192
+86052968,Input file,bi_full_512_1_100_uni_4.bl
+86052968,Nodes,512
+86052968,Edges,65536
+86052968,Total time,0.010
+86052968,Total cost,309
+31425513,Input file,bi_full_512_1_exp_2.bl
+31425513,Nodes,512
+31425513,Edges,65536
+31425513,Total time,0.008
+31425513,Total cost,62
+66103129,Input file,bi_full_2048_30_10_gauss_5.bl
+66103129,Nodes,2048
+66103129,Edges,1048576
+66103129,Total time,0.815
+66103129,Total cost,1159
+67262570,Input file,bi_full_16_30_10_gauss_3.bl
+67262570,Nodes,16
+67262570,Edges,64
+67262570,Total time,0.000
+67262570,Total cost,124
+91714569,Input file,bi_full_128_30_10_gauss_5.bl
+91714569,Nodes,128
+91714569,Edges,4096
+91714569,Total time,0.001
+91714569,Total cost,537
+68436182,Input file,bi_full_64_30_10_gauss_3.bl
+68436182,Nodes,64
+68436182,Edges,1024
+68436182,Total time,0.000
+68436182,Total cost,325
+77673589,Input file,bi_full_256_30_10_gauss_4.bl
+77673589,Nodes,256
+77673589,Edges,16384
+77673589,Total time,0.002
+77673589,Total cost,752
+86343541,Input file,bi_full_32768_1_exp_2.bl
+86343541,Nodes,32768
+86343541,Edges,268435456
+86343541,Total time,12.315
+86343541,Total cost,0
+71064588,Input file,bi_full_32768_1_exp_4.bl
+71064588,Nodes,32768
+71064588,Edges,268435456
+71064588,Total time,14.001
+71064588,Total cost,0
+56176032,Input file,bi_full_128_30_10_gauss_1.bl
+56176032,Nodes,128
+56176032,Edges,4096
+56176032,Total time,0.000
+56176032,Total cost,572
+85729280,Input file,bi_full_1024_1_exp_5.bl
+85729280,Nodes,1024
+85729280,Edges,262144
+85729280,Total time,0.034
+85729280,Total cost,8
