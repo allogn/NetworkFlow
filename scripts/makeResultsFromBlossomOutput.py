@@ -25,6 +25,7 @@ for f in graphs:
     cost = r_cost.group(8)
     random.seed()
     expId = random.randint(10000000,99999999)
+    fres.write(str(expId) + ',Algorithm,Local Dominant\n');
     fres.write(str(expId) + ',Input file,' + f + '\n')
     fres.write(str(expId) + ',Nodes,' + str(nodes) + '\n')
     fres.write(str(expId) + ',Edges,' + str(edges) + '\n')
