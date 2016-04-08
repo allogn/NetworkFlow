@@ -8,14 +8,14 @@ from os.path import isfile, join
 import datetime
 import random
 
-dirname = "../../data/tests/bipartite"
+dirname = "../../data/bipartite"
 onlyfiles = [f for f in listdir(dirname) if isfile(join(dirname, f))]
 r1 = re.compile('^.*\.bl$')
 graphs = list(filter(r1.match, onlyfiles))
 print("total ", len(graphs))
-fres = open("blossomResult.txt",'w')
+fres = open("blossomResultNew.csv",'w')
 for f in graphs:
-    out = subprocess.check_output(["../../AlgorithmComparisonExperiments/blossom5-v2.05.src/blossom5", "-e", join(dirname,f)])
+    out = subprocess.check_output(["../utils/blossom5-v2.05.src/blossom5", "-e", join(dirname,f)])
     print("Output:",out.decode())
     r = re.compile('^(.* with )([0-9]+)( nodes and )([0-9]+)( edges.*done \[)([0-9\.]+)( secs.*= )([0-9]+)(.*)$', re.DOTALL)
     r_cost = r.search(out.decode())
