@@ -32,6 +32,7 @@ void LSCS::startAugment(long max_length) {
             // Find an augmenting path from the start node
             long tip = start;
             while (int(path.size()) < max_length && _excess[tip] >= 0) {
+                _ever_visited[tip] = true;
                 long u;
                 LargeCost rc, min_red_cost = std::numeric_limits<LargeCost>::max();
                 LargeCost pi_tip = _pi[tip];

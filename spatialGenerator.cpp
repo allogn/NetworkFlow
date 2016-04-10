@@ -19,17 +19,18 @@ int main(int argc, const char** argv) {
     // parsing parameters
     int distr;
     string outf;
-    long n, excesses;
+    long n, sources, targets;
     int cl_num;
     bool bipartite;
     po::options_description desc("Allowed options");
     desc.add_options()
             ("help,h", "produce help message")
             ("output,o", po::value<string>(&outf)->required(), "save generated points")
-            ("size,s", po::value<long>(&n)->required(), "number of nodes")
+            ("size,n", po::value<long>(&n)->required(), "number of nodes")
             ("clust,c", po::value<int>(&cl_num)->default_value(5), "number of clusters")
-            ("excesses,e", po::value<long>(&excesses)->default_value(-1), "number of nodes with positive supply (-1 for bipartite)")
-            ("distr,d", po::value<int>(&distr)->default_value(0), "type of distribution for weights (0:u,1:gauss,2:clust)");
+            ("excesses,s", po::value<long>(&sources)->default_value(-1), "number of nodes with positive supply (-1 for bipartite)")
+            ("deficits,t", po::value<long>(&targets)->default_value(-1), "number of nodes with negative supply (-1 for bipartite)")
+            ("distr,d", po::value<int>(&distr)->default_value(0), "type of distribution of points (0:u,1:gauss,2:clust)");
 
     po::variables_map vm;
     po::store(po::parse_command_line(argc, argv, desc), vm);
@@ -46,21 +47,33 @@ int main(int argc, const char** argv) {
     normal_distribution<double> gausGen(0.5, 0.4);
 
     //distribute excesses uniformly
-    if (excesses == -1) {
+    if (sources == -1) {
         if (n%2 != 0) {
             cout << "Size must be even" << endl;
             exit(1);
         }
-        excesses = n/2;
+        sources = n/2;
+        targets = n/2;
     }
-    vector<int> excessMap(n,0); //1 - excess, -1 - deficit
-    for (long i = 0; i < excesses; i++) {
-        excessMap[i] = 1;
-        excessMap[i+excesses] = -1;
-    }
-    std::random_shuffle(excessMap.begin(), excessMap.end());
-
+    //redistribute sources and sinks
     ofstream grfile(outf);
+    grfile << "# Sources " << sources << "\n";
+    grfile << "# Targets " << targets << "\n";
+    vector<long> excessMap(n,0);
+    if (sources > targets) {
+        cout << "Not enough sources" << endl;
+        exit(1);
+    }
+    for (long i = 0; i < sources-1; i++) {
+        excessMap[i] = targets/sources;
+    }
+    excessMap[sources-1] = targets/sources + targets % sources;
+    for (long i = sources; i < sources+targets; i++) {
+        excessMap[i] = -1;
+    }
+    std::random_shuffle<vector<long>::iterator>(excessMap.begin(),excessMap.end());
+    assert(std::accumulate(excessMap.begin(),excessMap.end(),0) == 0);
+
     grfile << "# Type RandomPoints\n";
     switch (distr) {
         case 0:

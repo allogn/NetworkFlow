@@ -15,6 +15,7 @@
 #include <lemon/lgf_reader.h>
 #include <lemon/lgf_writer.h>
 #include <cstring>
+#include <limits>
 
 //for spatial objects
 #include <boost/geometry.hpp>
@@ -218,6 +219,7 @@ public:
     void generate_full_bipartite_graph(long size, long param1, long param2 = 1000, long distr = 0);
     void generate_clique(long size, long param1, long param2 = 1000, long distr = 0);
 
+    // I/O
     void print_graph();
     void save_graph(string filename);
     void load_graph(string filename, string log_filename = "", long experiment_id = 0);
@@ -230,6 +232,7 @@ public:
 //     * Spatial data
 //     */
     void load_points(string filename, string log_filename = "", long experiment_id = 0);
+    void fill_full_graph();
 
 
     // operators

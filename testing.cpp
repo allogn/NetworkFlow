@@ -20,7 +20,7 @@
 
 namespace po = boost::program_options;
 
-void test_unility() {
+void test_utility() {
     Graph g;
 
     g.generate_full_bipartite_graph(100, 0, 1000);
@@ -58,7 +58,7 @@ int main(int argc, const char** argv) {
     po::notify(vm);
 
     if (algorithm == -1) {
-        test_unility();
+        test_utility();
         //todo not working load-save
     }
 

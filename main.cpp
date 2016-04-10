@@ -211,7 +211,7 @@ int main(int argc, const char **argv) {
                 cout << "Total time of LocalDominant: " << timer.timings["Total time"].back() << endl;
             }
             break;
-        case 3:
+        case ALG_LEMON_MODIF:
             for (int current_round = 1; current_round <= rounds; current_round++) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
                 lemon::ListDigraph _graph;
@@ -258,7 +258,7 @@ int main(int argc, const char **argv) {
             logf << experiment_id << ",Total cost," << result_cost << "\n";
             logf.close();
             break;
-        case 4: {
+        case ALG_SCS: {
             g.sort_neighbors();
             SCS SCSsolv(g);
             for (int current_round = 1; current_round <= rounds; current_round++) {
@@ -274,7 +274,10 @@ int main(int argc, const char **argv) {
             logf.close();
         }
             break;
-        case 5:
+        case ALG_LEMON_ORIG:
+            if (g.isSpatial) {
+                g.fill_full_graph();
+            }
             for (int current_round = 1; current_round <= rounds; current_round++) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
                 lemon::ListDigraph _graph;
@@ -305,7 +308,12 @@ int main(int argc, const char **argv) {
                 cost_scaling.lowerMap(lower);
                 cost_scaling.supplyMap(supply);
                 double total = timer.getTime();
-                cost_scaling.run();
+                int result = cost_scaling.run();
+                if (result != cost_scaling.OPTIMAL)
+                {
+                    cout << "Problem unfeasible" << endl;
+                    exit(1);
+                }
                 timer.save_time("Total time", total);
                 cout << "Total Cost of Lemon CostScaling: " << cost_scaling.totalCost() << endl;
                 cout << "Total Time of Lemon CostScaling: " << timer.timings["Total time"].back() << endl;

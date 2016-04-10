@@ -80,7 +80,7 @@ void Graph::generate_clique(long size, long param1, long param2, long distr) {
     exponential_distribution<double> expGen((double)param1/100.);
 
     parallel_for(long i = 0; i < n; i++) {
-        for (long j = i; j < n; j++) {
+        for (long j = i+1; j < n; j++) {
             Edge e(E.size());
             e.capacity = 1;
             e.fromid = i;
@@ -101,6 +101,7 @@ void Graph::generate_clique(long size, long param1, long param2, long distr) {
                     exit(1);
             }
             E.push_back(e);
+            e.ID++;
             e.fromid = j;
             e.toid = i;
             E.push_back(e); // make graph symmetric
@@ -506,4 +507,38 @@ void Graph::load_points(string filename, string log_filename, long experiment_id
     infile.close();
 
     isSpatial = true;
+}
+
+void Graph::fill_full_graph() {
+    if (!isSpatial) {
+        cout << "Cannot fill non-spatial graph" << endl;
+        exit(1);
+    }
+    assert(E.size() == 0);
+    fullE.resize(n);
+    completeE.resize(n);
+    long id = 0;
+    for (long i = 0; i < n; i++) {
+        for (long j = i+1; j < n; j++) {
+            Edge e(id++);
+            e.lower = 0;
+            e.capacity = 1;
+            e.fromid = i;
+            e.toid = j;
+            assert(bg::distance(coords[i], coords[j])*SCALE < std::numeric_limits<int>::max()); //not sure if possible to use this
+            e.weight = bg::distance(coords[i], coords[j])*SCALE;
+            E.push_back(e);
+            fullE[i].push_back(id);
+            completeE[i].push_back(id);
+            completeE[j].push_back(id);
+            e.ID++;
+            id++;
+            e.fromid = j;
+            e.toid = i;
+            E.push_back(e);
+            fullE[i].push_back(id);
+            completeE[i].push_back(id);
+            completeE[j].push_back(id);
+        }
+    }
 }

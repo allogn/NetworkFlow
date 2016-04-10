@@ -85,6 +85,9 @@ public:
 
     vector<int> QryCnt;
 
+    //profiling
+    vector<bool> _ever_visited;
+
 public:
 
     LSCS(const Graph &graph) :
@@ -121,6 +124,8 @@ public:
         _arc_idb.resize(_res_arc_num);
 
         QryCnt.resize(_res_node_num,0);
+
+        _ever_visited.resize(_res_node_num,false);
 
         // Copy the graph
 //        int j = 0;
@@ -336,6 +341,8 @@ public:
             assert(val >= 0 && val <= 1);
             percSqr += val*val;
         }
+        long visited = std::count_if(_ever_visited.begin(), _ever_visited.end(), [](bool v) { return v; });
+        outf << experiment_id << ",Visited fraction," << (double)visited/(double)_res_node_num << "\n";
         outf << experiment_id << ",Saturation mean," << perc/(double)_res_node_num << "\n";
         outf << experiment_id << ",Saturation std," << sqrt(percSqr/(double)_res_node_num - (perc/(double)_res_node_num)*(perc/(double)_res_node_num)) << "\n";
 
