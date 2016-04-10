@@ -44,6 +44,7 @@ int main(int argc, const char **argv) {
     int algorithm;
     int rounds;
     int experiment_id;
+    int param;
     string input_graph;
     string log_filename;
     po::options_description desc("Allowed options");
@@ -59,6 +60,8 @@ int main(int argc, const char **argv) {
                      "6 : Lemon Simplified Cost Scaling (LSCS)\n"
                      "7 : Approximate SIA")
             ("input,i", po::value<string>(&input_graph)->required(), "input graph")
+            ("param,p", po::value<int>(&param)->default_value(0), "parameter for an algorithm\n"
+                    "For Lemon: 0 - no sorting, 1 - just sorting, 2 - sorting with pruning")
             ("rounds,r", po::value<int>(&rounds)->default_value(1), "rounds for an experiment")
             ("log,l", po::value<string>(&log_filename)->required(), "log file for timings");
 
@@ -235,8 +238,8 @@ int main(int argc, const char **argv) {
                     lower[e] = g.E[i].lower;
                 }
 
-                lemon::ModifiedCostScaling<lemon::ListDigraph, int, int> cost_scaling(_graph);
-                cost_scaling.costMap(weight);
+                lemon::ModifiedCostScaling<lemon::ListDigraph, int, int> cost_scaling(_graph, weight, param);
+//                cost_scaling.costMap(weight);
                 cost_scaling.upperMap(cap);
                 cost_scaling.lowerMap(lower);
                 cost_scaling.supplyMap(supply);
@@ -254,6 +257,17 @@ int main(int argc, const char **argv) {
             }
             logf.open(log_filename, ios::app);
             logf << experiment_id << ",Total cost," << result_cost << "\n";
+            switch(param) {
+                case 0:
+                    logf << experiment_id << ",Variation,No Sorting\n";
+                    break;
+                case 1:
+                    logf << experiment_id << ",Variation,Just Sorting\n";
+                    break;
+                case 2:
+                    logf << experiment_id << ",Variation,Sorting with pruning\n";
+                    break;
+            }
             logf.close();
             break;
         case ALG_SCS: {
