@@ -163,7 +163,7 @@ int main(int argc, const char** argv) {
                 lower[e] = g.E[i].lower;
             }
 
-            lemon::ModifiedCostScaling<lemon::ListDigraph,int,int> cost_scaling(_graph);
+            lemon::ModifiedCostScaling<lemon::ListDigraph,int,int> cost_scaling(_graph, weight);
             cost_scaling.costMap(weight);
             cost_scaling.upperMap(cap);
             cost_scaling.lowerMap(lower);
@@ -212,8 +212,7 @@ int main(int argc, const char** argv) {
                 lower[e] = g.E[i].lower;
             }
 
-            lemon::ModifiedCostScaling<lemon::ListDigraph,int,int> MLCSsolv(_graph);
-            MLCSsolv.costMap(weight);
+            lemon::ModifiedCostScaling<lemon::ListDigraph,int,int> MLCSsolv(_graph, weight);
             MLCSsolv.upperMap(cap);
             MLCSsolv.lowerMap(lower);
             MLCSsolv.supplyMap(supply);
