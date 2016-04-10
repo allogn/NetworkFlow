@@ -53,6 +53,7 @@ void SIA::augmentFlow(long lastid) {
         curid = g->get_pair(eid,curid);
 
         int cur_flow = (curid < noA)?flow[eid]-1:flow[eid]+1;
+        assert(cur_flow == 0 || cur_flow == 1);
         flow[eid] = cur_flow;
 
         //deleting edges with no residual cost and moving them to the list of a reverse edge
@@ -175,6 +176,69 @@ void SIA::processId(long source_id)
                 }
             }
         } while (dijkH.size() == 0);
+
+        double time_dijkstra = timer.getTime();
+        target_node = runDijkstra();
+        timer.save_time("Dijkstra", time_dijkstra);
+
+        long long gettaumax = 0;
+        for (long i = 0; i<noA; i++)
+        {
+            if (mindist[i]<globalH.getTopValue() && gettaumax < psi[i])
+            {
+                gettaumax = psi[i];
+            }
+        }
+        taumax = gettaumax;
+    };
+    double time_augment = timer.getTime();
+    augmentFlow(target_node);
+
+    //assuming one iterations makes exactly one node not free
+    excess[source_id]--;
+    excess[target_node]++;
+    totalflow++;
+
+    //raise potentials and clear everything after iteration
+    iteration_reset(target_node);
+
+    //log time
+    timer.save_time("Process node", time_start);
+    timer.save_time("Augment and reset", time_augment);
+}
+
+void SIA::processIdApprox(long source_id)
+{
+    //maybe it WILL be exact if globalH resets each iteration
+
+    total_iterations = 0;
+    double time_start = timer.getTime();
+    long target_node = -1;
+    mindist[source_id] = 0;
+    watched[source_id] = 1;
+    heap_checkAndUpdateEdgeMin(globalH,source_id);
+    dijkH.enqueue(source_id,0);
+
+    while((target_node == -1))// || (globalH.size() > 0 && mindist[target_node]>globalH.getTopValue() - taumax))
+    {
+        do //  || (globalH.size() > 0 && heap_getTopValue(dijkH)>heap_getTopValue(globalH)))
+        {
+            //adding new edge to the subgraph
+            long eid = insertEdgeFromHeap();
+
+            //updating Dijkstra heap by using additional heap
+            updateHeaps(eid, g->E[eid].fromid, g->E[eid].toid);
+        } while (dijkH.size() == 0 || (globalH.size() > 0 && dijkH.getTopValue()>globalH.getTopValue()));
+
+        long curid;
+        long long tmp;
+        while (updateH.size() > 0) {
+            updateH.dequeue(curid, tmp);
+            for (long i = 0; i < g->V[curid].E.size(); i++) {
+                long eid = g->V[curid].E[i];
+                updateHeaps(eid, curid, g->get_pair(eid, curid));
+            }
+        }
 
         double time_dijkstra = timer.getTime();
         target_node = runDijkstra();

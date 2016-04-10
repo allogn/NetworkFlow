@@ -15,6 +15,14 @@ graphs = list(filter(r1.match, onlyfiles))
 print("total ", len(graphs))
 fres = open("blossomResultNew.csv",'w')
 for f in graphs:
+    random.seed()
+    expId = random.randint(10000000,99999999)
+    with open(join(dirname,f)) as graph:
+        for line in graph:
+            if line[0] == '#':
+                fres.write(str(expId) + ',' + line[1:line.find(' ')] + ',' + line[line.find(' '):])
+            else:
+                break
     out = subprocess.check_output(["../utils/blossom5-v2.05.src/blossom5", "-e", join(dirname,f)])
     print("Output:",out.decode())
     r = re.compile('^(.* with )([0-9]+)( nodes and )([0-9]+)( edges.*done \[)([0-9\.]+)( secs.*= )([0-9]+)(.*)$', re.DOTALL)
@@ -23,9 +31,7 @@ for f in graphs:
     edges = r_cost.group(4)
     time = r_cost.group(6)
     cost = r_cost.group(8)
-    random.seed()
-    expId = random.randint(10000000,99999999)
-    fres.write(str(expId) + ',Algorithm,Local Dominant\n');
+    fres.write(str(expId) + ',Algorithm,BlossomV\n');
     fres.write(str(expId) + ',Input file,' + f + '\n')
     fres.write(str(expId) + ',Nodes,' + str(nodes) + '\n')
     fres.write(str(expId) + ',Edges,' + str(edges) + '\n')

@@ -69,8 +69,8 @@ plt.title(title)
 plt.xlabel(x_name)
 plt.ylabel(y_name)
 ax = plt.gca()
-ax.set_xscale("log")#, nonposx='clip')
-ax.set_yscale("log")#, nonposy='clip')
+#ax.set_xscale("log")#, nonposx='clip')
+#ax.set_yscale("log")#, nonposy='clip')
 
 # plot for each param
 i = 0
@@ -92,10 +92,20 @@ for var in vars:
         argx = np.argsort(x)
         x = x[argx]
         y = y[argx]
+
+        # prune zero data at the beginning
+        ind = 0
+        while y[ind] == 0:
+            ind += 1
+        x = x[ind:]
+        y = y[ind:]
+
         y_split = np.split(y, np.where(np.diff(x))[0]+1)
         x_split = np.unique(x)
         y_mean = np.mean(y_split, 1)
         y_std = np.std(y_split, 1)
+        print(y_mean)
+        print(y_std)
         if i >= len(styles):
             print("Provide more styles")
             exit()

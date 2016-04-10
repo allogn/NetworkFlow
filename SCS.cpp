@@ -30,7 +30,7 @@ void SCS::startAugment(long max_length) {
 //        if (eps_phase_cnt >= PRICE_REFINEMENT_LIMIT) {
 //          if (priceRefinement()) continue;
 //        }
-        cout << "epsilon " << _epsilon << endl;
+//        cout << "epsilon " << _epsilon << endl;
         // Initialize current phase
         initPhase();
 
@@ -117,7 +117,7 @@ void SCS::startAugment(long max_length) {
                     new_epsilon = std::max(-(lc + _pi[toid] - _pi[fromid]), new_epsilon); //remove?
                     if (new_epsilon != _epsilon) cout << "new epsilon " << new_epsilon << endl;
                     _epsilon = new_epsilon; //todo maybe this can be modified
-
+//todo add while tophoeap differ condition
                     _res_cap.push_back(_upper[local_eid]);
                     _res_cap.push_back(0);
                     _reverse.push_back(local_eid + 1);

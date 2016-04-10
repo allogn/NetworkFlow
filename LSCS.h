@@ -317,6 +317,31 @@ public:
         }
     }
 
+    void save_profile_data(string filename, int experiment_id) {
+        ofstream outf(filename,ios::app);
+
+        //mean and std of how much edges were added
+        double perc = 0;
+        double percSqr = 0;
+        double totalNodes = 0;
+        for (long i = 0; i < _res_node_num; i++) {
+            long added = 0;
+            for (long j = 0; j < _first_out[i].size(); j++) {
+                if (_forward[_first_out[i][j]]) {
+                    added++;
+                }
+            }
+            double val = (double)added/(double)_graph.fullE[i].size();
+            perc += val;
+            assert(val >= 0 && val <= 1);
+            percSqr += val*val;
+        }
+        outf << experiment_id << ",Saturation mean," << perc/(double)_res_node_num << "\n";
+        outf << experiment_id << ",Saturation std," << sqrt(percSqr/(double)_res_node_num - (perc/(double)_res_node_num)*(perc/(double)_res_node_num)) << "\n";
+
+        outf.close();
+    }
+
 };
 
 

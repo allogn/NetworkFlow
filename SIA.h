@@ -15,6 +15,7 @@
 //TODO optimization parameter for compiler
 class SIA {
     Graph* g;
+    bool approx;
 
     long noA, noB;
     long long totalflow;
@@ -40,6 +41,7 @@ class SIA {
     inline void augmentFlow(long lastid);
     inline long insertEdgeFromHeap();
     void processId(long source_id);
+    void processIdApprox(long source_id);
     inline long runDijkstra();
     inline long getCost(long eid, long fromid, long toid) {
         return (fromid<noA) ? g->E[eid].weight-psi[fromid]+psi[toid] : -g->E[eid].weight-psi[fromid]+psi[toid];
@@ -109,7 +111,8 @@ public:
     long totalCost;
     Timer timer;
 
-    SIA(Graph* graph) {
+    SIA(Graph* graph, bool approximate = false) {
+        approx = approximate;
         g = graph;
         assert(g->isSpatial || g->test_sorting());
         reset();
@@ -130,7 +133,10 @@ public:
         double total = timer.getTime();
         long q = 0;
         while (totalflow < noA) {
-            processId(q);
+            if (approx)
+                processIdApprox(q);
+            else
+                processId(q);
             q++;
             if (q >= noA) q = 0;
         }

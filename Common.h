@@ -25,7 +25,8 @@ enum Algorithm {
     ALG_LEMON_MODIF,
     ALG_SCS,
     ALG_LEMON_ORIG,
-    ALG_LSCS
+    ALG_LSCS,
+    ALG_ASIA
 };
 
 /// \brief Problem type constants for the \c run() function.

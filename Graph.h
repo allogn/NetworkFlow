@@ -55,7 +55,7 @@ public:
 class Vertex {
 public:
     long ID;
-    int supply;
+    long supply;
     std::vector<long> E;
 
     Vertex(long _ID, int _supply) {
@@ -216,6 +216,7 @@ public:
 
     // graph generators
     void generate_full_bipartite_graph(long size, long param1, long param2 = 1000, long distr = 0);
+    void generate_clique(long size, long param1, long param2 = 1000, long distr = 0);
 
     void print_graph();
     void save_graph(string filename);

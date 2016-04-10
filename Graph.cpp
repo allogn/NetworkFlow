@@ -65,6 +65,55 @@ void Graph::generate_full_bipartite_graph(long size, long param1, long param2, l
     }
 }
 
+void Graph::generate_clique(long size, long param1, long param2, long distr) {
+    clear_graph();
+
+    n = size;
+    m = size*(size-1);
+    E.reserve(m);
+    V.reserve(n);
+
+    long seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::default_random_engine generator (seed);
+    uniform_int_distribution<long> uniGen(param1, param2);
+    normal_distribution<double> gausGen(param1, param2);
+    exponential_distribution<double> expGen((double)param1/100.);
+
+    parallel_for(long i = 0; i < n; i++) {
+        for (long j = i; j < n; j++) {
+            Edge e(E.size());
+            e.capacity = 1;
+            e.fromid = i;
+            e.toid = j;
+            e.lower = 0;
+            switch(distr) {
+                case 0:
+                    e.weight = uniGen(generator);
+                    break;
+                case 1:
+                    e.weight = (long)abs(gausGen(generator));
+                    break;
+                case 2:
+                    e.weight = (long)abs(expGen(generator));
+                    break;
+                default:
+                    cout << "Error: incorrect distribution" << endl;
+                    exit(1);
+            }
+            E.push_back(e);
+            e.fromid = j;
+            e.toid = i;
+            E.push_back(e); // make graph symmetric
+        }
+    }
+
+    parallel_for(long i = 0; i < n; i++) {
+        Vertex v(i,0);
+        V.push_back(v);
+        //excesse set outside
+    }
+}
+
 void Graph::print_graph() {
     std::cout << "Total " << n << " nodes and " << m << " edges" << std::endl;
     std::cout << "Nodes: " << std::endl;
@@ -169,7 +218,6 @@ bool Graph::test_sorting() {
 void Graph::save_graph(string filename) {
     cout << "Saving graph to " << filename << "..." << endl;
     ofstream outf(filename,ios::app); // appending because graph annotation and parameters can be before
-
     outf << n << " " << m << "\n";
     for (long i = 0; i < n; i++) {
         outf << V[i].supply << "\n";
