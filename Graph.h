@@ -27,6 +27,7 @@
 #include "parallel.h"
 #include "quickSort.h"
 #include "utils.h"
+#include "TimerTool.h"
 
 #define SCALE 1000 //scale for transform distance to long value
 
@@ -71,6 +72,8 @@ public:
     long n;
     long m;
     bool isSpatial;
+
+    Timer timer;
 
     //stiring cursor to next edge for each node
     vector<long> QryCnt;
@@ -119,6 +122,7 @@ public:
     // initialization for simple graph includes storing edges
     // for spatial data - building NN data structure
     void init_neighbors() {
+        double time = timer.getTime();
         if (isSpatial) {
             //init r-tree
             for (long i = 0; i < n; i++) {
@@ -142,6 +146,7 @@ public:
             // pointer to the next element for insertion to E_sub
             QryCnt.resize(n,0);
         }
+        timer.save_time("Graph neighborhood init",time);
     };
     void myqsort(std::vector<long>& edgelist, long start, long end) //TODO change to quicksort.h
     {
@@ -167,10 +172,12 @@ public:
         return;
     }
     void sort_neighbors() {
+        double time = timer.getTime();
         for (long i = 0; i < n; i++)
         {
             myqsort(fullE[i], 0, fullE[i].size()-1);
         }
+        timer.save_time("Graph sorting", time);
     }
 
     //checks if everything was added for particular node

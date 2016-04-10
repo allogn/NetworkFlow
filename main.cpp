@@ -139,10 +139,8 @@ int main(int argc, const char **argv) {
         case ALG_SIA: {
             if (!g.isSpatial) {
                 //prepare graph
-                double sortingTime = timer.getTime();
                 cout << "Sorting edges..." << endl;
                 g.sort_neighbors();
-                timer.save_time("Sorting", sortingTime);
 //                assert(g.test_graph_structure()); -- too long even for small graphs
 //                assert(g.test_sorting());
             }
@@ -164,10 +162,8 @@ int main(int argc, const char **argv) {
         case ALG_ASIA: {
             if (!g.isSpatial) {
                 //prepare graph
-                double sortingTime = timer.getTime();
                 cout << "Sorting edges..." << endl;
                 g.sort_neighbors();
-                timer.save_time("Sorting", sortingTime);
 //                assert(g.test_graph_structure()); -- too long even for small graphs
 //                assert(g.test_sorting());
             }
@@ -212,6 +208,9 @@ int main(int argc, const char **argv) {
             }
             break;
         case ALG_LEMON_MODIF:
+            if (g.isSpatial) {
+                g.fill_full_graph();
+            }
             for (int current_round = 1; current_round <= rounds; current_round++) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
                 lemon::ListDigraph _graph;
@@ -241,11 +240,10 @@ int main(int argc, const char **argv) {
                 cost_scaling.upperMap(cap);
                 cost_scaling.lowerMap(lower);
                 cost_scaling.supplyMap(supply);
-                double total = timer.getTime();
                 cost_scaling.run();
-                timer.save_time("Total time", total);
+                cost_scaling.timer.output(log_filename, experiment_id);
                 cout << "Total Cost of Modified Lemon CostScaling: " << cost_scaling.totalCost() << endl;
-                cout << "Total Time of Modified Lemon CostScaling: " << timer.timings["Total time"].back() << endl;
+                cout << "Total Time of Modified Lemon CostScaling: " << cost_scaling.timer.timings["Total time"].back() << endl;
                 if (current_round == 1)
                     result_cost = cost_scaling.totalCost();
                 else
@@ -337,6 +335,7 @@ int main(int argc, const char **argv) {
                 g.sort_neighbors();
                 timer.save_time("Sorting", sortingTime);
             }
+//            g.fill_full_graph();
             LSCS LSCSsolv(g);
             for (int current_round = 1; current_round <= rounds; current_round++) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
@@ -344,7 +343,7 @@ int main(int argc, const char **argv) {
                 cout << "Total cost of LSCS: " << LSCSsolv.totalCost << endl;
                 cout << "Total time of LSCS: " << LSCSsolv.timer.get_last_time("Total time") << endl;
             }
-            LSCSsolv.save_profile_data(log_filename, experiment_id);
+            //LSCSsolv.save_profile_data(log_filename, experiment_id);
             LSCSsolv.timer.output(log_filename, experiment_id);
             logf.open(log_filename, ios::app);
             logf << experiment_id << ",Total cost," << LSCSsolv.totalCost << "\n";
@@ -356,7 +355,7 @@ int main(int argc, const char **argv) {
             exit(1);
     }
 
-
+    g.timer.output(log_filename,experiment_id);
     timer.save_time("Total execution time", totalRunningTime);
     timer.output(log_filename, experiment_id);
     cout << "Done." << endl;

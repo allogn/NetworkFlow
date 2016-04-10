@@ -125,7 +125,7 @@ namespace lemon {
     class ModifiedCostScaling
     {
     public:
-
+        Timer timer;
         /// The type of the digraph
         typedef typename TR::Digraph Digraph;
         /// The type of the flow amounts, capacity bounds and supply values
@@ -494,12 +494,109 @@ namespace lemon {
         /// \see ProblemType, Method
         /// \see resetParams(), reset()
         ProblemType run(Method method = PARTIAL_AUGMENT, int factor = 16) {
+            sort_lemon();
+            cout << "stop sorting" << endl;
             LEMON_ASSERT(factor >= 2, "The scaling factor must be at least 2");
             _alpha = factor;
             ProblemType pt = init();
             if (pt != OPTIMAL) return pt;
+            double time = timer.getTime();
             start(method);
+            timer.save_time("Total time",time);
             return OPTIMAL;
+        }
+
+        void sort_lemon() {
+            cout << "Sorting" << endl;
+            double time = timer.getTime();
+
+            // initialize original index locations
+            vector<size_t> idx(_scost.size());
+            for (size_t i = 0; i != idx.size(); ++i) idx[i] = i;
+
+            //sort for each node
+            CostVector costCopy = _scost;
+            for (long node = 0; node < _res_node_num-1; node++) {
+                sort(idx.begin()+_first_out[node], idx.begin()+_first_out[node+1],
+                     [&costCopy](size_t i1, size_t i2) {return costCopy[i1] < costCopy[i2];});
+            }
+            sort(idx.begin()+_first_out[_res_node_num-1], idx.end(),
+                 [&costCopy](size_t i1, size_t i2) {return costCopy[i1] < costCopy[i2];});
+
+            timer.save_time("Sorting",time);
+            cout << "rearranging" << endl;
+            //check if id sorted correctly
+            long node = 0;
+            for (long i = 0; i < _res_arc_num; i++) {
+                if (_first_out[node] != i) {
+                    assert(_cost[i-1] <= _cost[i]);
+                } else {
+                    node++;
+                }
+            }
+
+
+            //_first_out remains
+            BoolVector _fw_new(_res_arc_num);
+            for (long i = 0; i < _res_arc_num; i++) {
+                _fw_new[i] = _forward[idx[i]];
+            }
+            _forward = _fw_new;
+
+            IntVector newV(_res_arc_num);
+            for (long i = 0; i < _res_arc_num; i++) {
+                newV[i] = _source[idx[i]];
+            }
+            _source = newV;
+            for (long i = 0; i < _res_arc_num; i++) {
+                newV[i] = _target[idx[i]];
+            }
+            _target = newV;
+
+            ValueVector newValVec(_res_arc_num);
+            for (long i = 0; i < _res_arc_num; i++) {
+                newValVec[i] = _lower[idx[i]];
+            }
+            _lower = newValVec;
+            for (long i = 0; i < _res_arc_num; i++) {
+                newValVec[i] = _upper[idx[i]];
+            }
+            _upper = newValVec;
+
+            CostVector newCostVec(_res_arc_num);
+            for (long i = 0; i < _res_arc_num; i++) {
+                newCostVec[i] = _scost[idx[i]];
+            }
+            _scost = newCostVec;
+
+            for (long i = 0; i < _res_arc_num; i++) {
+                newValVec[i] = _res_cap[idx[i]];
+            }
+            _res_cap = newValVec;
+
+            LargeCostVector newLCostVec(_res_arc_num);
+            for (long i = 0; i < _res_arc_num; i++) {
+                newLCostVec[i] = _cost[idx[i]];
+            }
+            _cost = newLCostVec;
+
+            for (ArcIt a(_graph); a != INVALID; ++a) {
+                std::vector<size_t >::iterator iter = std::find(idx.begin(), idx.end(), _arc_idf[a]);
+                long new_ind = std::distance(idx.begin(), iter);
+                assert(idx[new_ind] == _arc_idf[a]);
+                _arc_idf[a] = new_ind;
+
+                iter = std::find(idx.begin(), idx.end(), _arc_idb[a]);
+                new_ind = std::distance(idx.begin(), iter);
+                _arc_idb[a] = new_ind;
+            }
+
+            for (ArcIt a(_graph); a != INVALID; ++a) {
+                long fi = _arc_idf[a];
+                long bi = _arc_idb[a];
+                _reverse[fi] = bi;
+                _reverse[bi] = fi;
+            }
         }
 
         /// \brief Reset all the parameters that have been given before.
@@ -915,6 +1012,16 @@ namespace lemon {
             }
         }
 
+        bool sorted(int node) {
+            long curw = _cost[_first_out[node]];
+            long last_out = (node < _res_node_num-1)?_first_out[node+1]:_res_arc_num;
+            for (long i = _first_out[node]; i < last_out; i++) {
+                assert(curw <= _cost[i]);
+                curw = _cost[i];
+            }
+            return true;
+        }
+
         /// Execute the algorithm performing augment and relabel operations
         void startAugment(int max_length) {
             // Paramters for heuristics
@@ -929,6 +1036,12 @@ namespace lemon {
             BoolVector path_arc(_res_arc_num, false);
             long relabel_cnt = 0;
             long eps_phase_cnt = 0;
+
+            // profiling
+            double time_initPhase = 0;
+            double time_augment = 0;
+            double time_traversal = 0;
+
             for ( ; _epsilon >= 1; _epsilon = _epsilon < _alpha && _epsilon > 1 ?
                                               1 : _epsilon / _alpha )
             {
@@ -940,7 +1053,10 @@ namespace lemon {
 //        }
 
                 // Initialize current phase
+                double time_oneInit = timer.getTime();
                 initPhase();
+                time_initPhase += timer.getTime() - time_oneInit;
+
 
                 // Perform partial augment and relabel operations
                 while (true) {
@@ -953,17 +1069,20 @@ namespace lemon {
                     long start = _active_nodes.front();
 
                     // Find an augmenting path from the start node
+                    double time_oneTip = timer.getTime();
                     long tip = start;
                     while (int(path.size()) < max_length && _excess[tip] >= 0) {
                         long u;
                         LargeCost rc, min_red_cost = std::numeric_limits<LargeCost>::max();
                         LargeCost pi_tip = _pi[tip];
 
+                        //recalculate because some nodes before _next_out could have changed their values
                         long last_out = (tip < _res_node_num-1)?_first_out[tip+1]:_res_arc_num;
-                        for (long a = _next_out[tip]; a != last_out; ++a) {
+                        for (long a = _next_out[tip]; a != last_out && _cost[a] + pi_tip <= min_red_cost; ++a) {
                             if (_res_cap[a] > 0) {
                                 u = _target[a];
-                                rc = _cost[a] + pi_tip - _pi[u];
+                                int temp_cost = _cost[a];
+                                rc = temp_cost + pi_tip - _pi[u];
                                 if (rc < 0) {
                                     path.push_back(a);
                                     _next_out[tip] = a;
@@ -977,6 +1096,16 @@ namespace lemon {
                                 else if (rc < min_red_cost) {
                                     min_red_cost = rc;
                                 }
+//                                if (_cost[a] + pi_tip > min_red_cost)
+//                                {
+//                                    for (long a2 = a+1; a2 != last_out; ++a2) {
+//                                        if (_res_cap[a2] > 0) {
+//                                            rc = _cost[a2] + pi_tip - _pi[_target[a2]];
+//                                            assert(rc >= 0);
+//                                            assert(rc > min_red_cost);
+//                                        }
+//                                    }
+//                                }
                             }
                         }
 
@@ -987,7 +1116,7 @@ namespace lemon {
 //                                    std::min(min_red_cost, _cost[ra] + pi_tip - _pi[_target[ra]]);
 //                        }
 
-                        //recalculate because some nodes before _next_out could have changed their values
+//                        assert(sorted(tip));
                         last_out = _next_out[tip];
                         for (long a = _first_out[tip]; a != last_out; ++a) {
                             if (_res_cap[a] > 0) {
@@ -997,6 +1126,7 @@ namespace lemon {
                                 }
                             }
                         }
+
                         _pi[tip] -= min_red_cost + _epsilon;
                         _next_out[tip] = _first_out[tip];
                         ++relabel_cnt;
@@ -1014,6 +1144,8 @@ namespace lemon {
 
                     // Augment along the found path (as much flow as possible)
                     augment:
+                    time_traversal += timer.getTime() - time_oneTip;
+                    double time_oneAugment = timer.getTime();
                     Value delta;
                     long pa, u, v = start;
                     for (int i = 0; i != int(path.size()); ++i) {
@@ -1031,17 +1163,14 @@ namespace lemon {
                         }
                     }
                     path.clear();
-
-                    // Global update heuristic
-//          if (relabel_cnt >= next_global_update_limit) {
-//            globalUpdate();
-//                    next_global_update_limit += global_update_skip;
-//          }
+                    time_augment += timer.getTime() - time_oneAugment;
                 }
 
             }
-
-        }
+            timer.save_time_total("Augment time",time_augment);
+            timer.save_time_total("Traversal time",time_traversal);
+            timer.save_time_total("Init phase time",time_initPhase);
+        } //startAugment
     }; //class ModifiedCostScaling
 
     ///@}

@@ -73,17 +73,20 @@ public:
         if(instance!=NULL) delete instance;
     }
 
-    void save_time(string title, double start_time) {
-        double curtime = this->getTime();
 
+    inline void save_time_total(string title, double total_time) {
         std::unordered_map<std::string,vector<double>>::iterator got = timings.find(title);
         if (got == timings.end()) {
             vector<double> list;
-            list.push_back(curtime - start_time);
+            list.push_back(total_time);
             timings.insert({title, list});
         } else {
-            timings[title].push_back(curtime - start_time);
+            timings[title].push_back(total_time);
         }
+    }
+    inline void save_time(string title, double start_time) {
+        double curtime = this->getTime();
+        save_time_total(title, curtime - start_time);
     }
 
     void output(string filename, int experiment_id) {

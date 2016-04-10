@@ -514,6 +514,7 @@ void Graph::fill_full_graph() {
         cout << "Cannot fill non-spatial graph" << endl;
         exit(1);
     }
+    double time = timer.getTime();
     assert(E.size() == 0);
     fullE.resize(n);
     completeE.resize(n);
@@ -541,4 +542,6 @@ void Graph::fill_full_graph() {
             completeE[j].push_back(id);
         }
     }
+    timer.save_time("Graph fullfill", time);
+//    sort_neighbors();
 }
