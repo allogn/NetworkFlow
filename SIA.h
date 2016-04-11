@@ -12,7 +12,6 @@
 #include "nheap.h"
 #include "TimerTool.h"
 
-//TODO optimization parameter for compiler
 class SIA {
     Graph* g;
     bool approx;
@@ -188,6 +187,7 @@ public:
     // Unit tests
     bool test_has_path(long nodeId); // tests if nodeId is full (has path from Q to P)
     bool test_mineid_path_exist(long target_node, long source_node);
+    bool test_correct_flows();
 };
 
 #endif //NETWORKFLOW_SIA_H

@@ -24,7 +24,7 @@ void SIA::reset() {
     fill(excess+noA,excess+noA+noB,-1);
 
     flow = new int[g->m];
-    fill(flow,flow+g->m,0);
+    fill(flow,flow+g->m,1);
 
     psi = new long long[noA+noB];
     fill(psi,psi+noA+noB,0);
@@ -80,7 +80,7 @@ long SIA::runDijkstra() {
     assert(dijkH.size() != 0);
     long current_node = dijkH.getTopIdx();
 
-    while(true)
+    while(dijkH.size()>0 && (globalH.size()==0 || dijkH.getTopValue()<=globalH.getTopValue()))
     {
         //return of deficit is reached
         if (excess[current_node] < 0) {
@@ -114,7 +114,7 @@ long SIA::runDijkstra() {
         current_node = dijkH.getTopIdx();
 
     }
-    return current_node;
+    return -1;
 }
 
 long SIA::insertEdgeFromHeap()
@@ -157,6 +157,7 @@ void SIA::processId(long source_id)
     heap_checkAndUpdateEdgeMin(globalH,source_id);
     dijkH.enqueue(source_id,0);
 
+    assert(test_correct_flows());
     while((target_node == -1) || (globalH.size() > 0 && mindist[target_node]>globalH.getTopValue() - taumax))
     {
         do //  || (globalH.size() > 0 && heap_getTopValue(dijkH)>heap_getTopValue(globalH)))
@@ -218,7 +219,7 @@ void SIA::processIdApprox(long source_id)
     watched[source_id] = 1;
     heap_checkAndUpdateEdgeMin(globalH,source_id);
     dijkH.enqueue(source_id,0);
-
+    assert(test_correct_flows());
     while((target_node == -1))// || (globalH.size() > 0 && mindist[target_node]>globalH.getTopValue() - taumax))
     {
         do //  || (globalH.size() > 0 && heap_getTopValue(dijkH)>heap_getTopValue(globalH)))
@@ -307,5 +308,16 @@ bool SIA::test_mineid_path_exist(long target_node, long source_node) {
         assert(find(g->V[neighbor].E.begin(), g->V[neighbor].E.end(), eid) != g->V[neighbor].E.end());
         curnode = neighbor;
     }
+    return true;
+}
+
+bool SIA::test_correct_flows() {
+    for (long i = 0; i < g->V.size(); i++) {
+        for (long j = 0; j < g->V[i].E.size(); j++) {
+            long eid = g->V[i].E[j];
+            assert((i < noA && flow[eid] == 1) || (i >= noA && flow[eid] == 0));
+        }
+    }
+
     return true;
 }
