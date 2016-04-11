@@ -1,0 +1,563 @@
+1587328053,DateTime,04-10-2016  13:45:14.
+1587328053,Input file,./spacialBipart.sgr
+1587328053,Algorithm,Lemon CSA
+1996946812,DateTime,04-10-2016  13:45:37.
+1996946812,Input file,./Debug/spacialBipart.sgr
+1996946812,Algorithm,Lemon CSA
+1996946812,Sources,500
+1996946812,Targets,500
+1996946812,Type,RandomPoints
+1996946812,Distribution,Uniform
+1996946812,Edges,499500
+1996946812,Nodes,1000
+1124095134,DateTime,04-10-2016  13:50:55.
+1124095134,Input file,./Debug/spacialBipart.sgr
+1124095134,Algorithm,Lemon CSA
+1124095134,Sources,500
+1124095134,Targets,500
+1124095134,Type,RandomPoints
+1124095134,Distribution,Uniform
+1124095134,Edges,499500
+1124095134,Nodes,1000
+1124095134,Total cost,0
+1124095134,Total execution time,1.45786
+1124095134,Total execution time error,0
+1124095134,Total time,0.178962
+1124095134,Total time error,0
+1077278752,DateTime,04-10-2016  13:51:34.
+1077278752,Input file,./Debug/spacialBipart.sgr
+1077278752,Algorithm,Lemon CSA
+1077278752,Sources,500
+1077278752,Targets,500
+1077278752,Type,RandomPoints
+1077278752,Distribution,Uniform
+1077278752,Edges,499500
+1077278752,Nodes,1000
+1300332463,DateTime,04-10-2016  13:54:06.
+1300332463,Input file,./Debug/spacialBipart.sgr
+1300332463,Algorithm,Lemon CSA
+1300332463,Sources,500
+1300332463,Targets,500
+1300332463,Type,RandomPoints
+1300332463,Distribution,Uniform
+1300332463,Edges,499500
+1300332463,Nodes,1000
+1178499201,DateTime,04-10-2016  13:55:54.
+1178499201,Input file,./Debug/spacialBipart.sgr
+1178499201,Algorithm,Lemon CSA
+1178499201,Sources,500
+1178499201,Targets,500
+1178499201,Type,RandomPoints
+1178499201,Distribution,Uniform
+1178499201,Edges,499500
+1178499201,Nodes,1000
+1178499201,Total cost,0
+1178499201,Total execution time,51.8517
+1178499201,Total execution time error,0
+1178499201,Total time,5.08228
+1178499201,Total time error,0
+1300332463,Total cost,0
+1300332463,Total execution time,164.911
+1300332463,Total execution time error,0
+1300332463,Total time,84.8723
+1300332463,Total time error,0
+1369288847,DateTime,04-10-2016  13:57:12.
+1369288847,Input file,./Debug/spacialBipart.sgr
+1369288847,Algorithm,Lemon CSA
+1369288847,Sources,500
+1369288847,Targets,500
+1369288847,Type,RandomPoints
+1369288847,Distribution,Uniform
+1369288847,Edges,499500
+1369288847,Nodes,1000
+624901351,DateTime,04-10-2016  13:57:59.
+624901351,Input file,./Debug/spacialBipart.sgr
+624901351,Algorithm,Lemon CSA
+624901351,Sources,500
+624901351,Targets,500
+624901351,Type,RandomPoints
+624901351,Distribution,Uniform
+624901351,Edges,499500
+624901351,Nodes,1000
+624901351,Total cost,0
+624901351,Total execution time,44.0201
+624901351,Total execution time error,0
+624901351,Total time,42.9137
+624901351,Total time error,0
+936932268,DateTime,04-10-2016  13:58:56.
+936932268,Input file,./Debug/spacialBipart.sgr
+936932268,Algorithm,Lemon CSA
+936932268,Sources,500
+936932268,Targets,500
+936932268,Type,RandomPoints
+936932268,Distribution,Uniform
+936932268,Edges,499500
+936932268,Nodes,1000
+1981612101,DateTime,04-10-2016  14:08:34.
+1981612101,Input file,./Debug/spacialBipart.sgr
+1981612101,Algorithm,S-DF-CSA
+1981612101,Sources,500
+1981612101,Targets,500
+1981612101,Type,RandomPoints
+1981612101,Distribution,Uniform
+1981612101,Edges,499500
+1981612101,Nodes,1000
+644713856,DateTime,04-10-2016  14:11:54.
+644713856,Input file,./Debug/spacialBipart.sgr
+644713856,Algorithm,S-DF-CSA
+644713856,Sources,500
+644713856,Targets,500
+644713856,Type,RandomPoints
+644713856,Distribution,Uniform
+644713856,Edges,499500
+644713856,Nodes,1000
+755191648,DateTime,04-10-2016  16:42:00.
+755191648,Input file,./Debug/spacialBipart.sgr
+755191648,Algorithm,S-DF-CSA
+755191648,Sources,1
+755191648,Targets,2
+755191648,Type,RandomPoints
+755191648,Distribution,Uniform
+755191648,Edges,19900
+755191648,Nodes,200
+1499607634,DateTime,04-10-2016  17:57:22.
+1499607634,Input file,./Debug/spacialBipart.sgr
+1499607634,Algorithm,S-DF-CSA
+1499607634,Sources,1
+1499607634,Targets,2
+1499607634,Type,RandomPoints
+1499607634,Distribution,Uniform
+1499607634,Edges,19900
+1499607634,Nodes,200
+1599259006,DateTime,04-10-2016  17:58:01.
+1599259006,Input file,../data/bipartite/bi_full_1024_1_100_uni_1.gr
+1599259006,Algorithm,S-DF-CSA
+1599259006,Type,FullBipartite
+1599259006,Distribution,Uniform
+1599259006,MinCost,1
+1599259006,MaxCost,100
+1599259006,Edges,262144
+1599259006,Nodes,1024
+1629540070,DateTime,04-10-2016  20:44:28.
+1629540070,Input file,../data/bipartite/bi_full_1024_1_100_uni_1.gr
+1629540070,Algorithm,DF-CSA
+1629540070,Type,FullBipartite
+1629540070,Distribution,Uniform
+1629540070,MinCost,1
+1629540070,MaxCost,100
+1629540070,Edges,262144
+1629540070,Nodes,1024
+119984325,DateTime,04-11-2016  12:05:06.
+119984325,Input file,../data/bipartite/bi_full_1024_1_100_uni_1.gr
+119984325,Algorithm,A-SIA
+119984325,Type,FullBipartite
+119984325,Distribution,Uniform
+119984325,MinCost,1
+119984325,MaxCost,100
+119984325,Edges,262144
+119984325,Nodes,1024
+1628239730,DateTime,04-11-2016  12:06:16.
+1628239730,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+1628239730,Algorithm,A-SIA
+1628239730,Type,FullBipartite
+1628239730,Distribution,Uniform
+1628239730,MinCost,1
+1628239730,MaxCost,100
+1628239730,Edges,4096
+1628239730,Nodes,128
+185964110,DateTime,04-11-2016  12:07:05.
+185964110,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+185964110,Algorithm,SIA
+185964110,Type,FullBipartite
+185964110,Distribution,Uniform
+185964110,MinCost,1
+185964110,MaxCost,100
+185964110,Edges,4096
+185964110,Nodes,128
+185964110,Saturation mean,0.143555
+185964110,Saturation std,0.0462915
+185964110,Dijkstra executions,588
+185964110,Iterations,0
+185964110,Total cost,198
+185964110,Total time,0.00158699
+185964110,Total time error,0
+185964110,Process node,2.39446e-05
+185964110,Process node error,0.00021183
+185964110,Augment and reset,2.87809e-06
+185964110,Augment and reset error,5.49491e-06
+185964110,Dijkstra,7.08269e-07
+185964110,Dijkstra error,5.92197e-05
+185964110,Graph sorting,0.000491001
+185964110,Graph sorting error,0
+185964110,Graph neighborhood init,0.000610031
+185964110,Graph neighborhood init error,0
+185964110,Total execution time,0.00574514
+185964110,Total execution time error,0
+1118234706,DateTime,04-11-2016  12:37:48.
+1118234706,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+1118234706,Algorithm,A-SIA
+1118234706,Type,FullBipartite
+1118234706,Distribution,Uniform
+1118234706,MinCost,1
+1118234706,MaxCost,100
+1118234706,Edges,4096
+1118234706,Nodes,128
+1937881942,DateTime,04-11-2016  12:39:56.
+1937881942,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+1937881942,Algorithm,SIA
+1937881942,Type,FullBipartite
+1937881942,Distribution,Uniform
+1937881942,MinCost,1
+1937881942,MaxCost,100
+1937881942,Edges,4096
+1937881942,Nodes,128
+1937881942,Saturation mean,0.143555
+1937881942,Saturation std,0.0462915
+1937881942,Dijkstra executions,588
+1937881942,Iterations,0
+1937881942,Total cost,198
+1937881942,Total time,0.00201143
+1937881942,Total time error,0
+1937881942,Process node,3.05651e-05
+1937881942,Process node error,0.00025831
+1937881942,Augment and reset,2.96381e-06
+1937881942,Augment and reset error,9.89519e-06
+1937881942,Dijkstra,7.11173e-07
+1937881942,Dijkstra error,5.94078e-05
+1937881942,Graph sorting,0.000491531
+1937881942,Graph sorting error,0
+1937881942,Graph neighborhood init,0.000617938
+1937881942,Graph neighborhood init error,0
+1937881942,Total execution time,0.00650188
+1937881942,Total execution time error,0
+980860796,DateTime,04-11-2016  12:40:12.
+980860796,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+980860796,Algorithm,A-SIA
+980860796,Type,FullBipartite
+980860796,Distribution,Uniform
+980860796,MinCost,1
+980860796,MaxCost,100
+980860796,Edges,4096
+980860796,Nodes,128
+996933493,DateTime,04-11-2016  12:42:00.
+996933493,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+996933493,Algorithm,A-SIA
+996933493,Type,FullBipartite
+996933493,Distribution,Uniform
+996933493,MinCost,1
+996933493,MaxCost,100
+996933493,Edges,4096
+996933493,Nodes,128
+723731368,DateTime,04-11-2016  12:43:18.
+723731368,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+723731368,Algorithm,A-SIA
+723731368,Type,FullBipartite
+723731368,Distribution,Uniform
+723731368,MinCost,1
+723731368,MaxCost,100
+723731368,Edges,4096
+723731368,Nodes,128
+1881643842,DateTime,04-11-2016  12:57:59.
+1881643842,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+1881643842,Algorithm,A-SIA
+1881643842,Type,FullBipartite
+1881643842,Distribution,Uniform
+1881643842,MinCost,1
+1881643842,MaxCost,100
+1881643842,Edges,4096
+1881643842,Nodes,128
+914877288,DateTime,04-11-2016  13:03:26.
+914877288,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+914877288,Algorithm,A-SIA
+914877288,Type,FullBipartite
+914877288,Distribution,Uniform
+914877288,MinCost,1
+914877288,MaxCost,100
+914877288,Edges,4096
+914877288,Nodes,128
+962713431,DateTime,04-11-2016  13:05:43.
+962713431,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+962713431,Algorithm,A-SIA
+962713431,Type,FullBipartite
+962713431,Distribution,Uniform
+962713431,MinCost,1
+962713431,MaxCost,100
+962713431,Edges,4096
+962713431,Nodes,128
+617241195,DateTime,04-11-2016  13:19:48.
+617241195,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+617241195,Algorithm,A-SIA
+617241195,Type,FullBipartite
+617241195,Distribution,Uniform
+617241195,MinCost,1
+617241195,MaxCost,100
+617241195,Edges,4096
+617241195,Nodes,128
+4730003,DateTime,04-11-2016  13:22:34.
+4730003,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+4730003,Algorithm,A-SIA
+4730003,Type,FullBipartite
+4730003,Distribution,Uniform
+4730003,MinCost,1
+4730003,MaxCost,100
+4730003,Edges,4096
+4730003,Nodes,128
+292011000,DateTime,04-11-2016  13:28:27.
+292011000,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+292011000,Algorithm,A-SIA
+292011000,Type,FullBipartite
+292011000,Distribution,Uniform
+292011000,MinCost,1
+292011000,MaxCost,100
+292011000,Edges,4096
+292011000,Nodes,128
+1671459689,DateTime,04-11-2016  13:34:15.
+1671459689,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+1671459689,Algorithm,A-SIA
+1671459689,Type,FullBipartite
+1671459689,Distribution,Uniform
+1671459689,MinCost,1
+1671459689,MaxCost,100
+1671459689,Edges,4096
+1671459689,Nodes,128
+622345945,DateTime,04-11-2016  13:40:16.
+622345945,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+622345945,Algorithm,A-SIA
+622345945,Type,FullBipartite
+622345945,Distribution,Uniform
+622345945,MinCost,1
+622345945,MaxCost,100
+622345945,Edges,4096
+622345945,Nodes,128
+1912005471,DateTime,04-11-2016  13:41:09.
+1912005471,Input file,../data/bipartite/bi_full_128_1_100_uni_1.gr
+1912005471,Algorithm,A-SIA
+1912005471,Type,FullBipartite
+1912005471,Distribution,Uniform
+1912005471,MinCost,1
+1912005471,MaxCost,100
+1912005471,Edges,4096
+1912005471,Nodes,128
+1018191032,DateTime,04-11-2016  14:28:36.
+1018191032,Input file,../data/bipartite/bi_full_16_1_100_uni_1.gr
+1018191032,Algorithm,A-SIA
+1018191032,Type,FullBipartite
+1018191032,Distribution,Uniform
+1018191032,MinCost,1
+1018191032,MaxCost,100
+1018191032,Edges,64
+1018191032,Nodes,16
+1018191032,Saturation mean,0.390625
+1018191032,Saturation std,0.181546
+1018191032,Dijkstra executions,23
+1018191032,Iterations,0
+1018191032,Total cost,141
+1018191032,Total time,9.7689e-05
+1018191032,Total time error,0
+1018191032,Process node,1.09014e-05
+1018191032,Process node error,1.60096e-05
+1018191032,Augment and reset,3.11e-06
+1018191032,Augment and reset error,4.406e-06
+1018191032,Dijkstra,5.6474e-07
+1018191032,Dijkstra error,2.40326e-06
+1018191032,Graph sorting,4.654e-06
+1018191032,Graph sorting error,0
+1018191032,Graph neighborhood init,4.8648e-05
+1018191032,Graph neighborhood init error,0
+1018191032,Total execution time,0.031427
+1018191032,Total execution time error,0
+549157779,DateTime,04-11-2016  14:30:35.
+549157779,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+549157779,Algorithm,A-SIA
+549157779,Type,FullBipartite
+549157779,Distribution,Exponential
+549157779,Lambda,1
+549157779,Edges,256
+549157779,Nodes,32
+1985775317,DateTime,04-11-2016  14:37:37.
+1985775317,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+1985775317,Algorithm,A-SIA
+1985775317,Type,FullBipartite
+1985775317,Distribution,Exponential
+1985775317,Lambda,1
+1985775317,Edges,256
+1985775317,Nodes,32
+1137530757,DateTime,04-11-2016  14:47:42.
+1137530757,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+1137530757,Algorithm,A-SIA
+1137530757,Type,FullBipartite
+1137530757,Distribution,Exponential
+1137530757,Lambda,1
+1137530757,Edges,256
+1137530757,Nodes,32
+2022147808,DateTime,04-11-2016  14:48:36.
+2022147808,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+2022147808,Algorithm,A-SIA
+2022147808,Type,FullBipartite
+2022147808,Distribution,Exponential
+2022147808,Lambda,1
+2022147808,Edges,256
+2022147808,Nodes,32
+1727258656,DateTime,04-11-2016  14:48:56.
+1727258656,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+1727258656,Algorithm,A-SIA
+1727258656,Type,FullBipartite
+1727258656,Distribution,Exponential
+1727258656,Lambda,1
+1727258656,Edges,256
+1727258656,Nodes,32
+2146991954,DateTime,04-11-2016  14:49:24.
+2146991954,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+2146991954,Algorithm,A-SIA
+2146991954,Type,FullBipartite
+2146991954,Distribution,Exponential
+2146991954,Lambda,1
+2146991954,Edges,256
+2146991954,Nodes,32
+1506310485,DateTime,04-11-2016  14:52:18.
+1506310485,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+1506310485,Algorithm,A-SIA
+1506310485,Type,FullBipartite
+1506310485,Distribution,Exponential
+1506310485,Lambda,1
+1506310485,Edges,256
+1506310485,Nodes,32
+1138796054,DateTime,04-11-2016  14:54:18.
+1138796054,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+1138796054,Algorithm,A-SIA
+1138796054,Type,FullBipartite
+1138796054,Distribution,Exponential
+1138796054,Lambda,1
+1138796054,Edges,256
+1138796054,Nodes,32
+65085038,DateTime,04-11-2016  14:55:17.
+65085038,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+65085038,Algorithm,A-SIA
+65085038,Type,FullBipartite
+65085038,Distribution,Exponential
+65085038,Lambda,1
+65085038,Edges,256
+65085038,Nodes,32
+1382508568,DateTime,04-11-2016  15:00:23.
+1382508568,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+1382508568,Algorithm,A-SIA
+1382508568,Type,FullBipartite
+1382508568,Distribution,Exponential
+1382508568,Lambda,1
+1382508568,Edges,256
+1382508568,Nodes,32
+219374638,DateTime,04-11-2016  15:40:05.
+219374638,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+219374638,Algorithm,A-SIA
+219374638,Type,FullBipartite
+219374638,Distribution,Exponential
+219374638,Lambda,1
+219374638,Edges,256
+219374638,Nodes,32
+1766848824,DateTime,04-11-2016  15:41:23.
+1766848824,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+1766848824,Algorithm,A-SIA
+1766848824,Type,FullBipartite
+1766848824,Distribution,Exponential
+1766848824,Lambda,1
+1766848824,Edges,256
+1766848824,Nodes,32
+1808966936,DateTime,04-11-2016  17:12:57.
+1808966936,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+1808966936,Algorithm,A-SIA
+1808966936,Type,FullBipartite
+1808966936,Distribution,Exponential
+1808966936,Lambda,1
+1808966936,Edges,256
+1808966936,Nodes,32
+312110605,DateTime,04-11-2016  17:33:32.
+312110605,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+312110605,Algorithm,A-SIA
+312110605,Type,FullBipartite
+312110605,Distribution,Exponential
+312110605,Lambda,1
+312110605,Edges,256
+312110605,Nodes,32
+142907830,DateTime,04-11-2016  17:38:39.
+142907830,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+142907830,Algorithm,A-SIA
+142907830,Type,FullBipartite
+142907830,Distribution,Exponential
+142907830,Lambda,1
+142907830,Edges,256
+142907830,Nodes,32
+139422975,DateTime,04-11-2016  17:43:23.
+139422975,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+139422975,Algorithm,A-SIA
+139422975,Type,FullBipartite
+139422975,Distribution,Exponential
+139422975,Lambda,1
+139422975,Edges,256
+139422975,Nodes,32
+459227874,DateTime,04-11-2016  17:53:58.
+459227874,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+459227874,Algorithm,A-SIA
+459227874,Type,FullBipartite
+459227874,Distribution,Exponential
+459227874,Lambda,1
+459227874,Edges,256
+459227874,Nodes,32
+993923787,DateTime,04-11-2016  17:54:33.
+993923787,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+993923787,Algorithm,A-SIA
+993923787,Type,FullBipartite
+993923787,Distribution,Exponential
+993923787,Lambda,1
+993923787,Edges,256
+993923787,Nodes,32
+1453791709,DateTime,04-11-2016  17:55:14.
+1453791709,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+1453791709,Algorithm,A-SIA
+1453791709,Type,FullBipartite
+1453791709,Distribution,Exponential
+1453791709,Lambda,1
+1453791709,Edges,256
+1453791709,Nodes,32
+919582294,DateTime,04-11-2016  17:55:46.
+919582294,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+919582294,Algorithm,A-SIA
+919582294,Type,FullBipartite
+919582294,Distribution,Exponential
+919582294,Lambda,1
+919582294,Edges,256
+919582294,Nodes,32
+548117284,DateTime,04-11-2016  18:01:41.
+548117284,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+548117284,Algorithm,A-SIA
+548117284,Type,FullBipartite
+548117284,Distribution,Exponential
+548117284,Lambda,1
+548117284,Edges,256
+548117284,Nodes,32
+473506182,DateTime,04-11-2016  18:34:44.
+473506182,Input file,../data/bipartite/bi_full_32_1_exp_3.gr
+473506182,Algorithm,A-SIA
+473506182,Type,FullBipartite
+473506182,Distribution,Exponential
+473506182,Lambda,1
+473506182,Edges,256
+473506182,Nodes,32
+473506182,Saturation mean,0.34375
+473506182,Saturation std,0.103645
+473506182,Dijkstra executions,66
+473506182,Iterations,0
+473506182,Total cost,216
+473506182,Total time,0.0005567
+473506182,Total time error,0
+473506182,Process node,3.1381e-05
+473506182,Process node error,7.6592e-05
+473506182,Augment and reset,5.88831e-06
+473506182,Augment and reset error,5.93469e-06
+473506182,Dijkstra,2.93636e-06
+473506182,Dijkstra error,7.80964e-06
+473506182,Graph sorting,2.7332e-05
+473506182,Graph sorting error,0
+473506182,Graph neighborhood init,0.000115841
+473506182,Graph neighborhood init error,0
+473506182,Total execution time,0.00231632
+473506182,Total execution time error,0

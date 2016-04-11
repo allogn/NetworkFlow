@@ -113,6 +113,7 @@ public:
     }
 
     inline long get_pair(long edgeId, long nodeId) const {
+        assert(E[edgeId].fromid == nodeId || E[edgeId].toid == nodeId);
         return (E[edgeId].fromid == nodeId)?E[edgeId].toid:E[edgeId].fromid;
     }
     inline bool is_forward(long edgeId, long nodeId) const {

@@ -48,20 +48,20 @@ class SIA {
     inline long getEdgeCost(long edge_w, long fromid) {
         return edge_w + mindist[fromid];
     }
-    inline long heap_checkAndUpdateEdgeMin(mmHeap& heap, long fromid) // update if new value is less
+    inline long checkAndUpdateGlobH(long fromid) // update if new value is less
     {
         if (fromid >= noA) return 0;
         long weight = g->get_next_neighbour_weight(fromid);
 
         if (weight != -1) { //not full
-            if (heap.isExisted(fromid))
+            if (globalH.isExisted(fromid))
             {
-                heap.updatequeue(fromid, getEdgeCost(weight,fromid));
+                globalH.updatequeue(fromid, weight - psi[fromid]);
                 return 1;
             }
-            heap.enqueue(fromid,getEdgeCost(weight,fromid));
+            globalH.enqueue(fromid, weight - psi[fromid]);
         } else {
-            assert(!heap.isExisted(fromid)); //not full if exists in the heap
+            assert(!globalH.isExisted(fromid)); //not full if exists in the heap
         }
         return 0;
     }
@@ -80,11 +80,14 @@ class SIA {
     {
         long cost = getCost(eid,fromid,toid);
         if (mindist[toid]>mindist[fromid]+cost) {
+            assert(mindist[fromid]+cost >= 0);
+//            cout << "new dist " << toid << "[ " << mindist[fromid] + cost << "]\n";
             mindist[toid] = mindist[fromid] + cost;
+            assert(std::find(g->V[fromid].E.begin(), g->V[fromid].E.end(), eid) != g->V[fromid].E.end());
             mineid[toid] = eid;
             if (toid < noA)
             {
-                heap_checkAndUpdateEdgeMin(globalH, toid);
+                checkAndUpdateGlobH(toid);
             }
             return true;
         }
@@ -92,17 +95,33 @@ class SIA {
     }
     void updateHeaps(long eid, long fromid, long toid)
     {
-        if (watched[fromid] == 0) return; //case when prefinal node : not all neighbours are considered => not watched,
+//        if (watched[fromid] == 1) return; //case when prefinal node : not all neighbours are considered => not watched,
         // but in globalH and in DijkH (!). so, if in dijkH => everything is fine (will be updated later)
+        bool newnode = (std::numeric_limits<long long>::max() == mindist[toid]);
         if (updateMinDist(eid,fromid,toid)) {
+//            cout << "updating in heaps " << fromid << "->" << toid << endl;
             //no isUpdated because enheap only if updated dist
-            if (!dijkH.isExisted(toid)) {
-                //isUpdated omitted here
-                if (watched[toid] == 1) heap_checkAndUpdateMin(updateH, toid, mindist[toid]);
-                else dijkH.enqueue(toid, mindist[toid]);
+
+            if (newnode) {
+                dijkH.enqueue(toid, mindist[toid]);
             } else {
-                dijkH.updatequeue(toid, mindist[toid]);
+                if (!dijkH.isExisted(toid)) {
+                    //isUpdated omitted here
+                    heap_checkAndUpdateMin(updateH, toid, mindist[toid]);
+                    watched[toid] = 1;
+                } else {
+                    dijkH.updatequeue(toid, mindist[toid]);
+                }
             }
+
+//            watched[toid] = true;
+//            if (!dijkH.isExisted(toid)) {
+//                //isUpdated omitted here
+//                if (watched[toid] == 1) heap_checkAndUpdateMin(updateH, toid, mindist[toid]);
+//                else dijkH.enqueue(toid, mindist[toid]);
+//            } else {
+//                dijkH.updatequeue(toid, mindist[toid]);
+//            }
         }
     }
 

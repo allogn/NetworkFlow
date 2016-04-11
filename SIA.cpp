@@ -30,7 +30,7 @@ void SIA::reset() {
     fill(psi,psi+noA+noB,0);
 
     mindist = new long long[noA+noB];
-    fill(mindist,mindist+noA+noB,LONG_MAX);
+    fill(mindist,mindist+noA+noB,std::numeric_limits<long long>::max());
 
     mineid = new long[noA+noB];
     fill(mineid,mineid+noA+noB,-1);
@@ -51,8 +51,18 @@ void SIA::augmentFlow(long lastid) {
         eid = mineid[curid];
         toid = curid;
         curid = g->get_pair(eid,curid);
+        assert(std::find(g->V[curid].E.begin(), g->V[curid].E.end(), eid) != g->V[curid].E.end());
 
         int cur_flow = (curid < noA)?flow[eid]-1:flow[eid]+1;
+        bool check = false;
+        for (int a1 = 0; a1 < g->V[curid].E.size(); a1++){
+            if (g->V[curid].E[a1] == eid) check = true;
+        }
+        for (int a1 = 0; a1 < g->V[toid].E.size(); a1++){
+            if (g->V[toid].E[a1] == eid) check = true;
+        }
+        assert(test_correct_flows());
+        assert(g->E[eid].fromid == curid || g->E[eid].toid == curid);
         assert(cur_flow == 0 || cur_flow == 1);
         flow[eid] = cur_flow;
 
@@ -78,10 +88,14 @@ void SIA::augmentFlow(long lastid) {
 long SIA::runDijkstra() {
     total_dijkstra++;
     assert(dijkH.size() != 0);
-    long current_node = dijkH.getTopIdx();
 
     while(dijkH.size()>0 && (globalH.size()==0 || dijkH.getTopValue()<=globalH.getTopValue()))
     {
+        long current_node = dijkH.getTopIdx();
+        dijkH.dequeue();
+
+        checkAndUpdateGlobH(current_node);
+
         //return of deficit is reached
         if (excess[current_node] < 0) {
             return current_node;
@@ -94,24 +108,28 @@ long SIA::runDijkstra() {
             long node_id = g->get_pair(edge_id,current_node);
 
             //updating minimum distance for Dijkstra and updating globalH inside
+            long long old_mindist = mindist[node_id];
             bool isUpdated = updateMinDist(edge_id,current_node,node_id);
-            if (isUpdated) {
-                if (!dijkH.isExisted(node_id)) {
-                    dijkH.enqueue(node_id,mindist[node_id]);
-                } else {
-                    dijkH.updatequeue(node_id,mindist[node_id]);
-                }
+            if (old_mindist == std::numeric_limits<long long>::max()) {
+                dijkH.enqueue(node_id,mindist[node_id]);
+            } else if (isUpdated) {
+                dijkH.updatequeue(node_id,mindist[node_id]);
             }
+//            if (isUpdated) {
+//                cout << "dijkstra updated " << current_node << "->" << node_id << endl;
+//                if (!dijkH.isExisted(node_id)) {
+//                    dijkH.enqueue(node_id,mindist[node_id]);
+//                } else {
+//                    dijkH.updatequeue(node_id,mindist[node_id]);
+//                }
+//            }
         }
-        heap_checkAndUpdateEdgeMin(globalH,current_node);
-        watched[current_node] = true;
 
-        dijkH.dequeue();
-        if (dijkH.size() == 0) {
-            current_node = -1;
-            break;
-        }
-        current_node = dijkH.getTopIdx();
+//        if (dijkH.size() == 0) {
+//            current_node = -1;
+//            break;
+//        }
+//        current_node = dijkH.getTopIdx();
 
     }
     return -1;
@@ -121,6 +139,8 @@ long SIA::insertEdgeFromHeap()
 {
     long fromid;
     long long tmp;
+
+    assert(globalH.size()>0);
     globalH.dequeue(fromid, tmp);
 
     long eid = g->insert_nn_to_edge_list(fromid);
@@ -128,7 +148,7 @@ long SIA::insertEdgeFromHeap()
     flow[eid] = 1; //one because an edge from noA and noB has different meanings on flow, it is residual flow
 
     g->V[g->E[eid].fromid].E.push_back(eid);
-    heap_checkAndUpdateEdgeMin(globalH,g->E[eid].fromid); //MUST BE HERE
+    checkAndUpdateGlobH(g->E[eid].fromid); //MUST BE HERE
     return eid;
 }
 
@@ -154,7 +174,7 @@ void SIA::processId(long source_id)
     long target_node = -1;
     mindist[source_id] = 0;
     watched[source_id] = 1;
-    heap_checkAndUpdateEdgeMin(globalH,source_id);
+    checkAndUpdateGlobH(source_id);
     dijkH.enqueue(source_id,0);
 
     assert(test_correct_flows());
@@ -192,6 +212,8 @@ void SIA::processId(long source_id)
         }
         taumax = gettaumax;
     };
+    assert(test_mineid_path_exist(target_node,source_id));
+    assert(test_correct_flows());
     double time_augment = timer.getTime();
     augmentFlow(target_node);
 
@@ -211,30 +233,35 @@ void SIA::processId(long source_id)
 void SIA::processIdApprox(long source_id)
 {
     //maybe it WILL be exact if globalH resets each iteration
-
+//    cout << "=== Processing " << source_id << endl;
     total_iterations = 0;
     double time_start = timer.getTime();
     long target_node = -1;
     mindist[source_id] = 0;
-    watched[source_id] = 1;
-    heap_checkAndUpdateEdgeMin(globalH,source_id);
+    checkAndUpdateGlobH(source_id);
     dijkH.enqueue(source_id,0);
     assert(test_correct_flows());
+
+    target_node = runDijkstra();
     while((target_node == -1))// || (globalH.size() > 0 && mindist[target_node]>globalH.getTopValue() - taumax))
     {
-        do //  || (globalH.size() > 0 && heap_getTopValue(dijkH)>heap_getTopValue(globalH)))
-        {
+//        cout << "new target node iter" << endl;
+        while (dijkH.size() == 0 || (globalH.size() > 0 && dijkH.getTopValue()>globalH.getTopValue())) {
+            assert((dijkH.size() == 0 && globalH.size() > 0) || dijkH.size() > 0);
             //adding new edge to the subgraph
             long eid = insertEdgeFromHeap();
-
+//            cout << "inserted new edge " << g->E[eid].fromid << "->"<< g->E[eid].toid;
             //updating Dijkstra heap by using additional heap
-            updateHeaps(eid, g->E[eid].fromid, g->E[eid].toid);
-        } while (dijkH.size() == 0 || (globalH.size() > 0 && dijkH.getTopValue()>globalH.getTopValue()));
+            if (!watched[g->E[eid].fromid] && mindist[g->E[eid].fromid] < std::numeric_limits<long long>::max() && !dijkH.isExisted(g->E[eid].fromid)) {
+                updateHeaps(eid, g->E[eid].fromid, g->E[eid].toid);
+            }
+        }
 
         long curid;
         long long tmp;
         while (updateH.size() > 0) {
             updateH.dequeue(curid, tmp);
+            watched[curid] = false;
             for (long i = 0; i < g->V[curid].E.size(); i++) {
                 long eid = g->V[curid].E[i];
                 updateHeaps(eid, curid, g->get_pair(eid, curid));
@@ -242,19 +269,12 @@ void SIA::processIdApprox(long source_id)
         }
 
         double time_dijkstra = timer.getTime();
+//        cout << "new dijkstra from " << source_id << endl;
         target_node = runDijkstra();
         timer.save_time("Dijkstra", time_dijkstra);
-
-        long long gettaumax = 0;
-        for (long i = 0; i<noA; i++)
-        {
-            if (mindist[i]<globalH.getTopValue() && gettaumax < psi[i])
-            {
-                gettaumax = psi[i];
-            }
-        }
-        taumax = gettaumax;
     };
+    assert(test_mineid_path_exist(target_node,source_id));
+    assert(test_correct_flows());
     double time_augment = timer.getTime();
     augmentFlow(target_node);
 
@@ -298,14 +318,18 @@ bool SIA::test_has_path(long nodeId) {
 }
 
 bool SIA::test_mineid_path_exist(long target_node, long source_node) {
-    cout << "Testing if path from target node exists..." << endl;
+//    cout << "tets" << endl;
+    vector<bool> visited(g->n, false);
     long curnode = target_node;
     while(curnode != source_node) {
+//        cout << curnode << endl;
+        assert(!visited[curnode]); //negative cycle
         assert(mineid[curnode] != -1);
         long eid = mineid[curnode];
         long neighbor = g->get_pair(eid, curnode);
         //check if eid is in E of neighbour
         assert(find(g->V[neighbor].E.begin(), g->V[neighbor].E.end(), eid) != g->V[neighbor].E.end());
+        visited[curnode] = true;
         curnode = neighbor;
     }
     return true;
