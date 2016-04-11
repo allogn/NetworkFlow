@@ -1,0 +1,961 @@
+1796079249,DateTime,04-11-2016  03:01:04.
+1796079249,Input file,../../data/bipartite/bi_full_32_30_10_gauss_5.gr
+1796079249,Algorithm,DF-CSA
+1796079249,Type,FullBipartite
+1796079249,Distribution,Gaussian
+1796079249,Mean,30
+1796079249,Std,10
+1796079249,Edges,256
+1796079249,Nodes,32
+1796079249,Total time,6.2335e-05
+1796079249,Total time error,0
+1796079249,Init phase time,8.37591e-06
+1796079249,Init phase time error,0
+1796079249,Traversal time,4.09746e-05
+1796079249,Traversal time error,0
+1796079249,Augment time,4.13205e-06
+1796079249,Augment time error,0
+1796079249,Sorting time,1.2434e-05
+1796079249,Sorting time error,0
+1796079249,Total time,5.6355e-05
+1796079249,Total time error,0
+1796079249,Init phase time,7.52194e-06
+1796079249,Init phase time error,0
+1796079249,Traversal time,3.6346e-05
+1796079249,Traversal time error,0
+1796079249,Augment time,3.88606e-06
+1796079249,Augment time error,0
+1796079249,Sorting time,1.1745e-05
+1796079249,Sorting time error,0
+1796079249,Total time,5.4519e-05
+1796079249,Total time error,0
+1796079249,Init phase time,7.16303e-06
+1796079249,Init phase time error,0
+1796079249,Traversal time,3.46801e-05
+1796079249,Traversal time error,0
+1796079249,Augment time,4.07489e-06
+1796079249,Augment time error,0
+1796079249,Sorting time,1.109e-05
+1796079249,Sorting time error,0
+1796079249,Total cost,248
+1796079249,Variation,Just Sorting
+1796079249,Graph neighborhood init,2.4609e-05
+1796079249,Graph neighborhood init error,0
+1796079249,Total execution time,0.00111313
+1796079249,Total execution time error,0
+1964482395,DateTime,04-11-2016  03:01:04.
+1964482395,Input file,../../data/bipartite/bi_full_32_30_10_gauss_5.gr
+1964482395,Algorithm,DF-CSA
+1964482395,Type,FullBipartite
+1964482395,Distribution,Gaussian
+1964482395,Mean,30
+1964482395,Std,10
+1964482395,Edges,256
+1964482395,Nodes,32
+1964482395,Total time,6.2183e-05
+1964482395,Total time error,0
+1964482395,Init phase time,7.9879e-06
+1964482395,Init phase time error,0
+1964482395,Traversal time,4.1332e-05
+1964482395,Traversal time error,0
+1964482395,Augment time,4.13891e-06
+1964482395,Augment time error,0
+1964482395,Sorting time,1.26759e-05
+1964482395,Sorting time error,0
+1964482395,Total time,5.695e-05
+1964482395,Total time error,0
+1964482395,Init phase time,7.27997e-06
+1964482395,Init phase time error,0
+1964482395,Traversal time,3.71541e-05
+1964482395,Traversal time error,0
+1964482395,Augment time,3.94118e-06
+1964482395,Augment time error,0
+1964482395,Sorting time,1.1917e-05
+1964482395,Sorting time error,0
+1964482395,Total time,5.5892e-05
+1964482395,Total time error,0
+1964482395,Init phase time,7.02497e-06
+1964482395,Init phase time error,0
+1964482395,Traversal time,3.62028e-05
+1964482395,Traversal time error,0
+1964482395,Augment time,4.09718e-06
+1964482395,Augment time error,0
+1964482395,Sorting time,1.09989e-05
+1964482395,Sorting time error,0
+1964482395,Total cost,248
+1964482395,Variation,Sorting with pruning
+1964482395,Graph neighborhood init,2.4205e-05
+1964482395,Graph neighborhood init error,0
+1964482395,Total execution time,0.00110932
+1964482395,Total execution time error,0
+282864548,DateTime,04-11-2016  03:01:04.
+282864548,Input file,../../data/bipartite/bi_full_32768_1_100_uni_1.gr
+282864548,Algorithm,DF-CSA
+282864548,Type,FullBipartite
+282864548,Distribution,Uniform
+282864548,MinCost,1
+282864548,MaxCost,100
+282864548,Edges,268435456
+282864548,Nodes,32768
+282864548,Total time,294.373
+282864548,Total time error,0
+282864548,Init phase time,55.2009
+282864548,Init phase time error,0
+282864548,Traversal time,159.635
+282864548,Traversal time error,0
+282864548,Augment time,70.219
+282864548,Augment time error,0
+282864548,Total time,124.452
+282864548,Total time error,0
+282864548,Init phase time,10.8353
+282864548,Init phase time error,0
+282864548,Traversal time,100.998
+282864548,Traversal time error,0
+282864548,Augment time,7.4263
+282864548,Augment time error,0
+282864548,Total time,247.487
+282864548,Total time error,0
+282864548,Init phase time,42.1895
+282864548,Init phase time error,0
+282864548,Traversal time,143.211
+282864548,Traversal time error,0
+282864548,Augment time,56.891
+282864548,Augment time error,0
+282864548,Total cost,16384
+282864548,Variation,No Sorting
+282864548,Graph neighborhood init,6.50618
+282864548,Graph neighborhood init error,0
+282864548,Total execution time,3159.01
+282864548,Total execution time error,0
+1639407438,DateTime,04-11-2016  03:54:02.
+1639407438,Input file,../../data/bipartite/bi_full_32768_1_100_uni_1.gr
+1639407438,Algorithm,DF-CSA
+1639407438,Type,FullBipartite
+1639407438,Distribution,Uniform
+1639407438,MinCost,1
+1639407438,MaxCost,100
+1639407438,Edges,268435456
+1639407438,Nodes,32768
+1639407438,Total time,117.447
+1639407438,Total time error,0
+1639407438,Init phase time,7.27764
+1639407438,Init phase time error,0
+1639407438,Traversal time,97.1454
+1639407438,Traversal time error,0
+1639407438,Augment time,3.92355
+1639407438,Augment time error,0
+1639407438,Sorting time,19.194
+1639407438,Sorting time error,0
+1639407438,Total time,83.1973
+1639407438,Total time error,0
+1639407438,Init phase time,4.76052
+1639407438,Init phase time error,0
+1639407438,Traversal time,72.1684
+1639407438,Traversal time error,0
+1639407438,Augment time,0.363409
+1639407438,Augment time error,0
+1639407438,Sorting time,19.2854
+1639407438,Sorting time error,0
+1639407438,Total time,86.1861
+1639407438,Total time error,0
+1639407438,Init phase time,4.81112
+1639407438,Init phase time error,0
+1639407438,Traversal time,75.4625
+1639407438,Traversal time error,0
+1639407438,Augment time,0.583283
+1639407438,Augment time error,0
+1639407438,Sorting time,19.0891
+1639407438,Sorting time error,0
+1639407438,Total cost,16384
+1639407438,Variation,Just Sorting
+1639407438,Graph neighborhood init,5.2766
+1639407438,Graph neighborhood init error,0
+1639407438,Total execution time,2359.79
+1639407438,Total execution time error,0
+1098608007,DateTime,04-11-2016  04:33:40.
+1098608007,Input file,../../data/bipartite/bi_full_32768_1_100_uni_1.gr
+1098608007,Algorithm,DF-CSA
+1098608007,Type,FullBipartite
+1098608007,Distribution,Uniform
+1098608007,MinCost,1
+1098608007,MaxCost,100
+1098608007,Edges,268435456
+1098608007,Nodes,32768
+1098608007,Total time,95.7016
+1098608007,Total time error,0
+1098608007,Init phase time,5.49078
+1098608007,Init phase time error,0
+1098608007,Traversal time,82.2432
+1098608007,Traversal time error,0
+1098608007,Augment time,1.15856
+1098608007,Augment time error,0
+1098608007,Sorting time,19.0242
+1098608007,Sorting time error,0
+1098608007,Total time,65.2289
+1098608007,Total time error,0
+1098608007,Init phase time,4.692
+1098608007,Init phase time error,0
+1098608007,Traversal time,54.6478
+1098608007,Traversal time error,0
+1098608007,Augment time,0.379836
+1098608007,Augment time error,0
+1098608007,Sorting time,19.514
+1098608007,Sorting time error,0
+1098608007,Total time,67.6715
+1098608007,Total time error,0
+1098608007,Init phase time,4.80241
+1098608007,Init phase time error,0
+1098608007,Traversal time,56.3734
+1098608007,Traversal time error,0
+1098608007,Augment time,1.31502
+1098608007,Augment time error,0
+1098608007,Sorting time,19.2232
+1098608007,Sorting time error,0
+1098608007,Total cost,16384
+1098608007,Variation,Sorting with pruning
+1098608007,Graph neighborhood init,5.30029
+1098608007,Graph neighborhood init error,0
+1098608007,Total execution time,2261.78
+1098608007,Total execution time error,0
+1512801975,DateTime,04-11-2016  05:11:40.
+1512801975,Input file,../../data/bipartite/bi_full_32768_1_100_uni_2.gr
+1512801975,Algorithm,DF-CSA
+1512801975,Type,FullBipartite
+1512801975,Distribution,Uniform
+1512801975,MinCost,1
+1512801975,MaxCost,100
+1512801975,Edges,268435456
+1512801975,Nodes,32768
+1512801975,Total time,290.073
+1512801975,Total time error,0
+1512801975,Init phase time,39.5633
+1512801975,Init phase time error,0
+1512801975,Traversal time,188.596
+1512801975,Traversal time error,0
+1512801975,Augment time,51.8374
+1512801975,Augment time error,0
+1512801975,Total time,118.441
+1512801975,Total time error,0
+1512801975,Init phase time,12.4739
+1512801975,Init phase time error,0
+1512801975,Traversal time,87.8453
+1512801975,Traversal time error,0
+1512801975,Augment time,11.9873
+1512801975,Augment time error,0
+1512801975,Total time,258.894
+1512801975,Total time error,0
+1512801975,Init phase time,37.7187
+1512801975,Init phase time error,0
+1512801975,Traversal time,156.011
+1512801975,Traversal time error,0
+1512801975,Augment time,58.5581
+1512801975,Augment time error,0
+1512801975,Total cost,16384
+1512801975,Variation,No Sorting
+1512801975,Graph neighborhood init,5.25921
+1512801975,Graph neighborhood init error,0
+1512801975,Total execution time,3155.54
+1512801975,Total execution time error,0
+1564419041,DateTime,04-11-2016  06:04:34.
+1564419041,Input file,../../data/bipartite/bi_full_32768_1_100_uni_2.gr
+1564419041,Algorithm,DF-CSA
+1564419041,Type,FullBipartite
+1564419041,Distribution,Uniform
+1564419041,MinCost,1
+1564419041,MaxCost,100
+1564419041,Edges,268435456
+1564419041,Nodes,32768
+1564419041,Total time,147.705
+1564419041,Total time error,0
+1564419041,Init phase time,7.42772
+1564419041,Init phase time error,0
+1564419041,Traversal time,128.504
+1564419041,Traversal time error,0
+1564419041,Augment time,1.92048
+1564419041,Augment time error,0
+1564419041,Sorting time,18.9163
+1564419041,Sorting time error,0
+1564419041,Total time,108.007
+1564419041,Total time error,0
+1564419041,Init phase time,4.77342
+1564419041,Init phase time error,0
+1564419041,Traversal time,97.5821
+1564419041,Traversal time error,0
+1564419041,Augment time,0.597509
+1564419041,Augment time error,0
+1564419041,Sorting time,19.2753
+1564419041,Sorting time error,0
+1564419041,Total time,111.074
+1564419041,Total time error,0
+1564419041,Init phase time,4.93825
+1564419041,Init phase time error,0
+1564419041,Traversal time,99.0361
+1564419041,Traversal time error,0
+1564419041,Augment time,0.771699
+1564419041,Augment time error,0
+1564419041,Sorting time,19.0922
+1564419041,Sorting time error,0
+1564419041,Total cost,16384
+1564419041,Variation,Just Sorting
+1564419041,Graph neighborhood init,5.26427
+1564419041,Graph neighborhood init error,0
+1564419041,Total execution time,2419.91
+1564419041,Total execution time error,0
+258211111,DateTime,04-11-2016  06:45:14.
+258211111,Input file,../../data/bipartite/bi_full_32768_1_100_uni_2.gr
+258211111,Algorithm,DF-CSA
+258211111,Type,FullBipartite
+258211111,Distribution,Uniform
+258211111,MinCost,1
+258211111,MaxCost,100
+258211111,Edges,268435456
+258211111,Nodes,32768
+258211111,Total time,109.628
+258211111,Total time error,0
+258211111,Init phase time,5.33683
+258211111,Init phase time error,0
+258211111,Traversal time,95.5378
+258211111,Traversal time error,0
+258211111,Augment time,1.70844
+258211111,Augment time error,0
+258211111,Sorting time,18.8022
+258211111,Sorting time error,0
+258211111,Total time,83.3725
+258211111,Total time error,0
+258211111,Init phase time,4.73603
+258211111,Init phase time error,0
+258211111,Traversal time,71.9622
+258211111,Traversal time error,0
+258211111,Augment time,0.67913
+258211111,Augment time error,0
+258211111,Sorting time,19.4863
+258211111,Sorting time error,0
+258211111,Total time,85.7261
+258211111,Total time error,0
+258211111,Init phase time,5.15618
+258211111,Init phase time error,0
+258211111,Traversal time,74.715
+258211111,Traversal time error,0
+258211111,Augment time,0.754523
+258211111,Augment time error,0
+258211111,Sorting time,19.3383
+258211111,Sorting time error,0
+258211111,Total cost,16384
+258211111,Variation,Sorting with pruning
+258211111,Graph neighborhood init,5.29928
+258211111,Graph neighborhood init error,0
+258211111,Total execution time,2278.6
+258211111,Total execution time error,0
+1443537571,DateTime,04-11-2016  07:23:33.
+1443537571,Input file,../../data/bipartite/bi_full_32768_1_100_uni_3.gr
+1443537571,Algorithm,DF-CSA
+1443537571,Type,FullBipartite
+1443537571,Distribution,Uniform
+1443537571,MinCost,1
+1443537571,MaxCost,100
+1443537571,Edges,268435456
+1443537571,Nodes,32768
+1443537571,Total time,292.25
+1443537571,Total time error,0
+1443537571,Init phase time,50.8054
+1443537571,Init phase time error,0
+1443537571,Traversal time,186.874
+1443537571,Traversal time error,0
+1443537571,Augment time,45.4875
+1443537571,Augment time error,0
+1443537571,Total time,109.195
+1443537571,Total time error,0
+1443537571,Init phase time,11.7989
+1443537571,Init phase time error,0
+1443537571,Traversal time,80.4119
+1443537571,Traversal time error,0
+1443537571,Augment time,11.1132
+1443537571,Augment time error,0
+1443537571,Total time,266.834
+1443537571,Total time error,0
+1443537571,Init phase time,44.4439
+1443537571,Init phase time error,0
+1443537571,Traversal time,157.407
+1443537571,Traversal time error,0
+1443537571,Augment time,59.8532
+1443537571,Augment time error,0
+1443537571,Total cost,16384
+1443537571,Variation,No Sorting
+1443537571,Graph neighborhood init,5.27755
+1443537571,Graph neighborhood init error,0
+1443537571,Total execution time,3129.87
+1443537571,Total execution time error,0
+129049162,DateTime,04-11-2016  08:16:01.
+129049162,Input file,../../data/bipartite/bi_full_32768_1_100_uni_3.gr
+129049162,Algorithm,DF-CSA
+129049162,Type,FullBipartite
+129049162,Distribution,Uniform
+129049162,MinCost,1
+129049162,MaxCost,100
+129049162,Edges,268435456
+129049162,Nodes,32768
+129049162,Total time,125.833
+129049162,Total time error,0
+129049162,Init phase time,6.51227
+129049162,Init phase time error,0
+129049162,Traversal time,109.026
+129049162,Traversal time error,0
+129049162,Augment time,1.3402
+129049162,Augment time error,0
+129049162,Sorting time,18.9947
+129049162,Sorting time error,0
+129049162,Total time,91.4324
+129049162,Total time error,0
+129049162,Init phase time,4.6764
+129049162,Init phase time error,0
+129049162,Traversal time,79.7742
+129049162,Traversal time error,0
+129049162,Augment time,0.394707
+129049162,Augment time error,0
+129049162,Sorting time,19.587
+129049162,Sorting time error,0
+129049162,Total time,93.7935
+129049162,Total time error,0
+129049162,Init phase time,4.82134
+129049162,Init phase time error,0
+129049162,Traversal time,83.0434
+129049162,Traversal time error,0
+129049162,Augment time,0.673056
+129049162,Augment time error,0
+129049162,Sorting time,19.014
+129049162,Sorting time error,0
+129049162,Total cost,16384
+129049162,Variation,Just Sorting
+129049162,Graph neighborhood init,5.26507
+129049162,Graph neighborhood init error,0
+129049162,Total execution time,2356.39
+129049162,Total execution time error,0
+710671347,DateTime,04-11-2016  08:55:37.
+710671347,Input file,../../data/bipartite/bi_full_32768_1_100_uni_3.gr
+710671347,Algorithm,DF-CSA
+710671347,Type,FullBipartite
+710671347,Distribution,Uniform
+710671347,MinCost,1
+710671347,MaxCost,100
+710671347,Edges,268435456
+710671347,Nodes,32768
+710671347,Total time,108.205
+710671347,Total time error,0
+710671347,Init phase time,6.77442
+710671347,Init phase time error,0
+710671347,Traversal time,90.9029
+710671347,Traversal time error,0
+710671347,Augment time,1.45052
+710671347,Augment time error,0
+710671347,Sorting time,18.8672
+710671347,Sorting time error,0
+710671347,Total time,72.7349
+710671347,Total time error,0
+710671347,Init phase time,4.70955
+710671347,Init phase time error,0
+710671347,Traversal time,61.4175
+710671347,Traversal time error,0
+710671347,Augment time,0.531878
+710671347,Augment time error,0
+710671347,Sorting time,19.3448
+710671347,Sorting time error,0
+710671347,Total time,75.5267
+710671347,Total time error,0
+710671347,Init phase time,5.09236
+710671347,Init phase time error,0
+710671347,Traversal time,64.5983
+710671347,Traversal time error,0
+710671347,Augment time,0.597779
+710671347,Augment time error,0
+710671347,Sorting time,19.2993
+710671347,Sorting time error,0
+710671347,Total cost,16384
+710671347,Variation,Sorting with pruning
+710671347,Graph neighborhood init,5.26225
+710671347,Graph neighborhood init error,0
+710671347,Total execution time,2230.61
+710671347,Total execution time error,0
+315507560,DateTime,04-11-2016  09:33:07.
+315507560,Input file,../../data/bipartite/bi_full_32768_1_100_uni_4.gr
+315507560,Algorithm,DF-CSA
+315507560,Type,FullBipartite
+315507560,Distribution,Uniform
+315507560,MinCost,1
+315507560,MaxCost,100
+315507560,Edges,268435456
+315507560,Nodes,32768
+315507560,Total time,303.104
+315507560,Total time error,0
+315507560,Init phase time,51.9533
+315507560,Init phase time error,0
+315507560,Traversal time,181.191
+315507560,Traversal time error,0
+315507560,Augment time,60.8471
+315507560,Augment time error,0
+315507560,Total time,109.284
+315507560,Total time error,0
+315507560,Init phase time,11.4929
+315507560,Init phase time error,0
+315507560,Traversal time,80.2324
+315507560,Traversal time error,0
+315507560,Augment time,11.1501
+315507560,Augment time error,0
+315507560,Total time,290.428
+315507560,Total time error,0
+315507560,Init phase time,43.5039
+315507560,Init phase time error,0
+315507560,Traversal time,163.115
+315507560,Traversal time error,0
+315507560,Augment time,77.3966
+315507560,Augment time error,0
+315507560,Total cost,16384
+315507560,Variation,No Sorting
+315507560,Graph neighborhood init,5.27158
+315507560,Graph neighborhood init error,0
+315507560,Total execution time,3202.6
+315507560,Total execution time error,0
+369299315,DateTime,04-11-2016  10:26:51.
+369299315,Input file,../../data/bipartite/bi_full_32768_1_100_uni_4.gr
+369299315,Algorithm,DF-CSA
+369299315,Type,FullBipartite
+369299315,Distribution,Uniform
+369299315,MinCost,1
+369299315,MaxCost,100
+369299315,Edges,268435456
+369299315,Nodes,32768
+369299315,Total time,117.167
+369299315,Total time error,0
+369299315,Init phase time,6.75643
+369299315,Init phase time error,0
+369299315,Traversal time,98.7466
+369299315,Traversal time error,0
+369299315,Augment time,1.45392
+369299315,Augment time error,0
+369299315,Sorting time,19.0032
+369299315,Sorting time error,0
+369299315,Total time,78.2698
+369299315,Total time error,0
+369299315,Init phase time,4.90991
+369299315,Init phase time error,0
+369299315,Traversal time,67.8372
+369299315,Traversal time error,0
+369299315,Augment time,0.460734
+369299315,Augment time error,0
+369299315,Sorting time,19.4593
+369299315,Sorting time error,0
+369299315,Total time,78.3852
+369299315,Total time error,0
+369299315,Init phase time,4.93036
+369299315,Init phase time error,0
+369299315,Traversal time,67.3919
+369299315,Traversal time error,0
+369299315,Augment time,0.566194
+369299315,Augment time error,0
+369299315,Sorting time,19.0142
+369299315,Sorting time error,0
+369299315,Total cost,16384
+369299315,Variation,Just Sorting
+369299315,Graph neighborhood init,5.29386
+369299315,Graph neighborhood init error,0
+369299315,Total execution time,2325.45
+369299315,Total execution time error,0
+1902781711,DateTime,04-11-2016  11:05:57.
+1902781711,Input file,../../data/bipartite/bi_full_32768_1_100_uni_4.gr
+1902781711,Algorithm,DF-CSA
+1902781711,Type,FullBipartite
+1902781711,Distribution,Uniform
+1902781711,MinCost,1
+1902781711,MaxCost,100
+1902781711,Edges,268435456
+1902781711,Nodes,32768
+1902781711,Total time,90.4955
+1902781711,Total time error,0
+1902781711,Init phase time,6.33639
+1902781711,Init phase time error,0
+1902781711,Traversal time,73.6416
+1902781711,Traversal time error,0
+1902781711,Augment time,1.3463
+1902781711,Augment time error,0
+1902781711,Sorting time,19.0369
+1902781711,Sorting time error,0
+1902781711,Total time,60.3834
+1902781711,Total time error,0
+1902781711,Init phase time,4.77162
+1902781711,Init phase time error,0
+1902781711,Traversal time,49.9054
+1902781711,Traversal time error,0
+1902781711,Augment time,0.388278
+1902781711,Augment time error,0
+1902781711,Sorting time,19.3369
+1902781711,Sorting time error,0
+1902781711,Total time,63.6938
+1902781711,Total time error,0
+1902781711,Init phase time,5.25248
+1902781711,Init phase time error,0
+1902781711,Traversal time,52.4647
+1902781711,Traversal time error,0
+1902781711,Augment time,0.481193
+1902781711,Augment time error,0
+1902781711,Sorting time,19.0495
+1902781711,Sorting time error,0
+1902781711,Total cost,16384
+1902781711,Variation,Sorting with pruning
+1902781711,Graph neighborhood init,5.27846
+1902781711,Graph neighborhood init error,0
+1902781711,Total execution time,2200.21
+1902781711,Total execution time error,0
+448488721,DateTime,04-11-2016  11:42:56.
+448488721,Input file,../../data/bipartite/bi_full_32768_1_100_uni_5.gr
+448488721,Algorithm,DF-CSA
+448488721,Type,FullBipartite
+448488721,Distribution,Uniform
+448488721,MinCost,1
+448488721,MaxCost,100
+448488721,Edges,268435456
+448488721,Nodes,32768
+448488721,Total time,299.549
+448488721,Total time error,0
+448488721,Init phase time,49.3361
+448488721,Init phase time error,0
+448488721,Traversal time,182.636
+448488721,Traversal time error,0
+448488721,Augment time,59.4456
+448488721,Augment time error,0
+448488721,Total time,111.107
+448488721,Total time error,0
+448488721,Init phase time,13.3239
+448488721,Init phase time error,0
+448488721,Traversal time,81.6514
+448488721,Traversal time error,0
+448488721,Augment time,10.7827
+448488721,Augment time error,0
+448488721,Total time,280.008
+448488721,Total time error,0
+448488721,Init phase time,45.2691
+448488721,Init phase time error,0
+448488721,Traversal time,156.23
+448488721,Traversal time error,0
+448488721,Augment time,73.3594
+448488721,Augment time error,0
+448488721,Total cost,16384
+448488721,Variation,No Sorting
+448488721,Graph neighborhood init,5.28663
+448488721,Graph neighborhood init error,0
+448488721,Total execution time,3146.85
+448488721,Total execution time error,0
+1825864171,DateTime,04-11-2016  12:35:42.
+1825864171,Input file,../../data/bipartite/bi_full_32768_1_100_uni_5.gr
+1825864171,Algorithm,DF-CSA
+1825864171,Type,FullBipartite
+1825864171,Distribution,Uniform
+1825864171,MinCost,1
+1825864171,MaxCost,100
+1825864171,Edges,268435456
+1825864171,Nodes,32768
+1825864171,Total time,136.675
+1825864171,Total time error,0
+1825864171,Init phase time,6.79127
+1825864171,Init phase time error,0
+1825864171,Traversal time,118.257
+1825864171,Traversal time error,0
+1825864171,Augment time,2.53676
+1825864171,Augment time error,0
+1825864171,Sorting time,18.96
+1825864171,Sorting time error,0
+1825864171,Total time,100.681
+1825864171,Total time error,0
+1825864171,Init phase time,4.71984
+1825864171,Init phase time error,0
+1825864171,Traversal time,90.6054
+1825864171,Traversal time error,0
+1825864171,Augment time,0.448142
+1825864171,Augment time error,0
+1825864171,Sorting time,19.275
+1825864171,Sorting time error,0
+1825864171,Total time,106.135
+1825864171,Total time error,0
+1825864171,Init phase time,4.95519
+1825864171,Init phase time error,0
+1825864171,Traversal time,95.0793
+1825864171,Traversal time error,0
+1825864171,Augment time,0.574153
+1825864171,Augment time error,0
+1825864171,Sorting time,19.0208
+1825864171,Sorting time error,0
+1825864171,Total cost,16384
+1825864171,Variation,Just Sorting
+1825864171,Graph neighborhood init,5.29207
+1825864171,Graph neighborhood init error,0
+1825864171,Total execution time,2397.93
+1825864171,Total execution time error,0
+530616896,DateTime,04-11-2016  13:16:00.
+530616896,Input file,../../data/bipartite/bi_full_32768_1_100_uni_5.gr
+530616896,Algorithm,DF-CSA
+530616896,Type,FullBipartite
+530616896,Distribution,Uniform
+530616896,MinCost,1
+530616896,MaxCost,100
+530616896,Edges,268435456
+530616896,Nodes,32768
+530616896,Total time,110.086
+530616896,Total time error,0
+530616896,Init phase time,6.10349
+530616896,Init phase time error,0
+530616896,Traversal time,93.4068
+530616896,Traversal time error,0
+530616896,Augment time,1.61097
+530616896,Augment time error,0
+530616896,Sorting time,18.9279
+530616896,Sorting time error,0
+530616896,Total time,76.025
+530616896,Total time error,0
+530616896,Init phase time,4.64483
+530616896,Init phase time error,0
+530616896,Traversal time,65.3992
+530616896,Traversal time error,0
+530616896,Augment time,0.409362
+530616896,Augment time error,0
+530616896,Sorting time,19.2154
+530616896,Sorting time error,0
+530616896,Total time,78.7761
+530616896,Total time error,0
+530616896,Init phase time,5.2324
+530616896,Init phase time error,0
+530616896,Traversal time,67.7183
+530616896,Traversal time error,0
+530616896,Augment time,0.757138
+530616896,Augment time error,0
+530616896,Sorting time,19.0512
+530616896,Sorting time error,0
+530616896,Total cost,16384
+530616896,Variation,Sorting with pruning
+530616896,Graph neighborhood init,5.2906
+530616896,Graph neighborhood init error,0
+530616896,Total execution time,2265.5
+530616896,Total execution time error,0
+922744024,DateTime,04-11-2016  13:54:05.
+922744024,Input file,../../data/bipartite/bi_full_32768_1_exp_1.gr
+922744024,Algorithm,DF-CSA
+922744024,Type,FullBipartite
+922744024,Distribution,Exponential
+922744024,Lambda,1
+922744024,Edges,268435456
+922744024,Nodes,32768
+922744024,Total time,302.287
+922744024,Total time error,0
+922744024,Init phase time,47.6633
+922744024,Init phase time error,0
+922744024,Traversal time,207.01
+922744024,Traversal time error,0
+922744024,Augment time,40.7266
+922744024,Augment time error,0
+922744024,Total time,110.699
+922744024,Total time error,0
+922744024,Init phase time,11.7876
+922744024,Init phase time error,0
+922744024,Traversal time,85.8113
+922744024,Traversal time error,0
+922744024,Augment time,6.77374
+922744024,Augment time error,0
+922744024,Total time,282.288
+922744024,Total time error,0
+922744024,Init phase time,52.4002
+922744024,Init phase time error,0
+922744024,Traversal time,175.403
+922744024,Traversal time error,0
+922744024,Augment time,49.0479
+922744024,Augment time error,0
+922744024,Total cost,0
+922744024,Variation,No Sorting
+922744024,Graph neighborhood init,5.27837
+922744024,Graph neighborhood init error,0
+922744024,Total execution time,3114.7
+922744024,Total execution time error,0
+1704214179,DateTime,04-11-2016  14:46:17.
+1704214179,Input file,../../data/bipartite/bi_full_32768_1_exp_1.gr
+1704214179,Algorithm,DF-CSA
+1704214179,Type,FullBipartite
+1704214179,Distribution,Exponential
+1704214179,Lambda,1
+1704214179,Edges,268435456
+1704214179,Nodes,32768
+1704214179,Total time,115.082
+1704214179,Total time error,0
+1704214179,Init phase time,15.0806
+1704214179,Init phase time error,0
+1704214179,Traversal time,90.4007
+1704214179,Traversal time error,0
+1704214179,Augment time,1.67563
+1704214179,Augment time error,0
+1704214179,Sorting time,21.0043
+1704214179,Sorting time error,0
+1704214179,Total time,84.8321
+1704214179,Total time error,0
+1704214179,Init phase time,5.85079
+1704214179,Init phase time error,0
+1704214179,Traversal time,72.7517
+1704214179,Traversal time error,0
+1704214179,Augment time,0.374437
+1704214179,Augment time error,0
+1704214179,Sorting time,21.302
+1704214179,Sorting time error,0
+1704214179,Total time,81.9875
+1704214179,Total time error,0
+1704214179,Init phase time,5.85857
+1704214179,Init phase time error,0
+1704214179,Traversal time,69.3213
+1704214179,Traversal time error,0
+1704214179,Augment time,0.637555
+1704214179,Augment time error,0
+1704214179,Sorting time,21.1602
+1704214179,Sorting time error,0
+1704214179,Total cost,0
+1704214179,Variation,Just Sorting
+1704214179,Graph neighborhood init,5.27043
+1704214179,Graph neighborhood init error,0
+1704214179,Total execution time,2334.11
+1704214179,Total execution time error,0
+1605660921,DateTime,04-11-2016  15:25:31.
+1605660921,Input file,../../data/bipartite/bi_full_32768_1_exp_1.gr
+1605660921,Algorithm,DF-CSA
+1605660921,Type,FullBipartite
+1605660921,Distribution,Exponential
+1605660921,Lambda,1
+1605660921,Edges,268435456
+1605660921,Nodes,32768
+1605660921,Total time,147.59
+1605660921,Total time error,0
+1605660921,Init phase time,11.5765
+1605660921,Init phase time error,0
+1605660921,Traversal time,121.959
+1605660921,Traversal time error,0
+1605660921,Augment time,2.56808
+1605660921,Augment time error,0
+1605660921,Sorting time,21.0203
+1605660921,Sorting time error,0
+1605660921,Total time,100.555
+1605660921,Total time error,0
+1605660921,Init phase time,5.27982
+1605660921,Init phase time error,0
+1605660921,Traversal time,88.2609
+1605660921,Traversal time error,0
+1605660921,Augment time,0.385287
+1605660921,Augment time error,0
+1605660921,Sorting time,21.6138
+1605660921,Sorting time error,0
+1605660921,Total time,110.763
+1605660921,Total time error,0
+1605660921,Init phase time,6.87417
+1605660921,Init phase time error,0
+1605660921,Traversal time,96.2419
+1605660921,Traversal time error,0
+1605660921,Augment time,0.928408
+1605660921,Augment time error,0
+1605660921,Sorting time,21.3422
+1605660921,Sorting time error,0
+1605660921,Total cost,0
+1605660921,Variation,Sorting with pruning
+1605660921,Graph neighborhood init,5.28431
+1605660921,Graph neighborhood init error,0
+1605660921,Total execution time,2581.2
+1605660921,Total execution time error,0
+1594684090,DateTime,04-11-2016  16:08:51.
+1594684090,Input file,../../data/bipartite/bi_full_32768_1_exp_2.gr
+1594684090,Algorithm,DF-CSA
+1594684090,Type,FullBipartite
+1594684090,Distribution,Exponential
+1594684090,Lambda,1
+1594684090,Edges,268435456
+1594684090,Nodes,32768
+1594684090,Total time,361.45
+1594684090,Total time error,0
+1594684090,Init phase time,48.587
+1594684090,Init phase time error,0
+1594684090,Traversal time,241.801
+1594684090,Traversal time error,0
+1594684090,Augment time,64.7753
+1594684090,Augment time error,0
+1594684090,Total time,131.343
+1594684090,Total time error,0
+1594684090,Init phase time,13.0067
+1594684090,Init phase time error,0
+1594684090,Traversal time,100.381
+1594684090,Traversal time error,0
+1594684090,Augment time,12.4956
+1594684090,Augment time error,0
+1594684090,Total time,337.579
+1594684090,Total time error,0
+1594684090,Init phase time,46.8813
+1594684090,Init phase time error,0
+1594684090,Traversal time,211.563
+1594684090,Traversal time error,0
+1594684090,Augment time,71.7711
+1594684090,Augment time error,0
+1594684090,Total cost,0
+1594684090,Variation,No Sorting
+1594684090,Graph neighborhood init,5.28303
+1594684090,Graph neighborhood init error,0
+1594684090,Total execution time,3319.33
+1594684090,Total execution time error,0
+832850002,DateTime,04-11-2016  17:04:29.
+832850002,Input file,../../data/bipartite/bi_full_32768_1_exp_2.gr
+832850002,Algorithm,DF-CSA
+832850002,Type,FullBipartite
+832850002,Distribution,Exponential
+832850002,Lambda,1
+832850002,Edges,268435456
+832850002,Nodes,32768
+832850002,Total time,127.834
+832850002,Total time error,0
+832850002,Init phase time,6.63623
+832850002,Init phase time error,0
+832850002,Traversal time,111.387
+832850002,Traversal time error,0
+832850002,Augment time,1.59715
+832850002,Augment time error,0
+832850002,Sorting time,20.9826
+832850002,Sorting time error,0
+832850002,Total time,93.4401
+832850002,Total time error,0
+832850002,Init phase time,5.31424
+832850002,Init phase time error,0
+832850002,Traversal time,82.3048
+832850002,Traversal time error,0
+832850002,Augment time,0.406985
+832850002,Augment time error,0
+832850002,Sorting time,21.5741
+832850002,Sorting time error,0
+832850002,Total time,104.13
+832850002,Total time error,0
+832850002,Init phase time,6.41355
+832850002,Init phase time error,0
+832850002,Traversal time,90.9764
+832850002,Traversal time error,0
+832850002,Augment time,0.715243
+832850002,Augment time error,0
+832850002,Sorting time,21.0243
+832850002,Sorting time error,0
+832850002,Total cost,0
+832850002,Variation,Just Sorting
+832850002,Graph neighborhood init,5.26978
+832850002,Graph neighborhood init error,0
+832850002,Total execution time,2380.23
+832850002,Total execution time error,0
+1356367086,DateTime,04-11-2016  17:44:29.
+1356367086,Input file,../../data/bipartite/bi_full_32768_1_exp_2.gr
+1356367086,Algorithm,DF-CSA
+1356367086,Type,FullBipartite
+1356367086,Distribution,Exponential
+1356367086,Lambda,1
+1356367086,Edges,268435456
+1356367086,Nodes,32768
+1356367086,Total time,150.162
+1356367086,Total time error,0
+1356367086,Init phase time,6.87931
+1356367086,Init phase time error,0
+1356367086,Traversal time,133.602
+1356367086,Traversal time error,0
+1356367086,Augment time,1.43102
+1356367086,Augment time error,0
+1356367086,Sorting time,21.5395
+1356367086,Sorting time error,0
