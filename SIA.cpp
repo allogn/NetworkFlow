@@ -80,7 +80,7 @@ long SIA::runDijkstra() {
     assert(dijkH.size() != 0);
     long current_node = dijkH.getTopIdx();
 
-    while(dijkH.size()>0 && (globalH.size()==0 || dijkH.getTopValue()<=globalH.getTopValue()))
+    while(true) //dijkH.size()>0 && (globalH.size()==0 || dijkH.getTopValue()<=globalH.getTopValue()))
     {
         //return of deficit is reached
         if (excess[current_node] < 0) {
@@ -114,7 +114,7 @@ long SIA::runDijkstra() {
         current_node = dijkH.getTopIdx();
 
     }
-    return -1;
+    return current_node;//-1;
 }
 
 long SIA::insertEdgeFromHeap()
@@ -176,7 +176,7 @@ void SIA::processId(long source_id)
                     updateHeaps(eid, curid, g->get_pair(eid, curid));
                 }
             }
-        } while (dijkH.size() == 0);
+        } while (dijkH.size() == 0);// || (globalH.size() > 0 && dijkH.getTopValue()>globalH.getTopValue()));
 
         double time_dijkstra = timer.getTime();
         target_node = runDijkstra();
