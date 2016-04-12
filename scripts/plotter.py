@@ -69,8 +69,8 @@ plt.title(title)
 plt.xlabel(x_name)
 plt.ylabel(y_name)
 ax = plt.gca()
-#ax.set_xscale("log")#, nonposx='clip')
-#ax.set_yscale("log")#, nonposy='clip')
+ax.set_xscale("log")#, nonposx='clip')
+ax.set_yscale("log")#, nonposy='clip')
 
 # plot for each param
 i = 0

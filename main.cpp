@@ -244,7 +244,7 @@ int main(int argc, const char **argv) {
                 cost_scaling.lowerMap(lower);
                 cost_scaling.supplyMap(supply);
                 cost_scaling.run();
-                cost_scaling.timer.output(log_filename, experiment_id);
+                cost_scaling.timer.output(log_filename, experiment_id); //todo BUG HERE - output only once!
                 cout << "Total Cost of Modified Lemon CostScaling: " << cost_scaling.totalCost() << endl;
                 cout << "Total Time of Modified Lemon CostScaling: " << cost_scaling.timer.timings["Total time"].back() << endl;
                 if (current_round == 1)

@@ -86,12 +86,12 @@ int main(int argc, const char** argv) {
         path[path.size()-1] = 'r';
         path[path.size()-2] = 'g';
 
-        if (algorithm == ALG_SIA) {
+        if (algorithm == ALG_ASIA) {
             g.clear_graph();
             g.load_graph(path);
             g.init_neighbors();
             g.sort_neighbors();
-            SIA SIAsolv(&g);
+            SIA SIAsolv(&g, true);
             SIAsolv.runOSIA();
             if (SIAsolv.totalCost != answer) {
                 cout << "SIA wrong answer: " << SIAsolv.totalCost << " correct: " << answer << endl;
