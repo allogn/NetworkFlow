@@ -233,14 +233,15 @@ void generate_graph(string output) {
             switch (stdistr) {
                 case 0:
                     for (int cl = 0; cl < cl_num; cl++) {
-                        normal_distribution<double> clGen(centerGen(generator), stdMultGen(generator)*clsize);
+                        normal_distribution<double> clGenX(centerGen(generator), stdMultGen(generator)*clsize);
+                        normal_distribution<double> clGenY(centerGen(generator), stdMultGen(generator)*clsize);
                         for(long i = 0; i < size/cl_num; i++) {
                             //each cluster is equal size
-                            grfile << clGen(generator) << " " << clGen(generator) << " " << excessMap[cl*(size/cl_num)+i] << endl;
+                            grfile << clGenX(generator) << " " << clGenY(generator) << " " << excessMap[cl*(size/cl_num)+i] << endl;
                         }
                         if (cl == cl_num -1) {
                             for(long i = 0; i < size % cl_num; i++) {
-                                grfile << clGen(generator) << " " << clGen(generator) << " " << excessMap[(size - size % cl_num)+i] << endl;
+                                grfile << clGenX(generator) << " " << clGenY(generator) << " " << excessMap[(size - size % cl_num)+i] << endl;
                             }
                         }
                     }
