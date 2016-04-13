@@ -491,7 +491,7 @@ void Graph::load_points(string filename, string log_filename, long experiment_id
     clear_graph();
     for (long i = 0; i<commentLines; i++) infile >> line >> parameter >> value; //skip comments
     infile >> n;
-    m = n*(n-1)/2;
+    m = n*(n-1);
 
     if (log_filename != "") log << experiment_id << ",Edges," << m << "\n";
     if (log_filename != "") log << experiment_id << ",Nodes," << n << "\n";

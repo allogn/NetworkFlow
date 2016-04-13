@@ -1,0 +1,11 @@
+1251197021,DateTime,04-13-2016  22:50:52.
+1251197021,Input file,./128_rand_uni_s1_t64_d1_1.sgr
+1251197021,Algorithm,Lemon CSA
+1251197021,Sources,1
+1251197021,Targets,64
+1251197021,Supply,1
+1251197021,SourceDistr,Random
+1251197021,Type,RandomPoints
+1251197021,Distribution,Uniform
+1251197021,Edges,8128
+1251197021,Nodes,128
