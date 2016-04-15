@@ -1,9 +1,11 @@
 #!/bin/bash
-DATADIR="../../data/spatial"
+DATADIR="../../data/graphs"
 
-for f in $DATADIR/*;
+for f in $DATADIR/*.gr;
 do
-	../Debug/NetworkFlows -r 1 -i $f -a 5 -l testSpatial.csv
+	../Release/NetworkFlows -r 10 -i $f -a 3 -p 0 -l rmat.csv
+	../Release/NetworkFlows -r 10 -i $f -a 3 -p 1 -l rmat.csv
+	../Release/NetworkFlows -r 10 -i $f -a 3 -p 2 -l rmat.csv
 done
 
 echo "Done."

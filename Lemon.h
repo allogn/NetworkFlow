@@ -1096,11 +1096,11 @@ namespace lemon {
                         }
 
                         // Relabel tip node
-//                        if (tip != start) {
-//                            int ra = _reverse[path.back()];
-//                            min_red_cost =
-//                                    std::min(min_red_cost, _cost[ra] + pi_tip - _pi[_target[ra]]);
-//                        }
+                        if (tip != start) {
+                            int ra = _reverse[path.back()];
+                            min_red_cost =
+                                    std::min(min_red_cost, _cost[ra] + pi_tip - _pi[_target[ra]]);
+                        }
 
                         assert(_param == 0 || sorted(tip));
                         last_out = _next_out[tip];
