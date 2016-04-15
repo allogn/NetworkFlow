@@ -30,6 +30,7 @@ int main(int argc, const char** argv) {
     parallel_for(long i = 0; i < g.m; i++) {
         g.E[i].weight = uniGen(generator);
     }
+    g.isSpatial = false;
     g.init_neighbors();
     // set up source and target and test if problem is feasible. select another if not
     uniform_int_distribution<long> uniGenNode(0, g.n-1);
