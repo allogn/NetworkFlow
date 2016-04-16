@@ -491,7 +491,7 @@ void Graph::load_points(string filename, string log_filename, long experiment_id
     clear_graph();
     for (long i = 0; i<commentLines; i++) infile >> line >> parameter >> value; //skip comments
     infile >> n;
-    m = n*(n-1);
+    m = 0;//n*(n-1);
 
     if (log_filename != "") log << experiment_id << ",Edges," << m << "\n";
     if (log_filename != "") log << experiment_id << ",Nodes," << n << "\n";
@@ -521,25 +521,28 @@ void Graph::fill_full_graph() {
     long id = 0;
     for (long i = 0; i < n; i++) {
         for (long j = i+1; j < n; j++) {
-            Edge e(id++);
-            e.lower = 0;
-            e.capacity = 1;
-            e.fromid = i;
-            e.toid = j;
-            assert(bg::distance(coords[i], coords[j])*SCALE < std::numeric_limits<int>::max()); //not sure if possible to use this
-            e.weight = bg::distance(coords[i], coords[j])*SCALE;
-            E.push_back(e);
-            fullE[i].push_back(id);
-            completeE[i].push_back(id);
-            completeE[j].push_back(id);
-            e.ID++;
-            id++;
-            e.fromid = j;
-            e.toid = i;
-            E.push_back(e);
-            fullE[i].push_back(id);
-            completeE[i].push_back(id);
-            completeE[j].push_back(id);
+            if (delta == 0 || bg::distance(coords[i], coords[j]) < delta) {
+                m++;
+                Edge e(id++);
+                e.lower = 0;
+                e.capacity = 1;
+                e.fromid = i;
+                e.toid = j;
+                assert(bg::distance(coords[i], coords[j])*SCALE < std::numeric_limits<int>::max()); //not sure if possible to use this
+                e.weight = bg::distance(coords[i], coords[j])*SCALE;
+                E.push_back(e);
+                fullE[i].push_back(id);
+                completeE[i].push_back(id);
+                completeE[j].push_back(id);
+                e.ID++;
+                id++;
+                e.fromid = j;
+                e.toid = i;
+                E.push_back(e);
+                fullE[i].push_back(id);
+                completeE[i].push_back(id);
+                completeE[j].push_back(id);
+            }
         }
     }
     timer.save_time("Graph fullfill", time);
