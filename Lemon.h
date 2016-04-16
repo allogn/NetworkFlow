@@ -582,7 +582,7 @@ namespace lemon {
             _node_num = countNodes(_graph);
             _arc_num = countArcs(_graph);
             _res_node_num = _node_num;
-            _res_arc_num = 2 * (_arc_num + _node_num);
+            _res_arc_num = 2 * (_arc_num);
 
             _first_out.resize(_res_node_num);
             _forward.resize(_res_arc_num);
@@ -1040,7 +1040,9 @@ namespace lemon {
                         long last_out = (tip < _res_node_num-1)?_first_out[tip+1]:_res_arc_num;
 
                         if (_param == 2) {
+//                            long tmp = _next_out[tip];
                             for (long a = _next_out[tip]; a != last_out && _cost[a] + pi_tip <= min_red_cost; ++a) {
+//                                tmp++;
                                 if (_res_cap[a] > 0) {
                                     u = _target[a];
                                     int temp_cost = _cost[a];
@@ -1058,20 +1060,11 @@ namespace lemon {
                                     else if (rc < min_red_cost) {
                                         min_red_cost = rc;
                                     }
-#ifndef NDEBUG
-                                    if (_param != 0 && _cost[a] + pi_tip > min_red_cost)
-                                    {
-                                        for (long a2 = a+1; a2 != last_out; ++a2) {
-                                            if (_res_cap[a2] > 0) {
-                                                rc = _cost[a2] + pi_tip - _pi[_target[a2]];
-                                                assert(rc >= 0);
-                                                assert(rc > min_red_cost);
-                                            }
-                                        }
-                                    }
-#endif
                                 }
                             }
+//                            long tmp2 = tmp;
+//                            while (tmp2 != last_out) tmp2++;
+//                            cout << "fraction " << (double)(tmp2-tmp)/(double)(tmp2-_first_out[tip]) << endl;
                         } else {
                             for (long a = _next_out[tip]; a != last_out; ++a) {
                                 if (_res_cap[a] > 0) {

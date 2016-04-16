@@ -72,6 +72,7 @@ public:
     long n;
     long m;
     bool isSpatial;
+    double delta;
 
     Timer timer;
 

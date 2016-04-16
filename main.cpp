@@ -45,6 +45,7 @@ int main(int argc, const char **argv) {
     int rounds;
     int experiment_id;
     int param;
+    double delta;
     string input_graph;
     string log_filename;
     po::options_description desc("Allowed options");
@@ -63,6 +64,7 @@ int main(int argc, const char **argv) {
             ("param,p", po::value<int>(&param)->default_value(0), "parameter for an algorithm\n"
                     "For Lemon: 0 - no sorting, 1 - just sorting, 2 - sorting with pruning")
             ("rounds,r", po::value<int>(&rounds)->default_value(1), "rounds for an experiment")
+            ("delta,d", po::value<double>(&delta)->default_value(0), "maximum connection distance (0:unbounded)")
             ("log,l", po::value<string>(&log_filename)->required(), "log file for timings");
 
     po::variables_map vm;
@@ -133,6 +135,7 @@ int main(int argc, const char **argv) {
     Graph g;
     if (input_graph.substr(input_graph.size()-3) == "sgr") {
         g.load_points(input_graph, log_filename, experiment_id);
+        g.delta = delta;
     } else {
         g.load_graph(input_graph, log_filename, experiment_id);
     }
