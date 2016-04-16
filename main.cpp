@@ -297,15 +297,15 @@ int main(int argc, const char **argv) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
                 lemon::ListDigraph _graph;
 
-                lemon::ListDigraph::ArcMap<int> weight(_graph);
-                lemon::ListDigraph::ArcMap<int> flow(_graph);
-                lemon::ListDigraph::ArcMap<int> cap(_graph);
-                lemon::ListDigraph::ArcMap<int> lower(_graph);
-                lemon::ListDigraph::NodeMap<int> supply(_graph);
+                lemon::ListDigraph::ArcMap<long> weight(_graph);
+                lemon::ListDigraph::ArcMap<long> flow(_graph);
+                lemon::ListDigraph::ArcMap<long> cap(_graph);
+                lemon::ListDigraph::ArcMap<long> lower(_graph);
+                lemon::ListDigraph::NodeMap<long> supply(_graph);
 
                 lemon::ListDigraph::Node *nodes;
                 nodes = (lemon::ListDigraph::Node *) malloc(sizeof(lemon::ListDigraph::Node) * g.n);
-                for (int i = g.n-1; i >=0; i--) {
+                for (long i = g.n-1; i >=0; i--) {
                     nodes[i] = _graph.addNode();
                     supply[nodes[i]] = g.V[i].supply;
                 }
@@ -317,7 +317,7 @@ int main(int argc, const char **argv) {
                     lower[e] = g.E[i].lower;
                 }
 
-                lemon::CostScaling<lemon::ListDigraph, int, int> cost_scaling(_graph);
+                lemon::CostScaling<lemon::ListDigraph, long, long> cost_scaling(_graph);
                 cost_scaling.costMap(weight);
                 cost_scaling.upperMap(cap);
                 cost_scaling.lowerMap(lower);
