@@ -268,6 +268,7 @@ namespace lemon {
         LargeCostVector _pi;
         ValueVector _excess;
         IntVector _next_out;
+        IntVector _last_out;
         std::deque<long> _active_nodes;
 
         // Data for scaling
@@ -600,6 +601,7 @@ namespace lemon {
             _pi.resize(_res_node_num);
             _excess.resize(_res_node_num);
             _next_out.resize(_res_node_num);
+            _last_out.resize(_res_node_num);
 
             // Copy the graph
             long i = 0, j = 0, k = 2 * _arc_num + _node_num;
@@ -610,6 +612,7 @@ namespace lemon {
             double total_sort_time = 0;
             for (NodeIt n(_graph); n != INVALID; ++n, ++i) {
                 _first_out[i] = j;
+                _last_out[i] = j;
 
                 /*
                  * here goes sorting
@@ -941,18 +944,36 @@ namespace lemon {
         // Initialize a cost scaling phase
         void initPhase() {
             // Saturate arcs not satisfying the optimality condition
-            for (long u = 0; u != _res_node_num; ++u) {
-                long last_out = (u < _res_node_num-1)?_first_out[u+1]:_res_arc_num;
-                LargeCost pi_u = _pi[u];
-                for (long a = _first_out[u]; a != last_out; ++a) {
-                    Value delta = _res_cap[a];
-                    if (delta > 0) {
-                        long v = _target[a];
-                        if (_cost[a] + pi_u - _pi[v] < 0) {
-                            _excess[u] -= delta;
-                            _excess[v] += delta;
-                            _res_cap[a] = 0;
-                            _res_cap[_reverse[a]] += delta;
+            if (_param == 2) {
+                for (long u = 0; u != _res_node_num; ++u) {
+                    LargeCost pi_u = _pi[u];
+                    for (long a = _first_out[u]; a <= _last_out[u]; ++a) {
+                        Value delta = _res_cap[a];
+                        if (delta > 0) {
+                            long v = _target[a];
+                            if (_cost[a] + pi_u - _pi[v] < 0) {
+                                _excess[u] -= delta;
+                                _excess[v] += delta;
+                                _res_cap[a] = 0;
+                                _res_cap[_reverse[a]] += delta;
+                            }
+                        }
+                    }
+                }
+            } else {
+                for (long u = 0; u != _res_node_num; ++u) {
+                    long last_out = (u < _res_node_num-1)?_first_out[u+1]:_res_arc_num;
+                    LargeCost pi_u = _pi[u];
+                    for (long a = _first_out[u]; a < last_out; ++a) {
+                        Value delta = _res_cap[a];
+                        if (delta > 0) {
+                            long v = _target[a];
+                            if (_cost[a] + pi_u - _pi[v] < 0) {
+                                _excess[u] -= delta;
+                                _excess[v] += delta;
+                                _res_cap[a] = 0;
+                                _res_cap[_reverse[a]] += delta;
+                            }
                         }
                     }
                 }
@@ -1017,7 +1038,7 @@ namespace lemon {
                 initPhase();
                 time_initPhase += timer.getTime() - time_oneInit;
 
-
+                long last_out;
                 // Perform partial augment and relabel operations
                 while (true) {
                     // Select an active node (FIFO selection)
@@ -1040,9 +1061,7 @@ namespace lemon {
                         long last_out = (tip < _res_node_num-1)?_first_out[tip+1]:_res_arc_num;
 
                         if (_param == 2) {
-//                            long tmp = _next_out[tip];
-                            for (long a = _next_out[tip]; a != last_out && _cost[a] + pi_tip <= min_red_cost; ++a) {
-//                                tmp++;
+                            for (long a = _next_out[tip]; a < last_out; ++a) {
                                 if (_res_cap[a] > 0) {
                                     u = _target[a];
                                     int temp_cost = _cost[a];
@@ -1061,12 +1080,14 @@ namespace lemon {
                                         min_red_cost = rc;
                                     }
                                 }
+                                if (a+1 < last_out && _cost[a+1] + pi_tip > min_red_cost) {
+                                    //add new to last_out
+                                    _last_out[tip] = a;
+                                    break;
+                                }
                             }
-//                            long tmp2 = tmp;
-//                            while (tmp2 != last_out) tmp2++;
-//                            cout << "fraction " << (double)(tmp2-tmp)/(double)(tmp2-_first_out[tip]) << endl;
                         } else {
-                            for (long a = _next_out[tip]; a != last_out; ++a) {
+                            for (long a = _next_out[tip]; a < last_out; ++a) {
                                 if (_res_cap[a] > 0) {
                                     u = _target[a];
                                     int temp_cost = _cost[a];
@@ -1146,6 +1167,13 @@ namespace lemon {
                 }
 
             }
+//            double tt = 0;
+//            for (long k = 0; k < _res_node_num-1; k++) {
+//                tt += (double) (_last_out[k] - _first_out[k]) / (double) (_first_out[k+1] - _first_out[k]);
+//                cout << "fraction " << (double) (_last_out[k] - _first_out[k]) / (double) (_first_out[k+1] - _first_out[k]) << endl;
+//            }
+//            tt /= _res_node_num-1;
+//            cout << "tot " << tt << endl;
             timer.save_time_total("Augment time",time_augment);
             timer.save_time_total("Traversal time",time_traversal);
             timer.save_time_total("Init phase time",time_initPhase);

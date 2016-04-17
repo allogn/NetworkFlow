@@ -529,7 +529,7 @@ void Graph::fill_full_graph() {
                 e.fromid = i;
                 e.toid = j;
                 assert(bg::distance(coords[i], coords[j])*SCALE < std::numeric_limits<int>::max()); //not sure if possible to use this
-                e.weight = bg::distance(coords[i], coords[j])*SCALE;
+                e.weight = bg::distance(coords[i], coords[j])*SCALE*bg::distance(coords[i], coords[j]);
                 E.push_back(e);
                 fullE[i].push_back(id);
                 completeE[i].push_back(id);

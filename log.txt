@@ -9,3 +9,323 @@
 1251197021,Distribution,Uniform
 1251197021,Edges,8128
 1251197021,Nodes,128
+770911488,DateTime,04-16-2016  19:21:09.
+770911488,Input file,./Release/cluster.sgr_1.sgr
+770911488,Algorithm,DF-CSA
+770911488,Sources,100
+770911488,Targets,100
+770911488,Supply,1
+770911488,SourceDistr,Random
+770911488,Type,RandomPoints
+770911488,Distribution,Clusters
+770911488,Edges,0
+770911488,Nodes,1000
+330488303,DateTime,04-16-2016  19:23:15.
+330488303,Input file,./Release/cluster.sgr_1.sgr
+330488303,Algorithm,DF-CSA
+330488303,Sources,100
+330488303,Targets,100
+330488303,Supply,1
+330488303,SourceDistr,Random
+330488303,Type,RandomPoints
+330488303,Distribution,Clusters
+330488303,Edges,0
+330488303,Nodes,1000
+272533622,DateTime,04-16-2016  19:24:48.
+272533622,Input file,./Release/cluster.sgr_1.sgr
+272533622,Algorithm,DF-CSA
+272533622,Sources,100
+272533622,Targets,100
+272533622,Supply,1
+272533622,SourceDistr,Random
+272533622,Type,RandomPoints
+272533622,Distribution,Clusters
+272533622,Edges,0
+272533622,Nodes,1000
+369579000,DateTime,04-16-2016  19:25:20.
+369579000,Input file,./Release/cluster.sgr_1.sgr
+369579000,Algorithm,DF-CSA
+369579000,Sources,100
+369579000,Targets,100
+369579000,Supply,1
+369579000,SourceDistr,Random
+369579000,Type,RandomPoints
+369579000,Distribution,Clusters
+369579000,Edges,0
+369579000,Nodes,1000
+1416589729,DateTime,04-16-2016  19:26:12.
+1416589729,Input file,./Release/cluster.sgr_1.sgr
+1416589729,Algorithm,DF-CSA
+1416589729,Sources,100
+1416589729,Targets,100
+1416589729,Supply,1
+1416589729,SourceDistr,Random
+1416589729,Type,RandomPoints
+1416589729,Distribution,Clusters
+1416589729,Edges,0
+1416589729,Nodes,1000
+889486736,DateTime,04-16-2016  19:36:34.
+889486736,Input file,./Release/cluster.sgr_1.sgr
+889486736,Algorithm,DF-CSA
+889486736,Sources,100
+889486736,Targets,100
+889486736,Supply,1
+889486736,SourceDistr,Random
+889486736,Type,RandomPoints
+889486736,Distribution,Clusters
+889486736,Edges,0
+889486736,Nodes,1000
+2066972806,DateTime,04-16-2016  19:38:56.
+2066972806,Input file,./Release/cluster.sgr_1.sgr
+2066972806,Algorithm,DF-CSA
+2066972806,Sources,100
+2066972806,Targets,100
+2066972806,Supply,1
+2066972806,SourceDistr,Random
+2066972806,Type,RandomPoints
+2066972806,Distribution,Clusters
+2066972806,Edges,0
+2066972806,Nodes,1000
+2066972806,Total cost,18874
+2066972806,Variation,Sorting with pruning
+2066972806,Graph fullfill,0.392696
+2066972806,Graph fullfill error,0
+2066972806,Graph neighborhood init,0.313728
+2066972806,Graph neighborhood init error,0
+2066972806,Total execution time,3.34162
+2066972806,Total execution time error,0
+2066972806,Total time,1.5625
+2066972806,Total time error,0
+245631917,DateTime,04-16-2016  19:40:15.
+245631917,Input file,./Release/cluster.sgr_1.sgr
+245631917,Algorithm,DF-CSA
+245631917,Sources,100
+245631917,Targets,100
+245631917,Supply,1
+245631917,SourceDistr,Random
+245631917,Type,RandomPoints
+245631917,Distribution,Clusters
+245631917,Edges,0
+245631917,Nodes,1000
+245631917,Total cost,18874
+245631917,Variation,Sorting with pruning
+245631917,Graph fullfill,0.426406
+245631917,Graph fullfill error,0
+245631917,Graph neighborhood init,0.295467
+245631917,Graph neighborhood init error,0
+245631917,Total execution time,2.96856
+245631917,Total execution time error,0
+245631917,Total time,1.1402
+245631917,Total time error,0
+1604133394,DateTime,04-16-2016  19:42:02.
+1604133394,Input file,./Release/cluster.sgr_1.sgr
+1604133394,Algorithm,DF-CSA
+1604133394,Sources,100
+1604133394,Targets,100
+1604133394,Supply,1
+1604133394,SourceDistr,Random
+1604133394,Type,RandomPoints
+1604133394,Distribution,Clusters
+1604133394,Edges,0
+1604133394,Nodes,1000
+1604133394,Total cost,18874
+1604133394,Variation,Sorting with pruning
+1604133394,Graph fullfill,0.390547
+1604133394,Graph fullfill error,0
+1604133394,Graph neighborhood init,0.290142
+1604133394,Graph neighborhood init error,0
+1604133394,Total execution time,2.6895
+1604133394,Total execution time error,0
+1604133394,Total time,0.980845
+1604133394,Total time error,0
+952802472,DateTime,04-16-2016  19:42:50.
+952802472,Input file,./Release/cluster.sgr_1.sgr
+952802472,Algorithm,DF-CSA
+952802472,Sources,100
+952802472,Targets,100
+952802472,Supply,1
+952802472,SourceDistr,Random
+952802472,Type,RandomPoints
+952802472,Distribution,Clusters
+952802472,Edges,0
+952802472,Nodes,1000
+952802472,Total cost,18874
+952802472,Variation,Sorting with pruning
+952802472,Graph fullfill,0.388716
+952802472,Graph fullfill error,0
+952802472,Graph neighborhood init,0.303691
+952802472,Graph neighborhood init error,0
+952802472,Total execution time,2.90312
+952802472,Total execution time error,0
+952802472,Total time,1.1339
+952802472,Total time error,0
+29632161,DateTime,04-16-2016  19:43:20.
+29632161,Input file,./Release/cluster.sgr_1.sgr
+29632161,Algorithm,DF-CSA
+29632161,Sources,100
+29632161,Targets,100
+29632161,Supply,1
+29632161,SourceDistr,Random
+29632161,Type,RandomPoints
+29632161,Distribution,Clusters
+29632161,Edges,0
+29632161,Nodes,1000
+29632161,Total cost,18874
+29632161,Variation,Sorting with pruning
+29632161,Graph fullfill,0.385117
+29632161,Graph fullfill error,0
+29632161,Graph neighborhood init,0.290312
+29632161,Graph neighborhood init error,0
+29632161,Total execution time,2.81245
+29632161,Total execution time error,0
+29632161,Total time,1.06627
+29632161,Total time error,0
+1850230201,DateTime,04-16-2016  20:13:28.
+1850230201,Input file,./Release/cluster.sgr_1.sgr
+1850230201,Algorithm,DF-CSA
+1850230201,Sources,100
+1850230201,Targets,100
+1850230201,Supply,1
+1850230201,SourceDistr,Random
+1850230201,Type,RandomPoints
+1850230201,Distribution,Clusters
+1850230201,Edges,0
+1850230201,Nodes,1000
+1850230201,Total cost,18874
+1850230201,Variation,Sorting with pruning
+1850230201,Graph fullfill,0.503213
+1850230201,Graph fullfill error,0
+1850230201,Graph neighborhood init,0.323566
+1850230201,Graph neighborhood init error,0
+1850230201,Total execution time,3.03416
+1850230201,Total execution time error,0
+1850230201,Total time,1.02552
+1850230201,Total time error,0
+283876260,DateTime,04-16-2016  20:13:49.
+283876260,Input file,./Release/cluster.sgr_1.sgr
+283876260,Algorithm,DF-CSA
+283876260,Sources,100
+283876260,Targets,100
+283876260,Supply,1
+283876260,SourceDistr,Random
+283876260,Type,RandomPoints
+283876260,Distribution,Clusters
+283876260,Edges,0
+283876260,Nodes,1000
+58201343,DateTime,04-17-2016  00:32:03.
+58201343,Input file,../data/bipartite/bi_full_1024_1_100_uni_1.gr
+58201343,Algorithm,S-CSA
+58201343,Type,FullBipartite
+58201343,Distribution,Uniform
+58201343,MinCost,1
+58201343,MaxCost,100
+58201343,Edges,262144
+58201343,Nodes,1024
+231915998,DateTime,04-17-2016  00:37:11.
+231915998,Input file,../data/bipartite/bi_full_1024_1_100_uni_1.gr
+231915998,Algorithm,S-CSA
+231915998,Type,FullBipartite
+231915998,Distribution,Uniform
+231915998,MinCost,1
+231915998,MaxCost,100
+231915998,Edges,262144
+231915998,Nodes,1024
+1933818822,DateTime,04-17-2016  00:43:48.
+1933818822,Input file,../data/bipartite/bi_full_1024_1_100_uni_1.gr
+1933818822,Algorithm,S-CSA
+1933818822,Type,FullBipartite
+1933818822,Distribution,Uniform
+1933818822,MinCost,1
+1933818822,MaxCost,100
+1933818822,Edges,262144
+1933818822,Nodes,1024
+1435005748,DateTime,04-17-2016  00:57:19.
+1435005748,Input file,../data/bipartite/bi_full_1024_1_100_uni_1.gr
+1435005748,Algorithm,S-CSA
+1435005748,Type,FullBipartite
+1435005748,Distribution,Uniform
+1435005748,MinCost,1
+1435005748,MaxCost,100
+1435005748,Edges,262144
+1435005748,Nodes,1024
+571676352,DateTime,04-17-2016  01:06:00.
+571676352,Input file,../data/bipartite/bi_full_1024_1_100_uni_1.gr
+571676352,Algorithm,S-CSA
+571676352,Type,FullBipartite
+571676352,Distribution,Uniform
+571676352,MinCost,1
+571676352,MaxCost,100
+571676352,Edges,262144
+571676352,Nodes,1024
+690953957,DateTime,04-17-2016  11:26:46.
+690953957,Input file,../data/bipartite/bi_full_1024_1_100_uni_1.gr
+690953957,Algorithm,S-CSA
+690953957,Type,FullBipartite
+690953957,Distribution,Uniform
+690953957,MinCost,1
+690953957,MaxCost,100
+690953957,Edges,262144
+690953957,Nodes,1024
+1154742905,DateTime,04-17-2016  11:29:31.
+1154742905,Input file,../data/bipartite/bi_full_1024_1_100_uni_1.gr
+1154742905,Algorithm,S-CSA
+1154742905,Type,FullBipartite
+1154742905,Distribution,Uniform
+1154742905,MinCost,1
+1154742905,MaxCost,100
+1154742905,Edges,262144
+1154742905,Nodes,1024
+617222933,DateTime,04-17-2016  12:07:31.
+617222933,Input file,../data/bipartite/bi_full_1024_1_100_uni_1.gr
+617222933,Algorithm,S-CSA
+617222933,Type,FullBipartite
+617222933,Distribution,Uniform
+617222933,MinCost,1
+617222933,MaxCost,100
+617222933,Edges,262144
+617222933,Nodes,1024
+1314192451,DateTime,04-17-2016  12:09:21.
+1314192451,Input file,../data/bipartite/bi_full_1024_1_100_uni_1.gr
+1314192451,Algorithm,S-CSA
+1314192451,Type,FullBipartite
+1314192451,Distribution,Uniform
+1314192451,MinCost,1
+1314192451,MaxCost,100
+1314192451,Edges,262144
+1314192451,Nodes,1024
+1464502658,DateTime,04-17-2016  12:09:57.
+1464502658,Input file,../data/bipartite/bi_full_1024_1_100_uni_1.gr
+1464502658,Algorithm,S-CSA
+1464502658,Type,FullBipartite
+1464502658,Distribution,Uniform
+1464502658,MinCost,1
+1464502658,MaxCost,100
+1464502658,Edges,262144
+1464502658,Nodes,1024
+618310163,DateTime,04-17-2016  12:14:34.
+618310163,Input file,../data/bipartite/bi_full_1024_1_100_uni_1.gr
+618310163,Algorithm,S-CSA
+618310163,Type,FullBipartite
+618310163,Distribution,Uniform
+618310163,MinCost,1
+618310163,MaxCost,100
+618310163,Edges,262144
+618310163,Nodes,1024
+21433837,DateTime,04-17-2016  12:15:19.
+21433837,Input file,../data/bipartite/bi_full_256_1_100_uni_1.gr
+21433837,Algorithm,S-CSA
+21433837,Type,FullBipartite
+21433837,Distribution,Uniform
+21433837,MinCost,1
+21433837,MaxCost,100
+21433837,Edges,16384
+21433837,Nodes,256
+21433837,Total time,0.720296
+21433837,Total time error,0
+21433837,Total cost,216
+21433837,Graph sorting,0.00288111
+21433837,Graph sorting error,0
+21433837,Graph neighborhood init,0.00307235
+21433837,Graph neighborhood init error,0
+21433837,Total execution time,0.817396
+21433837,Total execution time error,0

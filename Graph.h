@@ -29,7 +29,7 @@
 #include "utils.h"
 #include "TimerTool.h"
 
-#define SCALE 1000 //scale for transform distance to long value
+#define SCALE 10000 //scale for transform distance to long value
 
 using namespace std;
 namespace bg = boost::geometry;

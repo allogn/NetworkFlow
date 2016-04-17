@@ -227,19 +227,19 @@ private:
 
         // Initialize the large cost vector and the epsilon parameter
         _epsilon = 1;
-//        LargeCost lc;
-//        for (int i = 0; i != _res_node_num; ++i) {
-////            for (vector<int>::iterator j = _first_out[i].begin(); j != _first_out[i].end(); ++j) {
-////                lc = static_cast<LargeCost>(_scost[*j]) * _res_node_num * _alpha; //COST MODIFICATION
-////                _cost[*j] = lc;
-////                if (lc > _epsilon) _epsilon = lc;
-////            }
-//            for (int j = 0; j < _graph.fullE[i].size(); j++) {
-//                lc = static_cast<LargeCost>(_graph.E[_graph.fullE[i][j]].weight) * _res_node_num * _alpha;
+        LargeCost lc;
+        for (int i = 0; i != _res_node_num; ++i) {
+//            for (vector<int>::iterator j = _first_out[i].begin(); j != _first_out[i].end(); ++j) {
+//                lc = static_cast<LargeCost>(_scost[*j]) * _res_node_num * _alpha; //COST MODIFICATION
+//                _cost[*j] = lc;
 //                if (lc > _epsilon) _epsilon = lc;
 //            }
-//        }
-//        _epsilon /= _alpha;
+            for (int j = 0; j < _graph.fullE[i].size(); j++) {
+                lc = static_cast<LargeCost>(_graph.E[_graph.fullE[i][j]].weight) * _res_node_num * _alpha;
+                if (lc > _epsilon) _epsilon = lc;
+            }
+        }
+        _epsilon /= _alpha;
 
         // initialize _res_cap with supply value for each node with positive supply for arbitrary edge
         for (long a = 0; a < _res_arc_num; a++) {

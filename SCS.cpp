@@ -113,10 +113,10 @@ void SCS::startAugment(long max_length) {
 
                     // calculate new epsilon based on two potential values and cost (note the minus sign!)
 //                    LargeCost new_epsilon = std::max(-(lc + _pi[toid] - _pi[fromid]), _epsilon);
-                    LargeCost new_epsilon = std::max(lc, _epsilon);
-                    new_epsilon = std::max(-(lc + _pi[toid] - _pi[fromid]), new_epsilon); //remove?
-                    if (new_epsilon != _epsilon) cout << "new epsilon " << new_epsilon << endl;
-                    _epsilon = new_epsilon; //todo maybe this can be modified
+//                    LargeCost new_epsilon = std::max(lc, _epsilon);
+//                    new_epsilon = std::max(-(lc + _pi[toid] - _pi[fromid]), new_epsilon); //remove?
+//                    if (new_epsilon != _epsilon) cout << "new epsilon " << new_epsilon << endl;
+//                    _epsilon = new_epsilon; //todo maybe this can be modified
 //todo add while tophoeap differ condition
                     _res_cap.push_back(_upper[local_eid]);
                     _res_cap.push_back(0);
@@ -277,26 +277,26 @@ void SCS::startAugment(long max_length) {
 //                } //curbucket holds distance to deficit
 //            }
 
-            long totalFull = 0;
-            double others;
+//            long totalFull = 0;
+//            double others;
             for (long i = 0; i < _res_node_num; i++) {
                 if (curcost > mindist[i])
                 {
                     _pi[i] += curcost - mindist[i];
                 } //curbucket holds distance to deficit
 
-                if (_graph.fullE[i].size() > 0) {
-                    if (_first_out[i].size() == _graph.fullE[i].size()) {
-                        totalFull++;
-                    } else {
-                        others += (double)_first_out[i].size()*100./(double)_graph.fullE[i].size();
-                    }
-                }
+//                if (_graph.fullE[i].size() > 0) {
+//                    if (_first_out[i].size() == _graph.fullE[i].size()) {
+//                        totalFull++;
+//                    } else {
+//                        others += (double)_first_out[i].size()*100./(double)_graph.fullE[i].size();
+//                    }
+//                }
             }
-            others /= _res_node_num - totalFull;
-            cout << "Full nodes: " << totalFull << " out of " << _res_node_num << endl;
-            cout << "Others filled for " << others*100. << "%" << endl;
-            assert(test_epsilon());
+//            others /= _res_node_num - totalFull;
+//            cout << "Full nodes: " << totalFull << " out of " << _res_node_num << endl;
+//            cout << "Others filled for " << others*100. << "%" << endl;
+//            assert(test_epsilon());
 
             //increase flow along path to deficit
             assert(_excess[tip] < 0); //we reached deficit
@@ -312,6 +312,7 @@ void SCS::startAugment(long max_length) {
                 _excess[tip]++;
                 tip = parent_node;
             }
+            assert(test_epsilon());
             assert(tip == start);
         }
         assert(test_epsilon());
