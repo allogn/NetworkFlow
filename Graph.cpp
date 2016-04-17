@@ -177,8 +177,6 @@ bool Graph::test_graph_structure() {
 }
 
 bool Graph::test_sorting() {
-    cout << "Testing sorting..." << endl;
-
     // test that every edge exists exactly once
     assert(fullE.size() == n);
     assert(fullE.size() > 0);
@@ -516,35 +514,41 @@ void Graph::fill_full_graph() {
     }
     double time = timer.getTime();
     assert(E.size() == 0);
-    fullE.resize(n);
-    completeE.resize(n);
-    long id = 0;
     for (long i = 0; i < n; i++) {
-        for (long j = i+1; j < n; j++) {
-            if (delta == 0 || bg::distance(coords[i], coords[j]) < delta) {
-                m++;
-                Edge e(id++);
-                e.lower = 0;
-                e.capacity = 1;
-                e.fromid = i;
-                e.toid = j;
-                assert(bg::distance(coords[i], coords[j])*SCALE < std::numeric_limits<int>::max()); //not sure if possible to use this
-                e.weight = bg::distance(coords[i], coords[j])*SCALE*bg::distance(coords[i], coords[j]);
-                E.push_back(e);
-                fullE[i].push_back(id);
-                completeE[i].push_back(id);
-                completeE[j].push_back(id);
-                e.ID++;
-                id++;
-                e.fromid = j;
-                e.toid = i;
-                E.push_back(e);
-                fullE[i].push_back(id);
-                completeE[i].push_back(id);
-                completeE[j].push_back(id);
-            }
+        long esize = E.size();
+        while (insert_nn_to_edge_list(i) >= 0) {
+            assert(E.size()==esize+1 || E.back().weight >= E[E.size()-2].weight); //check r-tree sorting
         }
     }
     timer.save_time("Graph fullfill", time);
-//    sort_neighbors();
+    assert(E.size() == m && m == n*(n-1));
+}
+
+void Graph::generate_random_points(long size, long sources, long targets) {
+    long seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::default_random_engine generator (seed);
+    uniform_real_distribution<double> uniGen(0, 1);
+
+    clear_graph();
+    n = size;
+    m = 0;
+
+    vector<int> supply(n,0);
+    for (long i = 0; i < sources; i++) {
+        supply[i] = 1;
+    }
+    for (long i = sources; i < sources + targets; i++) {
+        supply[i] = -1;
+    }
+    std::random_shuffle(supply.begin(),supply.end());
+
+    double x, y;
+    for (long i = 0; i < n; i++) {
+        x = uniGen(generator);
+        y = uniGen(generator);
+        V.push_back(Vertex(i, supply[i]));
+        coords.push_back(point(x, y));
+    }
+
+    isSpatial = true;
 }

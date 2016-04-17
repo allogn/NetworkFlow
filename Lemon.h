@@ -497,8 +497,6 @@ namespace lemon {
         /// \see ProblemType, Method
         /// \see resetParams(), reset()
         ProblemType run(Method method = PARTIAL_AUGMENT, int factor = 16) {
-//            sort_lemon();
-            cout << "stop sorting" << endl;
             LEMON_ASSERT(factor >= 2, "The scaling factor must be at least 2");
             _alpha = factor;
             ProblemType pt = init();

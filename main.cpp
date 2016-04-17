@@ -276,9 +276,6 @@ int main(int argc, const char **argv) {
         case ALG_SCS: {
             if (!g.isSpatial) {
                 g.sort_neighbors();
-            } else {
-
-                g.fill_full_graph(); //todo remove this
             }
             SCS SCSsolv(g);
             for (int current_round = 1; current_round <= rounds; current_round++) {

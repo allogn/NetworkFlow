@@ -99,6 +99,7 @@ public:
         QryIt.clear();
         fullE.clear();
         completeE.clear();
+        isSpatial = false;
     }
     void clear_edge_list() {
         for (long i = 0; i < n; i++) {
@@ -207,6 +208,7 @@ public:
             return -1;
         }
         if (isSpatial) {
+            m++;
             Edge e(E.size());
             e.capacity = 1;
             e.fromid = nodeId;
@@ -226,6 +228,7 @@ public:
     // graph generators
     void generate_full_bipartite_graph(long size, long param1, long param2 = 1000, long distr = 0);
     void generate_clique(long size, long param1, long param2 = 1000, long distr = 0);
+    void generate_random_points(long size, long sources, long targets);
 
     // I/O
     void print_graph();
