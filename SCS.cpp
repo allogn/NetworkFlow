@@ -59,8 +59,10 @@ void SCS::startAugment(long max_length) {
             vector<long> visited;
             vector<long> parent(_res_node_num, -1); //parent node and an edge to a child
             LargeCost mindist[_res_node_num];
-            if (QryCnt[start] < _graph.fullE[start].size())
-                globalH.enqueue(start, _graph.E[_graph.fullE[start][QryCnt[start]]].weight);
+
+            long w = _graph.get_next_neighbour_weight(start);
+            if (w >= 0)
+                globalH.enqueue(start, w);
 
             //do not update every time
 
@@ -82,10 +84,11 @@ void SCS::startAugment(long max_length) {
                     long fromid;
                     LargeCost tmp;
                     globalH.dequeue(fromid,tmp);
-                    long eid = _graph.fullE[fromid][QryCnt[fromid]];
-                    QryCnt[fromid]++;
-                    if (QryCnt[fromid] < _graph.fullE[fromid].size()) {
-                        globalH.enqueue(fromid, mindist[fromid] + _graph.E[_graph.fullE[fromid][QryCnt[fromid]]].weight);
+                    long eid = _graph.insert_nn_to_edge_list(fromid);
+
+                    long w = _graph.get_next_neighbour_weight(fromid);
+                    if (w >= 0) {
+                        globalH.enqueue(fromid, mindist[fromid] + w);
                     }
 
                     long local_eid = _res_arc_num;
@@ -142,8 +145,8 @@ void SCS::startAugment(long max_length) {
                         parent[toid] = local_eid;
                         mindist[toid] = mindist[fromid] + l;
                         if (globalH.isExisted(toid)) {
-                            assert(QryCnt[toid] < _graph.fullE[toid].size()); //if in heap - then this is true
-                            globalH.updatequeue(toid, mindist[toid] + _graph.E[_graph.fullE[toid][QryCnt[toid]]].weight);
+                            assert(_graph.get_next_neighbour_weight(toid) >= 0); //if in heap - then this is true
+                            globalH.updatequeue(toid, mindist[toid] + _graph.get_next_neighbour_weight(toid));
                         }
 //                        cout << "updated distance to " << toid << ": " << mindist[toid] << endl;
                     }
@@ -166,9 +169,13 @@ void SCS::startAugment(long max_length) {
                         goto checkEdges;
                     }
                     dijkH.dequeue();
-                    if (!globalH.isExisted(tip) && QryCnt[tip] < _graph.fullE[tip].size()) {
-                        globalH.enqueue(tip, mindist[tip] + _graph.E[_graph.fullE[tip][QryCnt[tip]]].weight);
+                    if (!globalH.isExisted(tip)) {
+                        long w = _graph.get_next_neighbour_weight(tip);
+                        if (w >= 0) {
+                            globalH.enqueue(tip, mindist[tip] + w);
+                        }
                     }
+
                     visited.push_back(tip);
                     LargeCost rc, l;
                     LargeCost pi_tip = _pi[tip];
@@ -191,8 +198,8 @@ void SCS::startAugment(long max_length) {
                             parent[u] = *a;
                             mindist[u] = curcost + l;
                             if (globalH.isExisted(u)) {
-                                assert(QryCnt[u] < _graph.fullE[u].size()); //if in heap - then this is true
-                                globalH.updatequeue(u, mindist[u] + _graph.E[_graph.fullE[u][QryCnt[u]]].weight);
+                                assert(_graph.get_next_neighbour_weight(u) >= 0); //if in heap - then this is true
+                                globalH.updatequeue(u, mindist[u] + _graph.get_next_neighbour_weight(u));
                             }
                         }
                     }

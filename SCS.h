@@ -48,7 +48,7 @@ public:
     Timer timer;
 
     // Data related to the underlying digraph
-    const Graph &_graph;
+    Graph &_graph;
     long _node_num;
     long _res_node_num;
     long _res_arc_num;
@@ -82,11 +82,9 @@ public:
     LargeCost _epsilon;
     int _alpha;
 
-    vector<long> QryCnt;
-
 public:
 
-    SCS(const Graph &graph) :
+    SCS(Graph &graph) :
             _graph(graph) {
 
         // Reset data structures
@@ -118,8 +116,6 @@ public:
 
         _arc_idf.resize(_res_arc_num);
         _arc_idb.resize(_res_arc_num);
-
-        QryCnt.resize(_res_node_num,0);
 
         // Copy the graph
 //        int j = 0;

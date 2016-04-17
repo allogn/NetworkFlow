@@ -356,3 +356,63 @@
 977318898,Graph neighborhood init error,0
 977318898,Total execution time,0.713874
 977318898,Total execution time error,0
+40824292,DateTime,04-17-2016  12:26:57.
+40824292,Input file,../data/bipartite/bi_full_256_1_100_uni_1.gr
+40824292,Algorithm,S-CSA
+40824292,Type,FullBipartite
+40824292,Distribution,Uniform
+40824292,MinCost,1
+40824292,MaxCost,100
+40824292,Edges,16384
+40824292,Nodes,256
+40824292,Total time,0.691895
+40824292,Total time error,0
+40824292,Total cost,216
+40824292,Graph sorting,0.005961
+40824292,Graph sorting error,0
+40824292,Graph neighborhood init,0.00347372
+40824292,Graph neighborhood init error,0
+40824292,Total execution time,0.717773
+40824292,Total execution time error,0
+1731731452,DateTime,04-17-2016  12:28:05.
+1731731452,Input file,../data/spatial/128_rand_uni_s2_t16_d1_2.sgr
+1731731452,Algorithm,S-CSA
+1731731452,Sources,2
+1731731452,Targets,16
+1731731452,Supply,1
+1731731452,SourceDistr,Random
+1731731452,Type,RandomPoints
+1731731452,Distribution,Uniform
+1731731452,Edges,0
+1731731452,Nodes,128
+920127792,DateTime,04-17-2016  12:29:02.
+920127792,Input file,../data/spatial/128_rand_uni_s2_t16_d1_2.sgr
+920127792,Algorithm,S-CSA
+920127792,Sources,2
+920127792,Targets,16
+920127792,Supply,1
+920127792,SourceDistr,Random
+920127792,Type,RandomPoints
+920127792,Distribution,Uniform
+920127792,Edges,0
+920127792,Nodes,128
+1695389472,DateTime,04-17-2016  12:30:48.
+1695389472,Input file,../data/spatial/128_rand_uni_s2_t16_d1_2.sgr
+1695389472,Algorithm,S-CSA
+1695389472,Sources,2
+1695389472,Targets,16
+1695389472,Supply,1
+1695389472,SourceDistr,Random
+1695389472,Type,RandomPoints
+1695389472,Distribution,Uniform
+1695389472,Edges,0
+1695389472,Nodes,128
+1695389472,Total time,0.657949
+1695389472,Total time error,0
+1695389472,Total cost,49131
+1695389472,Graph fullfill,0.0084787
+1695389472,Graph fullfill error,0
+1695389472,Graph neighborhood init,0.00309732
+1695389472,Graph neighborhood init error,0
+1695389472,Total execution time,0.67178
+1695389472,Total execution time error,0
