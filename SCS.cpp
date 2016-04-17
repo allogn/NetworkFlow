@@ -60,7 +60,7 @@ void SCS::startAugment(long max_length) {
             vector<long> parent(_res_node_num, -1); //parent node and an edge to a child
             LargeCost mindist[_res_node_num];
             if (QryCnt[start] < _graph.fullE[start].size())
-                globalH.enqueue(start, 0);
+                globalH.enqueue(start, _graph.E[_graph.fullE[start][QryCnt[start]]].weight);
 
             //do not update every time
 
@@ -266,16 +266,6 @@ void SCS::startAugment(long max_length) {
                     assert(mindist[k] == mindist2[k]);
             }
 #endif
-
-
-            // increase potentials for all visited nodes
-//            for (long i = 0; i < visited.size(); i++) {
-//                assert(QryCnt[visited[i]] == _graph.fullE[visited[i]].size());
-//                if (curcost > mindist[visited[i]])
-//                {
-//                    _pi[visited[i]] += curcost - mindist[visited[i]];
-//                } //curbucket holds distance to deficit
-//            }
 
 //            long totalFull = 0;
 //            double others;
