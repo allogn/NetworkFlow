@@ -80,6 +80,7 @@ class SIA {
     {
         long cost = getCost(eid,fromid,toid);
         if (mindist[toid]>mindist[fromid]+cost) {
+//            cout << "updated distance to " << toid << ": " << mindist[fromid]+cost << endl;
             mindist[toid] = mindist[fromid] + cost;
             mineid[toid] = eid;
             if (toid < noA)

@@ -158,6 +158,7 @@ int main(int argc, const char **argv) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
                 g.clear_edge_list();
                 SIAsolv.runOSIA();
+                g.get_fill_status();
                 cout << "Total cost of SIA: " << SIAsolv.totalCost << endl;
                 cout << "Total time of SIA: " << SIAsolv.timer.timings["Total time"].back() << endl;
             }
@@ -282,6 +283,7 @@ int main(int argc, const char **argv) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
 //                SCSsolv._graph.add_all(); // reset E lists --- this is for case if SIA implementation enabled
                 SCSsolv.runSCS();
+                g.get_fill_status();
                 cout << "Total cost of SCS: " << SCSsolv.totalCost << endl;
                 cout << "Total time of SCS: " << SCSsolv.timer.get_last_time("Total time") << endl;
             }

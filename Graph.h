@@ -87,18 +87,21 @@ public:
     // additional data for incremental neighbour addition
     vector<vector<long>> fullE; //contains IDs of all outgoing edges
     vector<vector<long>> completeE; //contains IDs of all edges where a node participates (input and output)
+    vector<vector<long>> forbiddenMatrix;
 
     rtree_t rtree;
 
     void clear_graph() {
         V.clear();
         E.clear();
+        coords.clear();
         m = 0;
         n = 0;
         QryCnt.clear();
         QryIt.clear();
         fullE.clear();
         completeE.clear();
+        forbiddenMatrix.clear();
         isSpatial = false;
     }
     void clear_edge_list() {
@@ -134,6 +137,11 @@ public:
             for (long i = 0; i < n; i++) {
                 QryIt[i] = rtree.qbegin(bgi::nearest(coords[i], (unsigned int)n)); //todo here is a problem! no more nodes than 65000
                 ++QryIt[i];//skip the node itself
+
+                //skip forbidden if necessary
+                if (forbiddenMatrix.size() > 0) {
+                    while (!isFull(i) && forbiddenMatrix[i][QryIt[i]->second]) QryIt[i]++;
+                }
             }
         } else {
             //E is already filled
@@ -217,7 +225,12 @@ public:
             e.weight = static_cast<int>(d*SCALE);
             e.lower = 0;
             E.push_back(e);
+
+            //using forbidden Matrix to delete edges in space
             QryIt[nodeId]++;
+            if (forbiddenMatrix.size() > 0)
+                while (!isFull(nodeId) && forbiddenMatrix[nodeId][QryIt[nodeId]->second]) QryIt[nodeId]++;
+
             return E.size()-1;
         } else {
             //assuming everything is in E already
@@ -229,6 +242,7 @@ public:
     void generate_full_bipartite_graph(long size, long param1, long param2 = 1000, long distr = 0);
     void generate_clique(long size, long param1, long param2 = 1000, long distr = 0);
     void generate_random_points(long size, long sources, long targets);
+    void generate_forbidden_list(double intensity);
 
     // I/O
     void print_graph();
@@ -238,6 +252,8 @@ public:
     void load_adj_graph(string filename);
     void save_graph_info(string filename, long experiment_id);
     void save_graph_blossom(string filname);
+
+    void get_fill_status();
 
 //    /*
 //     * Spatial data

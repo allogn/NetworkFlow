@@ -66,6 +66,125 @@ int main(int argc, const char** argv) {
     Graph g;
 
 
+    /*
+     * Check bipartite and compare with blossom
+     */
+
+    cout << BASH_YELLOW << "Compare results with answer sheet..." << BASH_NC << endl;
+    string ansfname = "AnswerSheet.txt";
+    ifstream infile(ansfname);
+    if (FILE *file = fopen(ansfname.c_str(), "r")) {
+        fclose(file);
+    } else {
+        cout << "File " << ansfname << " does not exist" << endl;
+        exit(1);
+    }
+    string graphfile;
+    long answer;
+
+    while(infile >> graphfile >> answer) {
+        cout << "Checking file " << graphfile << " with answer " << answer << "..." << endl;
+        g.clear_graph();
+        string path = "../../data/tests/bipartite/";
+        path.append(graphfile);
+        path[path.size()-1] = 'r';
+        path[path.size()-2] = 'g';
+
+        if (algorithm == ALG_ASIA) {
+            g.clear_graph();
+            g.load_graph(path);
+            g.init_neighbors();
+            g.sort_neighbors();
+            SIA SIAsolv(&g, true);
+            SIAsolv.runOSIA();
+            if (SIAsolv.totalCost != answer) {
+                cout << "SIA wrong answer: " << SIAsolv.totalCost << " correct: " << answer << endl;
+                exit(1);
+            };
+        }
+
+        if (algorithm == ALG_COST_SCALING) {
+            g.clear_graph();
+            g.load_graph(path);
+            g.init_neighbors();
+            CostScaling CostScalingSolv(&g);
+            CostScalingSolv.runCostScaling();
+            if (CostScalingSolv.totalCost != answer) {
+                cout << "CostScaling wrong answer: " << CostScalingSolv.totalCost << " correct: " << answer << endl;
+                exit(1);
+            };
+        }
+
+        if (algorithm == ALG_SCS) {
+            g.clear_graph();
+            g.load_graph(path);
+            g.init_neighbors();
+            g.sort_neighbors();
+            SCS SCSsolv(g);
+            SCSsolv.runSCS();
+            if (SCSsolv.totalCost != answer) {
+                cout << "Simplified CostScaling wrong answer: " << SCSsolv.totalCost << " correct: " << answer << endl;
+                exit(1);
+            };
+        }
+
+
+        if (algorithm == ALG_LSCS) {
+            g.clear_graph();
+            g.load_graph(path);
+            g.init_neighbors();
+            g.sort_neighbors();
+            LSCS LSCSsolv(g);
+            LSCSsolv.runLSCS();
+            if (LSCSsolv.totalCost != answer) {
+                cout << "Lemon Simplified CostScaling wrong answer: " << LSCSsolv.totalCost << " correct: " << answer << endl;
+                exit(1);
+            };
+        }
+
+        if (algorithm == ALG_LEMON_MODIF) {
+            g.clear_graph();
+            g.load_graph(path);
+            g.init_neighbors();
+            lemon::ListDigraph _graph;
+            lemon::ListDigraph::ArcMap<int> weight(_graph);
+            lemon::ListDigraph::ArcMap<int> flow(_graph);
+            lemon::ListDigraph::ArcMap<int> cap(_graph);
+            lemon::ListDigraph::ArcMap<int> lower(_graph);
+            lemon::ListDigraph::NodeMap<int> supply(_graph);
+
+            lemon::ListDigraph::Node* nodes;
+            nodes = (lemon::ListDigraph::Node*)malloc(sizeof(lemon::ListDigraph::Node)*g.n);
+            for (long i = 0; i < g.n; i++) {
+                nodes[i] = _graph.addNode();
+                supply[nodes[i]] = g.V[i].supply;
+            }
+
+            for (long i = 0; i < g.m; i++) {
+                lemon::ListDigraph::Arc e = _graph.addArc(nodes[g.E[i].fromid], nodes[g.E[i].toid]);
+                weight[e] = g.E[i].weight;
+                cap[e] = g.E[i].capacity;
+                lower[e] = g.E[i].lower;
+            }
+
+            lemon::ModifiedCostScaling<lemon::ListDigraph,int,int> cost_scaling(_graph, weight);
+            cost_scaling.costMap(weight);
+            cost_scaling.upperMap(cap);
+            cost_scaling.lowerMap(lower);
+            cost_scaling.supplyMap(supply);
+            cost_scaling.run();
+            if (cost_scaling.totalCost() != answer) {
+                cout << "Modified Lemon CostScaling wrong answer: " << cost_scaling.totalCost() << " correct: " << answer << endl;
+                exit(1);
+            }
+        }
+    }
+
+
+    /*
+     * Check spatial random generated points
+     */
+
     cout << BASH_YELLOW << "Spatial points checks..." << BASH_NC << endl;
     if (algorithm == ALG_LEMON_MODIF || algorithm == ALG_SCS) {
         int total = 100;
@@ -207,116 +326,6 @@ int main(int argc, const char** argv) {
         }
     }
 
-    // load answer sheet and compare results
-    cout << BASH_YELLOW << "Compare results with answer sheet..." << BASH_NC << endl;
-    string ansfname = "AnswerSheet.txt";
-    ifstream infile(ansfname);
-    if (FILE *file = fopen(ansfname.c_str(), "r")) {
-        fclose(file);
-    } else {
-        cout << "File " << ansfname << " does not exist" << endl;
-        exit(1);
-    }
-    string graphfile;
-    long answer;
-
-    while(infile >> graphfile >> answer) {
-        cout << "Checking file " << graphfile << " with answer " << answer << "..." << endl;
-        g.clear_graph();
-        string path = "../../data/tests/bipartite/";
-        path.append(graphfile);
-        path[path.size()-1] = 'r';
-        path[path.size()-2] = 'g';
-
-        if (algorithm == ALG_ASIA) {
-            g.clear_graph();
-            g.load_graph(path);
-            g.init_neighbors();
-            g.sort_neighbors();
-            SIA SIAsolv(&g, true);
-            SIAsolv.runOSIA();
-            if (SIAsolv.totalCost != answer) {
-                cout << "SIA wrong answer: " << SIAsolv.totalCost << " correct: " << answer << endl;
-                exit(1);
-            };
-        }
-
-        if (algorithm == ALG_COST_SCALING) {
-            g.clear_graph();
-            g.load_graph(path);
-            g.init_neighbors();
-            CostScaling CostScalingSolv(&g);
-            CostScalingSolv.runCostScaling();
-            if (CostScalingSolv.totalCost != answer) {
-                cout << "CostScaling wrong answer: " << CostScalingSolv.totalCost << " correct: " << answer << endl;
-                exit(1);
-            };
-        }
-
-        if (algorithm == ALG_SCS) {
-            g.clear_graph();
-            g.load_graph(path);
-            g.init_neighbors();
-            g.sort_neighbors();
-            SCS SCSsolv(g);
-            SCSsolv.runSCS();
-            if (SCSsolv.totalCost != answer) {
-                cout << "Simplified CostScaling wrong answer: " << SCSsolv.totalCost << " correct: " << answer << endl;
-                exit(1);
-            };
-        }
-
-
-        if (algorithm == ALG_LSCS) {
-            g.clear_graph();
-            g.load_graph(path);
-            g.init_neighbors();
-            g.sort_neighbors();
-            LSCS LSCSsolv(g);
-            LSCSsolv.runLSCS();
-            if (LSCSsolv.totalCost != answer) {
-                cout << "Lemon Simplified CostScaling wrong answer: " << LSCSsolv.totalCost << " correct: " << answer << endl;
-                exit(1);
-            };
-        }
-
-        if (algorithm == ALG_LEMON_MODIF) {
-            g.clear_graph();
-            g.load_graph(path);
-            g.init_neighbors();
-            lemon::ListDigraph _graph;
-            lemon::ListDigraph::ArcMap<int> weight(_graph);
-            lemon::ListDigraph::ArcMap<int> flow(_graph);
-            lemon::ListDigraph::ArcMap<int> cap(_graph);
-            lemon::ListDigraph::ArcMap<int> lower(_graph);
-            lemon::ListDigraph::NodeMap<int> supply(_graph);
-
-            lemon::ListDigraph::Node* nodes;
-            nodes = (lemon::ListDigraph::Node*)malloc(sizeof(lemon::ListDigraph::Node)*g.n);
-            for (long i = 0; i < g.n; i++) {
-                nodes[i] = _graph.addNode();
-                supply[nodes[i]] = g.V[i].supply;
-            }
-
-            for (long i = 0; i < g.m; i++) {
-                lemon::ListDigraph::Arc e = _graph.addArc(nodes[g.E[i].fromid], nodes[g.E[i].toid]);
-                weight[e] = g.E[i].weight;
-                cap[e] = g.E[i].capacity;
-                lower[e] = g.E[i].lower;
-            }
-
-            lemon::ModifiedCostScaling<lemon::ListDigraph,int,int> cost_scaling(_graph, weight);
-            cost_scaling.costMap(weight);
-            cost_scaling.upperMap(cap);
-            cost_scaling.lowerMap(lower);
-            cost_scaling.supplyMap(supply);
-            cost_scaling.run();
-            if (cost_scaling.totalCost() != answer) {
-                cout << "Modified Lemon CostScaling wrong answer: " << cost_scaling.totalCost() << " correct: " << answer << endl;
-                exit(1);
-            }
-        }
-    }
 
 
     cout << "Testing done" << endl;

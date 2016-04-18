@@ -164,6 +164,7 @@ void SIA::processId(long source_id)
         {
             //adding new edge to the subgraph
             long eid = insertEdgeFromHeap();
+//            cout << "added " << g->E[eid].fromid << "->" << g->E[eid].toid << endl;
 
             //updating Dijkstra heap by using additional heap
             updateHeaps(eid, g->E[eid].fromid, g->E[eid].toid);
@@ -192,6 +193,7 @@ void SIA::processId(long source_id)
         }
         taumax = gettaumax;
     };
+//    cout << "augmenting flow to " << target_node << endl;
     double time_augment = timer.getTime();
     augmentFlow(target_node);
 

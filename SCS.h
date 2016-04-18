@@ -222,17 +222,13 @@ private:
 //            }
 
         // Initialize the large cost vector and the epsilon parameter
+        //can not be smaller than 1!
         if (_graph.isSpatial) {
-            _epsilon = ceil(SCALE*sqrt(2));
+            _epsilon = ceil(SCALE*sqrt(2)) * _res_node_num * _alpha;
         } else {
             _epsilon = 1;
             LargeCost lc;
             for (int i = 0; i != _res_node_num; ++i) {
-//            for (vector<int>::iterator j = _first_out[i].begin(); j != _first_out[i].end(); ++j) {
-//                lc = static_cast<LargeCost>(_scost[*j]) * _res_node_num * _alpha; //COST MODIFICATION
-//                _cost[*j] = lc;
-//                if (lc > _epsilon) _epsilon = lc;
-//            }
                 for (int j = 0; j < _graph.fullE[i].size(); j++) {
                     lc = static_cast<LargeCost>(_graph.E[_graph.fullE[i][j]].weight) * _res_node_num * _alpha;
                     if (lc > _epsilon) _epsilon = lc;
@@ -240,7 +236,7 @@ private:
             }
         }
         _epsilon /= _alpha;
-        _epsilon = 1;
+        _epsilon = ceil(SCALE*sqrt(2)) * _res_node_num / 100;
 
         // initialize _res_cap with supply value for each node with positive supply for arbitrary edge
         for (long a = 0; a < _res_arc_num; a++) {

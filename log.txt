@@ -416,3 +416,21 @@
 1695389472,Graph neighborhood init error,0
 1695389472,Total execution time,0.67178
 1695389472,Total execution time error,0
+626352248,DateTime,04-18-2016  19:14:20.
+626352248,Input file,../data/bipartite/bi_full_64_1_100_uni_1.gr
+626352248,Algorithm,S-CSA
+626352248,Type,FullBipartite
+626352248,Distribution,Uniform
+626352248,MinCost,1
+626352248,MaxCost,100
+626352248,Edges,1024
+626352248,Nodes,64
+238619237,DateTime,04-18-2016  19:14:53.
+238619237,Input file,../data/bipartite/bi_full_64_1_100_uni_1.gr
+238619237,Algorithm,S-CSA
+238619237,Type,FullBipartite
+238619237,Distribution,Uniform
+238619237,MinCost,1
+238619237,MaxCost,100
+238619237,Edges,1024
+238619237,Nodes,64

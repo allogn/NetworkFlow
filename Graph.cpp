@@ -552,3 +552,65 @@ void Graph::generate_random_points(long size, long sources, long targets) {
 
     isSpatial = true;
 }
+
+/*
+ * 0 intesity => everything is firbidden
+ * 1 => everything is allowed
+ * 1 in forbMatrx means forbidden
+ */
+void Graph::generate_forbidden_list(double intensity) {
+    forbiddenMatrix.resize(n);
+    long seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::default_random_engine generator (seed);
+    uniform_real_distribution<double> uniGen(0, 1);
+    for (long i = 0; i < n; i++) {
+        forbiddenMatrix[i].resize(n,0);
+        for (long j = 0; j < n; j++) {
+            if (uniGen(generator) > intensity)
+                forbiddenMatrix[i][j] = 1;
+        }
+    }
+}
+
+void Graph::get_fill_status() {
+    cout << "Fill: " << endl;
+    double fill = 0;
+    long nonzero = 0;
+    for (long i = 0; i < this->n; i++) {
+
+        //calculate all allowed outgoing nodes for current node
+        long nodes;
+        if (isSpatial) {
+            if (forbiddenMatrix.size() > 0) {
+                nodes = std::accumulate(forbiddenMatrix[i].begin(), forbiddenMatrix[i].end(), 1);
+            } else {
+                nodes = n - 1;
+            }
+        } else {
+            nodes = fullE[i].size();
+        }
+
+        long forwnodes = 0;
+        if (!isSpatial) {
+            forwnodes = QryCnt[i];
+        } else {
+            long count = 0;
+            rtree_t::const_query_iterator it = rtree.qbegin(bgi::nearest(coords[i], (unsigned int)n)); //todo here is a problem! no more nodes than 65000
+            ++it;//skip the node itself
+            while (it != QryIt[i]) {
+                ++it;
+                count++;
+            }
+            forwnodes = count;
+        }
+
+        //in bipartite case there are nodes without outgoing edges
+        if (nodes != 0) {
+            nonzero++;
+            double curfill = (nodes == 0) ? 1 : (double) forwnodes / (double)nodes; // 2 because _first_out contains inverted nodes as well
+//            cout << curfill << endl;
+            fill += curfill;
+        }
+    }
+    cout << "total" << fill / (double)nonzero << endl;
+}
