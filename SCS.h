@@ -83,6 +83,7 @@ public:
     int _alpha;
 
 public:
+    int _param;
 
     SCS(Graph &graph) :
             _graph(graph) {
@@ -236,7 +237,7 @@ private:
             }
         }
         _epsilon /= _alpha;
-        _epsilon = ceil(SCALE*sqrt(2)) * _res_node_num / 100;
+        if (_param == 1) _epsilon = 1;
 
         // initialize _res_cap with supply value for each node with positive supply for arbitrary edge
         for (long a = 0; a < _res_arc_num; a++) {
@@ -296,8 +297,9 @@ public:
     long totalCost;
 
     // Execute the algorithm and transform the results
-    void runSCS() {
+    void runSCS(int param) {
         _alpha = 16;
+        _param = param;
         reset();
         init();
         double total = timer.getTime();

@@ -279,10 +279,14 @@ int main(int argc, const char **argv) {
                 g.sort_neighbors();
             }
             SCS SCSsolv(g);
+            if (rounds > 1) {
+                cout << "rounds not working here yet" << endl; //todo
+                exit(1);
+            }
             for (int current_round = 1; current_round <= rounds; current_round++) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
 //                SCSsolv._graph.add_all(); // reset E lists --- this is for case if SIA implementation enabled
-                SCSsolv.runSCS();
+                SCSsolv.runSCS(param);
                 g.get_fill_status();
                 cout << "Total cost of SCS: " << SCSsolv.totalCost << endl;
                 cout << "Total time of SCS: " << SCSsolv.timer.get_last_time("Total time") << endl;

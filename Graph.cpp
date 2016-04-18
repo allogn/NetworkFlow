@@ -612,5 +612,5 @@ void Graph::get_fill_status() {
             fill += curfill;
         }
     }
-    cout << "total" << fill / (double)nonzero << endl;
+    cout << "total " << fill / (double)nonzero << endl;
 }

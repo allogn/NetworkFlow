@@ -83,7 +83,7 @@ void SCS::startAugment(long max_length) {
             do {
 
                 bool once = false;
-                if  (globalH.size() > 0) {//}} && (!once || dijkH.getTopValue() > globalH.getTopValue() - taumax)) {
+                if  (globalH.size() > 0) {//}} && (!once || dijkH.getTopValue() > globalH.getTopValue() - taumax)) { //todo add this
                     newEdgeAdded = true; // for new epsilon calculation
                     once = true;
                     long fromid;
@@ -218,7 +218,7 @@ void SCS::startAugment(long max_length) {
                 }
 
                 assert((globalH.size() == 0 && tip != -1) || globalH.size() > 0);
-            } while (tip == -1 || (globalH.size() > 0 && mindist[tip] > globalH.getTopValue() - taumax));
+            } while (tip == -1 || (globalH.size() > 0 && mindist[tip] > globalH.getTopValue() - taumax + _epsilon/ _alpha));
 
 
 #ifndef NDEBUG
@@ -274,21 +274,6 @@ void SCS::startAugment(long max_length) {
 #endif
 
             //todo add visited here as well
-//            long tmpTip = tip;
-//            while (parent[tmpTip] != -1) {
-//                long edge = parent[tip];
-//                long parent_node = _source[edge];
-//                assert(_cost[edge] - _pi[parent_node] + _pi[tip] < 0); // admissible
-//                assert(_res_cap[edge] > 0);
-//                assert(_res_cap[_reverse[edge]] == 0);
-//                _res_cap[edge]--;
-//                _res_cap[_reverse[edge]]++;
-//                _excess[parent_node]--;
-//                _excess[tip]++;
-//                tip = parent_node;
-//            }
-
-
             for (long i = 0; i < _res_node_num; i++) {
                 if (curcost > mindist[i])
                 {
