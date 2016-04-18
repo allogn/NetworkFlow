@@ -86,13 +86,23 @@ void generate_graph(string output) {
             std::random_shuffle<vector<long>::iterator>(excessMap.begin()+4,excessMap.end());
             break;
         case 3:
-            //one source in the center
-            grfile << "# SourceDistr Single\n";
-            excessMap[0] = sdens*targets;
-            for (long i = 1; i < 1+targets; i++) {
+            //one cluster with sources in the center, clusters with targets around
+            grfile << "# SourceDistr CentralCluster\n";
+            if (size / cl_num < sources || size / cl_num < targets / (cl_num - 1)) {
+                cout << "Too small graph to distribute sources and targets" << endl;
+                exit(1);
+            }
+            for (long i = 0; i < sources; i++) {
+                excessMap[i] = sdens * targets/sources;
+            }
+            excessMap[sources-1] += sdens * (targets % sources);
+            std::random_shuffle<vector<long>::iterator>(excessMap.begin(),excessMap.begin()+size/cl_num);
+
+            for (long i = size/cl_num; i < targets + size/cl_num; i++) {
                 excessMap[i] = -sdens;
             }
-            std::random_shuffle<vector<long>::iterator>(excessMap.begin()+1,excessMap.end());
+            std::random_shuffle<vector<long>::iterator>(excessMap.begin()+size/cl_num,excessMap.end());
+
             break;
         case 4:
             //one source in the center of each cluster, parameter -c is used for sources
@@ -282,16 +292,24 @@ void generate_graph(string output) {
                     }
                     break;
                 case 3:
-                    grfile << "0.5 0.5 " << excessMap[0] << endl;
-                    for (int cl = 0; cl < cl_num; cl++) {
-                        normal_distribution<double> clGen(centerGen(generator), stdMultGen(generator)*clsize);
-                        for(long i = 0; i < (size-1)/cl_num; i++) {
-                            //each cluster is equal size
-                            grfile << clGen(generator) << " " << clGen(generator) << " " << excessMap[cl*(size/cl_num)+i+1] << endl;
+                    {
+                        normal_distribution<double> cclGenX(0.5, stdMultGen(generator)*clsize);
+                        normal_distribution<double> cclGenY(0.5, stdMultGen(generator)*clsize);
+                        for (long i = 0; i < size/cl_num; i++) {
+                            grfile << cclGenX(generator) << " " << cclGenY(generator) << " " << excessMap[i] << endl;
                         }
-                        if (cl == cl_num -1) {
-                            for(long i = 0; i < (size-1) % cl_num; i++) {
-                                grfile << clGen(generator) << " " << clGen(generator) << " " << excessMap[(size - size % cl_num)+i+1] << endl;
+                    }
+
+                    for (int cl = 1; cl < cl_num; cl++) {
+                        normal_distribution<double> clGenX(centerGen(generator), stdMultGen(generator)*clsize);
+                        normal_distribution<double> clGenY(centerGen(generator), stdMultGen(generator)*clsize);
+                        for(long i = 0; i < size/cl_num; i++) {
+                            //each cluster is equal size
+                            grfile << clGenX(generator) << " " << clGenY(generator) << " " << excessMap[cl*(size/cl_num)+i] << endl;
+                        }
+                        if (cl == cl_num-1) {
+                            for(long i = 0; i < size % cl_num; i++) {
+                                grfile << clGenX(generator) << " " << clGenY(generator) << " " << excessMap[(size - size % cl_num)+i] << endl;
                             }
                         }
                     }
@@ -347,7 +365,7 @@ int main(int argc, const char** argv) {
                     "0 : fully random, amount of s/t set by -s -t params. s>t, supply(s) = s/t\n"
                     "1 : 1 source, 1 target in the opposite corners (almost corners)\n"
                     "2 : 4 sources in the opposite corners, random target in the middle\n"
-                    "3 : 1 source in the center, -t targets\n"
+                    "3 : some sources in the central cluster, -t targets around\n"
                     "4 : clusters: one source in the center of each cluster, -t targets in EACH cluster randomly around\n"
                     "5 : clusters: random -s -t in each cluster, supply of each cluster equal to zero\n")
             ("density", po::value<int>(&sdens)->default_value(1), "excess amount for each source")

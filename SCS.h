@@ -240,6 +240,7 @@ private:
             }
         }
         _epsilon /= _alpha;
+        _epsilon = 1;
 
         // initialize _res_cap with supply value for each node with positive supply for arbitrary edge
         for (long a = 0; a < _res_arc_num; a++) {

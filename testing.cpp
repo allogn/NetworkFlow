@@ -128,7 +128,10 @@ int main(int argc, const char** argv) {
             }
             //add edges incrementally
             SCS SCSsolv(g);
+            double time = Timer::getTime();
             SCSsolv.runSCS();
+            time = -time + Timer::getTime();
+            cout << "Time: " << time << endl;
             if (SCSsolv.totalCost != totalCostCorrect) {
                 cout << "Simplified CostScaling wrong answer: " << SCSsolv.totalCost << " correct: " << totalCostCorrect << endl;
                 exit(1);
