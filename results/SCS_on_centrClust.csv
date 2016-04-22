@@ -1,0 +1,252 @@
+1919337763,DateTime,04-22-2016  18:59:00.
+1919337763,Input file,../../data/spatial/central_clust_s20_t100/1024_centr_clust_s20_t100_d1_1.sgr
+1919337763,Algorithm,S-CSA
+1919337763,Sources,20
+1919337763,Targets,100
+1919337763,Supply,1
+1919337763,SourceDistr,CentralCluster
+1919337763,Type,RandomPoints
+1919337763,Distribution,Clusters
+1919337763,Edges,0
+1919337763,Nodes,1024
+1919337763,Total time,7.02932
+1919337763,Total time error,0
+1919337763,Total cost,278177
+1919337763,Variation,LargeEpsilon
+1919337763,Saturation,0.998076
+
+1919337763,Graph neighborhood init,0.0325204
+1919337763,Graph neighborhood init error,0
+1919337763,Total execution time,7.85459
+1919337763,Total execution time error,0
+1638547128,DateTime,04-22-2016  18:59:07.
+1638547128,Input file,../../data/spatial/central_clust_s20_t100/1024_centr_clust_s20_t100_d1_1.sgr
+1638547128,Algorithm,S-CSA
+1638547128,Sources,20
+1638547128,Targets,100
+1638547128,Supply,1
+1638547128,SourceDistr,CentralCluster
+1638547128,Type,RandomPoints
+1638547128,Distribution,Clusters
+1638547128,Edges,0
+1638547128,Nodes,1024
+1638547128,Total time,3.25719
+1638547128,Total time error,0
+1638547128,Total cost,278177
+1638547128,Variation,NoEpsilon
+1638547128,Saturation,0.984637
+
+1638547128,Graph neighborhood init,0.0259324
+1638547128,Graph neighborhood init error,0
+1638547128,Total execution time,4.06735
+1638547128,Total execution time error,0
+944543840,DateTime,04-22-2016  18:59:11.
+944543840,Input file,../../data/spatial/central_clust_s20_t100/128_centr_clust_s20_t100_d1_1.sgr
+944543840,Algorithm,S-CSA
+944543840,Sources,20
+944543840,Targets,100
+944543840,Supply,1
+944543840,SourceDistr,CentralCluster
+944543840,Type,RandomPoints
+944543840,Distribution,Clusters
+944543840,Edges,0
+944543840,Nodes,128
+944543840,Total time,0.0262962
+944543840,Total time error,0
+944543840,Total cost,277758
+944543840,Variation,LargeEpsilon
+944543840,Saturation,1
+
+944543840,Graph neighborhood init,0.000218459
+944543840,Graph neighborhood init error,0
+944543840,Total execution time,0.0287344
+944543840,Total execution time error,0
+1797936461,DateTime,04-22-2016  18:59:11.
+1797936461,Input file,../../data/spatial/central_clust_s20_t100/128_centr_clust_s20_t100_d1_1.sgr
+1797936461,Algorithm,S-CSA
+1797936461,Sources,20
+1797936461,Targets,100
+1797936461,Supply,1
+1797936461,SourceDistr,CentralCluster
+1797936461,Type,RandomPoints
+1797936461,Distribution,Clusters
+1797936461,Edges,0
+1797936461,Nodes,128
+1797936461,Total time,0.0159028
+1797936461,Total time error,0
+1797936461,Total cost,277758
+1797936461,Variation,NoEpsilon
+1797936461,Saturation,0.991941
+
+1797936461,Graph neighborhood init,0.000210612
+1797936461,Graph neighborhood init error,0
+1797936461,Total execution time,0.0182708
+1797936461,Total execution time error,0
+2929827,DateTime,04-22-2016  18:59:11.
+2929827,Input file,../../data/spatial/central_clust_s20_t100/2048_centr_clust_s20_t100_d1_1.sgr
+2929827,Algorithm,S-CSA
+2929827,Sources,20
+2929827,Targets,100
+2929827,Supply,1
+2929827,SourceDistr,CentralCluster
+2929827,Type,RandomPoints
+2929827,Distribution,Clusters
+2929827,Edges,0
+2929827,Nodes,2048
+2929827,Total time,44.4688
+2929827,Total time error,0
+2929827,Total cost,229990
+2929827,Variation,LargeEpsilon
+2929827,Saturation,0.990798
+
+2929827,Graph neighborhood init,1.93613
+2929827,Graph neighborhood init error,0
+2929827,Total execution time,54.7009
+2929827,Total execution time error,0
+980490417,DateTime,04-22-2016  19:00:06.
+980490417,Input file,../../data/spatial/central_clust_s20_t100/2048_centr_clust_s20_t100_d1_1.sgr
+980490417,Algorithm,S-CSA
+980490417,Sources,20
+980490417,Targets,100
+980490417,Supply,1
+980490417,SourceDistr,CentralCluster
+980490417,Type,RandomPoints
+980490417,Distribution,Clusters
+980490417,Edges,0
+980490417,Nodes,2048
+980490417,Total time,22.1451
+980490417,Total time error,0
+980490417,Total cost,229990
+980490417,Variation,NoEpsilon
+980490417,Saturation,0.862066
+
+980490417,Graph neighborhood init,1.93679
+980490417,Graph neighborhood init error,0
+980490417,Total execution time,32.1132
+980490417,Total execution time error,0
+1013585972,DateTime,04-22-2016  19:00:38.
+1013585972,Input file,../../data/spatial/central_clust_s20_t100/256_centr_clust_s20_t100_d1_1.sgr
+1013585972,Algorithm,S-CSA
+1013585972,Sources,20
+1013585972,Targets,100
+1013585972,Supply,1
+1013585972,SourceDistr,CentralCluster
+1013585972,Type,RandomPoints
+1013585972,Distribution,Clusters
+1013585972,Edges,0
+1013585972,Nodes,256
+1013585972,Total time,0.149467
+1013585972,Total time error,0
+1013585972,Total cost,273092
+1013585972,Variation,LargeEpsilon
+1013585972,Saturation,0.988266
+
+1013585972,Graph neighborhood init,0.00227834
+1013585972,Graph neighborhood init error,0
+1013585972,Total execution time,0.16572
+1013585972,Total execution time error,0
+1768700005,DateTime,04-22-2016  19:00:38.
+1768700005,Input file,../../data/spatial/central_clust_s20_t100/256_centr_clust_s20_t100_d1_1.sgr
+1768700005,Algorithm,S-CSA
+1768700005,Sources,20
+1768700005,Targets,100
+1768700005,Supply,1
+1768700005,SourceDistr,CentralCluster
+1768700005,Type,RandomPoints
+1768700005,Distribution,Clusters
+1768700005,Edges,0
+1768700005,Nodes,256
+1768700005,Total time,0.0798355
+1768700005,Total time error,0
+1768700005,Total cost,273092
+1768700005,Variation,NoEpsilon
+1768700005,Saturation,0.938082
+
+1768700005,Graph neighborhood init,0.00226579
+1768700005,Graph neighborhood init error,0
+1768700005,Total execution time,0.0957301
+1768700005,Total execution time error,0
+2016301319,DateTime,04-22-2016  19:00:39.
+2016301319,Input file,../../data/spatial/central_clust_s20_t100/4096_centr_clust_s20_t100_d1_1.sgr
+2016301319,Algorithm,S-CSA
+2016301319,Sources,20
+2016301319,Targets,100
+2016301319,Supply,1
+2016301319,SourceDistr,CentralCluster
+2016301319,Type,RandomPoints
+2016301319,Distribution,Clusters
+2016301319,Edges,0
+2016301319,Nodes,4096
+2016301319,Total time,491.676
+2016301319,Total time error,0
+2016301319,Total cost,268764
+2016301319,Variation,LargeEpsilon
+2016301319,Saturation,0.996118
+
+2016301319,Graph neighborhood init,10.3147
+2016301319,Graph neighborhood init error,0
+2016301319,Total execution time,575.483
+2016301319,Total execution time error,0
+1434043378,DateTime,04-22-2016  19:10:14.
+1434043378,Input file,../../data/spatial/central_clust_s20_t100/4096_centr_clust_s20_t100_d1_1.sgr
+1434043378,Algorithm,S-CSA
+1434043378,Sources,20
+1434043378,Targets,100
+1434043378,Supply,1
+1434043378,SourceDistr,CentralCluster
+1434043378,Type,RandomPoints
+1434043378,Distribution,Clusters
+1434043378,Edges,0
+1434043378,Nodes,4096
+1434043378,Total time,275.448
+1434043378,Total time error,0
+1434043378,Total cost,268764
+1434043378,Variation,NoEpsilon
+1434043378,Saturation,0.976232
+
+1434043378,Graph neighborhood init,10.3124
+1434043378,Graph neighborhood init error,0
+1434043378,Total execution time,359.014
+1434043378,Total execution time error,0
+1720148948,DateTime,04-22-2016  19:16:13.
+1720148948,Input file,../../data/spatial/central_clust_s20_t100/512_centr_clust_s20_t100_d1_1.sgr
+1720148948,Algorithm,S-CSA
+1720148948,Sources,20
+1720148948,Targets,100
+1720148948,Supply,1
+1720148948,SourceDistr,CentralCluster
+1720148948,Type,RandomPoints
+1720148948,Distribution,Clusters
+1720148948,Edges,0
+1720148948,Nodes,512
+1720148948,Total time,0.616269
+1720148948,Total time error,0
+1720148948,Total cost,247055
+1720148948,Variation,LargeEpsilon
+1720148948,Saturation,0.992906
+
+1720148948,Graph neighborhood init,0.00424334
+1720148948,Graph neighborhood init error,0
+1720148948,Total execution time,0.707233
+1720148948,Total execution time error,0
+1320592802,DateTime,04-22-2016  19:16:14.
+1320592802,Input file,../../data/spatial/central_clust_s20_t100/512_centr_clust_s20_t100_d1_1.sgr
+1320592802,Algorithm,S-CSA
+1320592802,Sources,20
+1320592802,Targets,100
+1320592802,Supply,1
+1320592802,SourceDistr,CentralCluster
+1320592802,Type,RandomPoints
+1320592802,Distribution,Clusters
+1320592802,Edges,0
+1320592802,Nodes,512
+1320592802,Total time,0.404828
+1320592802,Total time error,0
+1320592802,Total cost,247055
+1320592802,Variation,NoEpsilon
+1320592802,Saturation,0.930853
+
+1320592802,Graph neighborhood init,0.00424886
+1320592802,Graph neighborhood init error,0
+1320592802,Total execution time,0.493604
+1320592802,Total execution time error,0
