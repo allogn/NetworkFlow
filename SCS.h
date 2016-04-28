@@ -350,8 +350,16 @@ public:
                 }
             }
             timer.save_time("Adding edges time",time);
+
+            //save weight distribution
+            ofstream weightsf("weights.out");
+            for (long i = 0; i < _res_arc_num; i++) {
+                weightsf << (double)abs(_cost[i])/(double)_res_node_num/(double)_alpha/(double)SCALE << "\n";
+            }
+            weightsf.close();
+
         }
-        
+
         startAugment(_res_node_num - 1);
         timer.save_time("Total time", total);
         totalCost = 0;

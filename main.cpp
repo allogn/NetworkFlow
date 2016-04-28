@@ -198,6 +198,7 @@ int main(int argc, const char **argv) {
             }
             break;
         case ALG_LOCAL_DOMINANT:
+            long tc;
             for (int current_round = 1; current_round <= rounds; current_round++) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
                 LocalDominant LocalDominantSolv(&g);
@@ -205,14 +206,13 @@ int main(int argc, const char **argv) {
                 LocalDominantSolv.runLocalDominant();
                 timer.save_time("Total time", totalTime);
 
-                long tc = LocalDominantSolv.totalCost();
-                logf.open(log_filename, ios::app);
-                logf << experiment_id << ",Total cost," << tc << "\n";
-                logf.close();
-
+                tc = LocalDominantSolv.totalCost();
                 cout << "Total cost of LocalDominant: " << tc << endl;
                 cout << "Total time of LocalDominant: " << timer.timings["Total time"].back() << endl;
             }
+            logf.open(log_filename, ios::app);
+            logf << experiment_id << ",Total cost," << tc << "\n";
+            logf.close();
             break;
         case ALG_LEMON_MODIF:
             if (g.isSpatial) {
