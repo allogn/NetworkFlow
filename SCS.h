@@ -96,7 +96,7 @@ public:
         // Resize vectors
         _node_num = _graph.n;
         _res_node_num = _node_num;
-        _res_arc_num = 0; //2 * _arc_num;
+        _res_arc_num = 0; // 0 because m holds final edge count if not spatial
 
         _first_out.resize(_res_node_num, vector<long>());
         _forward.resize(_res_arc_num);
@@ -155,12 +155,47 @@ public:
 //            _reverse[bi] = fi;
 //        }
 
+
         return *this;
     }
 
 private:
 
+    inline long add_edge(long u) {
+        long eid = _graph.insert_nn_to_edge_list(u);
+        long w = _graph.get_next_neighbour_weight(u) * _res_node_num * _alpha;
 
+        long local_eid = _res_arc_num;
+        //for spatial data this does not work
+        _first_out[u].push_back(local_eid);
+        long toid = _graph.get_pair(eid, u);
+        _first_out[toid].push_back(local_eid + 1);//reverse edge
+        _arc_idf.push_back(local_eid);
+        _arc_idb.push_back(local_eid + 1);
+        _forward.push_back(true);
+        _forward.push_back(false);
+        _source.push_back(u);
+        _source.push_back(toid);
+        _target.push_back(toid);
+        _target.push_back(u);
+        //skipped lower
+        _upper.push_back(_graph.E[eid].capacity);
+        _upper.push_back(_graph.E[eid].capacity);
+        _scost.push_back(_graph.E[eid].weight);
+        _scost.push_back(-_graph.E[eid].weight);
+        LargeCost lc =
+                static_cast<LargeCost>(_scost[local_eid]) * _res_node_num * _alpha; //COST MODIFICATION
+        _cost.push_back(lc);
+        _cost.push_back(-lc);
+
+        _res_cap.push_back(_upper[local_eid]);
+        _res_cap.push_back(0);
+        _reverse.push_back(local_eid + 1);
+        _reverse.push_back(local_eid);
+
+        _res_arc_num += 2;
+        return local_eid;
+    }
 
     // Initialize the algorithm
     ProblemType init() {
@@ -279,6 +314,8 @@ private:
             }
         }
 
+
+
         // Find active nodes (i.e. nodes with positive excess)
         for (long u = 0; u != _res_node_num; ++u) {
             if (_excess[u] > 0) _active_nodes.push_back(u);
@@ -302,7 +339,19 @@ public:
         _param = param;
         reset();
         init();
+
         double total = timer.getTime();
+
+        if (param == 2) {
+            double time = timer.getTime();
+            for (long ind = 0; ind < _graph.n; ind++) {
+                while (!_graph.isFull(ind)) {
+                    add_edge(ind);
+                }
+            }
+            timer.save_time("Adding edges time",time);
+        }
+        
         startAugment(_res_node_num - 1);
         timer.save_time("Total time", total);
         totalCost = 0;

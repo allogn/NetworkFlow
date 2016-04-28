@@ -488,3 +488,221 @@
 1305061514,Graph neighborhood init error,0
 1305061514,Total execution time,0.00320499
 1305061514,Total execution time error,0
+1070852024,DateTime,04-28-2016  00:14:52.
+1070852024,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+1070852024,Algorithm,S-CSA
+1070852024,Type,FullBipartite
+1070852024,Distribution,Gaussian
+1070852024,Mean,30
+1070852024,Std,10
+1070852024,Edges,10000
+1070852024,Nodes,200
+1567182138,DateTime,04-28-2016  00:15:23.
+1567182138,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+1567182138,Algorithm,S-CSA
+1567182138,Type,FullBipartite
+1567182138,Distribution,Gaussian
+1567182138,Mean,30
+1567182138,Std,10
+1567182138,Edges,10000
+1567182138,Nodes,200
+166477030,DateTime,04-28-2016  00:16:18.
+166477030,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+166477030,Algorithm,S-CSA
+166477030,Type,FullBipartite
+166477030,Distribution,Gaussian
+166477030,Mean,30
+166477030,Std,10
+166477030,Edges,10000
+166477030,Nodes,200
+2019569113,DateTime,04-28-2016  00:18:00.
+2019569113,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+2019569113,Algorithm,S-CSA
+2019569113,Type,FullBipartite
+2019569113,Distribution,Gaussian
+2019569113,Mean,30
+2019569113,Std,10
+2019569113,Edges,10000
+2019569113,Nodes,200
+2046486597,DateTime,04-28-2016  08:12:44.
+2046486597,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+2046486597,Algorithm,S-CSA
+2046486597,Type,FullBipartite
+2046486597,Distribution,Gaussian
+2046486597,Mean,30
+2046486597,Std,10
+2046486597,Edges,10000
+2046486597,Nodes,200
+1070443076,DateTime,04-28-2016  08:14:20.
+1070443076,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+1070443076,Algorithm,S-CSA
+1070443076,Type,FullBipartite
+1070443076,Distribution,Gaussian
+1070443076,Mean,30
+1070443076,Std,10
+1070443076,Edges,10000
+1070443076,Nodes,200
+1656336301,DateTime,04-28-2016  08:16:35.
+1656336301,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+1656336301,Algorithm,S-CSA
+1656336301,Type,FullBipartite
+1656336301,Distribution,Gaussian
+1656336301,Mean,30
+1656336301,Std,10
+1656336301,Edges,10000
+1656336301,Nodes,200
+1228349770,DateTime,04-28-2016  08:17:06.
+1228349770,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+1228349770,Algorithm,S-CSA
+1228349770,Type,FullBipartite
+1228349770,Distribution,Gaussian
+1228349770,Mean,30
+1228349770,Std,10
+1228349770,Edges,10000
+1228349770,Nodes,200
+1472769948,DateTime,04-28-2016  08:19:27.
+1472769948,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+1472769948,Algorithm,S-CSA
+1472769948,Type,FullBipartite
+1472769948,Distribution,Gaussian
+1472769948,Mean,30
+1472769948,Std,10
+1472769948,Edges,10000
+1472769948,Nodes,200
+205882747,DateTime,04-28-2016  08:52:53.
+205882747,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+205882747,Algorithm,S-CSA
+205882747,Type,FullBipartite
+205882747,Distribution,Gaussian
+205882747,Mean,30
+205882747,Std,10
+205882747,Edges,10000
+205882747,Nodes,200
+1901219418,DateTime,04-28-2016  08:54:20.
+1901219418,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+1901219418,Algorithm,S-CSA
+1901219418,Type,FullBipartite
+1901219418,Distribution,Gaussian
+1901219418,Mean,30
+1901219418,Std,10
+1901219418,Edges,10000
+1901219418,Nodes,200
+1499171927,DateTime,04-28-2016  09:20:11.
+1499171927,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+1499171927,Algorithm,S-CSA
+1499171927,Type,FullBipartite
+1499171927,Distribution,Gaussian
+1499171927,Mean,30
+1499171927,Std,10
+1499171927,Edges,10000
+1499171927,Nodes,200
+96670393,DateTime,04-28-2016  09:24:04.
+96670393,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+96670393,Algorithm,S-CSA
+96670393,Type,FullBipartite
+96670393,Distribution,Gaussian
+96670393,Mean,30
+96670393,Std,10
+96670393,Edges,10000
+96670393,Nodes,200
+442022308,DateTime,04-28-2016  09:24:35.
+442022308,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+442022308,Algorithm,S-CSA
+442022308,Type,FullBipartite
+442022308,Distribution,Gaussian
+442022308,Mean,30
+442022308,Std,10
+442022308,Edges,10000
+442022308,Nodes,200
+442022308,Total time,0.269038
+442022308,Total time error,0
+442022308,Total cost,682
+442022308,Graph sorting,0.00138826
+442022308,Graph sorting error,0
+442022308,Graph neighborhood init,0.00134439
+442022308,Graph neighborhood init error,0
+442022308,Total execution time,0.27739
+442022308,Total execution time error,0
+636323060,DateTime,04-28-2016  09:27:34.
+636323060,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+636323060,Algorithm,S-CSA
+636323060,Type,FullBipartite
+636323060,Distribution,Gaussian
+636323060,Mean,30
+636323060,Std,10
+636323060,Edges,10000
+636323060,Nodes,200
+906985577,DateTime,04-28-2016  09:32:56.
+906985577,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+906985577,Algorithm,S-CSA
+906985577,Type,FullBipartite
+906985577,Distribution,Gaussian
+906985577,Mean,30
+906985577,Std,10
+906985577,Edges,10000
+906985577,Nodes,200
+76196268,DateTime,04-28-2016  09:47:39.
+76196268,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+76196268,Algorithm,S-CSA
+76196268,Type,FullBipartite
+76196268,Distribution,Gaussian
+76196268,Mean,30
+76196268,Std,10
+76196268,Edges,10000
+76196268,Nodes,200
+76196268,Total time,0.218257
+76196268,Total time error,0
+76196268,Total cost,682
+76196268,Graph sorting,0.00125121
+76196268,Graph sorting error,0
+76196268,Graph neighborhood init,0.00132468
+76196268,Graph neighborhood init error,0
+76196268,Total execution time,0.226827
+76196268,Total execution time error,0
+127126596,DateTime,04-28-2016  10:31:16.
+127126596,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+127126596,Algorithm,S-CSA
+127126596,Type,FullBipartite
+127126596,Distribution,Gaussian
+127126596,Mean,30
+127126596,Std,10
+127126596,Edges,10000
+127126596,Nodes,200
+551768282,DateTime,04-28-2016  10:35:33.
+551768282,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+551768282,Algorithm,S-CSA
+551768282,Type,FullBipartite
+551768282,Distribution,Gaussian
+551768282,Mean,30
+551768282,Std,10
+551768282,Edges,10000
+551768282,Nodes,200
+2116980622,DateTime,04-28-2016  13:40:54.
+2116980622,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+2116980622,Algorithm,S-CSA
+2116980622,Type,FullBipartite
+2116980622,Distribution,Gaussian
+2116980622,Mean,30
+2116980622,Std,10
+2116980622,Edges,10000
+2116980622,Nodes,200
+1565376672,DateTime,04-28-2016  13:55:33.
+1565376672,Input file,../data/tests/bipartite/bi_full_200_30_10_gauss_1.gr
+1565376672,Algorithm,S-CSA
+1565376672,Type,FullBipartite
+1565376672,Distribution,Gaussian
+1565376672,Mean,30
+1565376672,Std,10
+1565376672,Edges,10000
+1565376672,Nodes,200
+1565376672,Total time,0.53183
+1565376672,Total time error,0
+1565376672,Adding edges time,0
+1565376672,Adding edges time error,0
+1565376672,Total cost,682
+1565376672,Graph sorting,0.00168655
+1565376672,Graph sorting error,0
+1565376672,Graph neighborhood init,0.00203835
+1565376672,Graph neighborhood init error,0
+1565376672,Total execution time,0.554391
+1565376672,Total execution time error,0

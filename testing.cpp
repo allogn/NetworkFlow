@@ -121,7 +121,7 @@ int main(int argc, const char** argv) {
             g.init_neighbors();
             g.sort_neighbors();
             SCS SCSsolv(g);
-            SCSsolv.runSCS();
+            SCSsolv.runSCS(0);
             if (SCSsolv.totalCost != answer) {
                 cout << "Simplified CostScaling wrong answer: " << SCSsolv.totalCost << " correct: " << answer << endl;
                 exit(1);
@@ -248,7 +248,7 @@ int main(int argc, const char** argv) {
             //add edges incrementally
             SCS SCSsolv(g);
             double time = Timer::getTime();
-            SCSsolv.runSCS();
+            SCSsolv.runSCS(0);
             time = -time + Timer::getTime();
             cout << "Time: " << time << endl;
             if (SCSsolv.totalCost != totalCostCorrect) {
@@ -318,7 +318,7 @@ int main(int argc, const char** argv) {
 
             g.sort_neighbors();
             SCS SCSsolv(g);
-            SCSsolv.runSCS();
+            SCSsolv.runSCS(0);
             if (SCSsolv.totalCost != totalCostCorrect) {
                 cout << "Simplified CostScaling wrong answer: " << SCSsolv.totalCost << " correct: " << totalCostCorrect << endl;
                 exit(1);
