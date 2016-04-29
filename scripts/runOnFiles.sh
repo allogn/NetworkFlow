@@ -1,9 +1,8 @@
 #!/bin/bash
-DATADIR="../../data/spatial"
-for f in $DATADIR/*.sgr;
+DATADIR="../../data/bipartite_sparse"
+for f in $DATADIR/*.gr;
 do
-	../Release/NetworkFlows -r 1 -i $f -a 4 -p 0 -l uniSpatial.csv
-	../Release/NetworkFlows -r 1 -i $f -a 4 -p 1 -l uniSpatial.csv
+	../Release/NetworkFlows -r 1 -i $f -a 5 -p 0 -l OLemon_sparse_bipart.csv
 done
 
 echo "Done."
