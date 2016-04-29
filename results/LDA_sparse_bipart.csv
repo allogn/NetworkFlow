@@ -1,0 +1,752 @@
+1714782267,DateTime,04-29-2016  12:16:28.
+1714782267,Input file,../../data/bipartite_sparse/bi_full_4096_m0_1_100_uni_1.gr
+1714782267,Algorithm,Local Dominant
+1714782267,Type,FullBipartite
+1714782267,Distribution,Uniform
+1714782267,MinCost,1
+1714782267,MaxCost,100
+1714782267,Edges,4194304
+1714782267,Nodes,4096
+1714782267,Total cost,2392
+1714782267,Graph neighborhood init,0.0957314
+1714782267,Graph neighborhood init error,0
+1714782267,Total execution time,1.75733
+1714782267,Total execution time error,0
+1714782267,Total time,0.438236
+1714782267,Total time error,0
+885963110,DateTime,04-29-2016  12:16:31.
+885963110,Input file,../../data/bipartite_sparse/bi_full_4096_m0_1_100_uni_2.gr
+885963110,Algorithm,Local Dominant
+885963110,Type,FullBipartite
+885963110,Distribution,Uniform
+885963110,MinCost,1
+885963110,MaxCost,100
+885963110,Edges,4194304
+885963110,Nodes,4096
+885963110,Total cost,2439
+885963110,Graph neighborhood init,0.0964098
+885963110,Graph neighborhood init error,0
+885963110,Total execution time,1.75073
+885963110,Total execution time error,0
+885963110,Total time,0.453261
+885963110,Total time error,0
+1706480329,DateTime,04-29-2016  12:16:35.
+1706480329,Input file,../../data/bipartite_sparse/bi_full_4096_m0_1_exp_1.gr
+1706480329,Algorithm,Local Dominant
+1706480329,Type,FullBipartite
+1706480329,Distribution,Exponential
+1706480329,Lambda,1
+1706480329,Edges,4194304
+1706480329,Nodes,4096
+1706480329,Total cost,450
+1706480329,Graph neighborhood init,0.0955225
+1706480329,Graph neighborhood init error,0
+1706480329,Total execution time,1.76674
+1706480329,Total execution time error,0
+1706480329,Total time,0.445788
+1706480329,Total time error,0
+717176136,DateTime,04-29-2016  12:16:38.
+717176136,Input file,../../data/bipartite_sparse/bi_full_4096_m0_1_exp_2.gr
+717176136,Algorithm,Local Dominant
+717176136,Type,FullBipartite
+717176136,Distribution,Exponential
+717176136,Lambda,1
+717176136,Edges,4194304
+717176136,Nodes,4096
+717176136,Total cost,409
+717176136,Graph neighborhood init,0.0975409
+717176136,Graph neighborhood init error,0
+717176136,Total execution time,1.77485
+717176136,Total execution time error,0
+717176136,Total time,0.44351
+717176136,Total time error,0
+793719995,DateTime,04-29-2016  12:16:42.
+793719995,Input file,../../data/bipartite_sparse/bi_full_4096_m0_30_10_gauss_1.gr
+793719995,Algorithm,Local Dominant
+793719995,Type,FullBipartite
+793719995,Distribution,Gaussian
+793719995,Mean,30
+793719995,Std,10
+793719995,Edges,4194304
+793719995,Nodes,4096
+793719995,Total cost,2235
+793719995,Graph neighborhood init,0.0962539
+793719995,Graph neighborhood init error,0
+793719995,Total execution time,1.48413
+793719995,Total execution time error,0
+793719995,Total time,0.183614
+793719995,Total time error,0
+866901784,DateTime,04-29-2016  12:16:45.
+866901784,Input file,../../data/bipartite_sparse/bi_full_4096_m0_30_10_gauss_2.gr
+866901784,Algorithm,Local Dominant
+866901784,Type,FullBipartite
+866901784,Distribution,Gaussian
+866901784,Mean,30
+866901784,Std,10
+866901784,Edges,4194304
+866901784,Nodes,4096
+866901784,Total cost,2333
+866901784,Graph neighborhood init,0.096086
+866901784,Graph neighborhood init error,0
+866901784,Total execution time,1.47828
+866901784,Total execution time error,0
+866901784,Total time,0.182344
+866901784,Total time error,0
+1338305004,DateTime,04-29-2016  12:16:48.
+1338305004,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_1_100_uni_1.gr
+1338305004,Algorithm,Local Dominant
+1338305004,Type,FullBipartite
+1338305004,Distribution,Uniform
+1338305004,MinCost,1
+1338305004,MaxCost,100
+1338305004,Edges,2097152
+1338305004,Nodes,4096
+1338305004,Total cost,2742
+1338305004,Graph neighborhood init,0.0488474
+1338305004,Graph neighborhood init error,0
+1338305004,Total execution time,0.78182
+1338305004,Total execution time error,0
+1338305004,Total time,0.131916
+1338305004,Total time error,0
+1774865977,DateTime,04-29-2016  12:16:50.
+1774865977,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_1_100_uni_2.gr
+1774865977,Algorithm,Local Dominant
+1774865977,Type,FullBipartite
+1774865977,Distribution,Uniform
+1774865977,MinCost,1
+1774865977,MaxCost,100
+1774865977,Edges,2097152
+1774865977,Nodes,4096
+1774865977,Total cost,2822
+1774865977,Graph neighborhood init,0.0489199
+1774865977,Graph neighborhood init error,0
+1774865977,Total execution time,0.782574
+1774865977,Total execution time error,0
+1774865977,Total time,0.132548
+1774865977,Total time error,0
+1720734392,DateTime,04-29-2016  12:16:52.
+1720734392,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_1_exp_1.gr
+1720734392,Algorithm,Local Dominant
+1720734392,Type,FullBipartite
+1720734392,Distribution,Exponential
+1720734392,Lambda,1
+1720734392,Edges,4194304
+1720734392,Nodes,4096
+1720734392,Total cost,986
+1720734392,Graph neighborhood init,0.0960226
+1720734392,Graph neighborhood init error,0
+1720734392,Total execution time,1.76314
+1720734392,Total execution time error,0
+1720734392,Total time,0.442233
+1720734392,Total time error,0
+2110852539,DateTime,04-29-2016  12:16:55.
+2110852539,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_1_exp_2.gr
+2110852539,Algorithm,Local Dominant
+2110852539,Type,FullBipartite
+2110852539,Distribution,Exponential
+2110852539,Lambda,1
+2110852539,Edges,4194304
+2110852539,Nodes,4096
+2110852539,Total cost,484
+2110852539,Graph neighborhood init,0.0966947
+2110852539,Graph neighborhood init error,0
+2110852539,Total execution time,1.75554
+2110852539,Total execution time error,0
+2110852539,Total time,0.435266
+2110852539,Total time error,0
+621492406,DateTime,04-29-2016  12:16:59.
+621492406,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_30_10_gauss_1.gr
+621492406,Algorithm,Local Dominant
+621492406,Type,FullBipartite
+621492406,Distribution,Gaussian
+621492406,Mean,30
+621492406,Std,10
+621492406,Edges,4194304
+621492406,Nodes,4096
+621492406,Total cost,2140
+621492406,Graph neighborhood init,0.0964911
+621492406,Graph neighborhood init error,0
+621492406,Total execution time,1.47845
+621492406,Total execution time error,0
+621492406,Total time,0.179834
+621492406,Total time error,0
+752250422,DateTime,04-29-2016  12:17:02.
+752250422,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_30_10_gauss_2.gr
+752250422,Algorithm,Local Dominant
+752250422,Type,FullBipartite
+752250422,Distribution,Gaussian
+752250422,Mean,30
+752250422,Std,10
+752250422,Edges,4194304
+752250422,Nodes,4096
+752250422,Total cost,2335
+752250422,Graph neighborhood init,0.0968564
+752250422,Graph neighborhood init error,0
+752250422,Total execution time,1.48204
+752250422,Total execution time error,0
+752250422,Total time,0.183468
+752250422,Total time error,0
+1456839773,DateTime,04-29-2016  12:17:05.
+1456839773,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_1_100_uni_1.gr
+1456839773,Algorithm,Local Dominant
+1456839773,Type,FullBipartite
+1456839773,Distribution,Uniform
+1456839773,MinCost,1
+1456839773,MaxCost,100
+1456839773,Edges,1572864
+1456839773,Nodes,4096
+1456839773,Total cost,2883
+1456839773,Graph neighborhood init,0.0381085
+1456839773,Graph neighborhood init error,0
+1456839773,Total execution time,0.581002
+1456839773,Total execution time error,0
+1456839773,Total time,0.0838214
+1456839773,Total time error,0
+1323150164,DateTime,04-29-2016  12:17:07.
+1323150164,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_1_100_uni_2.gr
+1323150164,Algorithm,Local Dominant
+1323150164,Type,FullBipartite
+1323150164,Distribution,Uniform
+1323150164,MinCost,1
+1323150164,MaxCost,100
+1323150164,Edges,1572864
+1323150164,Nodes,4096
+1323150164,Total cost,2998
+1323150164,Graph neighborhood init,0.0385765
+1323150164,Graph neighborhood init error,0
+1323150164,Total execution time,0.581894
+1323150164,Total execution time error,0
+1323150164,Total time,0.0850739
+1323150164,Total time error,0
+1653292961,DateTime,04-29-2016  12:17:08.
+1653292961,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_1_exp_1.gr
+1653292961,Algorithm,Local Dominant
+1653292961,Type,FullBipartite
+1653292961,Distribution,Exponential
+1653292961,Lambda,1
+1653292961,Edges,4194304
+1653292961,Nodes,4096
+1653292961,Total cost,504
+1653292961,Graph neighborhood init,0.0968322
+1653292961,Graph neighborhood init error,0
+1653292961,Total execution time,1.7644
+1653292961,Total execution time error,0
+1653292961,Total time,0.440024
+1653292961,Total time error,0
+1260742740,DateTime,04-29-2016  12:17:12.
+1260742740,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_1_exp_2.gr
+1260742740,Algorithm,Local Dominant
+1260742740,Type,FullBipartite
+1260742740,Distribution,Exponential
+1260742740,Lambda,1
+1260742740,Edges,4194304
+1260742740,Nodes,4096
+1260742740,Total cost,465
+1260742740,Graph neighborhood init,0.0963383
+1260742740,Graph neighborhood init error,0
+1260742740,Total execution time,1.76336
+1260742740,Total execution time error,0
+1260742740,Total time,0.441342
+1260742740,Total time error,0
+103552748,DateTime,04-29-2016  12:17:15.
+103552748,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_30_10_gauss_1.gr
+103552748,Algorithm,Local Dominant
+103552748,Type,FullBipartite
+103552748,Distribution,Gaussian
+103552748,Mean,30
+103552748,Std,10
+103552748,Edges,4194304
+103552748,Nodes,4096
+103552748,Total cost,2317
+103552748,Graph neighborhood init,0.0954621
+103552748,Graph neighborhood init error,0
+103552748,Total execution time,1.4791
+103552748,Total execution time error,0
+103552748,Total time,0.182571
+103552748,Total time error,0
+694379561,DateTime,04-29-2016  12:17:19.
+694379561,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_30_10_gauss_2.gr
+694379561,Algorithm,Local Dominant
+694379561,Type,FullBipartite
+694379561,Distribution,Gaussian
+694379561,Mean,30
+694379561,Std,10
+694379561,Edges,4194304
+694379561,Nodes,4096
+694379561,Total cost,2296
+694379561,Graph neighborhood init,0.096615
+694379561,Graph neighborhood init error,0
+694379561,Total execution time,1.48028
+694379561,Total execution time error,0
+694379561,Total time,0.182525
+694379561,Total time error,0
+151438240,DateTime,04-29-2016  12:17:22.
+151438240,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_1_100_uni_1.gr
+151438240,Algorithm,Local Dominant
+151438240,Type,FullBipartite
+151438240,Distribution,Uniform
+151438240,MinCost,1
+151438240,MaxCost,100
+151438240,Edges,1048576
+151438240,Nodes,4096
+151438240,Total cost,3414
+151438240,Graph neighborhood init,0.0255384
+151438240,Graph neighborhood init error,0
+151438240,Total execution time,0.376709
+151438240,Total execution time error,0
+151438240,Total time,0.046296
+151438240,Total time error,0
+1921500744,DateTime,04-29-2016  12:17:23.
+1921500744,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_1_100_uni_2.gr
+1921500744,Algorithm,Local Dominant
+1921500744,Type,FullBipartite
+1921500744,Distribution,Uniform
+1921500744,MinCost,1
+1921500744,MaxCost,100
+1921500744,Edges,1048576
+1921500744,Nodes,4096
+1921500744,Total cost,3565
+1921500744,Graph neighborhood init,0.0255653
+1921500744,Graph neighborhood init error,0
+1921500744,Total execution time,0.372745
+1921500744,Total execution time error,0
+1921500744,Total time,0.0466887
+1921500744,Total time error,0
+467738128,DateTime,04-29-2016  12:17:23.
+467738128,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_1_exp_1.gr
+467738128,Algorithm,Local Dominant
+467738128,Type,FullBipartite
+467738128,Distribution,Exponential
+467738128,Lambda,1
+467738128,Edges,4194304
+467738128,Nodes,4096
+467738128,Total cost,858
+467738128,Graph neighborhood init,0.0962058
+467738128,Graph neighborhood init error,0
+467738128,Total execution time,1.76105
+467738128,Total execution time error,0
+467738128,Total time,0.438607
+467738128,Total time error,0
+1446440790,DateTime,04-29-2016  12:17:27.
+1446440790,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_1_exp_2.gr
+1446440790,Algorithm,Local Dominant
+1446440790,Type,FullBipartite
+1446440790,Distribution,Exponential
+1446440790,Lambda,1
+1446440790,Edges,4194304
+1446440790,Nodes,4096
+1446440790,Total cost,502
+1446440790,Graph neighborhood init,0.0962436
+1446440790,Graph neighborhood init error,0
+1446440790,Total execution time,1.76738
+1446440790,Total execution time error,0
+1446440790,Total time,0.443218
+1446440790,Total time error,0
+280234145,DateTime,04-29-2016  12:17:31.
+280234145,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_30_10_gauss_1.gr
+280234145,Algorithm,Local Dominant
+280234145,Type,FullBipartite
+280234145,Distribution,Gaussian
+280234145,Mean,30
+280234145,Std,10
+280234145,Edges,4194304
+280234145,Nodes,4096
+280234145,Total cost,2291
+280234145,Graph neighborhood init,0.0966555
+280234145,Graph neighborhood init error,0
+280234145,Total execution time,1.48291
+280234145,Total execution time error,0
+280234145,Total time,0.182182
+280234145,Total time error,0
+10570130,DateTime,04-29-2016  12:17:34.
+10570130,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_30_10_gauss_2.gr
+10570130,Algorithm,Local Dominant
+10570130,Type,FullBipartite
+10570130,Distribution,Gaussian
+10570130,Mean,30
+10570130,Std,10
+10570130,Edges,4194304
+10570130,Nodes,4096
+10570130,Total cost,2225
+10570130,Graph neighborhood init,0.0966012
+10570130,Graph neighborhood init error,0
+10570130,Total execution time,1.47861
+10570130,Total execution time error,0
+10570130,Total time,0.180716
+10570130,Total time error,0
+1161675378,DateTime,04-29-2016  12:17:37.
+1161675378,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_1_100_uni_1.gr
+1161675378,Algorithm,Local Dominant
+1161675378,Type,FullBipartite
+1161675378,Distribution,Uniform
+1161675378,MinCost,1
+1161675378,MaxCost,100
+1161675378,Edges,524288
+1161675378,Nodes,4096
+1161675378,Total cost,4879
+1161675378,Graph neighborhood init,0.0139031
+1161675378,Graph neighborhood init error,0
+1161675378,Total execution time,0.181267
+1161675378,Total execution time error,0
+1161675378,Total time,0.0164005
+1161675378,Total time error,0
+1435285479,DateTime,04-29-2016  12:17:38.
+1435285479,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_1_100_uni_2.gr
+1435285479,Algorithm,Local Dominant
+1435285479,Type,FullBipartite
+1435285479,Distribution,Uniform
+1435285479,MinCost,1
+1435285479,MaxCost,100
+1435285479,Edges,524288
+1435285479,Nodes,4096
+1435285479,Total cost,4862
+1435285479,Graph neighborhood init,0.0141636
+1435285479,Graph neighborhood init error,0
+1435285479,Total execution time,0.180945
+1435285479,Total execution time error,0
+1435285479,Total time,0.016642
+1435285479,Total time error,0
+1368842356,DateTime,04-29-2016  12:17:38.
+1368842356,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_1_exp_1.gr
+1368842356,Algorithm,Local Dominant
+1368842356,Type,FullBipartite
+1368842356,Distribution,Exponential
+1368842356,Lambda,1
+1368842356,Edges,4194304
+1368842356,Nodes,4096
+1368842356,Total cost,473
+1368842356,Graph neighborhood init,0.0968987
+1368842356,Graph neighborhood init error,0
+1368842356,Total execution time,1.76459
+1368842356,Total execution time error,0
+1368842356,Total time,0.442722
+1368842356,Total time error,0
+507093224,DateTime,04-29-2016  12:17:42.
+507093224,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_1_exp_2.gr
+507093224,Algorithm,Local Dominant
+507093224,Type,FullBipartite
+507093224,Distribution,Exponential
+507093224,Lambda,1
+507093224,Edges,4194304
+507093224,Nodes,4096
+507093224,Total cost,429
+507093224,Graph neighborhood init,0.0962742
+507093224,Graph neighborhood init error,0
+507093224,Total execution time,1.7516
+507093224,Total execution time error,0
+507093224,Total time,0.430942
+507093224,Total time error,0
+2061433563,DateTime,04-29-2016  12:17:45.
+2061433563,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_30_10_gauss_1.gr
+2061433563,Algorithm,Local Dominant
+2061433563,Type,FullBipartite
+2061433563,Distribution,Gaussian
+2061433563,Mean,30
+2061433563,Std,10
+2061433563,Edges,4194304
+2061433563,Nodes,4096
+2061433563,Total cost,2203
+2061433563,Graph neighborhood init,0.0970626
+2061433563,Graph neighborhood init error,0
+2061433563,Total execution time,1.49369
+2061433563,Total execution time error,0
+2061433563,Total time,0.183015
+2061433563,Total time error,0
+354841075,DateTime,04-29-2016  12:17:49.
+354841075,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_30_10_gauss_2.gr
+354841075,Algorithm,Local Dominant
+354841075,Type,FullBipartite
+354841075,Distribution,Gaussian
+354841075,Mean,30
+354841075,Std,10
+354841075,Edges,4194304
+354841075,Nodes,4096
+354841075,Total cost,2328
+354841075,Graph neighborhood init,0.0962919
+354841075,Graph neighborhood init error,0
+354841075,Total execution time,1.48268
+354841075,Total execution time error,0
+354841075,Total time,0.181638
+354841075,Total time error,0
+762339861,DateTime,04-29-2016  12:17:52.
+762339861,Input file,../../data/bipartite_sparse/bi_full_4096_m256_1_100_uni_1.gr
+762339861,Algorithm,Local Dominant
+762339861,Type,FullBipartite
+762339861,Distribution,Uniform
+762339861,MinCost,1
+762339861,MaxCost,100
+762339861,Edges,3670016
+762339861,Nodes,4096
+762339861,Total cost,2401
+762339861,Graph neighborhood init,0.0874036
+762339861,Graph neighborhood init error,0
+762339861,Total execution time,1.4967
+762339861,Total execution time error,0
+762339861,Total time,0.350033
+762339861,Total time error,0
+227887925,DateTime,04-29-2016  12:17:55.
+227887925,Input file,../../data/bipartite_sparse/bi_full_4096_m256_1_100_uni_2.gr
+227887925,Algorithm,Local Dominant
+227887925,Type,FullBipartite
+227887925,Distribution,Uniform
+227887925,MinCost,1
+227887925,MaxCost,100
+227887925,Edges,3670016
+227887925,Nodes,4096
+227887925,Total cost,2505
+227887925,Graph neighborhood init,0.0876042
+227887925,Graph neighborhood init error,0
+227887925,Total execution time,1.50015
+227887925,Total execution time error,0
+227887925,Total time,0.353849
+227887925,Total time error,0
+416919715,DateTime,04-29-2016  12:17:58.
+416919715,Input file,../../data/bipartite_sparse/bi_full_4096_m256_1_exp_1.gr
+416919715,Algorithm,Local Dominant
+416919715,Type,FullBipartite
+416919715,Distribution,Exponential
+416919715,Lambda,1
+416919715,Edges,4194304
+416919715,Nodes,4096
+416919715,Total cost,331
+416919715,Graph neighborhood init,0.0962801
+416919715,Graph neighborhood init error,0
+416919715,Total execution time,1.76695
+416919715,Total execution time error,0
+416919715,Total time,0.445798
+416919715,Total time error,0
+30467697,DateTime,04-29-2016  12:18:01.
+30467697,Input file,../../data/bipartite_sparse/bi_full_4096_m256_1_exp_2.gr
+30467697,Algorithm,Local Dominant
+30467697,Type,FullBipartite
+30467697,Distribution,Exponential
+30467697,Lambda,1
+30467697,Edges,4194304
+30467697,Nodes,4096
+30467697,Total cost,412
+30467697,Graph neighborhood init,0.0960161
+30467697,Graph neighborhood init error,0
+30467697,Total execution time,1.76323
+30467697,Total execution time error,0
+30467697,Total time,0.441003
+30467697,Total time error,0
+1467543501,DateTime,04-29-2016  12:18:05.
+1467543501,Input file,../../data/bipartite_sparse/bi_full_4096_m256_30_10_gauss_1.gr
+1467543501,Algorithm,Local Dominant
+1467543501,Type,FullBipartite
+1467543501,Distribution,Gaussian
+1467543501,Mean,30
+1467543501,Std,10
+1467543501,Edges,4194304
+1467543501,Nodes,4096
+1467543501,Total cost,2400
+1467543501,Graph neighborhood init,0.0966604
+1467543501,Graph neighborhood init error,0
+1467543501,Total execution time,1.47993
+1467543501,Total execution time error,0
+1467543501,Total time,0.183872
+1467543501,Total time error,0
+1563250029,DateTime,04-29-2016  12:18:08.
+1563250029,Input file,../../data/bipartite_sparse/bi_full_4096_m256_30_10_gauss_2.gr
+1563250029,Algorithm,Local Dominant
+1563250029,Type,FullBipartite
+1563250029,Distribution,Gaussian
+1563250029,Mean,30
+1563250029,Std,10
+1563250029,Edges,4194304
+1563250029,Nodes,4096
+1563250029,Total cost,2302
+1563250029,Graph neighborhood init,0.0971903
+1563250029,Graph neighborhood init error,0
+1563250029,Total execution time,1.48328
+1563250029,Total execution time error,0
+1563250029,Total time,0.181406
+1563250029,Total time error,0
+312784607,DateTime,04-29-2016  12:18:11.
+312784607,Input file,../../data/bipartite_sparse/bi_full_4096_m512_1_100_uni_1.gr
+312784607,Algorithm,Local Dominant
+312784607,Type,FullBipartite
+312784607,Distribution,Uniform
+312784607,MinCost,1
+312784607,MaxCost,100
+312784607,Edges,3145728
+312784607,Nodes,4096
+312784607,Total cost,2667
+312784607,Graph neighborhood init,0.0770617
+312784607,Graph neighborhood init error,0
+312784607,Total execution time,1.27379
+312784607,Total execution time error,0
+312784607,Total time,0.279113
+312784607,Total time error,0
+999726913,DateTime,04-29-2016  12:18:14.
+999726913,Input file,../../data/bipartite_sparse/bi_full_4096_m512_1_100_uni_2.gr
+999726913,Algorithm,Local Dominant
+999726913,Type,FullBipartite
+999726913,Distribution,Uniform
+999726913,MinCost,1
+999726913,MaxCost,100
+999726913,Edges,3145728
+999726913,Nodes,4096
+999726913,Total cost,2447
+999726913,Graph neighborhood init,0.0758192
+999726913,Graph neighborhood init error,0
+999726913,Total execution time,1.26834
+999726913,Total execution time error,0
+999726913,Total time,0.276559
+999726913,Total time error,0
+2079080760,DateTime,04-29-2016  12:18:17.
+2079080760,Input file,../../data/bipartite_sparse/bi_full_4096_m512_1_exp_1.gr
+2079080760,Algorithm,Local Dominant
+2079080760,Type,FullBipartite
+2079080760,Distribution,Exponential
+2079080760,Lambda,1
+2079080760,Edges,4194304
+2079080760,Nodes,4096
+2079080760,Total cost,351
+2079080760,Graph neighborhood init,0.0964538
+2079080760,Graph neighborhood init error,0
+2079080760,Total execution time,1.7541
+2079080760,Total execution time error,0
+2079080760,Total time,0.430076
+2079080760,Total time error,0
+252835023,DateTime,04-29-2016  12:18:20.
+252835023,Input file,../../data/bipartite_sparse/bi_full_4096_m512_1_exp_2.gr
+252835023,Algorithm,Local Dominant
+252835023,Type,FullBipartite
+252835023,Distribution,Exponential
+252835023,Lambda,1
+252835023,Edges,4194304
+252835023,Nodes,4096
+252835023,Total cost,588
+252835023,Graph neighborhood init,0.0968578
+252835023,Graph neighborhood init error,0
+252835023,Total execution time,1.76578
+252835023,Total execution time error,0
+252835023,Total time,0.444364
+252835023,Total time error,0
+2006515298,DateTime,04-29-2016  12:18:24.
+2006515298,Input file,../../data/bipartite_sparse/bi_full_4096_m512_30_10_gauss_1.gr
+2006515298,Algorithm,Local Dominant
+2006515298,Type,FullBipartite
+2006515298,Distribution,Gaussian
+2006515298,Mean,30
+2006515298,Std,10
+2006515298,Edges,4194304
+2006515298,Nodes,4096
+2006515298,Total cost,2265
+2006515298,Graph neighborhood init,0.0961332
+2006515298,Graph neighborhood init error,0
+2006515298,Total execution time,1.47974
+2006515298,Total execution time error,0
+2006515298,Total time,0.182514
+2006515298,Total time error,0
+1074883082,DateTime,04-29-2016  12:18:27.
+1074883082,Input file,../../data/bipartite_sparse/bi_full_4096_m512_30_10_gauss_2.gr
+1074883082,Algorithm,Local Dominant
+1074883082,Type,FullBipartite
+1074883082,Distribution,Gaussian
+1074883082,Mean,30
+1074883082,Std,10
+1074883082,Edges,4194304
+1074883082,Nodes,4096
+1074883082,Total cost,2250
+1074883082,Graph neighborhood init,0.0965964
+1074883082,Graph neighborhood init error,0
+1074883082,Total execution time,1.47991
+1074883082,Total execution time error,0
+1074883082,Total time,0.183612
+1074883082,Total time error,0
+21075973,DateTime,04-29-2016  12:18:30.
+21075973,Input file,../../data/bipartite_sparse/bi_full_4096_m768_1_100_uni_1.gr
+21075973,Algorithm,Local Dominant
+21075973,Type,FullBipartite
+21075973,Distribution,Uniform
+21075973,MinCost,1
+21075973,MaxCost,100
+21075973,Edges,2621440
+21075973,Nodes,4096
+21075973,Total cost,2617
+21075973,Graph neighborhood init,0.0640035
+21075973,Graph neighborhood init error,0
+21075973,Total execution time,1.03119
+21075973,Total execution time error,0
+21075973,Total time,0.191838
+21075973,Total time error,0
+2012805079,DateTime,04-29-2016  12:18:33.
+2012805079,Input file,../../data/bipartite_sparse/bi_full_4096_m768_1_100_uni_2.gr
+2012805079,Algorithm,Local Dominant
+2012805079,Type,FullBipartite
+2012805079,Distribution,Uniform
+2012805079,MinCost,1
+2012805079,MaxCost,100
+2012805079,Edges,2621440
+2012805079,Nodes,4096
+2012805079,Total cost,2585
+2012805079,Graph neighborhood init,0.0661352
+2012805079,Graph neighborhood init error,0
+2012805079,Total execution time,1.03002
+2012805079,Total execution time error,0
+2012805079,Total time,0.190697
+2012805079,Total time error,0
+1678735321,DateTime,04-29-2016  12:18:35.
+1678735321,Input file,../../data/bipartite_sparse/bi_full_4096_m768_1_exp_1.gr
+1678735321,Algorithm,Local Dominant
+1678735321,Type,FullBipartite
+1678735321,Distribution,Exponential
+1678735321,Lambda,1
+1678735321,Edges,4194304
+1678735321,Nodes,4096
+1678735321,Total cost,401
+1678735321,Graph neighborhood init,0.0957981
+1678735321,Graph neighborhood init error,0
+1678735321,Total execution time,1.75827
+1678735321,Total execution time error,0
+1678735321,Total time,0.435492
+1678735321,Total time error,0
+2137299397,DateTime,04-29-2016  12:18:38.
+2137299397,Input file,../../data/bipartite_sparse/bi_full_4096_m768_1_exp_2.gr
+2137299397,Algorithm,Local Dominant
+2137299397,Type,FullBipartite
+2137299397,Distribution,Exponential
+2137299397,Lambda,1
+2137299397,Edges,4194304
+2137299397,Nodes,4096
+2137299397,Total cost,395
+2137299397,Graph neighborhood init,0.0966084
+2137299397,Graph neighborhood init error,0
+2137299397,Total execution time,1.75883
+2137299397,Total execution time error,0
+2137299397,Total time,0.43818
+2137299397,Total time error,0
+1878352462,DateTime,04-29-2016  12:18:42.
+1878352462,Input file,../../data/bipartite_sparse/bi_full_4096_m768_30_10_gauss_1.gr
+1878352462,Algorithm,Local Dominant
+1878352462,Type,FullBipartite
+1878352462,Distribution,Gaussian
+1878352462,Mean,30
+1878352462,Std,10
+1878352462,Edges,4194304
+1878352462,Nodes,4096
+1878352462,Total cost,2212
+1878352462,Graph neighborhood init,0.0960831
+1878352462,Graph neighborhood init error,0
+1878352462,Total execution time,1.48469
+1878352462,Total execution time error,0
+1878352462,Total time,0.181356
+1878352462,Total time error,0
+1055567980,DateTime,04-29-2016  12:18:45.
+1055567980,Input file,../../data/bipartite_sparse/bi_full_4096_m768_30_10_gauss_2.gr
+1055567980,Algorithm,Local Dominant
+1055567980,Type,FullBipartite
+1055567980,Distribution,Gaussian
+1055567980,Mean,30
+1055567980,Std,10
+1055567980,Edges,4194304
+1055567980,Nodes,4096
+1055567980,Total cost,2286
+1055567980,Graph neighborhood init,0.096227
+1055567980,Graph neighborhood init error,0
+1055567980,Total execution time,1.48337
+1055567980,Total execution time error,0
+1055567980,Total time,0.183663
+1055567980,Total time error,0

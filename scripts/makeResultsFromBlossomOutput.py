@@ -8,12 +8,12 @@ from os.path import isfile, join
 import datetime
 import random
 
-dirname = "../../data/bipartite"
+dirname = "../../data/bipartite_sparse"
 onlyfiles = [f for f in listdir(dirname) if isfile(join(dirname, f))]
 r1 = re.compile('^.*\.bl$')
 graphs = list(filter(r1.match, onlyfiles))
 print("total ", len(graphs))
-fres = open("blossomResultNew.csv",'w')
+fres = open("blossomResultSparse.csv",'w')
 for f in graphs:
     random.seed()
     expId = random.randint(10000000,99999999)
