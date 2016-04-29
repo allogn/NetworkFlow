@@ -239,7 +239,7 @@ public:
     }
 
     // graph generators
-    void generate_full_bipartite_graph(long size, long param1, long param2 = 1000, long distr = 0);
+    void generate_full_bipartite_graph(long size, long param1, long param2 = 1000, long distr = 0, long missed = 0);
     void generate_clique(long size, long param1, long param2 = 1000, long distr = 0);
     void generate_random_points(long size, long sources, long targets);
     void generate_forbidden_list(double intensity);

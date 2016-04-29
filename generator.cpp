@@ -22,6 +22,7 @@ int main(int argc, const char** argv) {
     int distr;
     long sources;
     long targets;
+    long missed;
     string outf;
     string outfBlossom;
     long n,m,min_weight,max_weight;
@@ -38,6 +39,8 @@ int main(int argc, const char** argv) {
             ("edges,m", po::value<long>(&m), "number of edges (default: clique)")
             ("distr,d", po::value<int>(&distr)->default_value(0), "type of distribution for weights (0:u,1:g,2:e)")
             ("par1,l", po::value<long>(&min_weight)->default_value(0), "parameter1 for distribution")
+            ("missed", po::value<long>(&missed)->default_value(0),"number of missed edges per node (sparsity),"
+                    " for complete bipartite only, feasibility not guaranteed")
             ("par2,u", po::value<long>(&max_weight)->default_value(1000), "parameter2 for distribution");
 
     po::variables_map vm;
@@ -69,7 +72,7 @@ int main(int argc, const char** argv) {
                     grfile << "# Distribution Exponential\n";
                     grfile << "# Lambda " << min_weight << "\n";
             }
-            g.generate_full_bipartite_graph(n, min_weight, max_weight, distr);
+            g.generate_full_bipartite_graph(n, min_weight, max_weight, distr, missed);
             break;
         case 1:
             grfile << "# Type Clique\n";

@@ -11,7 +11,7 @@
  * 1 : gaussian (param1: mean, param2: std)
  * 2 : exponential (param1: lambda)
  */
-void Graph::generate_full_bipartite_graph(long size, long param1, long param2, long distr) {
+void Graph::generate_full_bipartite_graph(long size, long param1, long param2, long distr, long missed) {
     clear_graph();
 
     if (size % 2 != 0) {
@@ -19,7 +19,7 @@ void Graph::generate_full_bipartite_graph(long size, long param1, long param2, l
         exit(1);
     }
     n = size;
-    m = size*size/4;
+    m = size*(size/2 - missed)/2;
     E.reserve(m);
     V.reserve(n);
 
@@ -29,28 +29,36 @@ void Graph::generate_full_bipartite_graph(long size, long param1, long param2, l
     normal_distribution<double> gausGen(param1, param2);
     exponential_distribution<double> expGen((double)param1/100.);
 
+
     parallel_for(long i = 0; i < n/2; i++) {
+        //map per node
+        vector<bool> missedMap(n/2, false);
+        for (long i = 0; i < missed; i++) missedMap[i] = true;
+        std::random_shuffle(missedMap.begin(),missedMap.end());
+
         for (long j = n/2; j < n; j++) {
-            Edge e(E.size());
-            e.capacity = 1;
-            e.fromid = i;
-            e.toid = j;
-            e.lower = 0;
-            switch(distr) {
-                case 0:
-                    e.weight = uniGen(generator);
-                    break;
-                case 1:
-                    e.weight = (long)abs(gausGen(generator));
-                    break;
-                case 2:
-                    e.weight = (long)abs(expGen(generator));
-                    break;
-                default:
-                    cout << "Error: incorrect distribution" << endl;
-                    exit(1);
+            if (not missedMap[j-n/2]) {
+                Edge e(E.size());
+                e.capacity = 1;
+                e.fromid = i;
+                e.toid = j;
+                e.lower = 0;
+                switch(distr) {
+                    case 0:
+                        e.weight = uniGen(generator);
+                        break;
+                    case 1:
+                        e.weight = (long)abs(gausGen(generator));
+                        break;
+                    case 2:
+                        e.weight = (long)abs(expGen(generator));
+                        break;
+                    default:
+                        cout << "Error: incorrect distribution" << endl;
+                        exit(1);
+                }
+                E.push_back(e);
             }
-            E.push_back(e);
         }
     }
 
