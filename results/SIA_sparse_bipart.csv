@@ -1,1328 +1,1328 @@
-866768117,DateTime,04-29-2016  12:16:29.
-866768117,Input file,../../data/bipartite_sparse/bi_full_4096_m0_1_100_uni_1.gr
-866768117,Algorithm,SIA
-866768117,Type,FullBipartite
-866768117,Distribution,Uniform
-866768117,MinCost,1
-866768117,MaxCost,100
-866768117,Edges,4194304
-866768117,Nodes,4096
-866768117,Saturation mean,0.00652218
-866768117,Saturation std,0.00385707
-866768117,Dijkstra executions,22685
-866768117,Iterations,0
-866768117,Total cost,2048
-866768117,Total time,0.230636
-866768117,Total time error,0
-866768117,Process node,0.000112349
-866768117,Process node error,0.00170164
-866768117,Augment and reset,4.65731e-06
-866768117,Augment and reset error,1.52849e-05
-866768117,Dijkstra,7.92234e-06
-866768117,Dijkstra error,0.000485028
-866768117,Graph sorting,0.188314
-866768117,Graph sorting error,0
-866768117,Graph neighborhood init,0.0952329
-866768117,Graph neighborhood init error,0
-866768117,Total execution time,1.73442
-866768117,Total execution time error,0
-12432165,DateTime,04-29-2016  12:16:33.
-12432165,Input file,../../data/bipartite_sparse/bi_full_4096_m0_1_100_uni_2.gr
-12432165,Algorithm,SIA
-12432165,Type,FullBipartite
-12432165,Distribution,Uniform
-12432165,MinCost,1
-12432165,MaxCost,100
-12432165,Edges,4194304
-12432165,Nodes,4096
-12432165,Saturation mean,0.00677776
-12432165,Saturation std,0.00396228
-12432165,Dijkstra executions,25019
-12432165,Iterations,0
-12432165,Total cost,2048
-12432165,Total time,0.225433
-12432165,Total time error,0
-12432165,Process node,0.000109788
-12432165,Process node error,0.00199055
-12432165,Augment and reset,4.65536e-06
-12432165,Augment and reset error,1.65986e-05
-12432165,Dijkstra,6.83854e-06
-12432165,Dijkstra error,0.000487443
-12432165,Graph sorting,0.192484
-12432165,Graph sorting error,0
-12432165,Graph neighborhood init,0.0951542
-12432165,Graph neighborhood init error,0
-12432165,Total execution time,1.73176
-12432165,Total execution time error,0
-1816399270,DateTime,04-29-2016  12:16:36.
-1816399270,Input file,../../data/bipartite_sparse/bi_full_4096_m0_1_exp_1.gr
-1816399270,Algorithm,SIA
-1816399270,Type,FullBipartite
-1816399270,Distribution,Exponential
-1816399270,Lambda,1
-1816399270,Edges,4194304
-1816399270,Nodes,4096
-1816399270,Saturation mean,0.00649786
-1816399270,Saturation std,0.00304978
-1816399270,Dijkstra executions,7164
-1816399270,Iterations,0
-1816399270,Total cost,0
-1816399270,Total time,0.355819
-1816399270,Total time error,0
-1816399270,Process node,0.000173455
-1816399270,Process node error,0.000449199
-1816399270,Augment and reset,4.89463e-06
-1816399270,Augment and reset error,3.45334e-05
-1816399270,Dijkstra,4.58585e-05
-1816399270,Dijkstra error,0.000436442
-1816399270,Graph sorting,0.188482
-1816399270,Graph sorting error,0
-1816399270,Graph neighborhood init,0.095575
-1816399270,Graph neighborhood init error,0
-1816399270,Total execution time,1.89345
-1816399270,Total execution time error,0
-1141898983,DateTime,04-29-2016  12:16:40.
-1141898983,Input file,../../data/bipartite_sparse/bi_full_4096_m0_1_exp_2.gr
-1141898983,Algorithm,SIA
-1141898983,Type,FullBipartite
-1141898983,Distribution,Exponential
-1141898983,Lambda,1
-1141898983,Edges,4194304
-1141898983,Nodes,4096
-1141898983,Saturation mean,0.00691152
-1141898983,Saturation std,0.00322448
-1141898983,Dijkstra executions,7146
-1141898983,Iterations,0
-1141898983,Total cost,0
-1141898983,Total time,0.356549
-1141898983,Total time error,0
-1141898983,Process node,0.000173816
-1141898983,Process node error,0.000517465
-1141898983,Augment and reset,4.94274e-06
-1141898983,Augment and reset error,3.65032e-05
-1141898983,Dijkstra,4.6057e-05
-1141898983,Dijkstra error,0.000451044
-1141898983,Graph sorting,0.189041
-1141898983,Graph sorting error,0
-1141898983,Graph neighborhood init,0.0952979
-1141898983,Graph neighborhood init error,0
-1141898983,Total execution time,1.88724
-1141898983,Total execution time error,0
-592410327,DateTime,04-29-2016  12:16:43.
-592410327,Input file,../../data/bipartite_sparse/bi_full_4096_m0_30_10_gauss_1.gr
-592410327,Algorithm,SIA
-592410327,Type,FullBipartite
-592410327,Distribution,Gaussian
-592410327,Mean,30
-592410327,Std,10
-592410327,Edges,4194304
-592410327,Nodes,4096
-592410327,Saturation mean,0.00760388
-592410327,Saturation std,0.00221849
-592410327,Dijkstra executions,31893
-592410327,Iterations,0
-592410327,Total cost,816
-592410327,Total time,0.112957
-592410327,Total time error,0
-592410327,Process node,5.49022e-05
-592410327,Process node error,0.0170912
-592410327,Augment and reset,4.2717e-06
-592410327,Augment and reset error,1.29522e-05
-592410327,Dijkstra,7.09092e-07
-592410327,Dijkstra error,0.00066235
-592410327,Graph sorting,0.227992
-592410327,Graph sorting error,0
-592410327,Graph neighborhood init,0.0960607
-592410327,Graph neighborhood init error,0
-592410327,Total execution time,1.65914
-592410327,Total execution time error,0
-355510374,DateTime,04-29-2016  12:16:47.
-355510374,Input file,../../data/bipartite_sparse/bi_full_4096_m0_30_10_gauss_2.gr
-355510374,Algorithm,SIA
-355510374,Type,FullBipartite
-355510374,Distribution,Gaussian
-355510374,Mean,30
-355510374,Std,10
-355510374,Edges,4194304
-355510374,Nodes,4096
-355510374,Saturation mean,0.010608
-355510374,Saturation std,0.00235026
-355510374,Dijkstra executions,44492
-355510374,Iterations,0
-355510374,Total cost,868
-355510374,Total time,0.14458
-355510374,Total time error,0
-355510374,Process node,7.03448e-05
-355510374,Process node error,0.0233508
-355510374,Augment and reset,4.28456e-06
-355510374,Augment and reset error,1.36956e-05
-355510374,Dijkstra,5.77863e-07
-355510374,Dijkstra error,0.000842661
-355510374,Graph sorting,0.227507
-355510374,Graph sorting error,0
-355510374,Graph neighborhood init,0.0966631
-355510374,Graph neighborhood init error,0
-355510374,Total execution time,1.69176
-355510374,Total execution time error,0
-192717305,DateTime,04-29-2016  12:16:49.
-192717305,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_1_100_uni_1.gr
-192717305,Algorithm,SIA
-192717305,Type,FullBipartite
-192717305,Distribution,Uniform
-192717305,MinCost,1
-192717305,MaxCost,100
-192717305,Edges,2097152
-192717305,Nodes,4096
-192717305,Saturation mean,0.0089426
-192717305,Saturation std,0.00415697
-192717305,Dijkstra executions,16472
-192717305,Iterations,0
-192717305,Total cost,2048
-192717305,Total time,0.186964
-192717305,Total time error,0
-192717305,Process node,9.09956e-05
-192717305,Process node error,0.00155251
-192717305,Augment and reset,4.50788e-06
-192717305,Augment and reset error,1.9184e-05
-192717305,Dijkstra,8.78973e-06
-192717305,Dijkstra error,0.000435769
-192717305,Graph sorting,0.0820605
-192717305,Graph sorting error,0
-192717305,Graph neighborhood init,0.0487891
-192717305,Graph neighborhood init error,0
-192717305,Total execution time,0.937922
-192717305,Total execution time error,0
-332612701,DateTime,04-29-2016  12:16:51.
-332612701,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_1_100_uni_2.gr
-332612701,Algorithm,SIA
-332612701,Type,FullBipartite
-332612701,Distribution,Uniform
-332612701,MinCost,1
-332612701,MaxCost,100
-332612701,Edges,2097152
-332612701,Nodes,4096
-332612701,Saturation mean,0.00947094
-332612701,Saturation std,0.00397886
-332612701,Dijkstra executions,13854
-332612701,Iterations,0
-332612701,Total cost,2048
-332612701,Total time,0.177073
-332612701,Total time error,0
-332612701,Process node,8.61833e-05
-332612701,Process node error,0.00200636
-332612701,Augment and reset,4.48841e-06
-332612701,Augment and reset error,1.45057e-05
-332612701,Dijkstra,1.00222e-05
-332612701,Dijkstra error,0.000441122
-332612701,Graph sorting,0.0821527
-332612701,Graph sorting error,0
-332612701,Graph neighborhood init,0.0488461
-332612701,Graph neighborhood init error,0
-332612701,Total execution time,0.928297
-332612701,Total execution time error,0
-440287284,DateTime,04-29-2016  12:16:54.
-440287284,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_1_exp_1.gr
-440287284,Algorithm,SIA
-440287284,Type,FullBipartite
-440287284,Distribution,Exponential
-440287284,Lambda,1
-440287284,Edges,4194304
-440287284,Nodes,4096
-440287284,Saturation mean,0.00651217
-440287284,Saturation std,0.00308468
-440287284,Dijkstra executions,7065
-440287284,Iterations,0
-440287284,Total cost,0
-440287284,Total time,0.361579
-440287284,Total time error,0
-440287284,Process node,0.000176278
-440287284,Process node error,0.000419201
-440287284,Augment and reset,5.18575e-06
-440287284,Augment and reset error,3.60311e-05
-440287284,Dijkstra,4.71375e-05
-440287284,Dijkstra error,0.000439882
-440287284,Graph sorting,0.188738
-440287284,Graph sorting error,0
-440287284,Graph neighborhood init,0.095814
-440287284,Graph neighborhood init error,0
-440287284,Total execution time,1.89783
-440287284,Total execution time error,0
-1874326529,DateTime,04-29-2016  12:16:57.
-1874326529,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_1_exp_2.gr
-1874326529,Algorithm,SIA
-1874326529,Type,FullBipartite
-1874326529,Distribution,Exponential
-1874326529,Lambda,1
-1874326529,Edges,4194304
-1874326529,Nodes,4096
-1874326529,Saturation mean,0.00668097
-1874326529,Saturation std,0.00318992
-1874326529,Dijkstra executions,7084
-1874326529,Iterations,0
-1874326529,Total cost,0
-1874326529,Total time,0.359105
-1874326529,Total time error,0
-1874326529,Process node,0.000175065
-1874326529,Process node error,0.000456438
-1874326529,Augment and reset,4.97063e-06
-1874326529,Augment and reset error,3.36532e-05
-1874326529,Dijkstra,4.67832e-05
-1874326529,Dijkstra error,0.000445162
-1874326529,Graph sorting,0.188409
-1874326529,Graph sorting error,0
-1874326529,Graph neighborhood init,0.0966493
-1874326529,Graph neighborhood init error,0
-1874326529,Total execution time,1.89022
-1874326529,Total execution time error,0
-100810883,DateTime,04-29-2016  12:17:01.
-100810883,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_30_10_gauss_1.gr
-100810883,Algorithm,SIA
-100810883,Type,FullBipartite
-100810883,Distribution,Gaussian
-100810883,Mean,30
-100810883,Std,10
-100810883,Edges,4194304
-100810883,Nodes,4096
-100810883,Saturation mean,0.00917816
-100810883,Saturation std,0.00253056
-100810883,Dijkstra executions,38496
-100810883,Iterations,0
-100810883,Total cost,830
-100810883,Total time,0.13959
-100810883,Total time error,0
-100810883,Process node,6.79143e-05
-100810883,Process node error,0.0143486
-100810883,Augment and reset,4.30195e-06
-100810883,Augment and reset error,2.21322e-05
-100810883,Dijkstra,7.91086e-07
-100810883,Dijkstra error,0.000712225
-100810883,Graph sorting,0.227627
-100810883,Graph sorting error,0
-100810883,Graph neighborhood init,0.0955962
-100810883,Graph neighborhood init error,0
-100810883,Total execution time,1.68554
-100810883,Total execution time error,0
-1166760315,DateTime,04-29-2016  12:17:04.
-1166760315,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_30_10_gauss_2.gr
-1166760315,Algorithm,SIA
-1166760315,Type,FullBipartite
-1166760315,Distribution,Gaussian
-1166760315,Mean,30
-1166760315,Std,10
-1166760315,Edges,4194304
-1166760315,Nodes,4096
-1166760315,Saturation mean,0.00803876
-1166760315,Saturation std,0.00202112
-1166760315,Dijkstra executions,33716
-1166760315,Iterations,0
-1166760315,Total cost,888
-1166760315,Total time,0.120307
-1166760315,Total time error,0
-1166760315,Process node,5.84895e-05
-1166760315,Process node error,0.0169997
-1166760315,Augment and reset,4.2694e-06
-1166760315,Augment and reset error,1.26485e-05
-1166760315,Dijkstra,7.86415e-07
-1166760315,Dijkstra error,0.000779109
-1166760315,Graph sorting,0.227937
-1166760315,Graph sorting error,0
-1166760315,Graph neighborhood init,0.0964093
-1166760315,Graph neighborhood init error,0
-1166760315,Total execution time,1.66592
-1166760315,Total execution time error,0
-1316780761,DateTime,04-29-2016  12:17:06.
-1316780761,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_1_100_uni_1.gr
-1316780761,Algorithm,SIA
-1316780761,Type,FullBipartite
-1316780761,Distribution,Uniform
-1316780761,MinCost,1
-1316780761,MaxCost,100
-1316780761,Edges,1572864
-1316780761,Nodes,4096
-1316780761,Saturation mean,0.0100664
-1316780761,Saturation std,0.00381867
-1316780761,Dijkstra executions,14729
-1316780761,Iterations,0
-1316780761,Total cost,2048
-1316780761,Total time,0.175922
-1316780761,Total time error,0
-1316780761,Process node,8.56376e-05
-1316780761,Process node error,0.00239037
-1316780761,Augment and reset,4.44981e-06
-1316780761,Augment and reset error,1.22323e-05
-1316780761,Dijkstra,9.16792e-06
-1316780761,Dijkstra error,0.000423934
-1316780761,Graph sorting,0.0591019
-1316780761,Graph sorting error,0
-1316780761,Graph neighborhood init,0.0387096
-1316780761,Graph neighborhood init error,0
-1316780761,Total execution time,0.749048
-1316780761,Total execution time error,0
-1954756201,DateTime,04-29-2016  12:17:07.
-1954756201,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_1_100_uni_2.gr
-1954756201,Algorithm,SIA
-1954756201,Type,FullBipartite
-1954756201,Distribution,Uniform
-1954756201,MinCost,1
-1954756201,MaxCost,100
-1954756201,Edges,1572864
-1954756201,Nodes,4096
-1954756201,Saturation mean,0.00972811
-1954756201,Saturation std,0.00415481
-1954756201,Dijkstra executions,14733
-1954756201,Iterations,0
-1954756201,Total cost,2048
-1954756201,Total time,0.176708
-1954756201,Total time error,0
-1954756201,Process node,8.60103e-05
-1954756201,Process node error,0.00338092
-1954756201,Augment and reset,4.53077e-06
-1954756201,Augment and reset error,1.45574e-05
-1954756201,Dijkstra,9.26149e-06
-1954756201,Dijkstra error,0.000420071
-1954756201,Graph sorting,0.0592147
-1954756201,Graph sorting error,0
-1954756201,Graph neighborhood init,0.037358
-1954756201,Graph neighborhood init error,0
-1954756201,Total execution time,0.750028
-1954756201,Total execution time error,0
-1282528818,DateTime,04-29-2016  12:17:10.
-1282528818,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_1_exp_1.gr
-1282528818,Algorithm,SIA
-1282528818,Type,FullBipartite
-1282528818,Distribution,Exponential
-1282528818,Lambda,1
-1282528818,Edges,4194304
-1282528818,Nodes,4096
-1282528818,Saturation mean,0.00646734
-1282528818,Saturation std,0.00318406
-1282528818,Dijkstra executions,7122
-1282528818,Iterations,0
-1282528818,Total cost,0
-1282528818,Total time,0.357436
-1282528818,Total time error,0
-1282528818,Process node,0.000174153
-1282528818,Process node error,0.000394552
-1282528818,Augment and reset,4.99764e-06
-1282528818,Augment and reset error,3.67044e-05
-1282528818,Dijkstra,4.6301e-05
-1282528818,Dijkstra error,0.000436005
-1282528818,Graph sorting,0.188398
-1282528818,Graph sorting error,0
-1282528818,Graph neighborhood init,0.0964162
-1282528818,Graph neighborhood init error,0
-1282528818,Total execution time,1.89301
-1282528818,Total execution time error,0
-1042415245,DateTime,04-29-2016  12:17:14.
-1042415245,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_1_exp_2.gr
-1042415245,Algorithm,SIA
-1042415245,Type,FullBipartite
-1042415245,Distribution,Exponential
-1042415245,Lambda,1
-1042415245,Edges,4194304
-1042415245,Nodes,4096
-1042415245,Saturation mean,0.00677109
-1042415245,Saturation std,0.00320082
-1042415245,Dijkstra executions,7166
-1042415245,Iterations,0
-1042415245,Total cost,0
-1042415245,Total time,0.354945
-1042415245,Total time error,0
-1042415245,Process node,0.000173039
-1042415245,Process node error,0.000529483
-1042415245,Augment and reset,5.02498e-06
-1042415245,Augment and reset error,3.41281e-05
-1042415245,Dijkstra,4.56198e-05
-1042415245,Dijkstra error,0.000486798
-1042415245,Graph sorting,0.188551
-1042415245,Graph sorting error,0
-1042415245,Graph neighborhood init,0.0961358
-1042415245,Graph neighborhood init error,0
-1042415245,Total execution time,1.89522
-1042415245,Total execution time error,0
-1735121384,DateTime,04-29-2016  12:17:17.
-1735121384,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_30_10_gauss_1.gr
-1735121384,Algorithm,SIA
-1735121384,Type,FullBipartite
-1735121384,Distribution,Gaussian
-1735121384,Mean,30
-1735121384,Std,10
-1735121384,Edges,4194304
-1735121384,Nodes,4096
-1735121384,Saturation mean,0.0139472
-1735121384,Saturation std,0.00272226
-1735121384,Dijkstra executions,58499
-1735121384,Iterations,0
-1735121384,Total cost,839
-1735121384,Total time,0.185945
-1735121384,Total time error,0
-1735121384,Process node,9.05518e-05
-1735121384,Process node error,0.0271118
-1735121384,Augment and reset,4.29184e-06
-1735121384,Augment and reset error,1.83991e-05
-1735121384,Dijkstra,5.21156e-07
-1735121384,Dijkstra error,0.000994742
-1735121384,Graph sorting,0.227818
-1735121384,Graph sorting error,0
-1735121384,Graph neighborhood init,0.0961724
-1735121384,Graph neighborhood init error,0
-1735121384,Total execution time,1.73333
-1735121384,Total execution time error,0
-1708559519,DateTime,04-29-2016  12:17:20.
-1708559519,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_30_10_gauss_2.gr
-1708559519,Algorithm,SIA
-1708559519,Type,FullBipartite
-1708559519,Distribution,Gaussian
-1708559519,Mean,30
-1708559519,Std,10
-1708559519,Edges,4194304
-1708559519,Nodes,4096
-1708559519,Saturation mean,0.00795341
-1708559519,Saturation std,0.00203802
-1708559519,Dijkstra executions,33358
-1708559519,Iterations,0
-1708559519,Total cost,859
-1708559519,Total time,0.114326
-1708559519,Total time error,0
-1708559519,Process node,5.5572e-05
-1708559519,Process node error,0.0171679
-1708559519,Augment and reset,4.26035e-06
-1708559519,Augment and reset error,1.74646e-05
-1708559519,Dijkstra,6.63576e-07
-1708559519,Dijkstra error,0.000684432
-1708559519,Graph sorting,0.227892
-1708559519,Graph sorting error,0
-1708559519,Graph neighborhood init,0.0965512
-1708559519,Graph neighborhood init error,0
-1708559519,Total execution time,1.66473
-1708559519,Total execution time error,0
-1928692579,DateTime,04-29-2016  12:17:22.
-1928692579,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_1_100_uni_1.gr
-1928692579,Algorithm,SIA
-1928692579,Type,FullBipartite
-1928692579,Distribution,Uniform
-1928692579,MinCost,1
-1928692579,MaxCost,100
-1928692579,Edges,1048576
-1928692579,Nodes,4096
-1928692579,Saturation mean,0.0199747
-1928692579,Saturation std,0.00638327
-1928692579,Dijkstra executions,20826
-1928692579,Iterations,0
-1928692579,Total cost,2069
-1928692579,Total time,0.0739007
-1928692579,Total time error,0
-1928692579,Process node,3.58323e-05
-1928692579,Process node error,0.0213422
-1928692579,Augment and reset,4.45164e-06
-1928692579,Augment and reset error,1.52673e-05
-1928692579,Dijkstra,8.82063e-07
-1928692579,Dijkstra error,0.000377803
-1928692579,Graph sorting,0.0378047
-1928692579,Graph sorting error,0
-1928692579,Graph neighborhood init,0.0256847
-1928692579,Graph neighborhood init error,0
-1928692579,Total execution time,0.456666
-1928692579,Total execution time error,0
-1393263100,DateTime,04-29-2016  12:17:23.
-1393263100,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_1_100_uni_2.gr
-1393263100,Algorithm,SIA
-1393263100,Type,FullBipartite
-1393263100,Distribution,Uniform
-1393263100,MinCost,1
-1393263100,MaxCost,100
-1393263100,Edges,1048576
-1393263100,Nodes,4096
-1393263100,Saturation mean,0.0202131
-1393263100,Saturation std,0.00639056
-1393263100,Dijkstra executions,21192
-1393263100,Iterations,0
-1393263100,Total cost,2069
-1393263100,Total time,0.0786058
-1393263100,Total time error,0
-1393263100,Process node,3.81284e-05
-1393263100,Process node error,0.0220222
-1393263100,Augment and reset,4.55014e-06
-1393263100,Augment and reset error,2.24058e-05
-1393263100,Dijkstra,9.8607e-07
-1393263100,Dijkstra error,0.000418858
-1393263100,Graph sorting,0.0377852
-1393263100,Graph sorting error,0
-1393263100,Graph neighborhood init,0.0254371
-1393263100,Graph neighborhood init error,0
-1393263100,Total execution time,0.459656
-1393263100,Total execution time error,0
-1931889689,DateTime,04-29-2016  12:17:25.
-1931889689,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_1_exp_1.gr
-1931889689,Algorithm,SIA
-1931889689,Type,FullBipartite
-1931889689,Distribution,Exponential
-1931889689,Lambda,1
-1931889689,Edges,4194304
-1931889689,Nodes,4096
-1931889689,Saturation mean,0.0068543
-1931889689,Saturation std,0.00321979
-1931889689,Dijkstra executions,7113
-1931889689,Iterations,0
-1931889689,Total cost,0
-1931889689,Total time,0.3571
-1931889689,Total time error,0
-1931889689,Process node,0.000174069
-1931889689,Process node error,0.000775461
-1931889689,Augment and reset,5.12059e-06
-1931889689,Augment and reset error,3.47375e-05
-1931889689,Dijkstra,4.61836e-05
-1931889689,Dijkstra error,0.000432911
-1931889689,Graph sorting,0.188304
-1931889689,Graph sorting error,0
-1931889689,Graph neighborhood init,0.0965752
-1931889689,Graph neighborhood init error,0
-1931889689,Total execution time,1.89159
-1931889689,Total execution time error,0
-778630600,DateTime,04-29-2016  12:17:29.
-778630600,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_1_exp_2.gr
-778630600,Algorithm,SIA
-778630600,Type,FullBipartite
-778630600,Distribution,Exponential
-778630600,Lambda,1
-778630600,Edges,4194304
-778630600,Nodes,4096
-778630600,Saturation mean,0.00706458
-778630600,Saturation std,0.00321964
-778630600,Dijkstra executions,7137
-778630600,Iterations,0
-778630600,Total cost,0
-778630600,Total time,0.359695
-778630600,Total time error,0
-778630600,Process node,0.00017534
-778630600,Process node error,0.000610548
-778630600,Augment and reset,5.05793e-06
-778630600,Augment and reset error,3.33461e-05
-778630600,Dijkstra,4.64254e-05
-778630600,Dijkstra error,0.00046446
-778630600,Graph sorting,0.188322
-778630600,Graph sorting error,0
-778630600,Graph neighborhood init,0.0968055
-778630600,Graph neighborhood init error,0
-778630600,Total execution time,1.89072
-778630600,Total execution time error,0
-1934585268,DateTime,04-29-2016  12:17:32.
-1934585268,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_30_10_gauss_1.gr
-1934585268,Algorithm,SIA
-1934585268,Type,FullBipartite
-1934585268,Distribution,Gaussian
-1934585268,Mean,30
-1934585268,Std,10
-1934585268,Edges,4194304
-1934585268,Nodes,4096
-1934585268,Saturation mean,0.0106266
-1934585268,Saturation std,0.00229689
-1934585268,Dijkstra executions,44571
-1934585268,Iterations,0
-1934585268,Total cost,878
-1934585268,Total time,0.145696
-1934585268,Total time error,0
-1934585268,Process node,7.08822e-05
-1934585268,Process node error,0.0312744
-1934585268,Augment and reset,4.28534e-06
-1934585268,Augment and reset error,1.26056e-05
-1934585268,Dijkstra,5.95574e-07
-1934585268,Dijkstra error,0.000915951
-1934585268,Graph sorting,0.227607
-1934585268,Graph sorting error,0
-1934585268,Graph neighborhood init,0.0967598
-1934585268,Graph neighborhood init error,0
-1934585268,Total execution time,1.69773
-1934585268,Total execution time error,0
-264245601,DateTime,04-29-2016  12:17:35.
-264245601,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_30_10_gauss_2.gr
-264245601,Algorithm,SIA
-264245601,Type,FullBipartite
-264245601,Distribution,Gaussian
-264245601,Mean,30
-264245601,Std,10
-264245601,Edges,4194304
-264245601,Nodes,4096
-264245601,Saturation mean,0.00757194
-264245601,Saturation std,0.00212366
-264245601,Dijkstra executions,31757
-264245601,Iterations,0
-264245601,Total cost,842
-264245601,Total time,0.116524
-264245601,Total time error,0
-264245601,Process node,5.66233e-05
-264245601,Process node error,0.0128604
-264245601,Augment and reset,4.25981e-06
-264245601,Augment and reset error,1.22423e-05
-264245601,Dijkstra,8.24076e-07
-264245601,Dijkstra error,0.000749264
-264245601,Graph sorting,0.228065
-264245601,Graph sorting error,0
-264245601,Graph neighborhood init,0.0958721
-264245601,Graph neighborhood init error,0
-264245601,Total execution time,1.66448
-264245601,Total execution time error,0
-1811311087,DateTime,04-29-2016  12:17:37.
-1811311087,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_1_100_uni_1.gr
-1811311087,Algorithm,SIA
-1811311087,Type,FullBipartite
-1811311087,Distribution,Uniform
-1811311087,MinCost,1
-1811311087,MaxCost,100
-1811311087,Edges,524288
-1811311087,Nodes,4096
-1811311087,Saturation mean,0.0602112
-1811311087,Saturation std,0.0150476
-1811311087,Dijkstra executions,31567
-1811311087,Iterations,0
-1811311087,Total cost,2470
-1811311087,Total time,0.111046
-1811311087,Total time error,0
-1811311087,Process node,5.3944e-05
-1811311087,Process node error,0.0136781
-1811311087,Augment and reset,4.31115e-06
-1811311087,Augment and reset error,1.25057e-05
-1811311087,Dijkstra,8.60643e-07
-1811311087,Dijkstra error,0.000786501
-1811311087,Graph sorting,0.017635
-1811311087,Graph sorting error,0
-1811311087,Graph neighborhood init,0.0146306
-1811311087,Graph neighborhood init error,0
-1811311087,Total execution time,0.316572
-1811311087,Total execution time error,0
-1614789673,DateTime,04-29-2016  12:17:38.
-1614789673,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_1_100_uni_2.gr
-1614789673,Algorithm,SIA
-1614789673,Type,FullBipartite
-1614789673,Distribution,Uniform
-1614789673,MinCost,1
-1614789673,MaxCost,100
-1614789673,Edges,524288
-1614789673,Nodes,4096
-1614789673,Saturation mean,0.0598259
-1614789673,Saturation std,0.0148896
-1614789673,Dijkstra executions,31365
-1614789673,Iterations,0
-1614789673,Total cost,2471
-1614789673,Total time,0.112142
-1614789673,Total time error,0
-1614789673,Process node,5.44839e-05
-1614789673,Process node error,0.0115437
-1614789673,Augment and reset,4.31006e-06
-1614789673,Augment and reset error,1.27229e-05
-1614789673,Dijkstra,9.16314e-07
-1614789673,Dijkstra error,0.000761389
-1614789673,Graph sorting,0.0174968
-1614789673,Graph sorting error,0
-1614789673,Graph neighborhood init,0.0141645
-1614789673,Graph neighborhood init error,0
-1614789673,Total execution time,0.312415
-1614789673,Total execution time error,0
-1920823094,DateTime,04-29-2016  12:17:40.
-1920823094,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_1_exp_1.gr
-1920823094,Algorithm,SIA
-1920823094,Type,FullBipartite
-1920823094,Distribution,Exponential
-1920823094,Lambda,1
-1920823094,Edges,4194304
-1920823094,Nodes,4096
-1920823094,Saturation mean,0.00660253
-1920823094,Saturation std,0.00320338
-1920823094,Dijkstra executions,7097
-1920823094,Iterations,0
-1920823094,Total cost,0
-1920823094,Total time,0.357173
-1920823094,Total time error,0
-1920823094,Process node,0.000174126
-1920823094,Process node error,0.00045653
-1920823094,Augment and reset,4.98674e-06
-1920823094,Augment and reset error,3.54573e-05
-1920823094,Dijkstra,4.64455e-05
-1920823094,Dijkstra error,0.000443213
-1920823094,Graph sorting,0.188431
-1920823094,Graph sorting error,0
-1920823094,Graph neighborhood init,0.0962052
-1920823094,Graph neighborhood init error,0
-1920823094,Total execution time,1.88702
-1920823094,Total execution time error,0
-1479585334,DateTime,04-29-2016  12:17:44.
-1479585334,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_1_exp_2.gr
-1479585334,Algorithm,SIA
-1479585334,Type,FullBipartite
-1479585334,Distribution,Exponential
-1479585334,Lambda,1
-1479585334,Edges,4194304
-1479585334,Nodes,4096
-1479585334,Saturation mean,0.00645971
-1479585334,Saturation std,0.0031666
-1479585334,Dijkstra executions,7054
-1479585334,Iterations,0
-1479585334,Total cost,0
-1479585334,Total time,0.356206
-1479585334,Total time error,0
-1479585334,Process node,0.00017364
-1479585334,Process node error,0.000456314
-1479585334,Augment and reset,4.87473e-06
-1479585334,Augment and reset error,3.10452e-05
-1479585334,Dijkstra,4.67004e-05
-1479585334,Dijkstra error,0.000438561
-1479585334,Graph sorting,0.189011
-1479585334,Graph sorting error,0
-1479585334,Graph neighborhood init,0.0967517
-1479585334,Graph neighborhood init error,0
-1479585334,Total execution time,1.89092
-1479585334,Total execution time error,0
-974471667,DateTime,04-29-2016  12:17:47.
-974471667,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_30_10_gauss_1.gr
-974471667,Algorithm,SIA
-974471667,Type,FullBipartite
-974471667,Distribution,Gaussian
-974471667,Mean,30
-974471667,Std,10
-974471667,Edges,4194304
-974471667,Nodes,4096
-974471667,Saturation mean,0.00777769
-974471667,Saturation std,0.00211568
-974471667,Dijkstra executions,32620
-974471667,Iterations,0
-974471667,Total cost,795
-974471667,Total time,0.1157
-974471667,Total time error,0
-974471667,Process node,5.62117e-05
-974471667,Process node error,0.0183929
-974471667,Augment and reset,4.28562e-06
-974471667,Augment and reset error,1.44752e-05
-974471667,Dijkstra,7.53604e-07
-974471667,Dijkstra error,0.000692282
-974471667,Graph sorting,0.227665
-974471667,Graph sorting error,0
-974471667,Graph neighborhood init,0.096937
-974471667,Graph neighborhood init error,0
-974471667,Total execution time,1.66676
-974471667,Total execution time error,0
-779160985,DateTime,04-29-2016  12:17:50.
-779160985,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_30_10_gauss_2.gr
-779160985,Algorithm,SIA
-779160985,Type,FullBipartite
-779160985,Distribution,Gaussian
-779160985,Mean,30
-779160985,Std,10
-779160985,Edges,4194304
-779160985,Nodes,4096
-779160985,Saturation mean,0.0080812
-779160985,Saturation std,0.00208947
-779160985,Dijkstra executions,33895
-779160985,Iterations,0
-779160985,Total cost,887
-779160985,Total time,0.118578
-779160985,Total time error,0
-779160985,Process node,5.76287e-05
-779160985,Process node error,0.0173455
-779160985,Augment and reset,4.32945e-06
-779160985,Augment and reset error,1.37065e-05
-779160985,Dijkstra,6.54119e-07
-779160985,Dijkstra error,0.000855043
-779160985,Graph sorting,0.227776
-779160985,Graph sorting error,0
-779160985,Graph neighborhood init,0.0953094
-779160985,Graph neighborhood init error,0
-779160985,Total execution time,1.66621
-779160985,Total execution time error,0
-130806607,DateTime,04-29-2016  12:17:53.
-130806607,Input file,../../data/bipartite_sparse/bi_full_4096_m256_1_100_uni_1.gr
-130806607,Algorithm,SIA
-130806607,Type,FullBipartite
-130806607,Distribution,Uniform
-130806607,MinCost,1
-130806607,MaxCost,100
-130806607,Edges,3670016
-130806607,Nodes,4096
-130806607,Saturation mean,0.00669888
-130806607,Saturation std,0.00400251
-130806607,Dijkstra executions,18608
-130806607,Iterations,0
-130806607,Total cost,2048
-130806607,Total time,0.205249
-130806607,Total time error,0
-130806607,Process node,9.99301e-05
-130806607,Process node error,0.00115614
-130806607,Augment and reset,4.63711e-06
-130806607,Augment and reset error,1.27819e-05
-130806607,Dijkstra,8.63312e-06
-130806607,Dijkstra error,0.000486685
-130806607,Graph sorting,0.159179
-130806607,Graph sorting error,0
-130806607,Graph neighborhood init,0.0868792
-130806607,Graph neighborhood init error,0
-130806607,Total execution time,1.52807
-130806607,Total execution time error,0
-1603399667,DateTime,04-29-2016  12:17:56.
-1603399667,Input file,../../data/bipartite_sparse/bi_full_4096_m256_1_100_uni_2.gr
-1603399667,Algorithm,SIA
-1603399667,Type,FullBipartite
-1603399667,Distribution,Uniform
-1603399667,MinCost,1
-1603399667,MaxCost,100
-1603399667,Edges,3670016
-1603399667,Nodes,4096
-1603399667,Saturation mean,0.00664983
-1603399667,Saturation std,0.00391804
-1603399667,Dijkstra executions,20386
-1603399667,Iterations,0
-1603399667,Total cost,2048
-1603399667,Total time,0.188049
-1603399667,Total time error,0
-1603399667,Process node,9.15285e-05
-1603399667,Process node error,0.00138517
-1603399667,Augment and reset,4.58143e-06
-1603399667,Augment and reset error,2.59026e-05
-1603399667,Dijkstra,6.95162e-06
-1603399667,Dijkstra error,0.000459964
-1603399667,Graph sorting,0.159328
-1603399667,Graph sorting error,0
-1603399667,Graph neighborhood init,0.0875195
-1603399667,Graph neighborhood init error,0
-1603399667,Total execution time,1.51223
-1603399667,Total execution time error,0
-58728529,DateTime,04-29-2016  12:18:00.
-58728529,Input file,../../data/bipartite_sparse/bi_full_4096_m256_1_exp_1.gr
-58728529,Algorithm,SIA
-58728529,Type,FullBipartite
-58728529,Distribution,Exponential
-58728529,Lambda,1
-58728529,Edges,4194304
-58728529,Nodes,4096
-58728529,Saturation mean,0.00655079
-58728529,Saturation std,0.00315362
-58728529,Dijkstra executions,7094
-58728529,Iterations,0
-58728529,Total cost,0
-58728529,Total time,0.361557
-58728529,Total time error,0
-58728529,Process node,0.00017625
-58728529,Process node error,0.000496452
-58728529,Augment and reset,5.08858e-06
-58728529,Augment and reset error,3.61755e-05
-58728529,Dijkstra,4.69729e-05
-58728529,Dijkstra error,0.000436735
-58728529,Graph sorting,0.188707
-58728529,Graph sorting error,0
-58728529,Graph neighborhood init,0.0966722
-58728529,Graph neighborhood init error,0
-58728529,Total execution time,1.89302
-58728529,Total execution time error,0
-1951803554,DateTime,04-29-2016  12:18:03.
-1951803554,Input file,../../data/bipartite_sparse/bi_full_4096_m256_1_exp_2.gr
-1951803554,Algorithm,SIA
-1951803554,Type,FullBipartite
-1951803554,Distribution,Exponential
-1951803554,Lambda,1
-1951803554,Edges,4194304
-1951803554,Nodes,4096
-1951803554,Saturation mean,0.00669026
-1951803554,Saturation std,0.0032224
-1951803554,Dijkstra executions,7105
-1951803554,Iterations,0
-1951803554,Total cost,0
-1951803554,Total time,0.358648
-1951803554,Total time error,0
-1951803554,Process node,0.000174844
-1951803554,Process node error,0.000466519
-1951803554,Augment and reset,4.98602e-06
-1951803554,Augment and reset error,3.4014e-05
-1951803554,Dijkstra,4.66005e-05
-1951803554,Dijkstra error,0.000452102
-1951803554,Graph sorting,0.189068
-1951803554,Graph sorting error,0
-1951803554,Graph neighborhood init,0.0962037
-1951803554,Graph neighborhood init error,0
-1951803554,Total execution time,1.89006
-1951803554,Total execution time error,0
-810548610,DateTime,04-29-2016  12:18:07.
-810548610,Input file,../../data/bipartite_sparse/bi_full_4096_m256_30_10_gauss_1.gr
-810548610,Algorithm,SIA
-810548610,Type,FullBipartite
-810548610,Distribution,Gaussian
-810548610,Mean,30
-810548610,Std,10
-810548610,Edges,4194304
-810548610,Nodes,4096
-810548610,Saturation mean,0.00801587
-810548610,Saturation std,0.00203571
-810548610,Dijkstra executions,33620
-810548610,Iterations,0
-810548610,Total cost,883
-810548610,Total time,0.116892
-810548610,Total time error,0
-810548610,Process node,5.68083e-05
-810548610,Process node error,0.0201845
-810548610,Augment and reset,4.27537e-06
-810548610,Augment and reset error,1.30826e-05
-810548610,Dijkstra,7.1846e-07
-810548610,Dijkstra error,0.000772429
-810548610,Graph sorting,0.227741
-810548610,Graph sorting error,0
-810548610,Graph neighborhood init,0.0955148
-810548610,Graph neighborhood init error,0
-810548610,Total execution time,1.66796
-810548610,Total execution time error,0
-289525714,DateTime,04-29-2016  12:18:10.
-289525714,Input file,../../data/bipartite_sparse/bi_full_4096_m256_30_10_gauss_2.gr
-289525714,Algorithm,SIA
-289525714,Type,FullBipartite
-289525714,Distribution,Gaussian
-289525714,Mean,30
-289525714,Std,10
-289525714,Edges,4194304
-289525714,Nodes,4096
-289525714,Saturation mean,0.00806713
-289525714,Saturation std,0.00202577
-289525714,Dijkstra executions,33836
-289525714,Iterations,0
-289525714,Total cost,834
-289525714,Total time,0.123816
-289525714,Total time error,0
-289525714,Process node,6.0217e-05
-289525714,Process node error,0.0109184
-289525714,Augment and reset,4.25764e-06
-289525714,Augment and reset error,1.54533e-05
-289525714,Dijkstra,8.64986e-07
-289525714,Dijkstra error,0.000817603
-289525714,Graph sorting,0.228222
-289525714,Graph sorting error,0
-289525714,Graph neighborhood init,0.0966306
-289525714,Graph neighborhood init error,0
-289525714,Total execution time,1.67416
-289525714,Total execution time error,0
-622730126,DateTime,04-29-2016  12:18:13.
-622730126,Input file,../../data/bipartite_sparse/bi_full_4096_m512_1_100_uni_1.gr
-622730126,Algorithm,SIA
-622730126,Type,FullBipartite
-622730126,Distribution,Uniform
-622730126,MinCost,1
-622730126,MaxCost,100
-622730126,Edges,3145728
-622730126,Nodes,4096
-622730126,Saturation mean,0.00681432
-622730126,Saturation std,0.00395981
-622730126,Dijkstra executions,17041
-622730126,Iterations,0
-622730126,Total cost,2048
-622730126,Total time,0.198797
-622730126,Total time error,0
-622730126,Process node,9.681e-05
-622730126,Process node error,0.000983807
-622730126,Augment and reset,4.63361e-06
-622730126,Augment and reset error,2.05594e-05
-622730126,Dijkstra,9.15297e-06
-622730126,Dijkstra error,0.00044828
-622730126,Graph sorting,0.13176
-622730126,Graph sorting error,0
-622730126,Graph neighborhood init,0.0768716
-622730126,Graph neighborhood init error,0
-622730126,Total execution time,1.34835
-622730126,Total execution time error,0
-2070051020,DateTime,04-29-2016  12:18:15.
-2070051020,Input file,../../data/bipartite_sparse/bi_full_4096_m512_1_100_uni_2.gr
-2070051020,Algorithm,SIA
-2070051020,Type,FullBipartite
-2070051020,Distribution,Uniform
-2070051020,MinCost,1
-2070051020,MaxCost,100
-2070051020,Edges,3145728
-2070051020,Nodes,4096
-2070051020,Saturation mean,0.00729402
-2070051020,Saturation std,0.00400508
-2070051020,Dijkstra executions,18932
-2070051020,Iterations,0
-2070051020,Total cost,2048
-2070051020,Total time,0.184144
-2070051020,Total time error,0
-2070051020,Process node,8.96355e-05
-2070051020,Process node error,0.00260375
-2070051020,Augment and reset,4.61401e-06
-2070051020,Augment and reset error,1.7972e-05
-2070051020,Dijkstra,7.27013e-06
-2070051020,Dijkstra error,0.000456924
-2070051020,Graph sorting,0.131822
-2070051020,Graph sorting error,0
-2070051020,Graph neighborhood init,0.0775806
-2070051020,Graph neighborhood init error,0
-2070051020,Total execution time,1.32699
-2070051020,Total execution time error,0
-1374411921,DateTime,04-29-2016  12:18:18.
-1374411921,Input file,../../data/bipartite_sparse/bi_full_4096_m512_1_exp_1.gr
-1374411921,Algorithm,SIA
-1374411921,Type,FullBipartite
-1374411921,Distribution,Exponential
-1374411921,Lambda,1
-1374411921,Edges,4194304
-1374411921,Nodes,4096
-1374411921,Saturation mean,0.00713444
-1374411921,Saturation std,0.0032899
-1374411921,Dijkstra executions,7125
-1374411921,Iterations,0
-1374411921,Total cost,0
-1374411921,Total time,0.35472
-1374411921,Total time error,0
-1374411921,Process node,0.000172918
-1374411921,Process node error,0.000878374
-1374411921,Augment and reset,5.01153e-06
-1374411921,Augment and reset error,3.86153e-05
-1374411921,Dijkstra,4.58664e-05
-1374411921,Dijkstra error,0.000440554
-1374411921,Graph sorting,0.188803
-1374411921,Graph sorting error,0
-1374411921,Graph neighborhood init,0.0967252
-1374411921,Graph neighborhood init error,0
-1374411921,Total execution time,1.88578
-1374411921,Total execution time error,0
-500221541,DateTime,04-29-2016  12:18:22.
-500221541,Input file,../../data/bipartite_sparse/bi_full_4096_m512_1_exp_2.gr
-500221541,Algorithm,SIA
-500221541,Type,FullBipartite
-500221541,Distribution,Exponential
-500221541,Lambda,1
-500221541,Edges,4194304
-500221541,Nodes,4096
-500221541,Saturation mean,0.00695157
-500221541,Saturation std,0.00325717
-500221541,Dijkstra executions,7085
-500221541,Iterations,0
-500221541,Total cost,0
-500221541,Total time,0.354648
-500221541,Total time error,0
-500221541,Process node,0.000172901
-500221541,Process node error,0.000545029
-500221541,Augment and reset,4.93963e-06
-500221541,Augment and reset error,3.44795e-05
-500221541,Dijkstra,4.61847e-05
-500221541,Dijkstra error,0.000455979
-500221541,Graph sorting,0.18909
-500221541,Graph sorting error,0
-500221541,Graph neighborhood init,0.0956705
-500221541,Graph neighborhood init error,0
-500221541,Total execution time,1.88693
-500221541,Total execution time error,0
-1191342358,DateTime,04-29-2016  12:18:25.
-1191342358,Input file,../../data/bipartite_sparse/bi_full_4096_m512_30_10_gauss_1.gr
-1191342358,Algorithm,SIA
-1191342358,Type,FullBipartite
-1191342358,Distribution,Gaussian
-1191342358,Mean,30
-1191342358,Std,10
-1191342358,Edges,4194304
-1191342358,Nodes,4096
-1191342358,Saturation mean,0.0103922
-1191342358,Saturation std,0.00235173
-1191342358,Dijkstra executions,43588
-1191342358,Iterations,0
-1191342358,Total cost,821
-1191342358,Total time,0.142465
-1191342358,Total time error,0
-1191342358,Process node,6.92801e-05
-1191342358,Process node error,0.0220477
-1191342358,Augment and reset,4.35209e-06
-1191342358,Augment and reset error,1.50029e-05
-1191342358,Dijkstra,6.34441e-07
-1191342358,Dijkstra error,0.000838573
-1191342358,Graph sorting,0.227632
-1191342358,Graph sorting error,0
-1191342358,Graph neighborhood init,0.0962172
-1191342358,Graph neighborhood init error,0
-1191342358,Total execution time,1.69204
-1191342358,Total execution time error,0
-2111803230,DateTime,04-29-2016  12:18:29.
-2111803230,Input file,../../data/bipartite_sparse/bi_full_4096_m512_30_10_gauss_2.gr
-2111803230,Algorithm,SIA
-2111803230,Type,FullBipartite
-2111803230,Distribution,Gaussian
-2111803230,Mean,30
-2111803230,Std,10
-2111803230,Edges,4194304
-2111803230,Nodes,4096
-2111803230,Saturation mean,0.0106497
-2111803230,Saturation std,0.00230106
-2111803230,Dijkstra executions,44667
-2111803230,Iterations,0
-2111803230,Total cost,860
-2111803230,Total time,0.145381
-2111803230,Total time error,0
-2111803230,Process node,7.07182e-05
-2111803230,Process node error,0.0241594
-2111803230,Augment and reset,4.28986e-06
-2111803230,Augment and reset error,1.327e-05
-2111803230,Dijkstra,5.74786e-07
-2111803230,Dijkstra error,0.000878426
-2111803230,Graph sorting,0.227648
-2111803230,Graph sorting error,0
-2111803230,Graph neighborhood init,0.09669
-2111803230,Graph neighborhood init error,0
-2111803230,Total execution time,1.69421
-2111803230,Total execution time error,0
-1233683277,DateTime,04-29-2016  12:18:31.
-1233683277,Input file,../../data/bipartite_sparse/bi_full_4096_m768_1_100_uni_1.gr
-1233683277,Algorithm,SIA
-1233683277,Type,FullBipartite
-1233683277,Distribution,Uniform
-1233683277,MinCost,1
-1233683277,MaxCost,100
-1233683277,Edges,2621440
-1233683277,Nodes,4096
-1233683277,Saturation mean,0.00741806
-1233683277,Saturation std,0.00421134
-1233683277,Dijkstra executions,18155
-1233683277,Iterations,0
-1233683277,Total cost,2048
-1233683277,Total time,0.190604
-1233683277,Total time error,0
-1233683277,Process node,9.28028e-05
-1233683277,Process node error,0.00205176
-1233683277,Augment and reset,4.51951e-06
-1233683277,Augment and reset error,1.31335e-05
-1233683277,Dijkstra,8.03688e-06
-1233683277,Dijkstra error,0.000447456
-1233683277,Graph sorting,0.106116
-1233683277,Graph sorting error,0
-1233683277,Graph neighborhood init,0.0662049
-1233683277,Graph neighborhood init error,0
-1233683277,Total execution time,1.15571
-1233683277,Total execution time error,0
-1373491005,DateTime,04-29-2016  12:18:34.
-1373491005,Input file,../../data/bipartite_sparse/bi_full_4096_m768_1_100_uni_2.gr
-1373491005,Algorithm,SIA
-1373491005,Type,FullBipartite
-1373491005,Distribution,Uniform
-1373491005,MinCost,1
-1373491005,MaxCost,100
-1373491005,Edges,2621440
-1373491005,Nodes,4096
-1373491005,Saturation mean,0.00722427
-1373491005,Saturation std,0.00400305
-1373491005,Dijkstra executions,14928
-1373491005,Iterations,0
-1373491005,Total cost,2048
-1373491005,Total time,0.183117
-1373491005,Total time error,0
-1373491005,Process node,8.91355e-05
-1373491005,Process node error,0.000955984
-1373491005,Augment and reset,4.58572e-06
-1373491005,Augment and reset error,1.56834e-05
-1373491005,Dijkstra,9.60275e-06
-1373491005,Dijkstra error,0.000442035
-1373491005,Graph sorting,0.106361
-1373491005,Graph sorting error,0
-1373491005,Graph neighborhood init,0.0660915
-1373491005,Graph neighborhood init error,0
-1373491005,Total execution time,1.14741
-1373491005,Total execution time error,0
-1912169576,DateTime,04-29-2016  12:18:36.
-1912169576,Input file,../../data/bipartite_sparse/bi_full_4096_m768_1_exp_1.gr
-1912169576,Algorithm,SIA
-1912169576,Type,FullBipartite
-1912169576,Distribution,Exponential
-1912169576,Lambda,1
-1912169576,Edges,4194304
-1912169576,Nodes,4096
-1912169576,Saturation mean,0.00733256
-1912169576,Saturation std,0.00335847
-1912169576,Dijkstra executions,7124
-1912169576,Iterations,0
-1912169576,Total cost,0
-1912169576,Total time,0.357678
-1912169576,Total time error,0
-1912169576,Process node,0.000174372
-1912169576,Process node error,0.00092973
-1912169576,Augment and reset,4.92365e-06
-1912169576,Augment and reset error,3.15123e-05
-1912169576,Dijkstra,4.63058e-05
-1912169576,Dijkstra error,0.000441276
-1912169576,Graph sorting,0.189019
-1912169576,Graph sorting error,0
-1912169576,Graph neighborhood init,0.0964614
-1912169576,Graph neighborhood init error,0
-1912169576,Total execution time,1.9306
-1912169576,Total execution time error,0
-980540782,DateTime,04-29-2016  12:18:40.
-980540782,Input file,../../data/bipartite_sparse/bi_full_4096_m768_1_exp_2.gr
-980540782,Algorithm,SIA
-980540782,Type,FullBipartite
-980540782,Distribution,Exponential
-980540782,Lambda,1
-980540782,Edges,4194304
-980540782,Nodes,4096
-980540782,Saturation mean,0.00772071
-980540782,Saturation std,0.00328583
-980540782,Dijkstra executions,7084
-980540782,Iterations,0
-980540782,Total cost,0
-980540782,Total time,0.36176
-980540782,Total time error,0
-980540782,Process node,0.000176348
-980540782,Process node error,0.000831128
-980540782,Augment and reset,4.96812e-06
-980540782,Augment and reset error,3.4204e-05
-980540782,Dijkstra,4.70539e-05
-980540782,Dijkstra error,0.000460144
-980540782,Graph sorting,0.18866
-980540782,Graph sorting error,0
-980540782,Graph neighborhood init,0.096211
-980540782,Graph neighborhood init error,0
-980540782,Total execution time,1.89415
-980540782,Total execution time error,0
-1394041657,DateTime,04-29-2016  12:18:44.
-1394041657,Input file,../../data/bipartite_sparse/bi_full_4096_m768_30_10_gauss_1.gr
-1394041657,Algorithm,SIA
-1394041657,Type,FullBipartite
-1394041657,Distribution,Gaussian
-1394041657,Mean,30
-1394041657,Std,10
-1394041657,Edges,4194304
-1394041657,Nodes,4096
-1394041657,Saturation mean,0.00798655
-1394041657,Saturation std,0.00203531
-1394041657,Dijkstra executions,33497
-1394041657,Iterations,0
-1394041657,Total cost,826
-1394041657,Total time,0.115571
-1394041657,Total time error,0
-1394041657,Process node,5.61653e-05
-1394041657,Process node error,0.0163659
-1394041657,Augment and reset,4.25689e-06
-1394041657,Augment and reset error,1.29952e-05
-1394041657,Dijkstra,6.58952e-07
-1394041657,Dijkstra error,0.000783957
-1394041657,Graph sorting,0.227814
-1394041657,Graph sorting error,0
-1394041657,Graph neighborhood init,0.0958017
-1394041657,Graph neighborhood init error,0
-1394041657,Total execution time,1.66137
-1394041657,Total execution time error,0
-87140916,DateTime,04-29-2016  12:18:47.
-87140916,Input file,../../data/bipartite_sparse/bi_full_4096_m768_30_10_gauss_2.gr
-87140916,Algorithm,SIA
-87140916,Type,FullBipartite
-87140916,Distribution,Gaussian
-87140916,Mean,30
-87140916,Std,10
-87140916,Edges,4194304
-87140916,Nodes,4096
-87140916,Saturation mean,0.0106342
-87140916,Saturation std,0.00230824
-87140916,Dijkstra executions,44600
-87140916,Iterations,0
-87140916,Total cost,818
-87140916,Total time,0.139756
-87140916,Total time error,0
-87140916,Process node,6.79925e-05
-87140916,Process node error,0.0256174
-87140916,Augment and reset,4.24599e-06
-87140916,Augment and reset error,1.75861e-05
-87140916,Dijkstra,5.18474e-07
-87140916,Dijkstra error,0.000842492
-87140916,Graph sorting,0.227951
-87140916,Graph sorting error,0
-87140916,Graph neighborhood init,0.0966125
-87140916,Graph neighborhood init error,0
-87140916,Total execution time,1.68592
-87140916,Total execution time error,0
+1688785839,DateTime,04-29-2016  14:16:34.
+1688785839,Input file,../../data/bipartite_sparse/bi_full_4096_m0_1_100_uni_1.gr
+1688785839,Algorithm,SIA
+1688785839,Type,FullBipartite
+1688785839,Distribution,Uniform
+1688785839,MinCost,1
+1688785839,MaxCost,100
+1688785839,Edges,4194304
+1688785839,Nodes,4096
+1688785839,Saturation mean,0.0062809
+1688785839,Saturation std,0.00381008
+1688785839,Dijkstra executions,21478
+1688785839,Iterations,0
+1688785839,Total cost,2048
+1688785839,Total time,0.222868
+1688785839,Total time error,0
+1688785839,Process node,0.000108532
+1688785839,Process node error,0.00182115
+1688785839,Augment and reset,4.65925e-06
+1688785839,Augment and reset error,1.23367e-05
+1688785839,Dijkstra,8.11147e-06
+1688785839,Dijkstra error,0.000473411
+1688785839,Graph sorting,0.188503
+1688785839,Graph sorting error,0
+1688785839,Graph neighborhood init,0.0969807
+1688785839,Graph neighborhood init error,0
+1688785839,Total execution time,1.72948
+1688785839,Total execution time error,0
+1175283296,DateTime,04-29-2016  14:16:41.
+1175283296,Input file,../../data/bipartite_sparse/bi_full_4096_m0_1_100_uni_2.gr
+1175283296,Algorithm,SIA
+1175283296,Type,FullBipartite
+1175283296,Distribution,Uniform
+1175283296,MinCost,1
+1175283296,MaxCost,100
+1175283296,Edges,4194304
+1175283296,Nodes,4096
+1175283296,Saturation mean,0.00665665
+1175283296,Saturation std,0.00384788
+1175283296,Dijkstra executions,18400
+1175283296,Iterations,0
+1175283296,Total cost,2048
+1175283296,Total time,0.208617
+1175283296,Total time error,0
+1175283296,Process node,0.000101597
+1175283296,Process node error,0.000782195
+1175283296,Augment and reset,4.58503e-06
+1175283296,Augment and reset error,1.7234e-05
+1175283296,Dijkstra,9.02065e-06
+1175283296,Dijkstra error,0.000483994
+1175283296,Graph sorting,0.187749
+1175283296,Graph sorting error,0
+1175283296,Graph neighborhood init,0.0963908
+1175283296,Graph neighborhood init error,0
+1175283296,Total execution time,1.71482
+1175283296,Total execution time error,0
+1807475636,DateTime,04-29-2016  14:16:48.
+1807475636,Input file,../../data/bipartite_sparse/bi_full_4096_m0_1_exp_1.gr
+1807475636,Algorithm,SIA
+1807475636,Type,FullBipartite
+1807475636,Distribution,Exponential
+1807475636,Lambda,1
+1807475636,Edges,4194304
+1807475636,Nodes,4096
+1807475636,Saturation mean,0.00676131
+1807475636,Saturation std,0.00319133
+1807475636,Dijkstra executions,7102
+1807475636,Iterations,0
+1807475636,Total cost,0
+1807475636,Total time,0.358343
+1807475636,Total time error,0
+1807475636,Process node,0.000174688
+1807475636,Process node error,0.000495017
+1807475636,Augment and reset,5.03931e-06
+1807475636,Augment and reset error,3.29547e-05
+1807475636,Dijkstra,4.64893e-05
+1807475636,Dijkstra error,0.000442818
+1807475636,Graph sorting,0.188516
+1807475636,Graph sorting error,0
+1807475636,Graph neighborhood init,0.0964801
+1807475636,Graph neighborhood init error,0
+1807475636,Total execution time,1.88918
+1807475636,Total execution time error,0
+1919043724,DateTime,04-29-2016  14:16:56.
+1919043724,Input file,../../data/bipartite_sparse/bi_full_4096_m0_1_exp_2.gr
+1919043724,Algorithm,SIA
+1919043724,Type,FullBipartite
+1919043724,Distribution,Exponential
+1919043724,Lambda,1
+1919043724,Edges,4194304
+1919043724,Nodes,4096
+1919043724,Saturation mean,0.00646901
+1919043724,Saturation std,0.0031336
+1919043724,Dijkstra executions,7091
+1919043724,Iterations,0
+1919043724,Total cost,0
+1919043724,Total time,0.356902
+1919043724,Total time error,0
+1919043724,Process node,0.000173995
+1919043724,Process node error,0.00049886
+1919043724,Augment and reset,4.95419e-06
+1919043724,Augment and reset error,3.27909e-05
+1919043724,Dijkstra,4.64965e-05
+1919043724,Dijkstra error,0.000425098
+1919043724,Graph sorting,0.188487
+1919043724,Graph sorting error,0
+1919043724,Graph neighborhood init,0.0962479
+1919043724,Graph neighborhood init error,0
+1919043724,Total execution time,1.89011
+1919043724,Total execution time error,0
+314572732,DateTime,04-29-2016  14:17:03.
+314572732,Input file,../../data/bipartite_sparse/bi_full_4096_m0_30_10_gauss_1.gr
+314572732,Algorithm,SIA
+314572732,Type,FullBipartite
+314572732,Distribution,Gaussian
+314572732,Mean,30
+314572732,Std,10
+314572732,Edges,4194304
+314572732,Nodes,4096
+314572732,Saturation mean,0.0109446
+314572732,Saturation std,0.00256214
+314572732,Dijkstra executions,45905
+314572732,Iterations,0
+314572732,Total cost,807
+314572732,Total time,0.152146
+314572732,Total time error,0
+314572732,Process node,7.40257e-05
+314572732,Process node error,0.0183734
+314572732,Augment and reset,4.2998e-06
+314572732,Augment and reset error,1.79462e-05
+314572732,Dijkstra,6.83586e-07
+314572732,Dijkstra error,0.000917095
+314572732,Graph sorting,0.227566
+314572732,Graph sorting error,0
+314572732,Graph neighborhood init,0.0959698
+314572732,Graph neighborhood init error,0
+314572732,Total execution time,1.70075
+314572732,Total execution time error,0
+1213040375,DateTime,04-29-2016  14:17:11.
+1213040375,Input file,../../data/bipartite_sparse/bi_full_4096_m0_30_10_gauss_2.gr
+1213040375,Algorithm,SIA
+1213040375,Type,FullBipartite
+1213040375,Distribution,Gaussian
+1213040375,Mean,30
+1213040375,Std,10
+1213040375,Edges,4194304
+1213040375,Nodes,4096
+1213040375,Saturation mean,0.0106437
+1213040375,Saturation std,0.00234032
+1213040375,Dijkstra executions,44641
+1213040375,Iterations,0
+1213040375,Total cost,784
+1213040375,Total time,0.139691
+1213040375,Total time error,0
+1213040375,Process node,6.7962e-05
+1213040375,Process node error,0.0385611
+1213040375,Augment and reset,4.25552e-06
+1213040375,Augment and reset error,1.37125e-05
+1213040375,Dijkstra,5.48441e-07
+1213040375,Dijkstra error,0.000791866
+1213040375,Graph sorting,0.227578
+1213040375,Graph sorting error,0
+1213040375,Graph neighborhood init,0.0962734
+1213040375,Graph neighborhood init error,0
+1213040375,Total execution time,1.68838
+1213040375,Total execution time error,0
+1425588791,DateTime,04-29-2016  14:17:18.
+1425588791,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_1_100_uni_1.gr
+1425588791,Algorithm,SIA
+1425588791,Type,FullBipartite
+1425588791,Distribution,Uniform
+1425588791,MinCost,1
+1425588791,MaxCost,100
+1425588791,Edges,2097152
+1425588791,Nodes,4096
+1425588791,Saturation mean,0.00974846
+1425588791,Saturation std,0.00357703
+1425588791,Dijkstra executions,11805
+1425588791,Iterations,0
+1425588791,Total cost,2048
+1425588791,Total time,0.163923
+1425588791,Total time error,0
+1425588791,Process node,7.97613e-05
+1425588791,Process node error,0.0010453
+1425588791,Augment and reset,4.50328e-06
+1425588791,Augment and reset error,1.60117e-05
+1425588791,Dijkstra,1.09531e-05
+1425588791,Dijkstra error,0.000435979
+1425588791,Graph sorting,0.0819659
+1425588791,Graph sorting error,0
+1425588791,Graph neighborhood init,0.0486796
+1425588791,Graph neighborhood init error,0
+1425588791,Total execution time,0.914212
+1425588791,Total execution time error,0
+894148283,DateTime,04-29-2016  14:17:21.
+894148283,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_1_100_uni_2.gr
+894148283,Algorithm,SIA
+894148283,Type,FullBipartite
+894148283,Distribution,Uniform
+894148283,MinCost,1
+894148283,MaxCost,100
+894148283,Edges,2097152
+894148283,Nodes,4096
+894148283,Saturation mean,0.00841522
+894148283,Saturation std,0.00407326
+894148283,Dijkstra executions,16220
+894148283,Iterations,0
+894148283,Total cost,2048
+894148283,Total time,0.180644
+894148283,Total time error,0
+894148283,Process node,8.79241e-05
+894148283,Process node error,0.00309052
+894148283,Augment and reset,4.4462e-06
+894148283,Augment and reset error,1.77167e-05
+894148283,Dijkstra,8.56196e-06
+894148283,Dijkstra error,0.000424906
+894148283,Graph sorting,0.082079
+894148283,Graph sorting error,0
+894148283,Graph neighborhood init,0.0488056
+894148283,Graph neighborhood init error,0
+894148283,Total execution time,0.932715
+894148283,Total execution time error,0
+812929797,DateTime,04-29-2016  14:17:24.
+812929797,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_1_exp_1.gr
+812929797,Algorithm,SIA
+812929797,Type,FullBipartite
+812929797,Distribution,Exponential
+812929797,Lambda,1
+812929797,Edges,2097152
+812929797,Nodes,4096
+812929797,Saturation mean,0.00836134
+812929797,Saturation std,0.00359862
+812929797,Dijkstra executions,6581
+812929797,Iterations,0
+812929797,Total cost,0
+812929797,Total time,0.264423
+812929797,Total time error,0
+812929797,Process node,0.000128845
+812929797,Process node error,0.000482931
+812929797,Augment and reset,4.89478e-06
+812929797,Augment and reset error,3.75642e-05
+812929797,Dijkstra,3.64514e-05
+812929797,Dijkstra error,0.000389555
+812929797,Graph sorting,0.0862061
+812929797,Graph sorting error,0
+812929797,Graph neighborhood init,0.0487155
+812929797,Graph neighborhood init error,0
+812929797,Total execution time,1.03129
+812929797,Total execution time error,0
+122616325,DateTime,04-29-2016  14:17:28.
+122616325,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_1_exp_2.gr
+122616325,Algorithm,SIA
+122616325,Type,FullBipartite
+122616325,Distribution,Exponential
+122616325,Lambda,1
+122616325,Edges,2097152
+122616325,Nodes,4096
+122616325,Saturation mean,0.00814342
+122616325,Saturation std,0.00354469
+122616325,Dijkstra executions,6554
+122616325,Iterations,0
+122616325,Total cost,0
+122616325,Total time,0.26966
+122616325,Total time error,0
+122616325,Process node,0.000131384
+122616325,Process node error,0.000496003
+122616325,Augment and reset,4.84513e-06
+122616325,Augment and reset error,3.91128e-05
+122616325,Dijkstra,3.74068e-05
+122616325,Dijkstra error,0.000404004
+122616325,Graph sorting,0.0863386
+122616325,Graph sorting error,0
+122616325,Graph neighborhood init,0.0491017
+122616325,Graph neighborhood init error,0
+122616325,Total execution time,1.03789
+122616325,Total execution time error,0
+488811372,DateTime,04-29-2016  14:17:31.
+488811372,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_30_10_gauss_1.gr
+488811372,Algorithm,SIA
+488811372,Type,FullBipartite
+488811372,Distribution,Gaussian
+488811372,Mean,30
+488811372,Std,10
+488811372,Edges,2097152
+488811372,Nodes,4096
+488811372,Saturation mean,0.0290403
+488811372,Saturation std,0.00572799
+488811372,Dijkstra executions,60902
+488811372,Iterations,0
+488811372,Total cost,2301
+488811372,Total time,0.184885
+488811372,Total time error,0
+488811372,Process node,8.99913e-05
+488811372,Process node error,0.0262861
+488811372,Augment and reset,4.32334e-06
+488811372,Augment and reset error,1.85136e-05
+488811372,Dijkstra,4.16838e-07
+488811372,Dijkstra error,0.00100122
+488811372,Graph sorting,0.0902495
+488811372,Graph sorting error,0
+488811372,Graph neighborhood init,0.0489555
+488811372,Graph neighborhood init error,0
+488811372,Total execution time,0.944925
+488811372,Total execution time error,0
+80152337,DateTime,04-29-2016  14:17:35.
+80152337,Input file,../../data/bipartite_sparse/bi_full_4096_m1024_30_10_gauss_2.gr
+80152337,Algorithm,SIA
+80152337,Type,FullBipartite
+80152337,Distribution,Gaussian
+80152337,Mean,30
+80152337,Std,10
+80152337,Edges,2097152
+80152337,Nodes,4096
+80152337,Saturation mean,0.0221786
+80152337,Saturation std,0.00551756
+80152337,Dijkstra executions,46512
+80152337,Iterations,0
+80152337,Total cost,2258
+80152337,Total time,0.147477
+80152337,Total time error,0
+80152337,Process node,7.17567e-05
+80152337,Process node error,0.0205551
+80152337,Augment and reset,4.34789e-06
+80152337,Augment and reset error,2.03892e-05
+80152337,Dijkstra,4.58666e-07
+80152337,Dijkstra error,0.000811802
+80152337,Graph sorting,0.0904945
+80152337,Graph sorting error,0
+80152337,Graph neighborhood init,0.0489794
+80152337,Graph neighborhood init error,0
+80152337,Total execution time,0.908107
+80152337,Total execution time error,0
+403605579,DateTime,04-29-2016  14:17:39.
+403605579,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_1_100_uni_1.gr
+403605579,Algorithm,SIA
+403605579,Type,FullBipartite
+403605579,Distribution,Uniform
+403605579,MinCost,1
+403605579,MaxCost,100
+403605579,Edges,1572864
+403605579,Nodes,4096
+403605579,Saturation mean,0.0201213
+403605579,Saturation std,0.00511657
+403605579,Dijkstra executions,28620
+403605579,Iterations,0
+403605579,Total cost,2050
+403605579,Total time,0.139314
+403605579,Total time error,0
+403605579,Process node,6.7768e-05
+403605579,Process node error,0.0275649
+403605579,Augment and reset,4.72353e-06
+403605579,Augment and reset error,2.08564e-05
+403605579,Dijkstra,2.48712e-06
+403605579,Dijkstra error,0.000402157
+403605579,Graph sorting,0.0589979
+403605579,Graph sorting error,0
+403605579,Graph neighborhood init,0.0381066
+403605579,Graph neighborhood init error,0
+403605579,Total execution time,0.713239
+403605579,Total execution time error,0
+1484267503,DateTime,04-29-2016  14:17:41.
+1484267503,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_1_100_uni_2.gr
+1484267503,Algorithm,SIA
+1484267503,Type,FullBipartite
+1484267503,Distribution,Uniform
+1484267503,MinCost,1
+1484267503,MaxCost,100
+1484267503,Edges,1572864
+1484267503,Nodes,4096
+1484267503,Saturation mean,0.0199394
+1484267503,Saturation std,0.00503529
+1484267503,Dijkstra executions,31276
+1484267503,Iterations,0
+1484267503,Total cost,2052
+1484267503,Total time,0.101568
+1484267503,Total time error,0
+1484267503,Process node,4.9326e-05
+1484267503,Process node error,0.031966
+1484267503,Augment and reset,5.22613e-06
+1484267503,Augment and reset error,2.8877e-05
+1484267503,Dijkstra,7.79176e-07
+1484267503,Dijkstra error,0.000402184
+1484267503,Graph sorting,0.0591247
+1484267503,Graph sorting error,0
+1484267503,Graph neighborhood init,0.0377014
+1484267503,Graph neighborhood init error,0
+1484267503,Total execution time,0.673529
+1484267503,Total execution time error,0
+242235906,DateTime,04-29-2016  14:17:44.
+242235906,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_1_exp_1.gr
+242235906,Algorithm,SIA
+242235906,Type,FullBipartite
+242235906,Distribution,Exponential
+242235906,Lambda,1
+242235906,Edges,1572864
+242235906,Nodes,4096
+242235906,Saturation mean,0.00895564
+242235906,Saturation std,0.00362844
+242235906,Dijkstra executions,6235
+242235906,Iterations,0
+242235906,Total cost,3
+242235906,Total time,0.227489
+242235906,Total time error,0
+242235906,Process node,0.000110802
+242235906,Process node error,0.000452153
+242235906,Augment and reset,4.91429e-06
+242235906,Augment and reset error,3.41477e-05
+242235906,Dijkstra,3.27557e-05
+242235906,Dijkstra error,0.000368695
+242235906,Graph sorting,0.0623134
+242235906,Graph sorting error,0
+242235906,Graph neighborhood init,0.0380845
+242235906,Graph neighborhood init error,0
+242235906,Total execution time,0.811429
+242235906,Total execution time error,0
+1028422268,DateTime,04-29-2016  14:17:47.
+1028422268,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_1_exp_2.gr
+1028422268,Algorithm,SIA
+1028422268,Type,FullBipartite
+1028422268,Distribution,Exponential
+1028422268,Lambda,1
+1028422268,Edges,1572864
+1028422268,Nodes,4096
+1028422268,Saturation mean,0.0102418
+1028422268,Saturation std,0.00405434
+1028422268,Dijkstra executions,6246
+1028422268,Iterations,0
+1028422268,Total cost,1
+1028422268,Total time,0.223428
+1028422268,Total time error,0
+1028422268,Process node,0.000108803
+1028422268,Process node error,0.000689274
+1028422268,Augment and reset,5.02434e-06
+1028422268,Augment and reset error,4.63006e-05
+1028422268,Dijkstra,3.19544e-05
+1028422268,Dijkstra error,0.000389781
+1028422268,Graph sorting,0.0622174
+1028422268,Graph sorting error,0
+1028422268,Graph neighborhood init,0.0381994
+1028422268,Graph neighborhood init error,0
+1028422268,Total execution time,0.80762
+1028422268,Total execution time error,0
+1692846491,DateTime,04-29-2016  14:17:49.
+1692846491,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_30_10_gauss_1.gr
+1692846491,Algorithm,SIA
+1692846491,Type,FullBipartite
+1692846491,Distribution,Gaussian
+1692846491,Mean,30
+1692846491,Std,10
+1692846491,Edges,1572864
+1692846491,Nodes,4096
+1692846491,Saturation mean,0.0446974
+1692846491,Saturation std,0.00868784
+1692846491,Dijkstra executions,70303
+1692846491,Iterations,0
+1692846491,Total cost,3187
+1692846491,Total time,0.207603
+1692846491,Total time error,0
+1692846491,Process node,0.000101101
+1692846491,Process node error,0.0271504
+1692846491,Augment and reset,4.31248e-06
+1692846491,Augment and reset error,1.37875e-05
+1692846491,Dijkstra,3.95371e-07
+1692846491,Dijkstra error,0.0010575
+1692846491,Graph sorting,0.0617452
+1692846491,Graph sorting error,0
+1692846491,Graph neighborhood init,0.0386419
+1692846491,Graph neighborhood init error,0
+1692846491,Total execution time,0.78529
+1692846491,Total execution time error,0
+391678104,DateTime,04-29-2016  14:17:52.
+391678104,Input file,../../data/bipartite_sparse/bi_full_4096_m1280_30_10_gauss_2.gr
+391678104,Algorithm,SIA
+391678104,Type,FullBipartite
+391678104,Distribution,Gaussian
+391678104,Mean,30
+391678104,Std,10
+391678104,Edges,1572864
+391678104,Nodes,4096
+391678104,Saturation mean,0.0400899
+391678104,Saturation std,0.00914998
+391678104,Dijkstra executions,63056
+391678104,Iterations,0
+391678104,Total cost,3170
+391678104,Total time,0.195228
+391678104,Total time error,0
+391678104,Process node,9.50546e-05
+391678104,Process node error,0.0349592
+391678104,Augment and reset,4.33294e-06
+391678104,Augment and reset error,1.4693e-05
+391678104,Dijkstra,5.15597e-07
+391678104,Dijkstra error,0.000940749
+391678104,Graph sorting,0.0618547
+391678104,Graph sorting error,0
+391678104,Graph neighborhood init,0.0385947
+391678104,Graph neighborhood init error,0
+391678104,Total execution time,0.772817
+391678104,Total execution time error,0
+1464067481,DateTime,04-29-2016  14:17:55.
+1464067481,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_1_100_uni_1.gr
+1464067481,Algorithm,SIA
+1464067481,Type,FullBipartite
+1464067481,Distribution,Uniform
+1464067481,MinCost,1
+1464067481,MaxCost,100
+1464067481,Edges,1048576
+1464067481,Nodes,4096
+1464067481,Saturation mean,0.0196161
+1464067481,Saturation std,0.00647795
+1464067481,Dijkstra executions,20565
+1464067481,Iterations,0
+1464067481,Total cost,2073
+1464067481,Total time,0.0765001
+1464067481,Total time error,0
+1464067481,Process node,3.70967e-05
+1464067481,Process node error,0.0221075
+1464067481,Augment and reset,4.66902e-06
+1464067481,Augment and reset error,2.22532e-05
+1464067481,Dijkstra,9.40508e-07
+1464067481,Dijkstra error,0.000371236
+1464067481,Graph sorting,0.0378501
+1464067481,Graph sorting error,0
+1464067481,Graph neighborhood init,0.0253119
+1464067481,Graph neighborhood init error,0
+1464067481,Total execution time,0.459444
+1464067481,Total execution time error,0
+29313078,DateTime,04-29-2016  14:17:57.
+29313078,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_1_100_uni_2.gr
+29313078,Algorithm,SIA
+29313078,Type,FullBipartite
+29313078,Distribution,Uniform
+29313078,MinCost,1
+29313078,MaxCost,100
+29313078,Edges,1048576
+29313078,Nodes,4096
+29313078,Saturation mean,0.019474
+29313078,Saturation std,0.00650966
+29313078,Dijkstra executions,20185
+29313078,Iterations,0
+29313078,Total cost,2078
+29313078,Total time,0.0723913
+29313078,Total time error,0
+29313078,Process node,3.50699e-05
+29313078,Process node error,0.0213567
+29313078,Augment and reset,4.44743e-06
+29313078,Augment and reset error,1.48417e-05
+29313078,Dijkstra,8.76959e-07
+29313078,Dijkstra error,0.000370526
+29313078,Graph sorting,0.0377862
+29313078,Graph sorting error,0
+29313078,Graph neighborhood init,0.0252504
+29313078,Graph neighborhood init error,0
+29313078,Total execution time,0.453567
+29313078,Total execution time error,0
+460597721,DateTime,04-29-2016  14:17:59.
+460597721,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_1_exp_1.gr
+460597721,Algorithm,SIA
+460597721,Type,FullBipartite
+460597721,Distribution,Exponential
+460597721,Lambda,1
+460597721,Edges,1048576
+460597721,Nodes,4096
+460597721,Saturation mean,0.0193653
+460597721,Saturation std,0.00645751
+460597721,Dijkstra executions,15842
+460597721,Iterations,0
+460597721,Total cost,28
+460597721,Total time,0.198477
+460597721,Total time error,0
+460597721,Process node,9.66463e-05
+460597721,Process node error,0.0153131
+460597721,Augment and reset,5.15551e-06
+460597721,Augment and reset error,3.45545e-05
+460597721,Dijkstra,9.76105e-06
+460597721,Dijkstra error,0.000544873
+460597721,Graph sorting,0.0397111
+460597721,Graph sorting error,0
+460597721,Graph neighborhood init,0.0257553
+460597721,Graph neighborhood init error,0
+460597721,Total execution time,0.588938
+460597721,Total execution time error,0
+1927556090,DateTime,04-29-2016  14:18:01.
+1927556090,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_1_exp_2.gr
+1927556090,Algorithm,SIA
+1927556090,Type,FullBipartite
+1927556090,Distribution,Exponential
+1927556090,Lambda,1
+1927556090,Edges,1048576
+1927556090,Nodes,4096
+1927556090,Saturation mean,0.0191908
+1927556090,Saturation std,0.0064511
+1927556090,Dijkstra executions,15624
+1927556090,Iterations,0
+1927556090,Total cost,21
+1927556090,Total time,0.191543
+1927556090,Total time error,0
+1927556090,Process node,9.32476e-05
+1927556090,Process node error,0.0143222
+1927556090,Augment and reset,4.99299e-06
+1927556090,Augment and reset error,3.19449e-05
+1927556090,Dijkstra,9.50018e-06
+1927556090,Dijkstra error,0.000529157
+1927556090,Graph sorting,0.0397373
+1927556090,Graph sorting error,0
+1927556090,Graph neighborhood init,0.0256319
+1927556090,Graph neighborhood init error,0
+1927556090,Total execution time,0.582525
+1927556090,Total execution time error,0
+2130898714,DateTime,04-29-2016  14:18:03.
+2130898714,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_30_10_gauss_1.gr
+2130898714,Algorithm,SIA
+2130898714,Type,FullBipartite
+2130898714,Distribution,Gaussian
+2130898714,Mean,30
+2130898714,Std,10
+2130898714,Edges,1048576
+2130898714,Nodes,4096
+2130898714,Saturation mean,0.0452681
+2130898714,Saturation std,0.0131527
+2130898714,Dijkstra executions,47467
+2130898714,Iterations,0
+2130898714,Total cost,4534
+2130898714,Total time,0.148277
+2130898714,Total time error,0
+2130898714,Process node,7.21336e-05
+2130898714,Process node error,0.0179758
+2130898714,Augment and reset,4.35779e-06
+2130898714,Augment and reset error,1.37753e-05
+2130898714,Dijkstra,4.48853e-07
+2130898714,Dijkstra error,0.000937833
+2130898714,Graph sorting,0.0369854
+2130898714,Graph sorting error,0
+2130898714,Graph neighborhood init,0.0257498
+2130898714,Graph neighborhood init error,0
+2130898714,Total execution time,0.52975
+2130898714,Total execution time error,0
+81466097,DateTime,04-29-2016  14:18:05.
+81466097,Input file,../../data/bipartite_sparse/bi_full_4096_m1536_30_10_gauss_2.gr
+81466097,Algorithm,SIA
+81466097,Type,FullBipartite
+81466097,Distribution,Gaussian
+81466097,Mean,30
+81466097,Std,10
+81466097,Edges,1048576
+81466097,Nodes,4096
+81466097,Saturation mean,0.067193
+81466097,Saturation std,0.0134744
+81466097,Dijkstra executions,70457
+81466097,Iterations,0
+81466097,Total cost,4769
+81466097,Total time,0.196416
+81466097,Total time error,0
+81466097,Process node,9.56553e-05
+81466097,Process node error,0.0296364
+81466097,Augment and reset,4.31053e-06
+81466097,Augment and reset error,1.17024e-05
+81466097,Dijkstra,3.38926e-07
+81466097,Dijkstra error,0.00110169
+81466097,Graph sorting,0.036991
+81466097,Graph sorting error,0
+81466097,Graph neighborhood init,0.0257594
+81466097,Graph neighborhood init error,0
+81466097,Total execution time,0.579531
+81466097,Total execution time error,0
+823727867,DateTime,04-29-2016  14:18:06.
+823727867,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_1_100_uni_1.gr
+823727867,Algorithm,SIA
+823727867,Type,FullBipartite
+823727867,Distribution,Uniform
+823727867,MinCost,1
+823727867,MaxCost,100
+823727867,Edges,524288
+823727867,Nodes,4096
+823727867,Saturation mean,0.0599918
+823727867,Saturation std,0.0154501
+823727867,Dijkstra executions,31453
+823727867,Iterations,0
+823727867,Total cost,2512
+823727867,Total time,0.11113
+823727867,Total time error,0
+823727867,Process node,5.39909e-05
+823727867,Process node error,0.0112713
+823727867,Augment and reset,4.29969e-06
+823727867,Augment and reset error,1.27053e-05
+823727867,Dijkstra,8.85617e-07
+823727867,Dijkstra error,0.000783661
+823727867,Graph sorting,0.0175108
+823727867,Graph sorting error,0
+823727867,Graph neighborhood init,0.014186
+823727867,Graph neighborhood init error,0
+823727867,Total execution time,0.313764
+823727867,Total execution time error,0
+666766652,DateTime,04-29-2016  14:18:07.
+666766652,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_1_100_uni_2.gr
+666766652,Algorithm,SIA
+666766652,Type,FullBipartite
+666766652,Distribution,Uniform
+666766652,MinCost,1
+666766652,MaxCost,100
+666766652,Edges,524288
+666766652,Nodes,4096
+666766652,Saturation mean,0.0599194
+666766652,Saturation std,0.0148758
+666766652,Dijkstra executions,31415
+666766652,Iterations,0
+666766652,Total cost,2484
+666766652,Total time,0.108504
+666766652,Total time error,0
+666766652,Process node,5.26984e-05
+666766652,Process node error,0.0122289
+666766652,Augment and reset,4.34176e-06
+666766652,Augment and reset error,1.25052e-05
+666766652,Dijkstra,7.63484e-07
+666766652,Dijkstra error,0.000777668
+666766652,Graph sorting,0.0175196
+666766652,Graph sorting error,0
+666766652,Graph neighborhood init,0.0141493
+666766652,Graph neighborhood init error,0
+666766652,Total execution time,0.310096
+666766652,Total execution time error,0
+978040561,DateTime,04-29-2016  14:18:08.
+978040561,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_1_exp_1.gr
+978040561,Algorithm,SIA
+978040561,Type,FullBipartite
+978040561,Distribution,Exponential
+978040561,Lambda,1
+978040561,Edges,524288
+978040561,Nodes,4096
+978040561,Saturation mean,0.0491295
+978040561,Saturation std,0.0132433
+978040561,Dijkstra executions,25757
+978040561,Iterations,0
+978040561,Total cost,382
+978040561,Total time,0.103624
+978040561,Total time error,0
+978040561,Process node,5.03254e-05
+978040561,Process node error,0.0104758
+978040561,Augment and reset,4.29319e-06
+978040561,Augment and reset error,1.59149e-05
+978040561,Dijkstra,1.26983e-06
+978040561,Dijkstra error,0.000723746
+978040561,Graph sorting,0.018041
+978040561,Graph sorting error,0
+978040561,Graph neighborhood init,0.0143271
+978040561,Graph neighborhood init error,0
+978040561,Total execution time,0.3089
+978040561,Total execution time error,0
+1090769262,DateTime,04-29-2016  14:18:09.
+1090769262,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_1_exp_2.gr
+1090769262,Algorithm,SIA
+1090769262,Type,FullBipartite
+1090769262,Distribution,Exponential
+1090769262,Lambda,1
+1090769262,Edges,524288
+1090769262,Nodes,4096
+1090769262,Saturation mean,0.0673409
+1090769262,Saturation std,0.0168224
+1090769262,Dijkstra executions,35299
+1090769262,Iterations,0
+1090769262,Total cost,433
+1090769262,Total time,0.130176
+1090769262,Total time error,0
+1090769262,Process node,6.32835e-05
+1090769262,Process node error,0.0177439
+1090769262,Augment and reset,4.30198e-06
+1090769262,Augment and reset error,1.22909e-05
+1090769262,Dijkstra,1.07892e-06
+1090769262,Dijkstra error,0.000818143
+1090769262,Graph sorting,0.0181091
+1090769262,Graph sorting error,0
+1090769262,Graph neighborhood init,0.0141314
+1090769262,Graph neighborhood init error,0
+1090769262,Total execution time,0.336275
+1090769262,Total execution time error,0
+1926252491,DateTime,04-29-2016  14:18:10.
+1926252491,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_30_10_gauss_1.gr
+1926252491,Algorithm,SIA
+1926252491,Type,FullBipartite
+1926252491,Distribution,Gaussian
+1926252491,Mean,30
+1926252491,Std,10
+1926252491,Edges,524288
+1926252491,Nodes,4096
+1926252491,Saturation mean,0.121727
+1926252491,Saturation std,0.0365621
+1926252491,Dijkstra executions,63820
+1926252491,Iterations,0
+1926252491,Total cost,7936
+1926252491,Total time,0.189004
+1926252491,Total time error,0
+1926252491,Process node,9.20143e-05
+1926252491,Process node error,0.018165
+1926252491,Augment and reset,4.39623e-06
+1926252491,Augment and reset error,1.47867e-05
+1926252491,Dijkstra,3.72358e-07
+1926252491,Dijkstra error,0.0010864
+1926252491,Graph sorting,0.0163939
+1926252491,Graph sorting error,0
+1926252491,Graph neighborhood init,0.0141956
+1926252491,Graph neighborhood init error,0
+1926252491,Total execution time,0.390006
+1926252491,Total execution time error,0
+1073837556,DateTime,04-29-2016  14:18:11.
+1073837556,Input file,../../data/bipartite_sparse/bi_full_4096_m1792_30_10_gauss_2.gr
+1073837556,Algorithm,SIA
+1073837556,Type,FullBipartite
+1073837556,Distribution,Gaussian
+1073837556,Mean,30
+1073837556,Std,10
+1073837556,Edges,524288
+1073837556,Nodes,4096
+1073837556,Saturation mean,0.160275
+1073837556,Saturation std,0.0301884
+1073837556,Dijkstra executions,84030
+1073837556,Iterations,0
+1073837556,Total cost,7887
+1073837556,Total time,0.224981
+1073837556,Total time error,0
+1073837556,Process node,0.000109589
+1073837556,Process node error,0.0633667
+1073837556,Augment and reset,4.3665e-06
+1073837556,Augment and reset error,1.40134e-05
+1073837556,Dijkstra,3.36144e-07
+1073837556,Dijkstra error,0.00106511
+1073837556,Graph sorting,0.0164636
+1073837556,Graph sorting error,0
+1073837556,Graph neighborhood init,0.0141498
+1073837556,Graph neighborhood init error,0
+1073837556,Total execution time,0.42607
+1073837556,Total execution time error,0
+1064209119,DateTime,04-29-2016  14:18:14.
+1064209119,Input file,../../data/bipartite_sparse/bi_full_4096_m256_1_100_uni_1.gr
+1064209119,Algorithm,SIA
+1064209119,Type,FullBipartite
+1064209119,Distribution,Uniform
+1064209119,MinCost,1
+1064209119,MaxCost,100
+1064209119,Edges,3670016
+1064209119,Nodes,4096
+1064209119,Saturation mean,0.00693512
+1064209119,Saturation std,0.00392813
+1064209119,Dijkstra executions,17377
+1064209119,Iterations,0
+1064209119,Total cost,2048
+1064209119,Total time,0.220915
+1064209119,Total time error,0
+1064209119,Process node,0.000107596
+1064209119,Process node error,0.000714673
+1064209119,Augment and reset,4.69014e-06
+1064209119,Augment and reset error,1.71417e-05
+1064209119,Dijkstra,1.02142e-05
+1064209119,Dijkstra error,0.000467607
+1064209119,Graph sorting,0.159007
+1064209119,Graph sorting error,0
+1064209119,Graph neighborhood init,0.0877836
+1064209119,Graph neighborhood init error,0
+1064209119,Total execution time,1.54499
+1064209119,Total execution time error,0
+810242335,DateTime,04-29-2016  14:18:20.
+810242335,Input file,../../data/bipartite_sparse/bi_full_4096_m256_1_100_uni_2.gr
+810242335,Algorithm,SIA
+810242335,Type,FullBipartite
+810242335,Distribution,Uniform
+810242335,MinCost,1
+810242335,MaxCost,100
+810242335,Edges,3670016
+810242335,Nodes,4096
+810242335,Saturation mean,0.00646564
+810242335,Saturation std,0.00391637
+810242335,Dijkstra executions,14736
+810242335,Iterations,0
+810242335,Total cost,2048
+810242335,Total time,0.212071
+810242335,Total time error,0
+810242335,Process node,0.000103285
+810242335,Process node error,0.000445686
+810242335,Augment and reset,4.7153e-06
+810242335,Augment and reset error,1.34627e-05
+810242335,Dijkstra,1.17091e-05
+810242335,Dijkstra error,0.000456751
+810242335,Graph sorting,0.159195
+810242335,Graph sorting error,0
+810242335,Graph neighborhood init,0.0869799
+810242335,Graph neighborhood init error,0
+810242335,Total execution time,1.53942
+810242335,Total execution time error,0
+859838258,DateTime,04-29-2016  14:18:25.
+859838258,Input file,../../data/bipartite_sparse/bi_full_4096_m256_1_exp_1.gr
+859838258,Algorithm,SIA
+859838258,Type,FullBipartite
+859838258,Distribution,Exponential
+859838258,Lambda,1
+859838258,Edges,3670016
+859838258,Nodes,4096
+859838258,Saturation mean,0.00692913
+859838258,Saturation std,0.00326298
+859838258,Dijkstra executions,7041
+859838258,Iterations,0
+859838258,Total cost,0
+859838258,Total time,0.334833
+859838258,Total time error,0
+859838258,Process node,0.000163211
+859838258,Process node error,0.000455518
+859838258,Augment and reset,4.94872e-06
+859838258,Augment and reset error,3.79655e-05
+859838258,Dijkstra,4.36987e-05
+859838258,Dijkstra error,0.000431831
+859838258,Graph sorting,0.161619
+859838258,Graph sorting error,0
+859838258,Graph neighborhood init,0.0865375
+859838258,Graph neighborhood init error,0
+859838258,Total execution time,1.68571
+859838258,Total execution time error,0
+1318729462,DateTime,04-29-2016  14:18:32.
+1318729462,Input file,../../data/bipartite_sparse/bi_full_4096_m256_1_exp_2.gr
+1318729462,Algorithm,SIA
+1318729462,Type,FullBipartite
+1318729462,Distribution,Exponential
+1318729462,Lambda,1
+1318729462,Edges,3670016
+1318729462,Nodes,4096
+1318729462,Saturation mean,0.00777136
+1318729462,Saturation std,0.00330943
+1318729462,Dijkstra executions,6980
+1318729462,Iterations,0
+1318729462,Total cost,0
+1318729462,Total time,0.34147
+1318729462,Total time error,0
+1318729462,Process node,0.000166435
+1318729462,Process node error,0.000988447
+1318729462,Augment and reset,4.91338e-06
+1318729462,Augment and reset error,3.55246e-05
+1318729462,Dijkstra,4.49518e-05
+1318729462,Dijkstra error,0.000457847
+1318729462,Graph sorting,0.161963
+1318729462,Graph sorting error,0
+1318729462,Graph neighborhood init,0.086875
+1318729462,Graph neighborhood init error,0
+1318729462,Total execution time,1.69394
+1318729462,Total execution time error,0
+1578691420,DateTime,04-29-2016  14:18:38.
+1578691420,Input file,../../data/bipartite_sparse/bi_full_4096_m256_30_10_gauss_1.gr
+1578691420,Algorithm,SIA
+1578691420,Type,FullBipartite
+1578691420,Distribution,Gaussian
+1578691420,Mean,30
+1578691420,Std,10
+1578691420,Edges,3670016
+1578691420,Nodes,4096
+1578691420,Saturation mean,0.0103275
+1578691420,Saturation std,0.00264688
+1578691420,Dijkstra executions,37901
+1578691420,Iterations,0
+1578691420,Total cost,1062
+1578691420,Total time,0.128353
+1578691420,Total time error,0
+1578691420,Process node,6.24046e-05
+1578691420,Process node error,0.0251362
+1578691420,Augment and reset,4.28952e-06
+1578691420,Augment and reset error,2.28464e-05
+1578691420,Dijkstra,6.23674e-07
+1578691420,Dijkstra error,0.000731148
+1578691420,Graph sorting,0.190357
+1578691420,Graph sorting error,0
+1578691420,Graph neighborhood init,0.0864069
+1578691420,Graph neighborhood init error,0
+1578691420,Total execution time,1.4869
+1578691420,Total execution time error,0
+63528681,DateTime,04-29-2016  14:18:44.
+63528681,Input file,../../data/bipartite_sparse/bi_full_4096_m256_30_10_gauss_2.gr
+63528681,Algorithm,SIA
+63528681,Type,FullBipartite
+63528681,Distribution,Gaussian
+63528681,Mean,30
+63528681,Std,10
+63528681,Edges,3670016
+63528681,Nodes,4096
+63528681,Saturation mean,0.0101689
+63528681,Saturation std,0.00260421
+63528681,Dijkstra executions,37320
+63528681,Iterations,0
+63528681,Total cost,1065
+63528681,Total time,0.128911
+63528681,Total time error,0
+63528681,Process node,6.268e-05
+63528681,Process node error,0.0182648
+63528681,Augment and reset,4.2897e-06
+63528681,Augment and reset error,1.28853e-05
+63528681,Dijkstra,5.98373e-07
+63528681,Dijkstra error,0.000758415
+63528681,Graph sorting,0.190431
+63528681,Graph sorting error,0
+63528681,Graph neighborhood init,0.0867679
+63528681,Graph neighborhood init error,0
+63528681,Total execution time,1.49401
+63528681,Total execution time error,0
+1011742384,DateTime,04-29-2016  14:18:50.
+1011742384,Input file,../../data/bipartite_sparse/bi_full_4096_m512_1_100_uni_1.gr
+1011742384,Algorithm,SIA
+1011742384,Type,FullBipartite
+1011742384,Distribution,Uniform
+1011742384,MinCost,1
+1011742384,MaxCost,100
+1011742384,Edges,3145728
+1011742384,Nodes,4096
+1011742384,Saturation mean,0.00721169
+1011742384,Saturation std,0.00398965
+1011742384,Dijkstra executions,17889
+1011742384,Iterations,0
+1011742384,Total cost,2048
+1011742384,Total time,0.225745
+1011742384,Total time error,0
+1011742384,Process node,0.000109944
+1011742384,Process node error,0.000700156
+1011742384,Augment and reset,4.6853e-06
+1011742384,Augment and reset error,1.61847e-05
+1011742384,Dijkstra,1.00812e-05
+1011742384,Dijkstra error,0.000457259
+1011742384,Graph sorting,0.131791
+1011742384,Graph sorting error,0
+1011742384,Graph neighborhood init,0.077538
+1011742384,Graph neighborhood init error,0
+1011742384,Total execution time,1.37008
+1011742384,Total execution time error,0
+1255631122,DateTime,04-29-2016  14:18:55.
+1255631122,Input file,../../data/bipartite_sparse/bi_full_4096_m512_1_100_uni_2.gr
+1255631122,Algorithm,SIA
+1255631122,Type,FullBipartite
+1255631122,Distribution,Uniform
+1255631122,MinCost,1
+1255631122,MaxCost,100
+1255631122,Edges,3145728
+1255631122,Nodes,4096
+1255631122,Saturation mean,0.00721995
+1255631122,Saturation std,0.00402157
+1255631122,Dijkstra executions,19346
+1255631122,Iterations,0
+1255631122,Total cost,2048
+1255631122,Total time,0.189018
+1255631122,Total time error,0
+1255631122,Process node,9.20286e-05
+1255631122,Process node error,0.00284899
+1255631122,Augment and reset,4.59097e-06
+1255631122,Augment and reset error,1.52821e-05
+1255631122,Dijkstra,7.37994e-06
+1255631122,Dijkstra error,0.000455612
+1255631122,Graph sorting,0.131646
+1255631122,Graph sorting error,0
+1255631122,Graph neighborhood init,0.0745769
+1255631122,Graph neighborhood init error,0
+1255631122,Total execution time,1.33244
+1255631122,Total execution time error,0
+1106618548,DateTime,04-29-2016  14:19:00.
+1106618548,Input file,../../data/bipartite_sparse/bi_full_4096_m512_1_exp_1.gr
+1106618548,Algorithm,SIA
+1106618548,Type,FullBipartite
+1106618548,Distribution,Exponential
+1106618548,Lambda,1
+1106618548,Edges,3145728
+1106618548,Nodes,4096
+1106618548,Saturation mean,0.00746123
+1106618548,Saturation std,0.00333674
+1106618548,Dijkstra executions,6900
+1106618548,Iterations,0
+1106618548,Total cost,0
+1106618548,Total time,0.317214
+1106618548,Total time error,0
+1106618548,Process node,0.00015461
+1106618548,Process node error,0.000604873
+1106618548,Augment and reset,4.97773e-06
+1106618548,Augment and reset error,3.37122e-05
+1106618548,Dijkstra,4.20355e-05
+1106618548,Dijkstra error,0.000442624
+1106618548,Graph sorting,0.135831
+1106618548,Graph sorting error,0
+1106618548,Graph neighborhood init,0.0778954
+1106618548,Graph neighborhood init error,0
+1106618548,Total execution time,1.48832
+1106618548,Total execution time error,0
+1444519220,DateTime,04-29-2016  14:19:05.
+1444519220,Input file,../../data/bipartite_sparse/bi_full_4096_m512_1_exp_2.gr
+1444519220,Algorithm,SIA
+1444519220,Type,FullBipartite
+1444519220,Distribution,Exponential
+1444519220,Lambda,1
+1444519220,Edges,3145728
+1444519220,Nodes,4096
+1444519220,Saturation mean,0.00726954
+1444519220,Saturation std,0.00327276
+1444519220,Dijkstra executions,6913
+1444519220,Iterations,0
+1444519220,Total cost,0
+1444519220,Total time,0.318891
+1444519220,Total time error,0
+1444519220,Process node,0.000155416
+1444519220,Process node error,0.000554359
+1444519220,Augment and reset,5.03726e-06
+1444519220,Augment and reset error,4.06797e-05
+1444519220,Dijkstra,4.21291e-05
+1444519220,Dijkstra error,0.000410184
+1444519220,Graph sorting,0.135771
+1444519220,Graph sorting error,0
+1444519220,Graph neighborhood init,0.07537
+1444519220,Graph neighborhood init error,0
+1444519220,Total execution time,1.48362
+1444519220,Total execution time error,0
+809019094,DateTime,04-29-2016  14:19:11.
+809019094,Input file,../../data/bipartite_sparse/bi_full_4096_m512_30_10_gauss_1.gr
+809019094,Algorithm,SIA
+809019094,Type,FullBipartite
+809019094,Distribution,Gaussian
+809019094,Mean,30
+809019094,Std,10
+809019094,Edges,3145728
+809019094,Nodes,4096
+809019094,Saturation mean,0.0189753
+809019094,Saturation std,0.0042626
+809019094,Dijkstra executions,59691
+809019094,Iterations,0
+809019094,Total cost,1387
+809019094,Total time,0.183853
+809019094,Total time error,0
+809019094,Process node,8.94842e-05
+809019094,Process node error,0.0293362
+809019094,Augment and reset,4.31027e-06
+809019094,Augment and reset error,2.67247e-05
+809019094,Dijkstra,4.32857e-07
+809019094,Dijkstra error,0.001001
+809019094,Graph sorting,0.154291
+809019094,Graph sorting error,0
+809019094,Graph neighborhood init,0.0758618
+809019094,Graph neighborhood init error,0
+809019094,Total execution time,1.35483
+809019094,Total execution time error,0
+910587001,DateTime,04-29-2016  14:19:16.
+910587001,Input file,../../data/bipartite_sparse/bi_full_4096_m512_30_10_gauss_2.gr
+910587001,Algorithm,SIA
+910587001,Type,FullBipartite
+910587001,Distribution,Gaussian
+910587001,Mean,30
+910587001,Std,10
+910587001,Edges,3145728
+910587001,Nodes,4096
+910587001,Saturation mean,0.0139058
+910587001,Saturation std,0.00312697
+910587001,Dijkstra executions,43743
+910587001,Iterations,0
+910587001,Total cost,1317
+910587001,Total time,0.143177
+910587001,Total time error,0
+910587001,Process node,6.96445e-05
+910587001,Process node error,0.021706
+910587001,Augment and reset,4.32501e-06
+910587001,Augment and reset error,1.9149e-05
+910587001,Dijkstra,5.75825e-07
+910587001,Dijkstra error,0.000889859
+910587001,Graph sorting,0.154666
+910587001,Graph sorting error,0
+910587001,Graph neighborhood init,0.0772942
+910587001,Graph neighborhood init error,0
+910587001,Total execution time,1.31541
+910587001,Total execution time error,0
+2078910936,DateTime,04-29-2016  14:19:22.
+2078910936,Input file,../../data/bipartite_sparse/bi_full_4096_m768_1_100_uni_1.gr
+2078910936,Algorithm,SIA
+2078910936,Type,FullBipartite
+2078910936,Distribution,Uniform
+2078910936,MinCost,1
+2078910936,MaxCost,100
+2078910936,Edges,2621440
+2078910936,Nodes,4096
+2078910936,Saturation mean,0.00788498
+2078910936,Saturation std,0.00409438
+2078910936,Dijkstra executions,17985
+2078910936,Iterations,0
+2078910936,Total cost,2048
+2078910936,Total time,0.195974
+2078910936,Total time error,0
+2078910936,Process node,9.54168e-05
+2078910936,Process node error,0.00150499
+2078910936,Augment and reset,4.64726e-06
+2078910936,Augment and reset error,2.16789e-05
+2078910936,Dijkstra,8.38364e-06
+2078910936,Dijkstra error,0.000450139
+2078910936,Graph sorting,0.106221
+2078910936,Graph sorting error,0
+2078910936,Graph neighborhood init,0.0658871
+2078910936,Graph neighborhood init error,0
+2078910936,Total execution time,1.16256
+2078910936,Total execution time error,0
+1180001701,DateTime,04-29-2016  14:19:26.
+1180001701,Input file,../../data/bipartite_sparse/bi_full_4096_m768_1_100_uni_2.gr
+1180001701,Algorithm,SIA
+1180001701,Type,FullBipartite
+1180001701,Distribution,Uniform
+1180001701,MinCost,1
+1180001701,MaxCost,100
+1180001701,Edges,2621440
+1180001701,Nodes,4096
+1180001701,Saturation mean,0.00766296
+1180001701,Saturation std,0.00400327
+1180001701,Dijkstra executions,14474
+1180001701,Iterations,0
+1180001701,Total cost,2048
+1180001701,Total time,0.16821
+1180001701,Total time error,0
+1180001701,Process node,8.1847e-05
+1180001701,Process node error,0.00135676
+1180001701,Augment and reset,4.46976e-06
+1180001701,Augment and reset error,1.77733e-05
+1180001701,Dijkstra,8.99576e-06
+1180001701,Dijkstra error,0.000459119
+1180001701,Graph sorting,0.10613
+1180001701,Graph sorting error,0
+1180001701,Graph neighborhood init,0.0655111
+1180001701,Graph neighborhood init error,0
+1180001701,Total execution time,1.13208
+1180001701,Total execution time error,0
+1269112600,DateTime,04-29-2016  14:19:30.
+1269112600,Input file,../../data/bipartite_sparse/bi_full_4096_m768_1_exp_1.gr
+1269112600,Algorithm,SIA
+1269112600,Type,FullBipartite
+1269112600,Distribution,Exponential
+1269112600,Lambda,1
+1269112600,Edges,2621440
+1269112600,Nodes,4096
+1269112600,Saturation mean,0.00737305
+1269112600,Saturation std,0.00328748
+1269112600,Dijkstra executions,6704
+1269112600,Iterations,0
+1269112600,Total cost,0
+1269112600,Total time,0.296163
+1269112600,Total time error,0
+1269112600,Process node,0.000144332
+1269112600,Process node error,0.00038262
+1269112600,Augment and reset,4.82737e-06
+1269112600,Augment and reset error,3.60246e-05
+1269112600,Dijkstra,4.04644e-05
+1269112600,Dijkstra error,0.000398212
+1269112600,Graph sorting,0.110613
+1269112600,Graph sorting error,0
+1269112600,Graph neighborhood init,0.065536
+1269112600,Graph neighborhood init error,0
+1269112600,Total execution time,1.27946
+1269112600,Total execution time error,0
+643024283,DateTime,04-29-2016  14:19:35.
+643024283,Input file,../../data/bipartite_sparse/bi_full_4096_m768_1_exp_2.gr
+643024283,Algorithm,SIA
+643024283,Type,FullBipartite
+643024283,Distribution,Exponential
+643024283,Lambda,1
+643024283,Edges,2621440
+643024283,Nodes,4096
+643024283,Saturation mean,0.0073288
+643024283,Saturation std,0.00333218
+643024283,Dijkstra executions,6758
+643024283,Iterations,0
+643024283,Total cost,0
+643024283,Total time,0.289251
+643024283,Total time error,0
+643024283,Process node,0.000140939
+643024283,Process node error,0.000508405
+643024283,Augment and reset,4.90586e-06
+643024283,Augment and reset error,3.60632e-05
+643024283,Dijkstra,3.89838e-05
+643024283,Dijkstra error,0.000386989
+643024283,Graph sorting,0.110628
+643024283,Graph sorting error,0
+643024283,Graph neighborhood init,0.0632125
+643024283,Graph neighborhood init error,0
+643024283,Total execution time,1.27394
+643024283,Total execution time error,0
+2040404414,DateTime,04-29-2016  14:19:39.
+2040404414,Input file,../../data/bipartite_sparse/bi_full_4096_m768_30_10_gauss_1.gr
+2040404414,Algorithm,SIA
+2040404414,Type,FullBipartite
+2040404414,Distribution,Gaussian
+2040404414,Mean,30
+2040404414,Std,10
+2040404414,Edges,2621440
+2040404414,Nodes,4096
+2040404414,Saturation mean,0.0226131
+2040404414,Saturation std,0.00493027
+2040404414,Dijkstra executions,59279
+2040404414,Iterations,0
+2040404414,Total cost,1691
+2040404414,Total time,0.183225
+2040404414,Total time error,0
+2040404414,Process node,8.92186e-05
+2040404414,Process node error,0.0250606
+2040404414,Augment and reset,4.29145e-06
+2040404414,Augment and reset error,1.64794e-05
+2040404414,Dijkstra,4.72259e-07
+2040404414,Dijkstra error,0.000970324
+2040404414,Graph sorting,0.121068
+2040404414,Graph sorting error,0
+2040404414,Graph neighborhood init,0.0661369
+2040404414,Graph neighborhood init error,0
+2040404414,Total execution time,1.16535
+2040404414,Total execution time error,0
+1606744186,DateTime,04-29-2016  14:19:44.
+1606744186,Input file,../../data/bipartite_sparse/bi_full_4096_m768_30_10_gauss_2.gr
+1606744186,Algorithm,SIA
+1606744186,Type,FullBipartite
+1606744186,Distribution,Gaussian
+1606744186,Mean,30
+1606744186,Std,10
+1606744186,Edges,2621440
+1606744186,Nodes,4096
+1606744186,Saturation mean,0.0223141
+1606744186,Saturation std,0.00447444
+1606744186,Dijkstra executions,58495
+1606744186,Iterations,0
+1606744186,Total cost,1808
+1606744186,Total time,0.179444
+1606744186,Total time error,0
+1606744186,Process node,8.73688e-05
+1606744186,Process node error,0.0461993
+1606744186,Augment and reset,4.27107e-06
+1606744186,Augment and reset error,1.1961e-05
+1606744186,Dijkstra,4.62662e-07
+1606744186,Dijkstra error,0.000876543
+1606744186,Graph sorting,0.121153
+1606744186,Graph sorting error,0
+1606744186,Graph neighborhood init,0.065623
+1606744186,Graph neighborhood init error,0
+1606744186,Total execution time,1.16018
+1606744186,Total execution time error,0

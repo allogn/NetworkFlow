@@ -19,13 +19,13 @@ do
 	do
 		NAME="${DATADIR}bi_full_4096_m${SIZE}_30_10_gauss_${i}.gr"
 		NAME2="${DATADIR}bi_full_4096_m${SIZE}_30_10_gauss_${i}.bl"
-		../Release/Generator -g 0 -n 4096 -l 30 -u 10 -d 1 -o $NAME --blossom $NAME2
+		../Release/Generator -g 0 -n 4096 -l 30 --missed $SIZE -u 10 -d 1 -o $NAME --blossom $NAME2
 	done
 	for i in {1..2..1};
 	do
 		NAME="${DATADIR}bi_full_4096_m${SIZE}_1_exp_${i}.gr"
 		NAME2="${DATADIR}bi_full_4096_m${SIZE}_1_exp_${i}.bl"
-		../Release/Generator -g 0 -n 4096 -l 1 -u 1 -d 2 -o $NAME --blossom $NAME2
+		../Release/Generator -g 0 -n 4096 -l 1 -u 1 -d 2 --missed $SIZE -o $NAME --blossom $NAME2
 	done
 	SIZE=$(($SIZE+256))
 done

@@ -1,288 +1,288 @@
-67865865,Algorithm,BlossomV
-67865865,Input file,bi_full_4096_m1024_30_10_gauss_2.bl
-67865865,Nodes,4096
-67865865,Edges,4194304
-67865865,Total time,6.215
-67865865,Total cost,888
-93055792,Algorithm,BlossomV
-93055792,Input file,bi_full_4096_m768_30_10_gauss_1.bl
-93055792,Nodes,4096
-93055792,Edges,4194304
-93055792,Total time,6.894
-93055792,Total cost,826
-13237579,Algorithm,BlossomV
-13237579,Input file,bi_full_4096_m256_30_10_gauss_2.bl
-13237579,Nodes,4096
-13237579,Edges,4194304
-13237579,Total time,5.391
-13237579,Total cost,834
-50592571,Algorithm,BlossomV
-50592571,Input file,bi_full_4096_m1792_30_10_gauss_1.bl
-50592571,Nodes,4096
-50592571,Edges,4194304
-50592571,Total time,7.120
-50592571,Total cost,795
-34049320,Algorithm,BlossomV
-34049320,Input file,bi_full_4096_m1280_1_100_uni_1.bl
-34049320,Nodes,4096
-34049320,Edges,1572864
-34049320,Total time,0.866
-34049320,Total cost,2048
-98882337,Algorithm,BlossomV
-98882337,Input file,bi_full_4096_m1536_30_10_gauss_1.bl
-98882337,Nodes,4096
-98882337,Edges,4194304
-98882337,Total time,7.336
-98882337,Total cost,878
-67348505,Algorithm,BlossomV
-67348505,Input file,bi_full_4096_m768_1_exp_1.bl
-67348505,Nodes,4096
-67348505,Edges,4194304
-67348505,Total time,0.710
-67348505,Total cost,0
-32375137,Algorithm,BlossomV
-32375137,Input file,bi_full_4096_m1024_1_exp_1.bl
-32375137,Nodes,4096
-32375137,Edges,4194304
-32375137,Total time,0.668
-32375137,Total cost,0
-38262403,Algorithm,BlossomV
-38262403,Input file,bi_full_4096_m768_1_100_uni_2.bl
-38262403,Nodes,4096
-38262403,Edges,2621440
-38262403,Total time,0.574
-38262403,Total cost,2048
-21277642,Algorithm,BlossomV
-21277642,Input file,bi_full_4096_m0_1_100_uni_2.bl
-21277642,Nodes,4096
-21277642,Edges,4194304
-21277642,Total time,0.580
-21277642,Total cost,2048
-15439608,Algorithm,BlossomV
-15439608,Input file,bi_full_4096_m1280_1_exp_1.bl
-15439608,Nodes,4096
-15439608,Edges,4194304
-15439608,Total time,0.602
-15439608,Total cost,0
-10689528,Algorithm,BlossomV
-10689528,Input file,bi_full_4096_m0_1_exp_2.bl
-10689528,Nodes,4096
-10689528,Edges,4194304
-10689528,Total time,0.748
-10689528,Total cost,0
-66194155,Algorithm,BlossomV
-66194155,Input file,bi_full_4096_m0_1_exp_1.bl
-66194155,Nodes,4096
-66194155,Edges,4194304
-66194155,Total time,0.807
-66194155,Total cost,0
-21911907,Algorithm,BlossomV
-21911907,Input file,bi_full_4096_m256_1_exp_2.bl
-21911907,Nodes,4096
-21911907,Edges,4194304
-21911907,Total time,0.690
-21911907,Total cost,0
-79351769,Algorithm,BlossomV
-79351769,Input file,bi_full_4096_m0_1_100_uni_1.bl
-79351769,Nodes,4096
-79351769,Edges,4194304
-79351769,Total time,0.615
-79351769,Total cost,2048
-87209133,Algorithm,BlossomV
-87209133,Input file,bi_full_4096_m1280_30_10_gauss_1.bl
-87209133,Nodes,4096
-87209133,Edges,4194304
-87209133,Total time,7.927
-87209133,Total cost,839
-98966274,Algorithm,BlossomV
-98966274,Input file,bi_full_4096_m256_1_100_uni_1.bl
-98966274,Nodes,4096
-98966274,Edges,3670016
-98966274,Total time,0.506
-98966274,Total cost,2048
-75021082,Algorithm,BlossomV
-75021082,Input file,bi_full_4096_m768_1_100_uni_1.bl
-75021082,Nodes,4096
-75021082,Edges,2621440
-75021082,Total time,0.610
-75021082,Total cost,2048
-90823729,Algorithm,BlossomV
-90823729,Input file,bi_full_4096_m256_1_100_uni_2.bl
-90823729,Nodes,4096
-90823729,Edges,3670016
-90823729,Total time,0.468
-90823729,Total cost,2048
-20835618,Algorithm,BlossomV
-20835618,Input file,bi_full_4096_m1792_30_10_gauss_2.bl
-20835618,Nodes,4096
-20835618,Edges,4194304
-20835618,Total time,7.327
-20835618,Total cost,887
-71887570,Algorithm,BlossomV
-71887570,Input file,bi_full_4096_m1536_1_exp_1.bl
-71887570,Nodes,4096
-71887570,Edges,4194304
-71887570,Total time,0.568
-71887570,Total cost,0
-91957261,Algorithm,BlossomV
-91957261,Input file,bi_full_4096_m1280_30_10_gauss_2.bl
-91957261,Nodes,4096
-91957261,Edges,4194304
-91957261,Total time,5.783
-91957261,Total cost,859
-29348488,Algorithm,BlossomV
-29348488,Input file,bi_full_4096_m512_1_exp_1.bl
-29348488,Nodes,4096
-29348488,Edges,4194304
-29348488,Total time,0.540
-29348488,Total cost,0
-25172861,Algorithm,BlossomV
-25172861,Input file,bi_full_4096_m768_1_exp_2.bl
-25172861,Nodes,4096
-25172861,Edges,4194304
-25172861,Total time,0.613
-25172861,Total cost,0
-93402746,Algorithm,BlossomV
-93402746,Input file,bi_full_4096_m1536_30_10_gauss_2.bl
-93402746,Nodes,4096
-93402746,Edges,4194304
-93402746,Total time,5.851
-93402746,Total cost,842
-98859300,Algorithm,BlossomV
-98859300,Input file,bi_full_4096_m512_30_10_gauss_2.bl
-98859300,Nodes,4096
-98859300,Edges,4194304
-98859300,Total time,9.135
-98859300,Total cost,860
-47246079,Algorithm,BlossomV
-47246079,Input file,bi_full_4096_m1536_1_100_uni_2.bl
-47246079,Nodes,4096
-47246079,Edges,1048576
-47246079,Total time,0.861
-47246079,Total cost,2069
-11751841,Algorithm,BlossomV
-11751841,Input file,bi_full_4096_m1280_1_exp_2.bl
-11751841,Nodes,4096
-11751841,Edges,4194304
-11751841,Total time,0.445
-11751841,Total cost,0
-30143201,Algorithm,BlossomV
-30143201,Input file,bi_full_4096_m1792_1_exp_2.bl
-30143201,Nodes,4096
-30143201,Edges,4194304
-30143201,Total time,0.521
-30143201,Total cost,0
-80189773,Algorithm,BlossomV
-80189773,Input file,bi_full_4096_m1536_1_exp_2.bl
-80189773,Nodes,4096
-80189773,Edges,4194304
-80189773,Total time,0.689
-80189773,Total cost,0
-81656027,Algorithm,BlossomV
-81656027,Input file,bi_full_4096_m1792_1_100_uni_2.bl
-81656027,Nodes,4096
-81656027,Edges,524288
-81656027,Total time,0.544
-81656027,Total cost,2471
-92864719,Algorithm,BlossomV
-92864719,Input file,bi_full_4096_m1024_1_100_uni_2.bl
-92864719,Nodes,4096
-92864719,Edges,2097152
-92864719,Total time,0.546
-92864719,Total cost,2048
-78601155,Algorithm,BlossomV
-78601155,Input file,bi_full_4096_m1024_1_exp_2.bl
-78601155,Nodes,4096
-78601155,Edges,4194304
-78601155,Total time,0.567
-78601155,Total cost,0
-14604144,Algorithm,BlossomV
-14604144,Input file,bi_full_4096_m512_1_100_uni_1.bl
-14604144,Nodes,4096
-14604144,Edges,3145728
-14604144,Total time,0.568
-14604144,Total cost,2048
-15007253,Algorithm,BlossomV
-15007253,Input file,bi_full_4096_m1536_1_100_uni_1.bl
-15007253,Nodes,4096
-15007253,Edges,1048576
-15007253,Total time,1.061
-15007253,Total cost,2069
-44592763,Algorithm,BlossomV
-44592763,Input file,bi_full_4096_m768_30_10_gauss_2.bl
-44592763,Nodes,4096
-44592763,Edges,4194304
-44592763,Total time,5.237
-44592763,Total cost,818
-17493211,Algorithm,BlossomV
-17493211,Input file,bi_full_4096_m1024_30_10_gauss_1.bl
-17493211,Nodes,4096
-17493211,Edges,4194304
-17493211,Total time,7.372
-17493211,Total cost,830
-44178013,Algorithm,BlossomV
-44178013,Input file,bi_full_4096_m256_1_exp_1.bl
-44178013,Nodes,4096
-44178013,Edges,4194304
-44178013,Total time,0.629
-44178013,Total cost,0
-33188126,Algorithm,BlossomV
-33188126,Input file,bi_full_4096_m0_30_10_gauss_2.bl
-33188126,Nodes,4096
-33188126,Edges,4194304
-33188126,Total time,6.521
-33188126,Total cost,868
-55752778,Algorithm,BlossomV
-55752778,Input file,bi_full_4096_m0_30_10_gauss_1.bl
-55752778,Nodes,4096
-55752778,Edges,4194304
-55752778,Total time,6.068
-55752778,Total cost,816
-93438896,Algorithm,BlossomV
-93438896,Input file,bi_full_4096_m1792_1_exp_1.bl
-93438896,Nodes,4096
-93438896,Edges,4194304
-93438896,Total time,0.655
-93438896,Total cost,0
-91909724,Algorithm,BlossomV
-91909724,Input file,bi_full_4096_m1280_1_100_uni_2.bl
-91909724,Nodes,4096
-91909724,Edges,1572864
-91909724,Total time,0.687
-91909724,Total cost,2048
-91151728,Algorithm,BlossomV
-91151728,Input file,bi_full_4096_m512_1_exp_2.bl
-91151728,Nodes,4096
-91151728,Edges,4194304
-91151728,Total time,0.591
-91151728,Total cost,0
-87631698,Algorithm,BlossomV
-87631698,Input file,bi_full_4096_m512_30_10_gauss_1.bl
-87631698,Nodes,4096
-87631698,Edges,4194304
-87631698,Total time,6.381
-87631698,Total cost,821
-32280040,Algorithm,BlossomV
-32280040,Input file,bi_full_4096_m1024_1_100_uni_1.bl
-32280040,Nodes,4096
-32280040,Edges,2097152
-32280040,Total time,0.658
-32280040,Total cost,2048
-60251369,Algorithm,BlossomV
-60251369,Input file,bi_full_4096_m1792_1_100_uni_1.bl
-60251369,Nodes,4096
-60251369,Edges,524288
-60251369,Total time,0.572
-60251369,Total cost,2470
-17038836,Algorithm,BlossomV
-17038836,Input file,bi_full_4096_m256_30_10_gauss_1.bl
-17038836,Nodes,4096
-17038836,Edges,4194304
-17038836,Total time,5.866
-17038836,Total cost,883
-70892107,Algorithm,BlossomV
-70892107,Input file,bi_full_4096_m512_1_100_uni_2.bl
-70892107,Nodes,4096
-70892107,Edges,3145728
-70892107,Total time,0.791
-70892107,Total cost,2048
+12886585,Algorithm,BlossomV
+12886585,Input file,bi_full_4096_m1024_30_10_gauss_2.bl
+12886585,Nodes,4096
+12886585,Edges,2097152
+12886585,Total time,1.701
+12886585,Total cost,2258
+23117790,Algorithm,BlossomV
+23117790,Input file,bi_full_4096_m768_30_10_gauss_1.bl
+23117790,Nodes,4096
+23117790,Edges,2621440
+23117790,Total time,2.454
+23117790,Total cost,1691
+67019724,Algorithm,BlossomV
+67019724,Input file,bi_full_4096_m256_30_10_gauss_2.bl
+67019724,Nodes,4096
+67019724,Edges,3670016
+67019724,Total time,4.495
+67019724,Total cost,1065
+27951688,Algorithm,BlossomV
+27951688,Input file,bi_full_4096_m1792_30_10_gauss_1.bl
+27951688,Nodes,4096
+27951688,Edges,524288
+27951688,Total time,0.326
+27951688,Total cost,7936
+86031313,Algorithm,BlossomV
+86031313,Input file,bi_full_4096_m1280_1_100_uni_1.bl
+86031313,Nodes,4096
+86031313,Edges,1572864
+86031313,Total time,0.785
+86031313,Total cost,2050
+59213370,Algorithm,BlossomV
+59213370,Input file,bi_full_4096_m1536_30_10_gauss_1.bl
+59213370,Nodes,4096
+59213370,Edges,1048576
+59213370,Total time,0.807
+59213370,Total cost,4534
+47577066,Algorithm,BlossomV
+47577066,Input file,bi_full_4096_m768_1_exp_1.bl
+47577066,Nodes,4096
+47577066,Edges,2621440
+47577066,Total time,0.669
+47577066,Total cost,0
+30391697,Algorithm,BlossomV
+30391697,Input file,bi_full_4096_m1024_1_exp_1.bl
+30391697,Nodes,4096
+30391697,Edges,2097152
+30391697,Total time,0.805
+30391697,Total cost,0
+90246467,Algorithm,BlossomV
+90246467,Input file,bi_full_4096_m768_1_100_uni_2.bl
+90246467,Nodes,4096
+90246467,Edges,2621440
+90246467,Total time,0.583
+90246467,Total cost,2048
+19988930,Algorithm,BlossomV
+19988930,Input file,bi_full_4096_m0_1_100_uni_2.bl
+19988930,Nodes,4096
+19988930,Edges,4194304
+19988930,Total time,0.599
+19988930,Total cost,2048
+79054709,Algorithm,BlossomV
+79054709,Input file,bi_full_4096_m1280_1_exp_1.bl
+79054709,Nodes,4096
+79054709,Edges,1572864
+79054709,Total time,0.729
+79054709,Total cost,3
+53552049,Algorithm,BlossomV
+53552049,Input file,bi_full_4096_m0_1_exp_2.bl
+53552049,Nodes,4096
+53552049,Edges,4194304
+53552049,Total time,0.734
+53552049,Total cost,0
+22131142,Algorithm,BlossomV
+22131142,Input file,bi_full_4096_m0_1_exp_1.bl
+22131142,Nodes,4096
+22131142,Edges,4194304
+22131142,Total time,0.637
+22131142,Total cost,0
+28473829,Algorithm,BlossomV
+28473829,Input file,bi_full_4096_m256_1_exp_2.bl
+28473829,Nodes,4096
+28473829,Edges,3670016
+28473829,Total time,0.622
+28473829,Total cost,0
+41649201,Algorithm,BlossomV
+41649201,Input file,bi_full_4096_m0_1_100_uni_1.bl
+41649201,Nodes,4096
+41649201,Edges,4194304
+41649201,Total time,0.433
+41649201,Total cost,2048
+48695562,Algorithm,BlossomV
+48695562,Input file,bi_full_4096_m1280_30_10_gauss_1.bl
+48695562,Nodes,4096
+48695562,Edges,1572864
+48695562,Total time,1.546
+48695562,Total cost,3187
+59724818,Algorithm,BlossomV
+59724818,Input file,bi_full_4096_m256_1_100_uni_1.bl
+59724818,Nodes,4096
+59724818,Edges,3670016
+59724818,Total time,0.593
+59724818,Total cost,2048
+54865790,Algorithm,BlossomV
+54865790,Input file,bi_full_4096_m768_1_100_uni_1.bl
+54865790,Nodes,4096
+54865790,Edges,2621440
+54865790,Total time,0.818
+54865790,Total cost,2048
+27365345,Algorithm,BlossomV
+27365345,Input file,bi_full_4096_m256_1_100_uni_2.bl
+27365345,Nodes,4096
+27365345,Edges,3670016
+27365345,Total time,0.770
+27365345,Total cost,2048
+24679156,Algorithm,BlossomV
+24679156,Input file,bi_full_4096_m1792_30_10_gauss_2.bl
+24679156,Nodes,4096
+24679156,Edges,524288
+24679156,Total time,0.409
+24679156,Total cost,7887
+23652116,Algorithm,BlossomV
+23652116,Input file,bi_full_4096_m1536_1_exp_1.bl
+23652116,Nodes,4096
+23652116,Edges,1048576
+23652116,Total time,1.008
+23652116,Total cost,28
+47818254,Algorithm,BlossomV
+47818254,Input file,bi_full_4096_m1280_30_10_gauss_2.bl
+47818254,Nodes,4096
+47818254,Edges,1572864
+47818254,Total time,1.835
+47818254,Total cost,3170
+88507209,Algorithm,BlossomV
+88507209,Input file,bi_full_4096_m512_1_exp_1.bl
+88507209,Nodes,4096
+88507209,Edges,3145728
+88507209,Total time,0.745
+88507209,Total cost,0
+88416559,Algorithm,BlossomV
+88416559,Input file,bi_full_4096_m768_1_exp_2.bl
+88416559,Nodes,4096
+88416559,Edges,2621440
+88416559,Total time,0.712
+88416559,Total cost,0
+93999506,Algorithm,BlossomV
+93999506,Input file,bi_full_4096_m1536_30_10_gauss_2.bl
+93999506,Nodes,4096
+93999506,Edges,1048576
+93999506,Total time,0.976
+93999506,Total cost,4769
+30697584,Algorithm,BlossomV
+30697584,Input file,bi_full_4096_m512_30_10_gauss_2.bl
+30697584,Nodes,4096
+30697584,Edges,3145728
+30697584,Total time,3.703
+30697584,Total cost,1317
+43256188,Algorithm,BlossomV
+43256188,Input file,bi_full_4096_m1536_1_100_uni_2.bl
+43256188,Nodes,4096
+43256188,Edges,1048576
+43256188,Total time,1.139
+43256188,Total cost,2078
+83494374,Algorithm,BlossomV
+83494374,Input file,bi_full_4096_m1280_1_exp_2.bl
+83494374,Nodes,4096
+83494374,Edges,1572864
+83494374,Total time,0.734
+83494374,Total cost,1
+48622872,Algorithm,BlossomV
+48622872,Input file,bi_full_4096_m1792_1_exp_2.bl
+48622872,Nodes,4096
+48622872,Edges,524288
+48622872,Total time,0.582
+48622872,Total cost,433
+66737755,Algorithm,BlossomV
+66737755,Input file,bi_full_4096_m1536_1_exp_2.bl
+66737755,Nodes,4096
+66737755,Edges,1048576
+66737755,Total time,1.079
+66737755,Total cost,21
+63534304,Algorithm,BlossomV
+63534304,Input file,bi_full_4096_m1792_1_100_uni_2.bl
+63534304,Nodes,4096
+63534304,Edges,524288
+63534304,Total time,0.601
+63534304,Total cost,2484
+19127226,Algorithm,BlossomV
+19127226,Input file,bi_full_4096_m1024_1_100_uni_2.bl
+19127226,Nodes,4096
+19127226,Edges,2097152
+19127226,Total time,0.706
+19127226,Total cost,2048
+40571013,Algorithm,BlossomV
+40571013,Input file,bi_full_4096_m1024_1_exp_2.bl
+40571013,Nodes,4096
+40571013,Edges,2097152
+40571013,Total time,0.793
+40571013,Total cost,0
+89773116,Algorithm,BlossomV
+89773116,Input file,bi_full_4096_m512_1_100_uni_1.bl
+89773116,Nodes,4096
+89773116,Edges,3145728
+89773116,Total time,0.744
+89773116,Total cost,2048
+24756829,Algorithm,BlossomV
+24756829,Input file,bi_full_4096_m1536_1_100_uni_1.bl
+24756829,Nodes,4096
+24756829,Edges,1048576
+24756829,Total time,1.085
+24756829,Total cost,2073
+23126502,Algorithm,BlossomV
+23126502,Input file,bi_full_4096_m768_30_10_gauss_2.bl
+23126502,Nodes,4096
+23126502,Edges,2621440
+23126502,Total time,2.726
+23126502,Total cost,1808
+92163824,Algorithm,BlossomV
+92163824,Input file,bi_full_4096_m1024_30_10_gauss_1.bl
+92163824,Nodes,4096
+92163824,Edges,2097152
+92163824,Total time,2.414
+92163824,Total cost,2301
+50659085,Algorithm,BlossomV
+50659085,Input file,bi_full_4096_m256_1_exp_1.bl
+50659085,Nodes,4096
+50659085,Edges,3670016
+50659085,Total time,0.652
+50659085,Total cost,0
+63347394,Algorithm,BlossomV
+63347394,Input file,bi_full_4096_m0_30_10_gauss_2.bl
+63347394,Nodes,4096
+63347394,Edges,4194304
+63347394,Total time,6.140
+63347394,Total cost,784
+55351560,Algorithm,BlossomV
+55351560,Input file,bi_full_4096_m0_30_10_gauss_1.bl
+55351560,Nodes,4096
+55351560,Edges,4194304
+55351560,Total time,7.728
+55351560,Total cost,807
+95934766,Algorithm,BlossomV
+95934766,Input file,bi_full_4096_m1792_1_exp_1.bl
+95934766,Nodes,4096
+95934766,Edges,524288
+95934766,Total time,0.467
+95934766,Total cost,382
+42195977,Algorithm,BlossomV
+42195977,Input file,bi_full_4096_m1280_1_100_uni_2.bl
+42195977,Nodes,4096
+42195977,Edges,1572864
+42195977,Total time,0.879
+42195977,Total cost,2052
+44973744,Algorithm,BlossomV
+44973744,Input file,bi_full_4096_m512_1_exp_2.bl
+44973744,Nodes,4096
+44973744,Edges,3145728
+44973744,Total time,0.600
+44973744,Total cost,0
+92749291,Algorithm,BlossomV
+92749291,Input file,bi_full_4096_m512_30_10_gauss_1.bl
+92749291,Nodes,4096
+92749291,Edges,3145728
+92749291,Total time,3.903
+92749291,Total cost,1387
+53876387,Algorithm,BlossomV
+53876387,Input file,bi_full_4096_m1024_1_100_uni_1.bl
+53876387,Nodes,4096
+53876387,Edges,2097152
+53876387,Total time,0.663
+53876387,Total cost,2048
+25238153,Algorithm,BlossomV
+25238153,Input file,bi_full_4096_m1792_1_100_uni_1.bl
+25238153,Nodes,4096
+25238153,Edges,524288
+25238153,Total time,0.753
+25238153,Total cost,2512
+12082765,Algorithm,BlossomV
+12082765,Input file,bi_full_4096_m256_30_10_gauss_1.bl
+12082765,Nodes,4096
+12082765,Edges,3670016
+12082765,Total time,4.546
+12082765,Total cost,1062
+77532314,Algorithm,BlossomV
+77532314,Input file,bi_full_4096_m512_1_100_uni_2.bl
+77532314,Nodes,4096
+77532314,Edges,3145728
+77532314,Total time,0.549
+77532314,Total cost,2048
