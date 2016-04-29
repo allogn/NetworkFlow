@@ -14,7 +14,6 @@
 
 class SIA {
     Graph* g;
-    bool approx;
 
     long noA, noB;
     long long totalflow;
@@ -32,6 +31,8 @@ class SIA {
     mmHeap globalH;
     mmHeap updateH;
 
+    int _param;
+
     //profiling counters
     long total_iterations;
     long total_dijkstra;
@@ -40,12 +41,14 @@ class SIA {
     inline void augmentFlow(long lastid);
     inline long insertEdgeFromHeap();
     void processId(long source_id);
-    void processIdApprox(long source_id);
     inline long runDijkstra();
     inline long getCost(long eid, long fromid, long toid) {
         return (fromid<noA) ? g->E[eid].weight-psi[fromid]+psi[toid] : -g->E[eid].weight-psi[fromid]+psi[toid];
     };
     inline long getEdgeCost(long edge_w, long fromid) {
+        if (_param == 1) {
+            return edge_w - psi[fromid];
+        }
         return edge_w + mindist[fromid];
     }
     inline long heap_checkAndUpdateEdgeMin(mmHeap& heap, long fromid) // update if new value is less
@@ -111,9 +114,9 @@ public:
     long totalCost;
     Timer timer;
 
-    SIA(Graph* graph, bool approximate = false) {
-        approx = approximate;
+    SIA(Graph* graph, int param = 0) {
         g = graph;
+        _param = param;
         assert(g->isSpatial || g->test_sorting());
         reset();
     }
@@ -133,10 +136,7 @@ public:
         double total = timer.getTime();
         long q = 0;
         while (totalflow < noA) {
-            if (approx)
-                processIdApprox(q);
-            else
-                processId(q);
+            processId(q);
             q++;
             if (q >= noA) q = 0;
         }
