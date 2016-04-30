@@ -528,7 +528,7 @@ void Graph::fill_full_graph() {
             assert(E.size()==esize+1 || E.back().weight >= E[E.size()-2].weight); //check r-tree sorting
         }
     }
-    timer.save_time("Graph fullfill", time);
+    timer.save_time("Graph fill time", time);
     assert(E.size() == m && m == n*(n-1));
 }
 

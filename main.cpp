@@ -229,6 +229,7 @@ int main(int argc, const char **argv) {
             if (g.isSpatial) {
                 g.fill_full_graph();
             }
+            double saturation; //should be calculated once and in other way than in SIA/SCS
             for (int current_round = 1; current_round <= rounds; current_round++) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
                 lemon::ListDigraph _graph;
@@ -259,7 +260,7 @@ int main(int argc, const char **argv) {
                 cost_scaling.lowerMap(lower);
                 cost_scaling.supplyMap(supply);
                 cost_scaling.run();
-                timer.save_time_total("Total time", cost_scaling.timer.timings["Total time"].back());
+                timer.save_time_total("Total time", cost_scaling.timer.timings["Total time"].back()); //move from local to global timer for rounds support
                 cout << "Total Cost of Modified Lemon CostScaling: " << cost_scaling.totalCost() << endl;
                 cout << "Total Time of Modified Lemon CostScaling: " << cost_scaling.timer.timings["Total time"].back() << endl;
                 if (current_round == 1)
@@ -269,8 +270,10 @@ int main(int argc, const char **argv) {
                     cout << "Error: two rounds gave different results" << endl;
                     exit(1);
                 }
+                saturation = cost_scaling.saturation;
             }
             logf.open(log_filename, ios::app);
+            logf << experiment_id << ",Saturation," << saturation << "\n";
             logf << experiment_id << ",Total cost," << result_cost << "\n";
             switch(param) {
                 case 0:

@@ -275,13 +275,9 @@ namespace lemon {
         LargeCost _epsilon;
         int _alpha;
 
-        IntVector _buckets;
-        IntVector _bucket_next;
-        IntVector _bucket_prev;
-        IntVector _rank;
-        int _max_rank;
-
     public:
+
+        double saturation;
 
         /// \brief Constant for infinite upper bounds (capacities).
         ///
@@ -504,6 +500,15 @@ namespace lemon {
             double time = timer.getTime();
             start(method);
             timer.save_time("Total time",time);
+
+            double tt = 0;
+            for (long k = 0; k < _res_node_num-1; k++) {
+                tt += (double) (_last_out[k] - _first_out[k]) / (double) (_first_out[k+1] - _first_out[k]);
+//                cout << "Saturation " << (double) (_last_out[k] - _first_out[k]) / (double) (_first_out[k+1] - _first_out[k]) << endl;
+            }
+            tt /= _res_node_num-1;
+            saturation = tt;
+
             return OPTIMAL;
         }
 
@@ -1165,12 +1170,6 @@ namespace lemon {
                 }
 
             }
-//            double tt = 0;
-//            for (long k = 0; k < _res_node_num-1; k++) {
-//                tt += (double) (_last_out[k] - _first_out[k]) / (double) (_first_out[k+1] - _first_out[k]);
-//                cout << "fraction " << (double) (_last_out[k] - _first_out[k]) / (double) (_first_out[k+1] - _first_out[k]) << endl;
-//            }
-//            tt /= _res_node_num-1;
 //            cout << "tot " << tt << endl;
             timer.save_time_total("Augment time",time_augment);
             timer.save_time_total("Traversal time",time_traversal);
