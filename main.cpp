@@ -62,7 +62,8 @@ int main(int argc, const char **argv) {
                      "7 : Approximate SIA")
             ("input,i", po::value<string>(&input_graph)->required(), "input graph")
             ("param,p", po::value<int>(&param)->default_value(0), "parameter for an algorithm\n"
-                    "For Lemon: 0 - no sorting, 1 - just sorting, 2 - sorting with pruning, 3 - epsilon-scaling (prefill)")
+                    "For Lemon: 0 - no sorting, 1 - just sorting, 2 - sorting with pruning, 3 - epsilon-scaling (prefill)\n"
+                    "For SCS: 0 - Classic Scaling, 1 - UniScaling, 2 - No Pruning")
             ("rounds,r", po::value<int>(&rounds)->default_value(1), "rounds for an experiment")
             ("delta,d", po::value<double>(&delta)->default_value(0), "maximum connection distance (0:unbounded)")
             ("log,l", po::value<string>(&log_filename)->required(), "log file for timings");
@@ -158,7 +159,7 @@ int main(int argc, const char **argv) {
                 cout << "== Round " << current_round << "/" << rounds << " ==" << endl;
                 g.clear_edge_list();
                 SIAsolv.runOSIA();
-                g.get_fill_status();
+                g.get_fill_status(log_filename, experiment_id);
                 cout << "Total cost of SIA: " << SIAsolv.totalCost << endl;
                 cout << "Total time of SIA: " << SIAsolv.timer.timings["Total time"].back() << endl;
             }
@@ -303,10 +304,10 @@ int main(int argc, const char **argv) {
                 SCSsolv.runSCS(param);
                 cout << "Time without adding edges: " <<
                         SCSsolv.timer.get_last_time("Total time") - SCSsolv.timer.get_last_time("Adding edges time") << endl;
-                g.get_fill_status();
                 cout << "Total cost of SCS: " << SCSsolv.totalCost << endl;
                 cout << "Total time of SCS: " << SCSsolv.timer.get_last_time("Total time") << endl;
             }
+            g.get_fill_status(log_filename, experiment_id);
             SCSsolv.timer.output(log_filename, experiment_id);
             logf.open(log_filename, ios::app);
             logf << experiment_id << ",Total cost," << SCSsolv.totalCost << "\n";

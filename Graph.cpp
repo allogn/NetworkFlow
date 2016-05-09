@@ -580,7 +580,7 @@ void Graph::generate_forbidden_list(double intensity) {
     }
 }
 
-void Graph::get_fill_status() {
+void Graph::get_fill_status(string log_filename, long experiment_id) {
     cout << "Fill: " << endl;
     double fill = 0;
     long nonzero = 0;
@@ -621,4 +621,8 @@ void Graph::get_fill_status() {
         }
     }
     cout << "total " << fill / (double)nonzero << endl;
+
+    ofstream outf(log_filename,ios::app);
+    outf << experiment_id << ",Saturation," << fill / (double)nonzero << "\n";
+    outf.close();
 }

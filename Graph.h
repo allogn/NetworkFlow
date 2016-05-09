@@ -253,7 +253,7 @@ public:
     void save_graph_info(string filename, long experiment_id);
     void save_graph_blossom(string filname);
 
-    void get_fill_status();
+    void get_fill_status(string log_filename, long experiment_id);
 
 //    /*
 //     * Spatial data

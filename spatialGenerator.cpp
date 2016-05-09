@@ -68,7 +68,7 @@ void generate_graph(string output) {
             std::random_shuffle<vector<long>::iterator>(excessMap.begin(),excessMap.end());
             break;
         case 1:
-            //one source one target
+            //one source one target - is not checked
             grfile << "# SourceDistr Pair\n";
             excessMap[1] = -sdens;
             excessMap[0] = sdens;
@@ -86,7 +86,7 @@ void generate_graph(string output) {
             std::random_shuffle<vector<long>::iterator>(excessMap.begin()+4,excessMap.end());
             break;
         case 3:
-            //one cluster with sources in the center, clusters with targets around
+            //one cluster with sources in the center, clusters with targets around - is not checked
             grfile << "# SourceDistr CentralCluster\n";
             if (size / cl_num < sources || size / cl_num < targets / (cl_num - 1)) {
                 cout << "Too small graph to distribute sources and targets" << endl;
@@ -105,7 +105,7 @@ void generate_graph(string output) {
 
             break;
         case 4:
-            //one source in the center of each cluster, parameter -c is used for sources
+            //one source in the center of each cluster, parameter -c is used for sources - is not checked
             grfile << "# SourceDistr ClusterCenter\n";
             for (long i = 0; i < cl_num-1; i++) {
                 excessMap[size/cl_num*i] = sdens*targets/cl_num;
@@ -121,7 +121,7 @@ void generate_graph(string output) {
             std::random_shuffle<vector<long>::iterator>(excessMap.begin()+size/cl_num*(cl_num - 1)+1,excessMap.end());
             break;
         case 5:
-            //random distribution in each cluster that sums up to zero
+            //random distribution in each cluster that sums up to zero --is not checked
             grfile << "# SourceDistr ClusterEqual\n";
             for (long i = 0; i < cl_num-1; i++) {
                 for (long j = size / cl_num * i; j < size / cl_num * i + sources/cl_num; j++) {
@@ -237,6 +237,7 @@ void generate_graph(string output) {
             break;
         case 2:
             grfile << "# Distribution Clusters\n";
+            grfile << "# ClustersNum " << cl_num << "\n";
             grfile << size << endl;
             uniform_real_distribution<double> centerGen(0.2, 0.8);
             uniform_real_distribution<double> stdMultGen(0.5, 2);
