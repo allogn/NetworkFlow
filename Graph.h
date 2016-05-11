@@ -29,7 +29,7 @@
 #include "utils.h"
 #include "TimerTool.h"
 
-#define SCALE 10000 //scale for transform distance to long value
+#define SCALE 1 //scale for transform distance to long value
 
 using namespace std;
 namespace bg = boost::geometry;
@@ -130,11 +130,11 @@ public:
         double time = timer.getTime();
         if (isSpatial) {
             //init r-tree
-            for (long i = 0; i < n; i++) {
+            for (long i = 1; i < n; i++) {
                 rtree.insert(std::make_pair(coords[i],i)); //todo make this r*-tree and bucket-based
             }
             QryIt.resize(n);
-            for (long i = 0; i < n; i++) {
+            for (long i = 1; i < n; i++) {
                 QryIt[i] = rtree.qbegin(bgi::nearest(coords[i], (unsigned int)n)); //todo here is a problem! no more nodes than 65000
                 ++QryIt[i];//skip the node itself
 
@@ -143,6 +143,19 @@ public:
                     while (!isFull(i) && forbiddenMatrix[i][QryIt[i]->second]) QryIt[i]++;
                 }
             }
+            fullE.resize(1);
+            completeE.resize(1); // needed for SCS and Lemon
+            parallel_for(long i = 0; i < E.size(); i++) {
+                fullE[E[i].fromid].push_back(i); // only forward edges in fullE
+                completeE[E[i].fromid].push_back(i);
+                //completeE[E[i].toid].push_back(i);
+            }
+            // pointer to the next element for insertion to E_sub
+            for (long i = 0; i < 1; i++)
+            {
+                myqsort(fullE[i], 0, fullE[i].size()-1);
+            }
+            QryCnt.resize(1,0);
         } else {
             //E is already filled
             fullE.resize(n);
@@ -192,7 +205,7 @@ public:
 
     //checks if everything was added for particular node
     inline bool isFull(long nodeId) {
-        if (isSpatial) {
+        if (isSpatial && nodeId != 0) {
             return !(QryIt[nodeId] != rtree.qend());
         }
         return QryCnt[nodeId] >= fullE[nodeId].size();
@@ -215,14 +228,14 @@ public:
         if (isFull(nodeId)) {
             return -1;
         }
-        if (isSpatial) {
+        if (isSpatial && nodeId != 0) {
             m++;
             Edge e(E.size());
-            e.capacity = 1;
+            e.capacity = 10;
             e.fromid = nodeId;
             e.toid = QryIt[nodeId]->second;
             double d = bg::distance(coords[nodeId], QryIt[nodeId]->first);
-            e.weight = static_cast<int>(d*SCALE);
+            e.weight = static_cast<int>(d*d*SCALE);
             e.lower = 0;
             E.push_back(e);
 

@@ -127,14 +127,14 @@ void Graph::print_graph() {
     std::cout << "Total " << n << " nodes and " << m << " edges" << std::endl;
     std::cout << "Nodes: " << std::endl;
     for (long i = 0; i < n; i++) {
-        std::cout << "Node " << i << " edges: ";
+        std::cout << "Node " << i << " (" << V[i].supply << ") edges: ";
         for (long j = 0; j < V[i].E.size(); j++) {
             std::cout << E[V[i].E[j]].ID << ",";
         }
         std::cout << std::endl;
     }
     std::cout << "Edges: " << std::endl;
-    for (long i = 0; i < m; i++) {
+    for (long i = 0; i < E.size(); i++) {
         Edge e = E[i];
         std::cout << i << " (" << e.fromid << "->" << e.toid << ", weight " << e.weight << ")" << std::endl;
     }
@@ -505,13 +505,32 @@ void Graph::load_points(string filename, string log_filename, long experiment_id
 
     long supply;
     double x, y;
-    for (long i = 0; i < n; i++) {
+    long sumnegative = 0;
+    long possup = 0;
+    V.push_back(Vertex(0,0));
+    n++;
+    long eid = 0;
+    for (long i = 1; i < n; i++) {
         infile >> x >> y >> supply;
+        if (supply > 0) {
+            Edge e(eid++);
+            e.fromid = 0;
+            e.toid = i;
+            e.weight = 0;
+            e.capacity = supply;
+            possup += supply;
+            e.lower = 0;
+            E.push_back(e);
+            supply = 0;
+        }
+        if (supply < 0) {
+            sumnegative -= supply;
+        }
         V.push_back(Vertex(i, supply));
         coords.push_back(point(x, y));
     }
+    V[0].supply = sumnegative;
     infile.close();
-
     isSpatial = true;
 }
 
